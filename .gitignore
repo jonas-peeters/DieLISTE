@@ -102,8 +102,10 @@ Config/secrets
 ### Vapor Patch ###
 Packages
 .build/
+build/
 xcuserdata
 DerivedData/
+docs/
 
 ### Windows ###
 # Windows thumbnail cache files

@@ -39,5 +39,8 @@
     "//": "prepare: Supplied by the Fluent provider. Prepares the database (configure in fluent.json)",
     "commands": [
         "prepare"
-    ]
+    ],
+    
+    "//":"Use the database for caching",
+    "driver": "fluent"
 }
