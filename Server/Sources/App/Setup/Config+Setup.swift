@@ -9,6 +9,7 @@ extension Config {
 
         try setupProviders()
         try setupPreparations()
+        
     }
     
     /// Configure providers
@@ -20,6 +21,13 @@ extension Config {
     /// Add all models that should have their
     /// schemas prepared before the app boots
     private func setupPreparations() throws {
-        preparations.append(Post.self)
+        preparations.append((User.self))
+        preparations.append(List.self)
+        preparations.append(Supermarket.self)
+        preparations.append(Category.self)
+        preparations.append(Item.self)
+        preparations.append(Pivot<User, List>.self)
+        preparations.append(Pivot<User, Supermarket>.self)
+        preparations.append(Pivot<Category, Supermarket>.self)
     }
 }

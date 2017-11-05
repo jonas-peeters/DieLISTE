@@ -3,8 +3,8 @@
 extension Droplet {
     public func setup() throws {
         try setupRoutes()
-        // Do any additional droplet setup
-        let post = PostController()
-        resource("post", post)
+        
+        let users = UserController()
+        users.addRoutes(drop: self)
     }
 }

@@ -21,9 +21,10 @@ let package = Package(
         .package(url: "https://github.com/vapor/mysql-provider.git", from: Version("2.0.0")),
         .package(url: "https://github.com/vapor/fluent.git", from: Version("2.0.0")),
         .package(url: "https://github.com/vapor/fluent-provider.git", .upToNextMajor(from: "1.2.0")),
+        .package(url: "https://github.com/IBM-Swift/Swift-SMTP.git", from: (Version("1.1.3"))),
     ],
     targets: [
-        .target(name: "App", dependencies: ["Vapor", "FluentProvider", "MySQLProvider", "Fluent"],
+        .target(name: "App", dependencies: ["Vapor", "FluentProvider", "MySQLProvider", "Fluent", "SwiftSMTP"],
                 exclude: [
                     "Config",
                     "Public",
