@@ -16,6 +16,10 @@ public final class User: Model, SessionPersistable, PasswordAuthenticatable {
     var allergies: String
     var spamCounter: Int
     
+    var lists: Siblings<User, List, Pivot<User, List>> {
+        return siblings()
+    }
+    
     /// # Keys
     /// This struct defines a number of keys that are
     /// used in the database to name the single columns
@@ -67,6 +71,10 @@ public final class User: Model, SessionPersistable, PasswordAuthenticatable {
         password = try row.get(User.Keys.password)
         allergies = try row.get(User.Keys.allergies)
         spamCounter = try row.get(User.Keys.spam)
+    }
+    
+    public func getLists()  {
+        
     }
 }
 

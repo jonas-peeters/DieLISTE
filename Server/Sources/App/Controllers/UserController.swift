@@ -8,9 +8,12 @@ final class UserController {
     
     func addRoutes(drop: Droplet, loginRoute: RouteBuilder, authedRoute: RouteBuilder) {
         loginRoute.post("login", handler: login)
-        authedRoute.get("me", handler: me)
         let userRoute = drop.grouped("user")
-        userRoute.get("create", handler: create)
+        userRoute.post("create", handler: create)
+        let authedUserRoute = authedRoute.grouped("user")
+        authedUserRoute.get("lists", handler: getLists)
+        authedUserRoute.get("me", handler: me)
+        authedUserRoute.post("lists", handler: addList)
     }
     
     func index(request: Request) throws -> ResponseRepresentable {
@@ -63,14 +66,37 @@ final class UserController {
         return try makeJSON(from: request.auth.authenticated(User.self)!)
     }
     
+    func addList(_ request: Request) throws -> ResponseRepresentable {
+        let list = try request.list()
+        try list.save()
+        let connection = try Pivot<User, List>.init(request.auth.authenticated(User.self)!, list)
+        try connection.save()
+        return try getLists(request)
+    }
+    
+    func getLists(_ request: Request) throws -> ResponseRepresentable {
+        return try makeJSON(from: request.auth.authenticated(User.self)!.lists.all())
+    }
+    
 }
 
 extension Request {
     func user() throws -> User {
-        print(self)
         guard let json = json else { throw Abort.badRequest }
         do {
             return try User(json: json)
+        } catch {
+            print(generateJSONError(from: "Malformed JSON: The provided JSON data couldn't be parsed.\n\nPossible solutions:\n - Check if all keys are spelled correctly\n - Check if all types are correct").wrapped)
+            throw Abort.badRequest
+        }
+    }
+    
+    func list() throws -> List {
+        guard let json = json else {
+            throw Abort.badRequest
+        }
+        do {
+            return try List(json: json)
         } catch {
             print(generateJSONError(from: "Malformed JSON: The provided JSON data couldn't be parsed.\n\nPossible solutions:\n - Check if all keys are spelled correctly\n - Check if all types are correct").wrapped)
             throw Abort.badRequest
