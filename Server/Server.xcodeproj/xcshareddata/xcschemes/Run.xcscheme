@@ -63,6 +63,13 @@
             ReferencedContainer = "container:Server.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "workdir"
+            value = "/Users/peeters/Documents/Developement/DieLISTE/Server"
+            isEnabled = "NO">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

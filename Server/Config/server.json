@@ -5,8 +5,8 @@
     "tls": {
         "verifyHost": true,
         "certificates": "files",
-        "certificateFile":"/Users/peeters/Documents/Developement/DieLISTE/Server/Secrets/Certs/certificate.pem",
-        "privateKeyFile":"/Users/peeters/Documents/Developement/DieLISTE/Server/Secrets/Certs/key.pem",
+        "certificateFile":"Secrets/Certs/certificate.pem",
+        "privateKeyFile":"Secrets/Certs/key.pem",
         "signature": "selfSigned"
     }
 }
