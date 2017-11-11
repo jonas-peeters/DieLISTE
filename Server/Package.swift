@@ -10,12 +10,12 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/vapor/vapor.git", from: Version("2.1.0")),
-        .package(url: "https://github.com/vapor/mysql-provider.git", from: Version("2.0.0")),
+        .package(url: "https://github.com/vapor-community/postgresql-provider", from: Version("2.1.0")),
         .package(url: "https://github.com/vapor/fluent-provider.git", from: Version("1.2.0")),
         .package(url: "https://github.com/vapor/auth-provider.git", from: Version("1.2.0"))
     ],
     targets: [
-        .target(name: "App", dependencies: ["Vapor", "FluentProvider", "MySQLProvider", "AuthProvider"],
+        .target(name: "App", dependencies: ["Vapor", "FluentProvider", "PostgreSQLProvider", "AuthProvider"],
                 exclude: [
                     "Config",
                     "Public",

@@ -1,14 +1,14 @@
 import Vapor
 import HTTP
-import MySQL
+import PostgreSQL
 
 final class InfoController {
     
     func addRoutes(drop: Droplet) {
         let info = drop.grouped("info")
         info.get("dbversion") {req in
-            let mysqlDriver = try drop.mysql()
-            return try makeJSON(from: mysqlDriver.raw("SELECT @@Version"))
+            let postgresqlDriver = try drop.postgresql()
+            return try makeJSON(from: postgresqlDriver.raw("SELECT @@Version"))
         }
         
         info.get("request") { req in

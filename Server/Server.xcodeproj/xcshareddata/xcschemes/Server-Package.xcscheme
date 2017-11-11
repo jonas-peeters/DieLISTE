@@ -28,6 +28,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Vapor::Testing"
+               BuildableName = "Testing.framework"
+               BlueprintName = "Testing"
+               ReferencedContainer = "container:Server.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "Server::App"
                BuildableName = "App.framework"
                BlueprintName = "App"
@@ -84,9 +98,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "MySQLProvider::MySQLProvider"
-               BuildableName = "MySQLProvider.framework"
-               BlueprintName = "MySQLProvider"
+               BlueprintIdentifier = "PostgreSQLProvider::PostgreSQLProvider"
+               BuildableName = "PostgreSQLProvider.framework"
+               BlueprintName = "PostgreSQLProvider"
                ReferencedContainer = "container:Server.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -98,9 +112,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Vapor::Testing"
-               BuildableName = "Testing.framework"
-               BlueprintName = "Testing"
+               BlueprintIdentifier = "PostgreSQLDriver::PostgreSQLDriver"
+               BuildableName = "PostgreSQLDriver.framework"
+               BlueprintName = "PostgreSQLDriver"
                ReferencedContainer = "container:Server.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -112,37 +126,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "MySQLDriver::MySQLDriver"
-               BuildableName = "MySQLDriver.framework"
-               BlueprintName = "MySQLDriver"
-               ReferencedContainer = "container:Server.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Fluent::FluentTester"
-               BuildableName = "FluentTester.framework"
-               BlueprintName = "FluentTester"
-               ReferencedContainer = "container:Server.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "MySQL::MySQL"
-               BuildableName = "MySQL.framework"
-               BlueprintName = "MySQL"
+               BlueprintIdentifier = "PostgreSQL::PostgreSQL"
+               BuildableName = "PostgreSQL.framework"
+               BlueprintName = "PostgreSQL"
                ReferencedContainer = "container:Server.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

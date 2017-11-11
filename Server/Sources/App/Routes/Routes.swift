@@ -1,5 +1,4 @@
 import Vapor
-import MySQLProvider
 import AuthProvider
 import Sessions
 import HTTP
