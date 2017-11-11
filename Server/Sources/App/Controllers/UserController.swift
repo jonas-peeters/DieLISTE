@@ -14,6 +14,7 @@ final class UserController {
         authedUserRoute.get("lists", handler: getLists)
         authedUserRoute.get("me", handler: me)
         authedUserRoute.post("lists", handler: addList)
+        authedUserRoute.delete("lists", handler: removeList)
     }
     
     func index(request: Request) throws -> ResponseRepresentable {
@@ -76,6 +77,28 @@ final class UserController {
     
     func getLists(_ request: Request) throws -> ResponseRepresentable {
         return try makeJSON(from: request.auth.authenticated(User.self)!.lists.all())
+    }
+    
+    func removeList(_ request: Request) throws -> ResponseRepresentable {
+        guard let json = request.json else {
+            throw Abort.badRequest
+        }
+        let user: User = request.auth.authenticated(User.self)!
+        let idToDelete: Int = try json.get("id")
+        let lists = try user.lists.all()
+        var list: List?
+        for listToCheck in lists {
+            if listToCheck.id!.wrapped.int! == idToDelete {
+                list = listToCheck
+                break
+            }
+        }
+        if list == nil {
+            return "List does not exist"
+        }
+        try request.auth.authenticated(User.self)!.lists.remove(list!)
+        try list!.delete()
+        return try getLists(request)
     }
     
 }

@@ -72,10 +72,6 @@ public final class User: Model, SessionPersistable, PasswordAuthenticatable {
         allergies = try row.get(User.Keys.allergies)
         spamCounter = try row.get(User.Keys.spam)
     }
-    
-    public func getLists()  {
-        
-    }
 }
 
 
