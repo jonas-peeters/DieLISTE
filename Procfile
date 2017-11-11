@@ -1,1 +1,1 @@
-web: "vapor run" --env=production --port=$PORT
+web: Run --env=production --port=$PORT
