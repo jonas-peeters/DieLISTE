@@ -1,6 +1,6 @@
 {
     "port": "$PORT:4343",
-    "host": "0.0.0.0",
+    "host": "die-liste.herokuapp.com",
     "securityLayer": "tls",
     "tls": {
         "verifyHost": true,

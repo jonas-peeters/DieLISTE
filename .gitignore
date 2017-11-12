@@ -129,3 +129,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/macos,vapor,delphi,windows
+
+Server/Secrets/
+Server/Config/secrets/
