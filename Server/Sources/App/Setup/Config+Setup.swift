@@ -27,7 +27,6 @@ extension Config {
         preparations.append(Category.self)
         preparations.append(Item.self)
         preparations.append(Pivot<User, List>.self)
-        preparations.append(Pivot<List, Item>.self)
         preparations.append(Pivot<User, Supermarket>.self)
         preparations.append(Pivot<Category, Supermarket>.self)
     }

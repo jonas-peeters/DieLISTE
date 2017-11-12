@@ -49,6 +49,15 @@ extension Category: Preparation {
             builder.id()
             builder.string(Category.Keys.name)
         })
+        try Category(name: "Fruits").save()
+        try Category(name: "Vegtables").save()
+        try Category(name: "Drinks").save()
+        try Category(name: "Meat").save()
+        try Category(name: "Sweets").save()
+        try Category(name: "Other").save()
+        try Category(name: "Frozen").save()
+        try Category(name: "Cheese").save()
+        try Category(name: "Spread").save()
     }
     
     static func revert(_ database: Database) throws {

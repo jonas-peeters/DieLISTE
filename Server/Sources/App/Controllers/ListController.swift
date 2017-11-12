@@ -3,12 +3,30 @@ import FluentProvider
 
 final class ListController {
     
+    /// Adds all routes relevant to lists
+    ///
+    /// Get: Returns all lists for the given user
+    /// Post: Creates a new list
+    /// Delete: Deletes a list
+    /// Put: Puts a new item into a list
     func addRoutes(drop: Droplet, listRoute: RouteBuilder) {
         listRoute.get(handler: getLists)
         listRoute.post(handler: addList)
         listRoute.delete(handler: removeList)
+        listRoute.put(handler: addToList)
     }
     
+    /// Creates a new list
+    ///
+    /// JSON encoding for request
+    ///
+    ///     {
+    ///         "name": $LISTNAME
+    ///     }
+    ///
+    /// User must be authenticated/logged in
+    ///
+    /// Returns the lists of the user
     func addList(_ request: Request) throws -> ResponseRepresentable {
         let list = try request.list()
         try list.save()
@@ -17,42 +35,77 @@ final class ListController {
         return try getLists(request)
     }
     
+    /// Returns a JSON array with all the lists and their items
+    ///
+    /// User must be authenticated/logged in
     func getLists(_ request: Request) throws -> ResponseRepresentable {
         let lists = try request.auth.authenticated(User.self)!.lists.all()
         var json: JSON = try makeJSON(from: lists)
         
         for (listCount, list) in lists.makeIterator().enumerated() {
-            try json[listCount]?.set("items", list.items.all())
-            for (itemCount, item) in try list.items.all().makeIterator().enumerated() {
-                try json[listCount]!["items"]![itemCount]?.set("category", item.categoryId?.wrapped.int)
-            }
+            try json[listCount]!.set("items", Item.all().filter({ item in item.listId?.wrapped.int == list.id?.wrapped.int }))
         }
         
         return json
     }
     
-    func removeList(_ request: Request) throws -> ResponseRepresentable {
+    /// Adds an item to a list
+    ///
+    /// JSON encoding for request
+    ///
+    ///     {
+    ///         "name": $ITEMNAME,          //<-- String
+    ///         "quantity": $QUANTITY,      //<-- String
+    ///         "done": $DONE,              //<-- Boolean
+    ///         "listId": $LISTID,          //<-- Int
+    ///         "categoryId": $CATEGORYID,  //<-- Int
+    ///     }
+    ///
+    /// User must be authenticated/logged in
+    ///
+    /// Returns the lists of the user
+    func addToList(_ request: Request) throws -> ResponseRepresentable {
         guard let json = request.json else {
             throw Abort.badRequest
         }
-        let user: User = request.auth.authenticated(User.self)!
-        let idToDelete: Int = try json.get("id")
-        let lists = try user.lists.all()
         
-        let list = lists.filter({ list in list.id!.wrapped.int! == idToDelete })
-        
-        if list.isEmpty {
-            return generateJSONError(from: "List does not exist")
+        let item: Item?
+        do {
+            item = try Item(json: json)
+        } catch {
+            return generateJSONError(from: "Malformed JSON: Could not interfer item from json")
         }
         
-        try request.auth.authenticated(User.self)!.lists.remove(list[0])
-        try list[0].delete()
+        try item?.save()
+        
+        return try getLists(request)
+    }
+    
+    /// Deletes a list
+    ///
+    /// JSON encoding for request
+    ///
+    ///     {
+    ///         "id": $LISTID
+    ///     }
+    ///
+    /// User must be authenticated/logged in
+    ///
+    /// Returns the lists of the user
+    func removeList(_ request: Request) throws -> ResponseRepresentable {
+        let list = try request.getListFromUser(idKey: "id")
+        
+        try request.auth.authenticated(User.self)!.lists.remove(list)
+        try list.delete()
         
         return try getLists(request)
     }
 }
 
 extension Request {
+    /// Creates a user from the JSON provided in the body of the request
+    ///
+    /// - returns: A list if could be created and badRequest if no JSON could be retrieved or the JSON is malformed
     func list() throws -> List {
         guard let json = json else {
             throw Abort.badRequest
@@ -63,5 +116,28 @@ extension Request {
             print(generateJSONError(from: "Malformed JSON: The provided JSON data couldn't be parsed.\n\nPossible solutions:\n - Check if all keys are spelled correctly\n - Check if all types are correct").wrapped)
             throw Abort.badRequest
         }
+    }
+    
+    /// Finds the list from a request if the user has access.
+    /// If the user has no access to this list "notFound" will be returned.
+    ///
+    /// - parameters:
+    ///   - idKey: The key in the json from the request that contains the list id
+    /// - returns: A list if a list is found, notFound if no list is found and badRequest if no JSON could be retrieved
+    func getListFromUser(idKey: String) throws -> List {
+        guard let json = json else {
+            throw Abort.badRequest
+        }
+        let user: User = auth.authenticated(User.self)!
+        let idToFind: Int = try json.get(idKey)
+        let lists = try user.lists.all()
+        
+        let list = lists.filter({ list in list.id!.wrapped.int! == idToFind })
+        
+        if list.isEmpty {
+            throw Abort.notFound
+        }
+        
+        return list[0]
     }
 }

@@ -59,12 +59,12 @@ final class Item: Model {
     ///   - done: If the item has been bought. (Won't be shown after a while in the app but is still saved for better auto completion etc.)
     ///   - list: The list the item is in
     ///   - category: The category the item is in
-    init(name: String, quantity: String, done: Bool, list: List, category: Category) {
+    init(name: String, quantity: String, done: Bool, list: Int, category: Int) {
         self.name = name
         self.quantity = quantity
         self.done = done
-        self.listId = list.id
-        self.categoryId = category.id
+        self.listId = Identifier(list)
+        self.categoryId = Identifier(category)
     }
 }
 
@@ -103,19 +103,11 @@ extension Item: NodeRepresentable {
 //MARK: JSON
 extension Item: JSONConvertible {
     convenience init(json: JSON) throws {
-        let listId: Identifier = try json.get(List.foreignIdKey)
-        guard let list = try List.find(listId) else {
-            throw Abort.badRequest
-        }
-        let categoryId: Identifier = try json.get(Category.foreignIdKey)
-        guard let category = try Category.find(categoryId) else {
-            throw Abort.badRequest
-        }
         try self.init(name: json.get(Item.Keys.name),
                       quantity: json.get(Item.Keys.quantity),
                       done: json.get(Item.Keys.done),
-                      list: list,
-                      category: category)
+                      list: json.get(Item.Keys.listId),
+                      category: json.get(Item.Keys.categoryId))
     }
     
     func makeJSON() throws -> JSON {
@@ -124,8 +116,7 @@ extension Item: JSONConvertible {
         try json.set(Item.Keys.name, name)
         try json.set(Item.Keys.quantity, quantity)
         try json.set(Item.Keys.done, done)
-        try json.set(List.foreignIdKey, listId)
-        //try json.set(Category.foreignIdKey, categoryId)
+        try json.set(Item.Keys.categoryId, listId)
         return json
     }
 }
