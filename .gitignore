@@ -130,5 +130,4 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/macos,vapor,delphi,windows
 
-Server/Secrets/Certs/
 Server/Config/secrets/
