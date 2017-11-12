@@ -18,7 +18,17 @@ final class ListController {
     }
     
     func getLists(_ request: Request) throws -> ResponseRepresentable {
-        return try makeJSON(from: request.auth.authenticated(User.self)!.lists.all())
+        let lists = try request.auth.authenticated(User.self)!.lists.all()
+        var json: JSON = try makeJSON(from: lists)
+        
+        for (listCount, list) in lists.makeIterator().enumerated() {
+            try json[listCount]?.set("items", list.items.all())
+            for (itemCount, item) in try list.items.all().makeIterator().enumerated() {
+                try json[listCount]!["items"]![itemCount]?.set("category", item.categoryId?.wrapped.int)
+            }
+        }
+        
+        return json
     }
     
     func removeList(_ request: Request) throws -> ResponseRepresentable {
@@ -28,18 +38,16 @@ final class ListController {
         let user: User = request.auth.authenticated(User.self)!
         let idToDelete: Int = try json.get("id")
         let lists = try user.lists.all()
-        var list: List?
-        for listToCheck in lists {
-            if listToCheck.id!.wrapped.int! == idToDelete {
-                list = listToCheck
-                break
-            }
-        }
-        if list == nil {
+        
+        let list = lists.filter({ list in list.id!.wrapped.int! == idToDelete })
+        
+        if list.isEmpty {
             return generateJSONError(from: "List does not exist")
         }
-        try request.auth.authenticated(User.self)!.lists.remove(list!)
-        try list!.delete()
+        
+        try request.auth.authenticated(User.self)!.lists.remove(list[0])
+        try list[0].delete()
+        
         return try getLists(request)
     }
 }

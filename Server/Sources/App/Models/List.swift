@@ -10,6 +10,10 @@ final class List: Model {
     
     var name: String
     
+    var items: Siblings<List, Item, Pivot<List, Item>> {
+        return siblings()
+    }
+    
     struct Keys {
         static let id = "id"
         static let name = "name"
