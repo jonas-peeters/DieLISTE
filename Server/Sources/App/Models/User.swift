@@ -1,4 +1,3 @@
-import Foundation
 import Vapor
 import FluentProvider
 import AuthProvider
@@ -7,15 +6,23 @@ import AuthProvider
 ///
 /// This is a model of all the properties a user has
 public final class User: Model, SessionPersistable, PasswordAuthenticatable {
+    /// Storage for internal vapor usage
     public let storage = Storage()
     
+    /// The users name
     var username: String
+    /// The user email
     var email: String
+    /// If the email of the user is already verified
     var verifiedEmail: Bool
+    /// The password of the user (hashed)
     var password: String
+    /// The users allergies
     var allergies: String
+    /// The number of times an ivite by the user was reported as spam
     var spamCounter: Int
     
+    /// The lists the user has access to
     var lists: Siblings<User, List, Pivot<User, List>> {
         return siblings()
     }
@@ -52,6 +59,8 @@ public final class User: Model, SessionPersistable, PasswordAuthenticatable {
     }
     
     /// Creates a row in the database from a User
+    /// - throws: When the row can't be created possibly because of a issue when setting the keys and values
+    /// - returns: A row containing all the information about the user
     public func makeRow() throws -> Row {
         var row = Row()
         try row.set(User.Keys.username, username)
@@ -64,6 +73,10 @@ public final class User: Model, SessionPersistable, PasswordAuthenticatable {
     }
     
     /// Creates a User from a row in the database
+    /// - parameters:
+    ///   - row: A row from the database
+    /// - throws: When a key can't be read from the database
+    /// - returns: The user
     public init(row: Row) throws {
         username = try row.get(User.Keys.username)
         email = try row.get(User.Keys.email)
@@ -78,6 +91,9 @@ public final class User: Model, SessionPersistable, PasswordAuthenticatable {
 // MARK: Fluent Preparation
 extension User: Preparation {
     /// Prepares the database for using the user model
+    /// - parameters:
+    ///   - database: The database that should be prepared
+    /// - throws: When the database can't be reverted
     public static func prepare(_ database: Database) throws {
         try database.create(self, closure: { builder in
             builder.id()
@@ -91,6 +107,9 @@ extension User: Preparation {
     }
     
     /// Undoes what prepare() ist doing
+    /// - parameters:
+    ///   - database: The database where the preparation should be reverted
+    /// - throws: When the database can't be reverted
     public static func revert(_ database: Database) throws {
         try database.delete(self)
     }
@@ -100,6 +119,11 @@ extension User: Preparation {
 // MARK: Node
 extension User: NodeRepresentable {
     /// Makes the user model node representable
+    ///
+    /// - parameters:
+    ///   - context: The context for the node encoding
+    /// - throws: Throws if the is an error when setting the keys or values
+    /// - returns: The user as a node
     public func makeNode(in context: Context?) throws -> Node {
         var node = Node(context)
         try node.set(User.Keys.id, id)
@@ -115,6 +139,20 @@ extension User: NodeRepresentable {
 
 //MARK: JSON
 extension User: JSONConvertible {
+    /// Creates a user from a JSON object of the user
+    ///
+    /// Required json structure:
+    ///
+    ///     {
+    ///       "email": $EMAIL_String,
+    ///       "username": $USERNAME_String,
+    ///       "password": $PASSWORD_String
+    ///     }
+    ///
+    /// - parameters:
+    ///   - json: A user encoded as JSON
+    /// - throws: Throws if the json can't be parsed as a user
+    /// - returns: The user
     public convenience init(json: JSON) throws {
         try self.init(username: json.get(User.Keys.username),
                       email: json.get(User.Keys.email),
@@ -124,6 +162,10 @@ extension User: JSONConvertible {
                       spamCounter: 0)
     }
     
+    /// Creates a JSON object from a user
+    ///
+    /// - throws: If something goes wrong when setting keys and values
+    /// - returns: The user encoded as JSON
     public func makeJSON() throws -> JSON {
         var json = JSON()
         try json.set(User.Keys.id, id)

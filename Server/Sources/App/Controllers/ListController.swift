@@ -3,12 +3,19 @@ import FluentProvider
 
 final class ListController {
     
-    /// Adds all routes relevant to lists
+    /// ## Adds all routes relevant to lists
     ///
     /// Get: Returns all lists for the given user
+    ///
     /// Post: Creates a new list
+    ///
     /// Delete: Deletes a list
+    ///
     /// Put: Puts a new item into a list
+    ///
+    /// - parameters:
+    ///   - drop: The droplet the routes should be added to
+    ///   - listRoute: The route used for anything list related
     func addRoutes(drop: Droplet, listRoute: RouteBuilder) {
         listRoute.get(handler: getLists)
         listRoute.post(handler: addList)
@@ -26,7 +33,9 @@ final class ListController {
     ///
     /// User must be authenticated/logged in
     ///
-    /// Returns the lists of the user
+    /// - parameters:
+    ///   - request: A HTTP request
+    /// - returns: The lists of the user
     func addList(_ request: Request) throws -> ResponseRepresentable {
         let list = try request.list()
         try list.save()
@@ -38,12 +47,16 @@ final class ListController {
     /// Returns a JSON array with all the lists and their items
     ///
     /// User must be authenticated/logged in
+    ///
+    /// - parameters:
+    ///   - request: A HTTP request
+    /// - returns: The lists of the user
     func getLists(_ request: Request) throws -> ResponseRepresentable {
         let lists = try request.auth.authenticated(User.self)!.lists.all()
         var json: JSON = try makeJSON(from: lists)
         
         for (listCount, list) in lists.makeIterator().enumerated() {
-            try json[listCount]!.set("items", Item.all().filter({ item in item.listId?.wrapped.int == list.id?.wrapped.int }))
+            try json[listCount]!.set("items", list.children(type: Item.self, foreignIdKey: Item.Keys.id).all())
         }
         
         return json
@@ -54,16 +67,18 @@ final class ListController {
     /// JSON encoding for request
     ///
     ///     {
-    ///         "name": $ITEMNAME,          //<-- String
-    ///         "quantity": $QUANTITY,      //<-- String
-    ///         "done": $DONE,              //<-- Boolean
-    ///         "listId": $LISTID,          //<-- Int
-    ///         "categoryId": $CATEGORYID,  //<-- Int
+    ///         "name": $ITEMNAME_String,
+    ///         "quantity": $QUANTITY_String,
+    ///         "done": $DONE_Boolean,
+    ///         "listId": $LISTID_Int,
+    ///         "categoryId": $CATEGORYID_Int
     ///     }
     ///
     /// User must be authenticated/logged in
     ///
-    /// Returns the lists of the user
+    /// - parameters:
+    ///   - request: A HTTP request
+    /// - returns: The lists of the user
     func addToList(_ request: Request) throws -> ResponseRepresentable {
         guard let json = request.json else {
             throw Abort.badRequest
@@ -91,7 +106,9 @@ final class ListController {
     ///
     /// User must be authenticated/logged in
     ///
-    /// Returns the lists of the user
+    /// - parameters:
+    ///   - request: A HTTP request
+    /// - returns: The lists of the user
     func removeList(_ request: Request) throws -> ResponseRepresentable {
         let list = try request.getListFromUser(idKey: "id")
         
@@ -103,9 +120,9 @@ final class ListController {
 }
 
 extension Request {
-    /// Creates a user from the JSON provided in the body of the request
+    /// Creates a list from the JSON provided in the body of the request
     ///
-    /// - returns: A list if could be created and badRequest if no JSON could be retrieved or the JSON is malformed
+    /// - returns: A list if one could be created and badRequest if no JSON could be retrieved or the JSON is malformed
     func list() throws -> List {
         guard let json = json else {
             throw Abort.badRequest

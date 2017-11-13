@@ -4,6 +4,10 @@ import PostgreSQL
 
 final class InfoController {
     
+    /// Adds all routes relevant to special information
+    ///
+    /// - parameters:
+    ///   - drop: The droplet to append the routes
     func addRoutes(drop: Droplet) {
         let info = drop.grouped("info")
         info.get("dbversion") {req in

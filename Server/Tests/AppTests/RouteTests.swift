@@ -1,5 +1,4 @@
 import XCTest
-import Foundation
 import Testing
 import HTTP
 @testable import Vapor

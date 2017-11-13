@@ -1,1 +1,3 @@
 # DieLISTE
+
+Eine WIP Einkaufsliste

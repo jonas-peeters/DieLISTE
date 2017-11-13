@@ -1,4 +1,3 @@
-import Foundation
 import Vapor
 import FluentProvider
 
@@ -7,12 +6,18 @@ import FluentProvider
 /// An item is something you can buy.
 /// As parent it has a list
 final class Item: Model {
+    /// Storage for internal vapor usage
     var storage = Storage()
     
+    /// The name of the item
     var name: String
+    /// The quantity of the item
     var quantity: String
+    /// If the item is marked as completed
     var done: Bool = false
+    /// The id of the list this item is in
     var listId: Identifier?
+    /// The if of the category this item is in
     var categoryId: Identifier?
     
     /// Keys for the column names in the database
@@ -28,6 +33,8 @@ final class Item: Model {
     /// Creating a row for the databse from an item
     ///
     /// This function is only used by vapor internally
+    /// - throws: When the row can't be created possibly because of a issue when setting the keys and values
+    /// - returns: A row containing all the information about the item
     func makeRow() throws -> Row {
         var row = Row()
         try row.set(Item.Keys.name, name)
@@ -41,6 +48,10 @@ final class Item: Model {
     /// Creating an item from a row in the database
     ///
     /// This function is only used by vapor internally
+    /// - parameters:
+    ///   - row: A row from the database
+    /// - throws: When a key can't be read from the database
+    /// - returns: The item
     init(row: Row) throws {
         name = try row.get(Item.Keys.name)
         quantity = try row.get(Item.Keys.quantity)
@@ -70,6 +81,10 @@ final class Item: Model {
 
 //MARK: Preparation
 extension Item: Preparation {
+    /// Prepares the database for using the item model
+    /// - parameters:
+    ///   - database: The database that should be prepared
+    /// - throws: When the database can't be reverted
     static func prepare(_ database: Database) throws {
         try database.create(self, closure: { builder in
             builder.id()
@@ -81,6 +96,10 @@ extension Item: Preparation {
         })
     }
     
+    /// Undoes what prepare() ist doing
+    /// - parameters:
+    ///   - database: The database where the preparation should be reverted
+    /// - throws: When the database can't be reverted
     static func revert(_ database: Database) throws {
         try database.delete(self)
     }
@@ -88,6 +107,12 @@ extension Item: Preparation {
 
 //MARK: Node
 extension Item: NodeRepresentable {
+    /// Makes the item model node representable
+    ///
+    /// - parameters:
+    ///   - context: The context for the node encoding
+    /// - throws: Throws if the is an error when setting the keys or values
+    /// - returns: The item as a node
     func makeNode(in context: Context?) throws -> Node {
         var node = Node(context)
         try node.set(Item.Keys.id, id)
@@ -102,6 +127,22 @@ extension Item: NodeRepresentable {
 
 //MARK: JSON
 extension Item: JSONConvertible {
+    /// Creates an item from a JSON object of the user
+    ///
+    /// Required json structure:
+    ///
+    ///     {
+    ///       "name": $NAME_String,
+    ///       "quantity": $QUANTITY_String,
+    ///       "done": $DONE_Boolean,
+    ///       "listId": $LISTID_Int,
+    ///       "categoryId": $CATEGORYID_Int
+    ///     }
+    ///
+    /// - parameters:
+    ///   - json: An item encoded as JSON
+    /// - throws: Throws if the json can't be parsed as a user
+    /// - returns: The item
     convenience init(json: JSON) throws {
         try self.init(name: json.get(Item.Keys.name),
                       quantity: json.get(Item.Keys.quantity),
@@ -110,6 +151,10 @@ extension Item: JSONConvertible {
                       category: json.get(Item.Keys.categoryId))
     }
     
+    /// Creates a JSON object from an item
+    ///
+    /// - throws: If something goes wrong when setting keys and values
+    /// - returns: The item encoded as JSON
     func makeJSON() throws -> JSON {
         var json = JSON()
         try json.set(Item.Keys.id, id)

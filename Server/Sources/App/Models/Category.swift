@@ -1,12 +1,13 @@
-import Foundation
 import Vapor
 import FluentProvider
 
 /// # Category
 /// The user can sort every item/product he creates into a category
 final class Category: Model {
+    /// Storage for internal vapor usage
     var storage = Storage()
     
+    /// Category name
     var name: String
     
     /// Keys for the column names in the database

@@ -41,6 +41,18 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		F0DC6DBE1FB9D7E3009CF881 /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* InfoController.swift */; };
+		F0DC6DBF1FB9D7EE009CF881 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* ListController.swift */; };
+		F0DC6DC01FB9D7EE009CF881 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* UserController.swift */; };
+		F0DC6DC11FB9D7EE009CF881 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* JSON.swift */; };
+		F0DC6DC21FB9D7EE009CF881 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Category.swift */; };
+		F0DC6DC31FB9D7EE009CF881 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Item.swift */; };
+		F0DC6DC41FB9D7EE009CF881 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* List.swift */; };
+		F0DC6DC51FB9D7EE009CF881 /* Supermarket.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Supermarket.swift */; };
+		F0DC6DC61FB9D7EE009CF881 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* User.swift */; };
+		F0DC6DC71FB9D7EE009CF881 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Routes.swift */; };
+		F0DC6DC81FB9D7EE009CF881 /* Config+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* Config+Setup.swift */; };
+		F0DC6DC91FB9D7EE009CF881 /* Droplet+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* Droplet+Setup.swift */; };
 		OBJ_1001 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_800 /* Package.swift */; };
 		OBJ_1007 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_804 /* Package.swift */; };
 		OBJ_1013 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_826 /* Package.swift */; };
@@ -5270,7 +5282,7 @@
 		"Vapor::Cache::Product" /* Cache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Cache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Vapor::Configs::Product" /* Configs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Configs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Vapor::Sessions::Product" /* Sessions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Sessions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Vapor::Testing::Product" /* Testing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Testing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Vapor::Testing::Product" /* Testing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Testing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Vapor::Vapor::Product" /* Vapor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Vapor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -7211,7 +7223,7 @@
 			path = Parser;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -7224,7 +7236,6 @@
 				OBJ_37 /* Dependencies */,
 				OBJ_827 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_500 /* HTTP */ = {
@@ -9822,7 +9833,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_827 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -9930,6 +9941,18 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_1019 /* main.swift in Sources */,
+				F0DC6DC41FB9D7EE009CF881 /* List.swift in Sources */,
+				F0DC6DC51FB9D7EE009CF881 /* Supermarket.swift in Sources */,
+				F0DC6DC11FB9D7EE009CF881 /* JSON.swift in Sources */,
+				F0DC6DBE1FB9D7E3009CF881 /* InfoController.swift in Sources */,
+				F0DC6DC01FB9D7EE009CF881 /* UserController.swift in Sources */,
+				F0DC6DC31FB9D7EE009CF881 /* Item.swift in Sources */,
+				F0DC6DBF1FB9D7EE009CF881 /* ListController.swift in Sources */,
+				F0DC6DC71FB9D7EE009CF881 /* Routes.swift in Sources */,
+				F0DC6DC61FB9D7EE009CF881 /* User.swift in Sources */,
+				F0DC6DC21FB9D7EE009CF881 /* Category.swift in Sources */,
+				F0DC6DC91FB9D7EE009CF881 /* Droplet+Setup.swift in Sources */,
+				F0DC6DC81FB9D7EE009CF881 /* Config+Setup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

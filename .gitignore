@@ -105,7 +105,6 @@ Packages
 build/
 xcuserdata
 DerivedData/
-docs/
 
 ### Windows ###
 # Windows thumbnail cache files
