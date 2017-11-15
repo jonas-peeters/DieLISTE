@@ -8,13 +8,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Controllers/InfoController.swift",
-      "line": 7,
-      "symbol": "InfoController.addRoutes(drop:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Controllers/ListController.swift",
       "line": 4,
       "symbol": "ListController",
@@ -29,395 +22,157 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Controllers/UserController.swift",
-      "line": 8,
-      "symbol": "UserController.addRoutes(drop:loginRoute:authedRoute:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Controllers/UserController.swift",
-      "line": 18,
-      "symbol": "UserController.index(request:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Controllers/UserController.swift",
-      "line": 22,
-      "symbol": "UserController.create(request:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Controllers/UserController.swift",
-      "line": 38,
-      "symbol": "UserController.show(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Controllers/UserController.swift",
-      "line": 43,
-      "symbol": "UserController.login(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Controllers/UserController.swift",
-      "line": 64,
-      "symbol": "UserController.me(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Controllers/UserController.swift",
-      "line": 71,
-      "symbol": "Request.user()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Helper/JSON.swift",
-      "line": 3,
-      "symbol": "generateJSONError(from:)",
-      "symbol_kind": "source.lang.swift.decl.function.free",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Helper/JSON.swift",
-      "line": 13,
-      "symbol": "makeJSON(from:)",
-      "symbol_kind": "source.lang.swift.decl.function.free",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Category.swift",
-      "line": 9,
-      "symbol": "Category.name",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Category.swift",
-      "line": 13,
+      "line": 15,
       "symbol": "Category.Keys.id",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Category.swift",
-      "line": 14,
+      "line": 16,
       "symbol": "Category.Keys.name",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Category.swift",
-      "line": 79,
+      "line": 81,
       "symbol": "Category.init(json:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Category.swift",
-      "line": 83,
+      "line": 85,
       "symbol": "Category.makeJSON()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Item.swift",
-      "line": 11,
-      "symbol": "Item.name",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Item.swift",
-      "line": 12,
-      "symbol": "Item.quantity",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Item.swift",
-      "line": 13,
-      "symbol": "Item.done",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Item.swift",
-      "line": 14,
-      "symbol": "Item.listId",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Item.swift",
-      "line": 15,
-      "symbol": "Item.categoryId",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Item.swift",
-      "line": 19,
+      "line": 25,
       "symbol": "Item.Keys.id",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Item.swift",
-      "line": 20,
+      "line": 26,
       "symbol": "Item.Keys.name",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Item.swift",
-      "line": 21,
+      "line": 27,
       "symbol": "Item.Keys.quantity",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Item.swift",
-      "line": 22,
+      "line": 28,
       "symbol": "Item.Keys.done",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Item.swift",
-      "line": 23,
+      "line": 29,
       "symbol": "Item.Keys.listId",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Item.swift",
-      "line": 24,
+      "line": 30,
       "symbol": "Item.Keys.categoryId",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Item.swift",
-      "line": 104,
-      "symbol": "Item.init(json:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Item.swift",
-      "line": 112,
-      "symbol": "Item.makeJSON()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/List.swift",
-      "line": 10,
-      "symbol": "List.name",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/List.swift",
-      "line": 12,
-      "symbol": "List.Keys",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/List.swift",
-      "line": 13,
+      "line": 16,
       "symbol": "List.Keys.id",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/List.swift",
-      "line": 14,
+      "line": 17,
       "symbol": "List.Keys.name",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/List.swift",
-      "line": 70,
-      "symbol": "List.init(json:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/List.swift",
-      "line": 74,
-      "symbol": "List.makeJSON()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Supermarket.swift",
-      "line": 10,
-      "symbol": "Supermarket.name",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Supermarket.swift",
-      "line": 11,
-      "symbol": "Supermarket.userId",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Supermarket.swift",
-      "line": 15,
+      "line": 18,
       "symbol": "Supermarket.Keys.id",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Supermarket.swift",
-      "line": 16,
+      "line": 19,
       "symbol": "Supermarket.Keys.name",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Supermarket.swift",
-      "line": 17,
+      "line": 20,
       "symbol": "Supermarket.Keys.userId",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Supermarket.swift",
-      "line": 78,
-      "symbol": "Supermarket.init(json:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Supermarket.swift",
-      "line": 87,
-      "symbol": "Supermarket.makeJSON()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 11,
-      "symbol": "User.username",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 12,
-      "symbol": "User.email",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 13,
-      "symbol": "User.verifiedEmail",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 14,
-      "symbol": "User.password",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 15,
-      "symbol": "User.allergies",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 16,
-      "symbol": "User.spamCounter",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 18,
-      "symbol": "User.lists",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 26,
+      "line": 34,
       "symbol": "User.Keys.id",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 27,
+      "line": 35,
       "symbol": "User.Keys.username",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 28,
+      "line": 36,
       "symbol": "User.Keys.email",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 29,
+      "line": 37,
       "symbol": "User.Keys.verifiedEmail",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 30,
+      "line": 38,
       "symbol": "User.Keys.password",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 31,
+      "line": 39,
       "symbol": "User.Keys.allergies",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 32,
+      "line": 40,
       "symbol": "User.Keys.spam",
       "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 117,
-      "symbol": "User.init(json:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 126,
-      "symbol": "User.makeJSON()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
