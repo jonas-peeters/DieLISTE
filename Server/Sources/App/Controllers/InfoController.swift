@@ -12,7 +12,7 @@ final class InfoController {
         let info = drop.grouped("info")
         info.get("dbversion") {req in
             let postgresqlDriver = try drop.postgresql()
-            return try makeJSON(from: postgresqlDriver.raw("SELECT @@Version"))
+            return try makeJSON(from: postgresqlDriver.raw("SELECT version()"))
         }
         
         info.get("request") { req in

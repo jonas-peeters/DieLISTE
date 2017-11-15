@@ -17,6 +17,7 @@ final class UserController {
         userRoute.post("create", handler: create)
         let authedUserRoute = authedRoute.grouped("user")
         authedUserRoute.get("me", handler: me)
+        authedUserRoute.delete(handler: delete)
         let listController = ListController()
         listController.addRoutes(drop: drop, listRoute: authedUserRoute.grouped("lists"))
     }
@@ -91,6 +92,21 @@ final class UserController {
         request.auth.authenticate(user)
         
         return try makeJSON(from: "OK: Authenticated")
+    }
+    
+    /// Deleting a user
+    ///
+    /// The user has to be authenticated
+    ///
+    /// - parameters:
+    ///   - request: A HTTP request
+    /// - returns: "Deleted user" when the credentials are valid
+    func delete(_ request: Request) throws -> ResponseRepresentable {
+        let user = request.auth.authenticated(User.self)
+        
+        try user?.delete()
+        
+        return try makeJSON(from: "Deleted user")
     }
     
     /// Only works when authenticated
