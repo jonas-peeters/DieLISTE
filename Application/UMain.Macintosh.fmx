@@ -1,7 +1,39 @@
 inherited Form1_Macintosh: TForm1_Macintosh
   DesignerMasterStyle = 1
-  inherited Memo1: TMemo
-    Viewport.Width = 153.000000000000000000
-    Viewport.Height = 121.000000000000000000
+  inherited GridPanelLayout1: TGridPanelLayout
+    ControlCollection = <
+      item
+        Column = 0
+        Control = Button1
+        Row = 2
+      end
+      item
+        Column = 1
+        Control = Button2
+        Row = 2
+      end
+      item
+        Column = 2
+        Control = Button3
+        Row = 2
+      end
+      item
+        Column = 0
+        Control = Panel1
+        Row = 0
+      end
+      item
+        Column = 0
+        Control = ListBox1
+        Row = 1
+      end>
+    inherited Panel1: TPanel
+      Size.Width = 122.278060913085900000
+    end
+    inherited ListBox1: TListBox
+      Size.Width = 122.278060913085900000
+      Viewport.Width = 122.300000000000000000
+      Viewport.Height = 375.900000000000000000
+    end
   end
 end
