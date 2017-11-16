@@ -3,7 +3,8 @@ program DieLISTE;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  UMain in 'UMain.pas' {Form1};
+  UMain in 'UMain.pas' {Form1},
+  ServerAPI in 'ServerAPI.pas';
 
 {$R *.res}
 
