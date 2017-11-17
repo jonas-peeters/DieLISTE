@@ -1,0 +1,166 @@
+object Form4: TForm4
+  Left = 0
+  Top = 0
+  Caption = 'Form4'
+  ClientHeight = 550
+  ClientWidth = 350
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object GridPanelLayout1: TGridPanelLayout
+    Align = Client
+    Size.Width = 350.000000000000000000
+    Size.Height = 550.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    ColumnCollection = <
+      item
+        Value = 16.953306930890600000
+      end
+      item
+        Value = 16.879972080101000000
+      end
+      item
+        Value = 16.779388862528330000
+      end
+      item
+        Value = 16.646806720278740000
+      end
+      item
+        Value = 16.476902368593340000
+      end
+      item
+        Value = 16.263623037607990000
+      end>
+    ControlCollection = <
+      item
+        Column = 0
+        ColumnSpan = 2
+        Control = Button1
+        Row = 6
+      end
+      item
+        Column = 2
+        ColumnSpan = 2
+        Control = Button2
+        Row = 6
+      end
+      item
+        Column = 4
+        ColumnSpan = 2
+        Control = Button3
+        Row = 6
+      end
+      item
+        Column = 1
+        ColumnSpan = 2
+        Control = Label1
+        Row = 1
+      end
+      item
+        Column = 1
+        ColumnSpan = 4
+        Control = Label2
+        Row = 3
+      end
+      item
+        Column = 4
+        Control = Button4
+        Row = 1
+      end
+      item
+        Column = 0
+        ColumnSpan = 6
+        Control = ListBox1
+        Row = 5
+      end>
+    RowCollection = <
+      item
+        Value = 3.317942623615542000
+      end
+      item
+        Value = 9.166210707860198000
+      end
+      item
+        Value = 3.489890749209502000
+      end
+      item
+        Value = 9.393946760309496000
+      end
+      item
+        Value = 3.663575349042890000
+      end
+      item
+        Value = 55.968433802174020000
+      end
+      item
+        Value = 15.000000007788350000
+      end>
+    object Button1: TButton
+      Align = Client
+      Size.Width = 118.416473388671900000
+      Size.Height = 82.500549316406250000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Profil'
+    end
+    object Button2: TButton
+      Align = Client
+      Size.Width = 116.991683959960900000
+      Size.Height = 82.500549316406250000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Home'
+      OnClick = Button2Click
+    end
+    object Button3: TButton
+      Align = Client
+      Size.Width = 114.591842651367200000
+      Size.Height = 82.500549316406250000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Superm'#228'rkte'
+      OnClick = Button3Click
+    end
+    object Label1: TLabel
+      Align = Client
+      Size.Width = 117.807754516601600000
+      Size.Height = 50.413757324218750000
+      Size.PlatformDefault = False
+      Text = 'Max Mustermann'
+      TabOrder = 3
+    end
+    object Label2: TLabel
+      Align = Client
+      Size.Width = 233.740753173828100000
+      Size.Height = 51.666290283203120000
+      Size.PlatformDefault = False
+      Text = 'BSP: Z'#246'liakie'
+      TabOrder = 4
+    end
+    object Button4: TButton
+      Anchors = []
+      Position.X = 235.408157348632800000
+      Position.Y = 32.455413818359370000
+      Size.Width = 57.669174194335940000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      Text = 'Edit'
+    end
+    object ListBox1: TListBox
+      Align = Client
+      Size.Width = 350.000000000000000000
+      Size.Height = 307.826049804687500000
+      Size.PlatformDefault = False
+      TabOrder = 6
+      DisableFocusEffect = True
+      DefaultItemStyles.ItemStyle = ''
+      DefaultItemStyles.GroupHeaderStyle = ''
+      DefaultItemStyles.GroupFooterStyle = ''
+      Viewport.Width = 350.000000000000000000
+      Viewport.Height = 307.800000000000000000
+    end
+  end
+end
