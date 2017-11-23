@@ -1,20 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2017.11.17 21:52:16.779,C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Supermaerkte.pas=C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Unit2.pas</Transaction>
-    <Transaction>2017.11.17 21:52:16.779,C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Supermaerkte.fmx=C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Unit2.fmx</Transaction>
-    <Transaction>2017.11.17 22:01:36.045,=C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Unit1.pas</Transaction>
-    <Transaction>2017.11.17 22:02:04.456,=C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Unit3.pas</Transaction>
-    <Transaction>2017.11.17 22:02:47.025,C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Home.pas=C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\UMain.pas</Transaction>
-    <Transaction>2017.11.17 22:02:47.025,C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Home.fmx=C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\UMain.fmx</Transaction>
-    <Transaction>2017.11.17 22:03:01.469,C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Profil.fmx=C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Unit3.fmx</Transaction>
-    <Transaction>2017.11.17 22:03:01.469,C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Profil.pas=C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Unit3.pas</Transaction>
-    <Transaction>2017.11.17 22:10:52.889,C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\SupermarktListe.fmx=C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Supermaerkte.fmx</Transaction>
-    <Transaction>2017.11.17 22:10:52.889,C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\SupermarktListe.pas=C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Supermaerkte.pas</Transaction>
-    <Transaction>2017.11.17 22:11:05.045,C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Supermaerkte.fmx=C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Profil.fmx</Transaction>
-    <Transaction>2017.11.17 22:11:05.045,C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Supermaerkte.pas=C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Profil.pas</Transaction>
-    <Transaction>2017.11.17 22:11:38.710,=C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Unit4.pas</Transaction>
-    <Transaction>2017.11.17 22:12:05.679,C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Profil.pas=C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Unit4.pas</Transaction>
-    <Transaction>2017.11.17 22:12:05.679,C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Profil.fmx=C:\Users\Dennis\Desktop\Info-Project\DieLISTE-master\Application\Unit4.fmx</Transaction>
-  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5"/>
+	</ActiveMobileDevice>
 </BorlandProject>
