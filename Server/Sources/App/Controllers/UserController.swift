@@ -16,13 +16,15 @@ final class UserController {
         let userRoute = drop.grouped("user")
         userRoute.post("create", handler: create)
         let authedUserRoute = authedRoute.grouped("user")
-        authedUserRoute.get("me", handler: me)
+        authedUserRoute.get(handler: me)
         authedUserRoute.delete(handler: delete)
         let listController = ListController()
         listController.addRoutes(drop: drop, listRoute: authedUserRoute.grouped("lists"))
     }
     
     /// Creates a new user
+    ///
+    /// Route for request: POST to `/user/create`
     ///
     /// JSON encoding for request:
     ///
@@ -60,6 +62,8 @@ final class UserController {
     
     /// Login a user
     ///
+    /// Route for request: POST to `/login`
+    ///
     /// JSON encoding for request:
     ///
     ///     {
@@ -96,6 +100,8 @@ final class UserController {
     
     /// Deleting a user
     ///
+    /// Route for request: DELETE to `/user`
+    ///
     /// The user has to be authenticated
     ///
     /// - parameters:
@@ -110,6 +116,8 @@ final class UserController {
     }
     
     /// Only works when authenticated
+    ///
+    /// Route for request: GET to `/user`
     ///
     /// - parameters:
     ///   - request: A HTTP request

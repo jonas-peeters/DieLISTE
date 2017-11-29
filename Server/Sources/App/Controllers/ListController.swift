@@ -25,6 +25,8 @@ final class ListController {
     
     /// Creates a new list
     ///
+    /// Route for request: POST to `/user/lists`
+    ///
     /// JSON encoding for request
     ///
     ///     {
@@ -46,6 +48,8 @@ final class ListController {
     
     /// Returns a JSON array with all the lists and their items
     ///
+    /// Route for request: GET to `/user/lists`
+    ///
     /// User must be authenticated/logged in
     ///
     /// - parameters:
@@ -63,6 +67,8 @@ final class ListController {
     }
     
     /// Adds an item to a list
+    ///
+    /// Route for request: PUT to `/user/lists`
     ///
     /// JSON encoding for request
     ///
@@ -97,6 +103,8 @@ final class ListController {
     }
     
     /// Deletes a list
+    ///
+    /// Route for request: DELETE to `/user/lists`
     ///
     /// JSON encoding for request
     ///
