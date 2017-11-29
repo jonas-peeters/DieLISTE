@@ -16,9 +16,6 @@ type
     SupermaerkteBtn2: TButton;
     Label1: TLabel;
     ListBox1: TListBox;
-    procedure ProfilBtn2Click(Sender: TObject);
-    procedure HomeBtn2Click(Sender: TObject);
-    procedure SupermaerkteBtn2Click(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -31,25 +28,5 @@ var
 implementation
 
 {$R *.fmx}
-
-uses Home, Profil, SupermarktListe;
-
-procedure TForm3.HomeBtn2Click(Sender: TObject);
-begin
-  Supermaerkte.Form3.Visible := false;
-  Home.Form1.Visible := true;
-end;
-
-procedure TForm3.ProfilBtn2Click(Sender: TObject);
-begin
-  Supermaerkte.Form3.Visible := false;
-  Profil.Form4.Visible := true;
-end;
-
-procedure TForm3.SupermaerkteBtn2Click(Sender: TObject);
-begin
-  Supermaerkte.Form3.Visible := false;
-  SupermarktListe.Form2.Visible := true;
-end;
 
 end.

@@ -17,8 +17,6 @@ type
     Label2: TLabel;
     Button4: TButton;
     ListBox1: TListBox;
-    procedure Button2Click(Sender: TObject);
-    procedure Button3Click(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -31,20 +29,5 @@ var
 implementation
 
 {$R *.fmx}
-
-uses Home, SupermarktListe;
-
-procedure TForm4.Button2Click(Sender: TObject);
-begin
-  Profil.Form4.Visible := false;
-  Home.Form1.Visible := true;
-end;
-
-
-procedure TForm4.Button3Click(Sender: TObject);
-begin
-  Profil.Form4.Visible := false;
-  SupermarktListe.Form2.Visible := true;
-end;
 
 end.

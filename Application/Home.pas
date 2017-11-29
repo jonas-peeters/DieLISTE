@@ -18,8 +18,6 @@ type
     Label1: TLabel;
     EditBtn2: TButton;
     ListBox1: TListBox;
-    procedure SupermaerkteBtn2Click(Sender: TObject);
-    procedure ProfilBtn2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -34,17 +32,5 @@ implementation
 
 {$R *.fmx}
 {$R *.Macintosh.fmx MACOS}
-
-procedure TForm1.ProfilBtn2Click(Sender: TObject);
-begin
-  Home.Form1.Visible := false;
-  Profil.Form4.Visible := true;
-end;
-
-procedure TForm1.SupermaerkteBtn2Click(Sender: TObject);
-begin
-  Home.Form1.Visible := false;
-  SupermarktListe.Form2.Visible := true;
-end;
 
 end.

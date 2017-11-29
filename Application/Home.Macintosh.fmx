@@ -41,18 +41,18 @@ inherited Form1_Macintosh: TForm1_Macintosh
       Size.Width = 53.333515167236330000
     end
     inherited HomeBtn2: TButton
-      Size.Width = 58.295440673828120000
+      Size.Width = 58.295440673828130000
     end
     inherited SupermaerkteBtn2: TButton
-      Size.Width = 63.717956542968760000
+      Size.Width = 63.717956542968750000
     end
     inherited Label1: TLabel
       Size.Width = 55.759716033935550000
     end
     inherited ListBox1: TListBox
       Size.Width = 53.333515167236330000
-      Viewport.Width = 53.300000000000000000
-      Viewport.Height = 384.800000000000000000
+      Viewport.Width = 49.300000000000000000
+      Viewport.Height = 380.800000000000000000
     end
   end
 end

@@ -86,7 +86,7 @@ object Form4: TForm4
         Value = 3.489890749209502000
       end
       item
-        Value = 9.393946760309496000
+        Value = 9.393946760309497000
       end
       item
         Value = 3.663575349042890000
@@ -112,7 +112,6 @@ object Form4: TForm4
       Size.PlatformDefault = False
       TabOrder = 1
       Text = 'Home'
-      OnClick = Button2Click
     end
     object Button3: TButton
       Align = Client
@@ -121,7 +120,6 @@ object Form4: TForm4
       Size.PlatformDefault = False
       TabOrder = 2
       Text = 'Superm'#228'rkte'
-      OnClick = Button3Click
     end
     object Label1: TLabel
       Align = Client
@@ -134,7 +132,7 @@ object Form4: TForm4
     object Label2: TLabel
       Align = Client
       Size.Width = 233.740753173828100000
-      Size.Height = 51.666290283203120000
+      Size.Height = 51.666290283203130000
       Size.PlatformDefault = False
       Text = 'BSP: Z'#246'liakie'
       TabOrder = 4
@@ -142,7 +140,7 @@ object Form4: TForm4
     object Button4: TButton
       Anchors = []
       Position.X = 235.408157348632800000
-      Position.Y = 32.455413818359370000
+      Position.Y = 32.455413818359380000
       Size.Width = 57.669174194335940000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
@@ -159,8 +157,8 @@ object Form4: TForm4
       DefaultItemStyles.ItemStyle = ''
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
-      Viewport.Width = 350.000000000000000000
-      Viewport.Height = 307.800000000000000000
+      Viewport.Width = 346.000000000000000000
+      Viewport.Height = 303.800000000000000000
     end
   end
 end

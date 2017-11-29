@@ -7,6 +7,7 @@ object Form5: TForm5
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   DesignerMasterStyle = 0
   object GridPanelLayout1: TGridPanelLayout
     Align = Client
@@ -16,19 +17,19 @@ object Form5: TForm5
     TabOrder = 0
     ColumnCollection = <
       item
-        Value = 20.101467160930260000
+        Value = 11.930674991655900000
       end
       item
-        Value = 20.003898189529190000
+        Value = 25.619199618237270000
       end
       item
-        Value = 19.949728320858700000
+        Value = 25.549823706321810000
       end
       item
-        Value = 19.890950484464180000
+        Value = 25.474546322411330000
       end
       item
-        Value = 20.053955844217680000
+        Value = 11.425755361373670000
       end>
     ControlCollection = <
       item
@@ -40,16 +41,19 @@ object Form5: TForm5
       end
       item
         Column = 2
+        ColumnSpan = 3
         Control = LblLogin
         Row = 1
       end
       item
         Column = 1
+        ColumnSpan = 3
         Control = LblAnmelden
         Row = 3
       end
       item
         Column = 1
+        ColumnSpan = 3
         Control = LblRegistrieren
         Row = 9
       end
@@ -100,49 +104,49 @@ object Form5: TForm5
       end>
     RowCollection = <
       item
-        Value = 6.250022965117504000
+        Value = 6.250022965117505000
       end
       item
-        Value = 6.250026621973830000
+        Value = 6.250026621973831000
       end
       item
-        Value = 6.250022928276812000
+        Value = 6.250022928276813000
       end
       item
-        Value = 6.250014280568596000
+        Value = 6.250014280568597000
       end
       item
-        Value = 6.250003981292979000
+        Value = 6.250003981292980000
       end
       item
         Value = 6.249994663052298000
       end
       item
-        Value = 6.249987820751635000
+        Value = 6.249987820751636000
       end
       item
-        Value = 6.249984039688307000
+        Value = 6.249984039688308000
       end
       item
-        Value = 6.249983222641548000
+        Value = 6.249983222641549000
       end
       item
-        Value = 6.249984808940584000
+        Value = 6.249984808940585000
       end
       item
-        Value = 6.249987978109409000
+        Value = 6.249987978109410000
       end
       item
-        Value = 6.249991830562031000
+        Value = 6.249991830562032000
       end
       item
-        Value = 6.249995538041570000
+        Value = 6.249995538041571000
       end
       item
-        Value = 6.249998457166754000
+        Value = 6.249998457166755000
       end
       item
-        Value = 6.250000200698376000
+        Value = 6.250000200698377000
       end
       item
         Value = 6.250000663117746000
@@ -150,13 +154,13 @@ object Form5: TForm5
     object Panel1: TPanel
       Align = Client
       Size.Width = 350.000000000000000000
-      Size.Height = 103.125396728515600000
+      Size.Height = 103.125350952148400000
       Size.PlatformDefault = False
       TabOrder = 0
     end
     object LblLogin: TLabel
       Align = Client
-      Size.Width = 69.824050903320310000
+      Size.Width = 89.667198181152340000
       Size.Height = 34.375148773193360000
       Size.PlatformDefault = False
       Text = 'Login'
@@ -164,7 +168,7 @@ object Form5: TForm5
     end
     object LblAnmelden: TLabel
       Align = Client
-      Size.Width = 70.013641357421880000
+      Size.Width = 268.252502441406300000
       Size.Height = 34.375076293945310000
       Size.PlatformDefault = False
       Text = 'Anmelden'
@@ -172,7 +176,7 @@ object Form5: TForm5
     end
     object LblRegistrieren: TLabel
       Align = Client
-      Size.Width = 70.013641357421880000
+      Size.Width = 268.252502441406300000
       Size.Height = 34.374908447265630000
       Size.PlatformDefault = False
       Text = 'Registrieren'
@@ -182,53 +186,61 @@ object Form5: TForm5
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 8
-      Size.Width = 209.456024169921900000
+      Size.Width = 268.252502441406300000
       Size.Height = 34.375015258789060000
       Size.PlatformDefault = False
+      TextPrompt = 'E-Mail/Benutzername'
     end
     object EdtPW1: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 7
-      Size.Width = 209.456024169921900000
+      Password = True
+      Size.Width = 268.252502441406300000
       Size.Height = 34.374969482421880000
       Size.PlatformDefault = False
+      TextPrompt = 'Passwort'
     end
     object EdtEMail: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 6
-      Size.Width = 209.456024169921900000
+      Size.Width = 268.252502441406300000
       Size.Height = 34.374938964843750000
       Size.PlatformDefault = False
+      TextPrompt = 'E-Mail'
     end
     object EdtBenutzername2: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 5
-      Size.Width = 209.456024169921900000
+      Size.Width = 268.252502441406300000
       Size.Height = 34.374938964843750000
       Size.PlatformDefault = False
+      TextPrompt = 'Benutzername'
     end
     object EdtPW2: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 4
-      Size.Width = 209.456024169921900000
+      Password = True
+      Size.Width = 268.252502441406300000
       Size.Height = 34.374969482421880000
       Size.PlatformDefault = False
+      TextPrompt = 'Passwort'
     end
     object BtnLos: TButton
       Align = Client
-      Size.Width = 69.618331909179690000
+      Size.Width = 89.160919189453130000
       Size.Height = 34.374908447265630000
       Size.PlatformDefault = False
       TabOrder = 9
       Text = 'Los'
+      OnClick = BtnLosClick
     end
     object BtnPWVergessen: TButton
       Align = Client
-      Size.Width = 70.013641357421880000
+      Size.Width = 89.667198181152340000
       Size.Height = 34.375030517578130000
       Size.PlatformDefault = False
       TabOrder = 10
@@ -236,7 +248,7 @@ object Form5: TForm5
     end
     object BtnRegistrieren: TButton
       Align = Client
-      Size.Width = 69.618331909179690000
+      Size.Width = 89.160919189453130000
       Size.Height = 34.375030517578130000
       Size.PlatformDefault = False
       TabOrder = 11

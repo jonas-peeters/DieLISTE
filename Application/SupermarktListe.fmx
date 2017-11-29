@@ -76,23 +76,23 @@ object Form2: TForm2
       end>
     RowCollection = <
       item
-        Value = 5.009777756937668000
+        Value = 5.009777756937670000
       end
       item
-        Value = 5.009777756937643000
+        Value = 5.009777756937645000
       end
       item
-        Value = 5.009777756937636000
+        Value = 5.009777756937638000
       end
       item
-        Value = 69.962060685135050000
+        Value = 69.962060685135060000
       end
       item
         Value = 15.008606044051990000
       end>
     object PlusBtn2: TButton
       Align = Client
-      Size.Width = 63.717956542968760000
+      Size.Width = 63.717956542968750000
       Size.Height = 27.553777694702150000
       Size.PlatformDefault = False
       TabOrder = 0
@@ -105,7 +105,6 @@ object Form2: TForm2
       Size.PlatformDefault = False
       TabOrder = 1
       Text = 'Profil'
-      OnClick = ProfilBtn2Click
     end
     object HomeBtn2: TButton
       Align = Client
@@ -114,7 +113,6 @@ object Form2: TForm2
       Size.PlatformDefault = False
       TabOrder = 2
       Text = 'Home'
-      OnClick = HomeBtn2Click
     end
     object SupermaerkteBtn2: TButton
       Align = Client
@@ -143,7 +141,7 @@ object Form2: TForm2
     object ListBox1: TListBox
       Align = Client
       Size.Width = 350.000000000000000000
-      Size.Height = 384.791320800781200000
+      Size.Height = 384.791320800781300000
       Size.PlatformDefault = False
       TabOrder = 6
       DisableFocusEffect = True
