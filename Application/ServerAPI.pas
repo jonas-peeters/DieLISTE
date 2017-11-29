@@ -65,7 +65,7 @@ var
 begin
   request := TRESTRequest.Create(nil);
   request.Method := REST.Types.rmGET;  //GET
-  request.Resource := 'user/me';
+  request.Resource := 'user';
   request.Client := self.client;
   request.Execute;
   result := request.Response.Content;
