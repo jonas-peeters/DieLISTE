@@ -1,0 +1,58 @@
+inherited Form1_Macintosh: TForm1_Macintosh
+  DesignerMasterStyle = 1
+  inherited GridPanelLayout1: TGridPanelLayout
+    ControlCollection = <
+      item
+        Column = 4
+        Control = PlusBtn2
+        Row = 1
+      end
+      item
+        Column = 0
+        Control = ProfilBtn2
+        Row = 4
+      end
+      item
+        Column = 2
+        Control = HomeBtn2
+        Row = 4
+      end
+      item
+        Column = 4
+        Control = SupermaerkteBtn2
+        Row = 4
+      end
+      item
+        Column = 1
+        Control = Label1
+        Row = 1
+      end
+      item
+        Column = 3
+        Control = EditBtn2
+        Row = 1
+      end
+      item
+        Column = 0
+        Control = ListBox1
+        Row = 3
+      end>
+    inherited ProfilBtn2: TButton
+      Size.Width = 53.333515167236330000
+    end
+    inherited HomeBtn2: TButton
+      Size.Width = 58.295440673828130000
+    end
+    inherited SupermaerkteBtn2: TButton
+      Size.Width = 63.717956542968750000
+    end
+    inherited Label1: TLabel
+      Size.Width = 55.759716033935550000
+    end
+    inherited ListBox1: TListBox
+      Size.Width = 53.333515167236330000
+      Viewport.Width = 49.300000000000000000
+      Viewport.Height = 380.800000000000000000
+    end
+  end
+end

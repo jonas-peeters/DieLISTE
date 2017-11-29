@@ -26,14 +26,22 @@ inherited Form1_Macintosh: TForm1_Macintosh
         Column = 0
         Control = ListBox1
         Row = 1
+      end
+      item
+        Column = 1
+        Control = Button4
+        Row = 0
       end>
     inherited Panel1: TPanel
-      Size.Width = 122.278060913085900000
+      Size.Width = 148.408706665039100000
     end
     inherited ListBox1: TListBox
-      Size.Width = 122.278060913085900000
-      Viewport.Width = 122.300000000000000000
-      Viewport.Height = 375.900000000000000000
+      Size.Width = 148.408706665039100000
+      Viewport.Width = 148.400000000000000000
+      Viewport.Height = 394.800000000000000000
+    end
+    inherited Button4: TButton
+      Size.Width = 147.665420532226600000
     end
   end
 end

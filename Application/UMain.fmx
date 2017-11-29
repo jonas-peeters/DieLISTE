@@ -1,154 +1,27 @@
-object Form1: TForm1
+object Form6: TForm6
   Left = 0
   Top = 0
-  Caption = 'Form1'
-  ClientHeight = 537
-  ClientWidth = 365
+  Caption = 'Form6'
+  ClientHeight = 573
+  ClientWidth = 368
+  Visible = True
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   DesignerMasterStyle = 0
-  object GridPanelLayout1: TGridPanelLayout
-    Align = Client
-    Size.Width = 365.000000000000000000
-    Size.Height = 537.000000000000000000
+  object ContentPanel: TPanel
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    Size.Width = 368.000000000000000000
+    Size.Height = 521.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
-    ColumnCollection = <
-      item
-        Value = 33.500838218732240000
-      end
-      item
-        Value = 33.333053227004860000
-      end
-      item
-        Value = 33.166108554262910000
-      end>
-    ControlCollection = <
-      item
-        Column = 0
-        Control = Button1
-        Row = 2
-      end
-      item
-        Column = 1
-        Control = Button2
-        Row = 2
-      end
-      item
-        Column = 2
-        Control = Button3
-        Row = 2
-      end
-      item
-        Column = 0
-        ColumnSpan = 3
-        Control = Panel1
-        Row = 0
-      end
-      item
-        Column = 0
-        ColumnSpan = 3
-        Control = ListBox1
-        Row = 1
-      end>
-    RowCollection = <
-      item
-        Value = 15.072792951928590000
-      end
-      item
-        Value = 70.005017545899830000
-      end
-      item
-        Value = 14.922189502171580000
-      end
-      item
-        SizeStyle = Auto
-      end>
-    object Button1: TButton
-      Align = Client
-      Size.Width = 122.278060913085900000
-      Size.Height = 80.132171630859380000
-      Size.PlatformDefault = False
-      TabOrder = 0
-    end
-    object Button2: TButton
-      Align = Client
-      Size.Width = 121.665634155273400000
-      Size.Height = 80.132171630859380000
-      Size.PlatformDefault = False
-      TabOrder = 1
-    end
-    object Button3: TButton
-      Align = Client
-      Size.Width = 121.056304931640600000
-      Size.Height = 80.132171630859380000
-      Size.PlatformDefault = False
-      TabOrder = 2
-    end
-    object Panel1: TPanel
-      Align = Client
-      Size.Width = 365.000000000000000000
-      Size.Height = 80.940895080566400000
-      Size.PlatformDefault = False
-      TabOrder = 3
-    end
-    object ListBox1: TListBox
-      Align = Client
-      Size.Width = 365.000000000000000000
-      Size.Height = 375.926940917968800000
-      Size.PlatformDefault = False
-      TabOrder = 4
-      DisableFocusEffect = True
-      DefaultItemStyles.ItemStyle = ''
-      DefaultItemStyles.GroupHeaderStyle = ''
-      DefaultItemStyles.GroupFooterStyle = ''
-      Viewport.Width = 361.000000000000000000
-      Viewport.Height = 371.900000000000000000
-      object ListBoxItem1: TListBoxItem
-        TabOrder = 0
-        Text = 'ListBoxItem1'
-      end
-      object ListBoxItem2: TListBoxItem
-        Position.Y = 19.000000000000000000
-        TabOrder = 1
-        Text = 'ListBoxItem2'
-      end
-      object ListBoxItem3: TListBoxItem
-        Position.Y = 38.000000000000000000
-        TabOrder = 2
-        Text = 'ListBoxItem3'
-      end
-      object ListBoxItem4: TListBoxItem
-        Position.Y = 57.000000000000000000
-        TabOrder = 3
-        Text = 'ListBoxItem4'
-      end
-      object ListBoxItem5: TListBoxItem
-        Position.Y = 76.000000000000000000
-        TabOrder = 4
-        Text = 'ListBoxItem5'
-      end
-      object ListBoxItem6: TListBoxItem
-        Position.Y = 95.000000000000000000
-        TabOrder = 5
-        Text = 'ListBoxItem6'
-      end
-      object ListBoxItem7: TListBoxItem
-        Position.Y = 114.000000000000000000
-        TabOrder = 6
-        Text = 'ListBoxItem7'
-      end
-      object ListBoxItem8: TListBoxItem
-        Position.Y = 133.000000000000000000
-        TabOrder = 7
-        Text = 'ListBoxItem8'
-      end
-      object ListBoxItem9: TListBoxItem
-        Position.Y = 152.000000000000000000
-        TabOrder = 8
-        Text = 'ListBoxItem9'
-      end
-    end
+  end
+  object NavigationPanel: TPanel
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    Position.Y = 520.000000000000000000
+    Size.Width = 369.000000000000000000
+    Size.Height = 56.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
   end
 end

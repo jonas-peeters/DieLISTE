@@ -3,8 +3,6 @@ unit ServerAPI;
 interface
 
 uses
-  Windows,
-  Messages,
   SysUtils,
   Classes,
   REST.Client,
