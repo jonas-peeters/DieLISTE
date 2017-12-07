@@ -8,8 +8,7 @@ extension Config {
         Node.fuzzy = [Row.self, JSON.self, Node.self]
 
         try setupProviders()
-        try setupPreparations()
-        
+        try setupPreparations()        
     }
     
     /// Configure providers
