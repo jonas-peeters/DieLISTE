@@ -1,0 +1,150 @@
+object Form7: TForm7
+  Left = 0
+  Top = 0
+  Caption = 'Form7'
+  ClientHeight = 250
+  ClientWidth = 250
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object GridPanelLayout1: TGridPanelLayout
+    Align = Client
+    Size.Width = 250.000000000000000000
+    Size.Height = 250.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    ColumnCollection = <
+      item
+        Value = 9.999846909737809000
+      end
+      item
+        Value = 39.224481468322570000
+      end
+      item
+        Value = 39.730639284219760000
+      end
+      item
+        Value = 11.045032337719860000
+      end>
+    ControlCollection = <
+      item
+        Column = 1
+        ColumnSpan = 2
+        Control = EdtPWalt
+        Row = 4
+      end
+      item
+        Column = 1
+        ColumnSpan = 2
+        Control = EdtPWneu1
+        Row = 6
+      end
+      item
+        Column = 1
+        ColumnSpan = 2
+        Control = EdtPWneu2
+        Row = 7
+      end
+      item
+        Column = 2
+        Control = BtnPWaendern
+        Row = 9
+      end
+      item
+        Column = 1
+        ColumnSpan = 2
+        Control = LblPWaendern
+        Row = 1
+      end
+      item
+        Column = 0
+        ColumnSpan = 4
+        Control = Panel1
+        Row = 0
+        RowSpan = 3
+      end>
+    RowCollection = <
+      item
+        Value = 8.159296334363834000
+      end
+      item
+        Value = 8.462895063470596000
+      end
+      item
+        Value = 8.746123088819878000
+      end
+      item
+        Value = 9.001155829913559000
+      end
+      item
+        Value = 9.219744442566772000
+      end
+      item
+        Value = 9.392054672881176000
+      end
+      item
+        Value = 9.506568260475131000
+      end
+      item
+        Value = 9.550217255482478000
+      end
+      item
+        Value = 9.507877481870284000
+      end
+      item
+        Value = 9.362030900164122000
+      end
+      item
+        Value = 9.092036669992160000
+      end>
+    object Panel1: TPanel
+      Align = Client
+      Size.Width = 250.000000000000000000
+      Size.Height = 63.420787811279300000
+      Size.PlatformDefault = False
+      TabOrder = 5
+    end
+    object EdtPWalt: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 2
+      Size.Width = 197.387802124023400000
+      Size.Height = 23.049362182617190000
+      Size.PlatformDefault = False
+    end
+    object EdtPWneu1: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 1
+      Size.Width = 197.387802124023400000
+      Size.Height = 23.766418457031250000
+      Size.PlatformDefault = False
+    end
+    object EdtPWneu2: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 0
+      Size.Width = 197.387802124023400000
+      Size.Height = 23.875549316406250000
+      Size.PlatformDefault = False
+    end
+    object BtnPWaendern: TButton
+      Align = Client
+      Size.Width = 99.326599121093750000
+      Size.Height = 23.405075073242190000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Text = 'Passwort '#228'ndern'
+    end
+    object LblPWaendern: TLabel
+      Align = Client
+      Size.Width = 197.387802124023400000
+      Size.Height = 21.157239913940430000
+      Size.PlatformDefault = False
+      TextSettings.HorzAlign = Center
+      Text = 'Passwort '#228'ndern'
+      TabOrder = 4
+    end
+  end
+end

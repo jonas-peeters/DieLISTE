@@ -1,0 +1,203 @@
+object Form9: TForm9
+  Left = 0
+  Top = 0
+  Caption = 'Form9'
+  ClientHeight = 250
+  ClientWidth = 250
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object GridPanelLayout1: TGridPanelLayout
+    Align = Client
+    Size.Width = 250.000000000000000000
+    Size.Height = 250.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    ColumnCollection = <
+      item
+        Value = 10.108558764882840000
+      end
+      item
+        Value = 15.958858197368950000
+      end
+      item
+        Value = 15.906670535826420000
+      end
+      item
+        Value = 15.953352714537360000
+      end
+      item
+        Value = 16.027873273261500000
+      end
+      item
+        Value = 16.044435990084130000
+      end
+      item
+        Value = 10.000250524038810000
+      end>
+    ControlCollection = <
+      item
+        Column = 2
+        ColumnSpan = 3
+        Control = LblHinzufuegen
+        Row = 1
+      end
+      item
+        Column = 1
+        ColumnSpan = 5
+        Control = EdtName
+        Row = 4
+      end
+      item
+        Column = 3
+        ColumnSpan = 3
+        Control = EdtEinheit
+        Row = 6
+      end
+      item
+        Column = 1
+        ColumnSpan = 2
+        Control = EdtMenge
+        Row = 6
+      end
+      item
+        Column = 1
+        ColumnSpan = 5
+        Control = EdtKategorie
+        Row = 8
+      end
+      item
+        Column = 1
+        Control = BtnOK
+        Row = 10
+      end
+      item
+        Column = 2
+        Control = BtnSchliessen
+        Row = 10
+      end
+      item
+        Column = 3
+        ColumnSpan = 3
+        Control = BtnHinzufuegen
+        Row = 10
+      end
+      item
+        Column = 0
+        ColumnSpan = 7
+        Control = Panel1
+        Row = 0
+        RowSpan = 3
+      end>
+    RowCollection = <
+      item
+        Value = 6.213562328332232000
+      end
+      item
+        Value = 12.093673380895450000
+      end
+      item
+        Value = 5.954061211011357000
+      end
+      item
+        Value = 5.881399950431427000
+      end
+      item
+        Value = 11.448315719516130000
+      end
+      item
+        Value = 5.655525953567315000
+      end
+      item
+        Value = 11.006170644579590000
+      end
+      item
+        Value = 5.438089563257101000
+      end
+      item
+        Value = 10.594899133050820000
+      end
+      item
+        Value = 5.239806559778780000
+      end
+      item
+        Value = 10.238343239025260000
+      end
+      item
+        Value = 10.236152316554540000
+      end>
+    object Panel1: TPanel
+      Align = Client
+      Size.Width = 250.000030517578100000
+      Size.Height = 60.653244018554690000
+      Size.PlatformDefault = False
+      TabOrder = 0
+    end
+    object LblHinzufuegen: TLabel
+      Align = Client
+      Size.Width = 119.719749450683600000
+      Size.Height = 30.234184265136720000
+      Size.PlatformDefault = False
+      TextSettings.HorzAlign = Center
+      Text = 'Hinzuf'#252'gen'
+      TabOrder = 1
+    end
+    object EdtName: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 5
+      Size.Width = 199.727996826171900000
+      Size.Height = 28.620788574218750000
+      Size.PlatformDefault = False
+    end
+    object EdtEinheit: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 4
+      Size.Width = 120.064170837402300000
+      Size.Height = 27.515426635742190000
+      Size.PlatformDefault = False
+    end
+    object EdtMenge: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 3
+      Size.Width = 79.663818359375000000
+      Size.Height = 27.515426635742190000
+      Size.PlatformDefault = False
+    end
+    object EdtKategorie: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 2
+      Size.Width = 199.727996826171900000
+      Size.Height = 26.487243652343750000
+      Size.PlatformDefault = False
+    end
+    object BtnOK: TButton
+      Align = Client
+      Size.Width = 39.897144317626950000
+      Size.Height = 25.595855712890620000
+      Size.PlatformDefault = False
+      TabOrder = 6
+      Text = 'OK'
+    end
+    object BtnSchliessen: TButton
+      Align = Client
+      Size.Width = 39.766677856445310000
+      Size.Height = 25.595855712890620000
+      Size.PlatformDefault = False
+      TabOrder = 7
+      Text = 'X'
+    end
+    object BtnHinzufuegen: TButton
+      Align = Client
+      Size.Width = 120.064170837402300000
+      Size.Height = 25.595855712890620000
+      Size.PlatformDefault = False
+      TabOrder = 8
+      Text = 'Weitere Hinzuf'#252'gen'
+    end
+  end
+end
