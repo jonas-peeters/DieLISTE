@@ -1,7 +1,0 @@
-inherited Form1_Macintosh: TForm1_Macintosh
-  DesignerMasterStyle = 1
-  inherited Memo1: TMemo
-    Viewport.Width = 153.000000000000000000
-    Viewport.Height = 121.000000000000000000
-  end
-end
