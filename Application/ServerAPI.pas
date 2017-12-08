@@ -19,6 +19,7 @@ type
     constructor create();
     function createUser(email: String; name: String; password: String): String;
     function login(email : String; password: String): String;
+    function deleteUser(): String;
     function me(): String;
 end;
 
@@ -54,6 +55,18 @@ begin
   request.Method := REST.Types.rmPOST; //POST
   request.Body.JSONWriter.WriteRaw(jsonString);
   request.Resource := 'login';
+  request.Client := self.client;
+  request.Execute;
+  result := request.Response.Content;
+end;
+
+function TServerAPI.deleteUser(): String;
+var
+  request: TRESTRequest;
+begin
+  request := TRESTRequest.Create(nil);
+  request.Method := REST.Types.rmDELETE;
+  request.Resource := 'user';
   request.Client := self.client;
   request.Execute;
   result := request.Response.Content;

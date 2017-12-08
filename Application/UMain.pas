@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
-  FMX.Controls.Presentation, FMX.StdCtrls, FMX.ScrollBox, FMX.Memo;
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.ScrollBox, FMX.Memo, serverAPI;
 
 type
   TForm6 = class(TForm)
@@ -19,6 +19,7 @@ type
 
 var
   Form6: TForm6;
+  serverAPI: TServerAPI;
 
 implementation
 
