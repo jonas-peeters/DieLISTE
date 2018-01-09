@@ -20,7 +20,7 @@ final class ListController {
         listRoute.get(handler: getLists)
         listRoute.post(handler: addList)
         listRoute.delete(handler: removeList)
-        listRoute.put(handler: addToList)
+        listRoute.post("items", handler: addToList)
     }
     
     /// Creates a new list
@@ -60,7 +60,7 @@ final class ListController {
         var json: JSON = try makeJSON(from: lists)
         
         for (listCount, list) in lists.makeIterator().enumerated() {
-            try json[listCount]!.set("items", list.children(type: Item.self, foreignIdKey: Item.Keys.id).all())
+            try json[listCount]!.set("items", list.items)
         }
         
         return json
@@ -68,7 +68,7 @@ final class ListController {
     
     /// Adds an item to a list
     ///
-    /// Route for request: PUT to `/user/lists`
+    /// Route for request: POST to `/user/lists/items`
     ///
     /// JSON encoding for request
     ///
@@ -86,6 +86,7 @@ final class ListController {
     ///   - request: A HTTP request
     /// - returns: The lists of the user
     func addToList(_ request: Request) throws -> ResponseRepresentable {
+        let user = try request.auth.authenticated(User.self)!
         guard let json = request.json else {
             throw Abort.badRequest
         }
@@ -93,6 +94,17 @@ final class ListController {
         let item: Item?
         do {
             item = try Item(json: json)
+            
+            do {
+                if try user.lists.all().contains(where: { $0.id!.int! == item!.listId!.int! }) {
+                    
+                } else {
+                    return generateJSONError(from: "\(user.username) as no access to list \(String(describing: item!.listId!.int!))")
+                }
+            } catch {
+                return generateJSONError(from: "Could not get user's lists")
+            }
+            
         } catch {
             return generateJSONError(from: "Malformed JSON: Could not interfer item from json")
         }

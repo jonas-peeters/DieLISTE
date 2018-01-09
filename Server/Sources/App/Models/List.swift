@@ -11,6 +11,15 @@ final class List: Model {
     /// The name of the list
     var name: String
     
+    /// Get the items of the list
+    var items: [Item] {
+        do {
+            return try children(type: Item.self, foreignIdKey: List.foreignIdKey).all()
+        } catch {
+            return []
+        }
+    }
+    
     /// Keys for the column names in the database
     struct Keys {
         static let id = "id"
