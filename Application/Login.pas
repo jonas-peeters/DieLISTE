@@ -5,13 +5,11 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, UMain, Home;
+  FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, UMain;
 
 type
   TForm5 = class(TForm)
     GridPanelLayout1: TGridPanelLayout;
-    Panel1: TPanel;
-    LblLogin: TLabel;
     LblAnmelden: TLabel;
     LblRegistrieren: TLabel;
     EdtBenutzername1: TEdit;
@@ -22,7 +20,7 @@ type
     BtnLos: TButton;
     BtnPWVergessen: TButton;
     BtnRegistrieren: TButton;
-    procedure FormCreate(Sender: TObject);
+    TitleLabel: TLabel;
     procedure BtnLosClick(Sender: TObject);
   private
     { Private-Deklarationen }
@@ -43,14 +41,8 @@ var
 begin
   if True then // Check if the user gets autheticated
   begin
-    Form6.ContentPanel.DeleteChildren;
-    Form6.ContentPanel.AddObject(Form1.Children[0]);
+    Form6.ShowModal;
   end;
-end;
-
-procedure TForm5.FormCreate(Sender: TObject);
-begin
-  Form6.ContentPanel.AddObject(Form5.Children[0]);
 end;
 
 end.
