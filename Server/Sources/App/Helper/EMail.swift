@@ -1,5 +1,5 @@
-import Foundation
 import Vapor
+import Foundation
 
 /// Send an email to the user where he can verify his/her email address
 ///
@@ -7,6 +7,7 @@ import Vapor
 ///   - email: The users email address
 ///   - username: The users username
 ///   - link: The link where the user can verify his/her email
+///   - config: Config in order to get the mail API key
 /// - Returns: true on success, false when something goes wrong
 func sendEMailVerificationEMail(email: String, username: String, link: String, config: Config) -> Bool {
     let content = "<html lang='en'> <head> <meta charset='UTF-8'> <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet'> <style>*{margin: 0; padding: 0; outline: 0; box-sizing: border-box;}html, body{width: 100%; height: 100%; background-color: #92a8d1; background-image: -webkit-linear-gradient(top, #81BEF7 40%, #819FF7 100%); color: white; -webkit-font-smoothing: antialiased;}.container{width: 100%; padding: 32px; margin: 0 auto; position: relative; top: 0%; text-align: left;}.title{font-size: 40px; opacity: 0.9; font-weight: 100; font-family: 'Source Code Pro', monospace; text-shadow: 0px 4px rgba(0,0,0,0.1); line-height: 100px;}.message{font-size: 20px; opacity: 0.8; font-family: 'Source Code Pro', monospace; text-shadow: 0px 2px rgba(0,0,0,0.2); line-height: 25px;}</style> </head> <body> <div class='container'> <h1 class='title'>Willkommen</h1> <p class='message'>Hallo \(username),</p><br><p class='message'>mit dem folgenden Link kannst du deine E-Mail Adresse verifizieren: </p><br><p class='message'>\(link)</p></div></body></html>"
@@ -20,6 +21,7 @@ func sendEMailVerificationEMail(email: String, username: String, link: String, c
 /// - Parameters:
 ///   - email: Target email address
 ///   - content: HTML site as a string. This is what the user will see
+///   - config: Config in order to get the mail API key
 /// - Returns: true on success, false when something goes wrong
 func sendEMail(to email: String, content: String, config: Config) -> Bool {
     var success: Bool? = nil

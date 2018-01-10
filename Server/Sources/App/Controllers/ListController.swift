@@ -5,13 +5,13 @@ final class ListController {
     
     /// ## Adds all routes relevant to lists
     ///
-    /// Get: Returns all lists for the given user
+    /// Get `/user/lists`: Returns all lists for the given user
     ///
-    /// Post: Creates a new list
+    /// Post `/user/lists`: Creates a new list
     ///
-    /// Delete: Deletes a list
+    /// Delete `/user/lists`: Deletes a list
     ///
-    /// Put: Puts a new item into a list
+    /// Post `/user/lists/items`: Puts a new item into a list
     ///
     /// - parameters:
     ///   - drop: The droplet the routes should be added to
@@ -86,7 +86,7 @@ final class ListController {
     ///   - request: A HTTP request
     /// - returns: The lists of the user
     func addToList(_ request: Request) throws -> ResponseRepresentable {
-        let user = try request.auth.authenticated(User.self)!
+        let user = request.auth.authenticated(User.self)!
         guard let json = request.json else {
             throw Abort.badRequest
         }
@@ -94,17 +94,13 @@ final class ListController {
         let item: Item?
         do {
             item = try Item(json: json)
-            
             do {
-                if try user.lists.all().contains(where: { $0.id!.int! == item!.listId!.int! }) {
-                    
-                } else {
+                if try !user.lists.all().contains(where: { $0.id!.int! == item!.listId!.int! }) {
                     return generateJSONError(from: "\(user.username) as no access to list \(String(describing: item!.listId!.int!))")
                 }
             } catch {
                 return generateJSONError(from: "Could not get user's lists")
             }
-            
         } catch {
             return generateJSONError(from: "Malformed JSON: Could not interfer item from json")
         }
