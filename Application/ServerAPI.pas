@@ -9,7 +9,16 @@ uses
   REST.Types,
   IPPeerCommon,
   IPPeerClient,
-  IPPeerServer;
+  JSON;
+
+type
+  TUserData= record
+  email:string;
+  name: string;
+  password: string;
+  allergies: string;
+  verifiedemail: boolean;
+end;
 
 type
   TServerAPI=class(TObject)
@@ -21,6 +30,7 @@ type
     function login(email : String; password: String): String;
     function deleteUser(): String;
     function me(): String;
+    function jsonToRecord(jsonString: string): TUserData;
 end;
 
 implementation
@@ -82,6 +92,20 @@ begin
   request.Client := self.client;
   request.Execute;
   result := request.Response.Content;
+end;
+
+function TServerAPI.jsonToRecord(jsonString: string): TUserData;
+var
+  jsonObject: TJSONObject;
+  userData: TUserData;
+begin
+  jsonObject := JSON.TJSONObject.ParseJSONValue(jsonString) as TJSONObject;
+  userData.name := jsonObject.GetValue('username').Value;
+  userData.password:= jsonObject.GetValue('password').Value;
+  userData.allergies := jsonObject.GetValue('allergies').Value;
+  userData.verifiedemail := jsonObject.GetValue('verified').Value.ToBoolean;
+  userData.email:= jsonObject.GetValue('email').Value;
+  result := userData;
 end;
 
 end.
