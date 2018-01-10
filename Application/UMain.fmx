@@ -8,7 +8,6 @@ object Form6: TForm6
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  OnCreate = FormCreate
   DesignerMasterStyle = 0
   object ContentPanel: TPanel
     Anchors = [akLeft, akTop, akRight, akBottom]

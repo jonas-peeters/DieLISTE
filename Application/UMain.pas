@@ -11,7 +11,6 @@ type
   TForm6 = class(TForm)
     ContentPanel: TPanel;
     NavigationPanel: TPanel;
-    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -25,11 +24,5 @@ var
 implementation
 
 {$R *.fmx}
-
-procedure TForm6.FormCreate(Sender: TObject);
-begin
-  serverAPI := TServerAPI.create();
-  serverAPI.login('test@example.com', '1234');
-end;
 
 end.
