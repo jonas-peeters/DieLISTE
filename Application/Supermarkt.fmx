@@ -1,0 +1,110 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Profilseite'
+  ClientHeight = 550
+  ClientWidth = 350
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 2
+  object GridPanelLayout1: TGridPanelLayout
+    Align = Client
+    Size.Width = 350.000000000000000000
+    Size.Height = 550.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    ColumnCollection = <
+      item
+        Value = 15.238146681804800000
+      end
+      item
+        Value = 15.931348612213400000
+      end
+      item
+        Value = 16.655838258006800000
+      end
+      item
+        Value = 17.413234388729360000
+      end
+      item
+        Value = 18.205133344232030000
+      end
+      item
+        Value = 16.556298715013610000
+      end>
+    ControlCollection = <
+      item
+        Column = 4
+        Control = PlusBtn2
+        Row = 1
+      end
+      item
+        Column = 1
+        ColumnSpan = 3
+        Control = Label1
+        Row = 1
+      end
+      item
+        Column = 0
+        ColumnSpan = 6
+        Control = ListBox1
+        Row = 3
+      end
+      item
+        Column = 0
+        Control = BackButton
+        Row = 1
+      end>
+    RowCollection = <
+      item
+        Value = 5.894452983715379000
+      end
+      item
+        Value = 5.894452983715350000
+      end
+      item
+        Value = 5.894452983715341000
+      end
+      item
+        Value = 82.316641048853930000
+      end>
+    object PlusBtn2: TButton
+      Align = Client
+      Size.Width = 63.717956542968760000
+      Size.Height = 32.419490814208990000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = '+'
+    end
+    object Label1: TLabel
+      Align = Client
+      Size.Width = 175.001480102539100000
+      Size.Height = 32.419490814208990000
+      Size.PlatformDefault = False
+      Text = 'Supermarkt 1'
+      TabOrder = 2
+    end
+    object ListBox1: TListBox
+      Align = Client
+      Size.Width = 350.000000000000000000
+      Size.Height = 452.741516113281300000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      DisableFocusEffect = True
+      DefaultItemStyles.ItemStyle = ''
+      DefaultItemStyles.GroupHeaderStyle = ''
+      DefaultItemStyles.GroupFooterStyle = ''
+      Viewport.Width = 350.000000000000000000
+      Viewport.Height = 452.700000000000000000
+    end
+    object BackButton: TButton
+      Align = Client
+      Size.Width = 53.333515167236330000
+      Size.Height = 32.419490814208990000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = '<'
+    end
+  end
+end

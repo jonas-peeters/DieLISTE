@@ -8,20 +8,12 @@ object Form6: TForm6
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  DesignerMasterStyle = 0
-  object ContentPanel: TPanel
-    Anchors = [akLeft, akTop, akRight, akBottom]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 2
+  object TabControl1: TTabControl
+    Align = Client
     Size.Width = 368.000000000000000000
-    Size.Height = 521.000000000000000000
+    Size.Height = 573.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 0
-  end
-  object NavigationPanel: TPanel
-    Anchors = [akLeft, akRight, akBottom]
-    Position.Y = 520.000000000000000000
-    Size.Width = 369.000000000000000000
-    Size.Height = 56.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 2
   end
 end
