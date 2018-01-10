@@ -309,20 +309,8 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Home.pas">
-            <Form>Form1</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
-        <DCCReference Include="SupermarktListe.pas">
+        <DCCReference Include="Supermarkt.pas">
             <Form>Form2</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
-        <DCCReference Include="Supermaerkte.pas">
-            <Form>Form3</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
-        <DCCReference Include="Profil.pas">
-            <Form>Form4</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="Login.pas">
