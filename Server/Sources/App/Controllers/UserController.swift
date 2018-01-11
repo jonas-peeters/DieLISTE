@@ -18,6 +18,7 @@ final class UserController {
         let authedUserRoute = authedRoute.grouped("user")
         authedUserRoute.get(handler: me)
         authedUserRoute.delete(handler: delete)
+        authedUserRoute.post("password", handler: changePassword)
         let listController = ListController()
         listController.addRoutes(drop: drop, listRoute: authedUserRoute.grouped("lists"))
     }
@@ -54,6 +55,9 @@ final class UserController {
                 print(error)
                 return generateJSONError(from: "Internal Server Error: Unable to save user data.\nPlease contact the server administrator or the software support team.")
             }
+            
+            // TODO: Send confirmation E-Mail
+            
             return newUser
         } catch {
             return generateJSONError(from: "Bad request\n\nReason: Couldn't parse JSON as user\n\nPossible solutions:\n - Check JSON keys for typos\n - Check JSON values for the correct type")
@@ -115,6 +119,38 @@ final class UserController {
         return try makeJSON(from: "Deleted user")
     }
     
+    /// Changes the password of a user (only when authenticated)
+    ///
+    /// Route for request: POST to '/user/password'
+    ///
+    /// JSON encoding for request:
+    ///
+    ///     {
+    ///       "password": $NEW_PASSWORD_String
+    ///     }
+    ///
+    /// - Parameter request: A HTTP request
+    /// - Returns: "Changed Password" when the action was successful
+    func changePassword(_ request: Request) throws -> ResponseRepresentable {
+        let user = request.auth.authenticated(User.self)
+        
+        do {
+            let json = request.json
+            let newPassword = try json!.get(User.Keys.password) as String
+            user?.password = newPassword
+            
+            do {
+                try user?.save()
+            } catch {
+                return generateJSONError(from: "Could not save new password! Try again later.")
+            }
+        } catch {
+            return generateJSONError(from: "Could not read password from JSON.")
+        }
+        
+        return try makeJSON(from: "Changed Password")
+    }
+    
     /// Only works when authenticated
     ///
     /// Route for request: GET to `/user`
@@ -125,5 +161,4 @@ final class UserController {
     func me(_ request: Request) throws -> ResponseRepresentable {
         return try makeJSON(from: request.auth.authenticated(User.self)!)
     }
-    
 }
