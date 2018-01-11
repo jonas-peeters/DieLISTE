@@ -12,14 +12,38 @@ final class UserController {
     ///   - loginRoute: The login route builder
     ///   - authedRoute: A route that is protected by some sort of middleware
     func addRoutes(drop: Droplet, loginRoute: RouteBuilder, authedRoute: RouteBuilder) {
-        loginRoute.post("login", handler: login)
         let userRoute = drop.grouped("user")
-        userRoute.post("create", handler: create)
         let authedUserRoute = authedRoute.grouped("user")
-        authedUserRoute.get(handler: me)
-        authedUserRoute.delete(handler: delete)
-        authedUserRoute.post("password", handler: changePassword)
         let listController = ListController()
+        
+        // Logging in
+        loginRoute.post("login", handler: login)
+        
+        // Create a new user
+        userRoute.post("create") { req in
+            return try self.create(req, drop: drop)
+        }
+        
+        // Verifiy email
+        userRoute.get("verify", String.parameter) { req in
+            return try self.verifyEMail(req, drop: drop)
+        }
+        
+        // Get profil information
+        authedUserRoute.get(handler: me)
+        
+        // Delete user account
+        authedUserRoute.delete(handler: delete)
+        
+        // Change password
+        authedUserRoute.post("password", handler: changePassword)
+        
+        // Forgot password
+        userRoute.get("password") { req in
+            return try self.forgotPassword(req, drop: drop)
+        }
+        
+        // Add lists specified in the list controller
         listController.addRoutes(drop: drop, listRoute: authedUserRoute.grouped("lists"))
     }
     
@@ -38,7 +62,7 @@ final class UserController {
     /// - parameters:
     ///   - request: A HTTP request
     /// - returns: The user (JSON encoded)
-    func create(request: Request) throws -> ResponseRepresentable {
+    func create(_ request: Request, drop: Droplet) throws -> ResponseRepresentable {
         do {
             guard let json = request.json else {
                 return generateJSONError(from: "Bad request\n\nReason: No JSON content found\n\nPossible solutions:\n - Try to format the body of the request as application/json")
@@ -51,16 +75,47 @@ final class UserController {
             
             do {
                 try newUser.save()
+                let uniqueId = UUID().uuidString
+                try drop.cache.set(uniqueId, newUser.id!.string!, expiration: Date(timeIntervalSinceNow: 86400)) // Expires in 24 hours
+                //if !sendEMailVerificationEMail(email: newUser.email, username: newUser.username, link: "http://localhost:4343/user/verify/\(uniqueId)", config: drop.config) { // For local tests only
+                if !sendEMailVerificationEMail(email: newUser.email, username: newUser.username, link: "https://die-liste.herokuapp.com/user/verify/\(uniqueId)", config: drop.config) {
+                    return generateJSONError(from: "User created but email not sent")
+                }
             } catch {
                 print(error)
                 return generateJSONError(from: "Internal Server Error: Unable to save user data.\nPlease contact the server administrator or the software support team.")
             }
             
-            // TODO: Send confirmation E-Mail
-            
             return newUser
         } catch {
             return generateJSONError(from: "Bad request\n\nReason: Couldn't parse JSON as user\n\nPossible solutions:\n - Check JSON keys for typos\n - Check JSON values for the correct type")
+        }
+    }
+    
+    /// Request to verify an email address using a previously generated unique id
+    ///
+    /// - Parameters:
+    ///   - request: A HTTP request
+    ///   - drop: Vapor droplet for access to the cache
+    /// - Returns: "Success" when everything worked
+    func verifyEMail(_ request: Request, drop: Droplet) throws -> ResponseRepresentable {
+        do {
+            let verifyId = try request.parameters.next(String.self)
+            if let cacheNode = try drop.cache.get(verifyId) {
+                let id = cacheNode.string
+                do {
+                    let user = try User.find(id)
+                    user?.verifiedEmail = true
+                    try user?.save()
+                    return try makeJSON(from: "Success")
+                } catch {
+                    return generateJSONError(from: "User could not be found. Account may be deleted?")
+                }
+            } else {
+                return generateJSONError(from: "We could not find your account. Maybe the key has expired. Try and request a new one.")
+            }
+        } catch {
+            return generateJSONError(from: "Could not get required parameter")
         }
     }
     
@@ -149,6 +204,30 @@ final class UserController {
         }
         
         return try makeJSON(from: "Changed Password")
+    }
+    
+    /// Sends an email to the user so that he/she can reset their password
+    ///
+    /// - Parameter request: A HTTP request
+    /// - Returns: "EMail sent" on success
+    func forgotPassword(_ request: Request, drop: Droplet) throws -> ResponseRepresentable {
+        do {
+            let json = request.json
+            let email = try json!.get(User.Keys.email) as String
+            var user: User? = nil
+            user = try User.all().first(where: { $0.email.lowercased() == email.lowercased() })
+            if user != nil {
+                if sendForgotPasswordEMail(email: email, username: user!.username, link: "Not existent", config: drop.config) {
+                    return try makeJSON(from: "EMail sent")
+                } else {
+                    return generateJSONError(from: "EMail not sent")
+                }
+            } else {
+                return generateJSONError(from: "User with that email not found")
+            }
+        } catch {
+            return generateJSONError(from: "Could not read e-mail from json")
+        }
     }
     
     /// Only works when authenticated
