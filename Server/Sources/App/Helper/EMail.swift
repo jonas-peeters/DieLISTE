@@ -31,26 +31,29 @@ func sendEMail(to email: String, content: String, config: Config) -> Bool {
     let url = URL(string: "https://api.sendgrid.com/v3/mail/send")!
     var request = URLRequest(url: url)
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    let apiKey = config["email","api_key"]!.string!
-    request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
-    request.httpMethod = "POST"
-    
-    let body = "{\"personalizations\": [{\"to\": [{\"email\": \"\(email)\"}],\"subject\": \"E-Mail Verification\"}],\"from\": {\"email\": \"no_reply@die-liste.herokuapp.com\", \"name\":\"DieLISTE\"},\"content\": [{\"type\": \"text/html\",\"value\": \"\(content)\"}]}";
-    
-    request.httpBody = body.data(using: .utf8)
-    let task = URLSession.shared.dataTask(with: request) { data, response, error in
-        guard let _ = data, error == nil else {
-            print("While sending an EMail the folowing error occured: \(error.debugDescription)")
-            success = false
-            return
-        }
+    if let apiKey = config["email","api_key"]?.string! {
+        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        request.httpMethod = "POST"
         
-        //let responseString = String(data: data, encoding: .utf8)  //Only for debugging
-        success = true
+        let body = "{\"personalizations\": [{\"to\": [{\"email\": \"\(email)\"}],\"subject\": \"Registrierung DieLISTE\"}],\"from\": {\"email\": \"no_reply@die-liste.herokuapp.com\", \"name\":\"DieLISTE\"},\"content\": [{\"type\": \"text/html\",\"value\": \"\(content)\"}]}";
+        
+        request.httpBody = body.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let _ = data, error == nil else {
+                print("While sending an EMail the folowing error occured: \(error.debugDescription)")
+                success = false
+                return
+            }
+            
+            //let responseString = String(data: data, encoding: .utf8)  //Only for debugging
+            success = true
+        }
+        task.resume()
+        
+        // Waiting for the task to complete
+        while success == nil {}
+        return success!
     }
-    task.resume()
-    
-    // Waiting for the task to complete
-    while success == nil {}
-    return success!
+    print("Could not get sendgrid api key")
+    return false
 }

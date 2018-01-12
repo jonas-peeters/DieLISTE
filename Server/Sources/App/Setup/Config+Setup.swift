@@ -8,7 +8,8 @@ extension Config {
         Node.fuzzy = [Row.self, JSON.self, Node.self]
 
         try setupProviders()
-        try setupPreparations()        
+        try setupPreparations()
+        print(sendEMailVerificationEMail(email: "newUser.email", username: "newUser.username", link: "https://die-liste.herokuapp.com/user/verify/test", config: self))
     }
     
     /// Configure providers
