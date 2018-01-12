@@ -9,7 +9,8 @@ extension Config {
 
         try setupProviders()
         try setupPreparations()
-        print(sendEMailVerificationEMail(email: "newUser.email", username: "newUser.username", link: "https://die-liste.herokuapp.com/user/verify/test", config: self))
+        print("Test email incoming")
+        print(sendEMailVerificationEMail(email: "jonas.peeters@icloud.com", username: "Admin", link: "https://die-liste.herokuapp.com/user/verify/test", config: self))
     }
     
     /// Configure providers
