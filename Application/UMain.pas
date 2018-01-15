@@ -30,6 +30,7 @@ type
     ListBox3: TListBox;
     Button2: TButton;
     procedure FormCreate(Sender: TObject);
+    procedure PlusBtn2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,6 +48,11 @@ implementation
 procedure TForm6.FormCreate(Sender: TObject);
 begin
   serverAPI := TServerAPI.create();
+end;
+
+procedure TForm6.PlusBtn2Click(Sender: TObject);
+begin
+TServerAPI.AddList;
 end;
 
 end.

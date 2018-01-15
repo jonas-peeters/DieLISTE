@@ -125,10 +125,10 @@ object Form6: TForm6
         end
         object EditButton: TButton
           Anchors = []
-          Position.X = 248.997787475586000000
-          Position.Y = 37.707637786865240000
-          Size.Width = 57.669174194335940000
-          Size.Height = 22.000000000000000000
+          Position.X = 261.355468750000000000
+          Position.Y = 37.923858642578120000
+          Size.Width = 32.953796386718750000
+          Size.Height = 21.567554473876950000
           Size.PlatformDefault = False
           TabOrder = 2
           Text = 'Edit'
@@ -229,6 +229,7 @@ object Form6: TForm6
           Size.PlatformDefault = False
           TabOrder = 0
           Text = '+'
+          OnClick = PlusBtn2Click
         end
         object Label1: TLabel
           Align = Client

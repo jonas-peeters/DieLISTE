@@ -21,6 +21,9 @@ type
 end;
 
 type
+ TArray= Array of string;
+
+type
   TServerAPI=class(TObject)
   private
     client: TRESTClient;
@@ -31,6 +34,10 @@ type
     function deleteUser(): String;
     function me(): String;
     function jsonToRecord(jsonString: string): TUserData;
+    function addList();
+    function getLists(request:TRESTRequest);
+    function jsonArrayToArray(const s:string):TArray;
+    procedure AddToArray(var a:TArray; const value: string);
 end;
 
 implementation
@@ -106,6 +113,51 @@ begin
   userData.verifiedemail := jsonObject.GetValue('verified').Value.ToBoolean;
   userData.email:= jsonObject.GetValue('email').Value;
   result := userData;
+end;
+
+function TServerAPI.addList();
+var  request: TRESTRequest;
+begin
+  request := TRESTRequest.Create(nil);
+  request.Method := REST.Types.rmPOST;  //POST
+  request.Resource := 'user/lists';
+  request.Client := self.client;
+  request.Execute;
+  result := request.Response.Content;
+end;
+
+function TServerAPI.getLists(request:TRESTRequest);
+begin
+  request := TRESTRequest.Create(nil);
+  request.Method := REST.Types.rmGET;  //GET
+  request.Resource := 'user/lists';
+  request.Client := self.client;
+  request.Execute;
+  result := request.Response.Content;
+end;
+
+procedure TServerAPI.AddToArray(var a:TArray; const value: string);           //Zeile 139 bis 161
+overload;                                                                     //ist das konvertieren der
+var laenge: integer;                                                          //Arrays zu für uns
+begin                                                                         //brauchbaren Arrays
+  laenge:=length(a);
+  Setlength(a,laenge+1);
+  a[laenge]:=value;
+  end;
+
+function TServerAPI.jsonArrayToArray(const s:string):TArray;
+var jar: TjsonArray;
+    item: Tjsonstring;
+    i:integer;
+begin
+  result:=nil;
+  jar:=TjsonObject.ParseJSONValue(s)as TjsonArray;
+  for I := 0 to (jar.Count-1) do
+    begin
+      item:= jar.Items as Tjsonstring;
+      AddToArray(result,item.Value);
+    end;
+  jar.Free;
 end;
 
 end.
