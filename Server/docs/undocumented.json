@@ -22,6 +22,13 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Helper/EMail.swift",
+      "line": 18,
+      "symbol": "sendForgotPasswordEMail(email:username:link:config:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Category.swift",
       "line": 15,
       "symbol": "Category.Keys.id",
@@ -93,14 +100,14 @@
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/List.swift",
-      "line": 16,
+      "line": 25,
       "symbol": "List.Keys.id",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/List.swift",
-      "line": 17,
+      "line": 26,
       "symbol": "List.Keys.name",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"

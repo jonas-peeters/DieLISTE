@@ -9,7 +9,6 @@ uses
   REST.Types,
   IPPeerCommon,
   IPPeerClient,
-  IPPeerServer,
   JSON;
 
 type
