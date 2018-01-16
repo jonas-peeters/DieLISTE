@@ -1,34 +1,6 @@
 {
   "warnings": [
     {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Controllers/InfoController.swift",
-      "line": 5,
-      "symbol": "InfoController",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Controllers/ListController.swift",
-      "line": 4,
-      "symbol": "ListController",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Controllers/UserController.swift",
-      "line": 6,
-      "symbol": "UserController",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Helper/EMail.swift",
-      "line": 18,
-      "symbol": "sendForgotPasswordEMail(email:username:link:config:)",
-      "symbol_kind": "source.lang.swift.decl.function.free",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Category.swift",
       "line": 15,
       "symbol": "Category.Keys.id",
@@ -40,20 +12,6 @@
       "line": 16,
       "symbol": "Category.Keys.name",
       "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Category.swift",
-      "line": 81,
-      "symbol": "Category.init(json:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Category.swift",
-      "line": 85,
-      "symbol": "Category.makeJSON()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
@@ -180,34 +138,6 @@
       "line": 40,
       "symbol": "User.Keys.spam",
       "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Setup/Config+Setup.swift",
-      "line": 5,
-      "symbol": "Config.setup()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Setup/Droplet+Setup.swift",
-      "line": 4,
-      "symbol": "Droplet.setup()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/Run/main.swift",
-      "line": 4,
-      "symbol": "config",
-      "symbol_kind": "source.lang.swift.decl.var.global",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/Run/main.swift",
-      "line": 7,
-      "symbol": "drop",
-      "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     }
   ],

@@ -13,7 +13,7 @@
     <a title="Functions  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (78% documented)</p>
+        <p><a href="index.html"> Docs</a> (86% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -54,6 +54,9 @@
                 <a href="Classes/ListController.html">ListController</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/PasswordController.html">PasswordController</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/Supermarket.html">Supermarket</a>
               </li>
               <li class="nav-group-task">
@@ -67,17 +70,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/UserController.html">UserController</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="Global Variables.html">Global Variables</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Global Variables.html#/s:3Run6config7Configs6ConfigCv">config</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Global Variables.html#/s:3Run4drop5Vapor7DropletCv">drop</a>
               </li>
             </ul>
           </li>
@@ -99,19 +91,19 @@
             <a href="Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Functions.html#/s:3Run17generateJSONError4JSONACVSS4from_tF">generateJSONError(from:)</a>
+                <a href="Functions.html#/s:3App17generateJSONError4JSONACVSS4from_tF">generateJSONError(from:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="Functions.html#/s:3Run8makeJSON0C0ACVyp4from_tKF">makeJSON(from:)</a>
+                <a href="Functions.html#/s:3App8makeJSON0C0ACVyp4from_tKF">makeJSON(from:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="Functions.html#/s:3Run9sendEMailSbSS2to_SS7content7Configs6ConfigC6configtF">sendEMail(to:content:config:)</a>
+                <a href="Functions.html#/s:3App9sendEMailSbSS2to_SS7content5Vapor7DropletC4dropSS7subjecttF">sendEMail(to:content:drop:subject:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="Functions.html#/s:3Run021sendEMailVerificationC0SbSS5email_SS8usernameSS4link7Configs6ConfigC6configtF">sendEMailVerificationEMail(email:username:link:config:)</a>
+                <a href="Functions.html#/s:3App021sendEMailVerificationC0SbSS5email_SS8usernameSS4link5Vapor7DropletC4droptF">sendEMailVerificationEMail(email:username:link:drop:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="Functions.html#/s:3Run23sendForgotPasswordEMailSbSS5email_SS8usernameSS4link7Configs6ConfigC6configtF">sendForgotPasswordEMail(email:username:link:config:)</a>
+                <a href="Functions.html#/s:3App23sendForgotPasswordEMailSbSS5email_SS8usernameSS4link5Vapor7DropletC4droptF">sendForgotPasswordEMail(email:username:link:drop:)</a>
               </li>
             </ul>
           </li>
@@ -130,124 +122,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Run17generateJSONError4JSONACVSS4from_tF"></a>
-                    <a name="//apple_ref/swift/Function/generateJSONError(from:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run17generateJSONError4JSONACVSS4from_tF">generateJSONError(from:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Generates a JSON object from a string to allow for easier parsing on the clinet side</p>
-
-<p>JSON encoding:</p>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="err">$MESSAGE</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">generateJSONError</span><span class="p">(</span><span class="n">from</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">JSON</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>message</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The error message</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>The error message wrapped in JSON</p>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:3Run8makeJSON0C0ACVyp4from_tKF"></a>
-                    <a name="//apple_ref/swift/Function/makeJSON(from:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run8makeJSON0C0ACVyp4from_tKF">makeJSON(from:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Tries to generate a JSON object from any given object</p>
-<div class="aside aside-throws">
-    <p class="aside-title">Throws</p>
-    Throws when the object can&rsquo;t be encoded as JSON
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">makeJSON</span><span class="p">(</span><span class="n">from</span> <span class="nv">content</span><span class="p">:</span> <span class="kt">Any</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">JSON</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>content</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The object that should be encoded</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>The object in JSON encoding if possible</p>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:3Run021sendEMailVerificationC0SbSS5email_SS8usernameSS4link7Configs6ConfigC6configtF"></a>
-                    <a name="//apple_ref/swift/Function/sendEMailVerificationEMail(email:username:link:config:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run021sendEMailVerificationC0SbSS5email_SS8usernameSS4link7Configs6ConfigC6configtF">sendEMailVerificationEMail(email:username:link:config:)</a>
+                    <a name="/s:3App021sendEMailVerificationC0SbSS5email_SS8usernameSS4link5Vapor7DropletC4droptF"></a>
+                    <a name="//apple_ref/swift/Function/sendEMailVerificationEMail(email:username:link:drop:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3App021sendEMailVerificationC0SbSS5email_SS8usernameSS4link5Vapor7DropletC4droptF">sendEMailVerificationEMail(email:username:link:drop:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -262,7 +139,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">sendEMailVerificationEMail</span><span class="p">(</span><span class="nv">email</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">link</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">config</span><span class="p">:</span> <span class="kt">Config</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">sendEMailVerificationEMail</span><span class="p">(</span><span class="nv">email</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">link</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">drop</span><span class="p">:</span> <span class="kt">Droplet</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -309,12 +186,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>config</em>
+                                <em>drop</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Config in order to get the mail API key</p>
+                                  <p>Droplet in order to get the mail API key and send the request</p>
                                 </div>
                               </td>
                             </tr>
@@ -331,9 +208,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Run23sendForgotPasswordEMailSbSS5email_SS8usernameSS4link7Configs6ConfigC6configtF"></a>
-                    <a name="//apple_ref/swift/Function/sendForgotPasswordEMail(email:username:link:config:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run23sendForgotPasswordEMailSbSS5email_SS8usernameSS4link7Configs6ConfigC6configtF">sendForgotPasswordEMail(email:username:link:config:)</a>
+                    <a name="/s:3App23sendForgotPasswordEMailSbSS5email_SS8usernameSS4link5Vapor7DropletC4droptF"></a>
+                    <a name="//apple_ref/swift/Function/sendForgotPasswordEMail(email:username:link:drop:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3App23sendForgotPasswordEMailSbSS5email_SS8usernameSS4link5Vapor7DropletC4droptF">sendForgotPasswordEMail(email:username:link:drop:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -341,8 +218,75 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Send an email to the user where he can reset his/her password</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">sendForgotPasswordEMail</span><span class="p">(</span><span class="nv">email</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">link</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">drop</span><span class="p">:</span> <span class="kt">Droplet</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>email</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The users email address</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>username</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The users username</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>link</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The link where the user can reset his/her password</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>drop</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Droplet in order to get the mail API key and send the request</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>true on success, false when something goes wrong</p>
                       </div>
                     </section>
                   </div>
@@ -350,9 +294,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Run9sendEMailSbSS2to_SS7content7Configs6ConfigC6configtF"></a>
-                    <a name="//apple_ref/swift/Function/sendEMail(to:content:config:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run9sendEMailSbSS2to_SS7content7Configs6ConfigC6configtF">sendEMail(to:content:config:)</a>
+                    <a name="/s:3App9sendEMailSbSS2to_SS7content5Vapor7DropletC4dropSS7subjecttF"></a>
+                    <a name="//apple_ref/swift/Function/sendEMail(to:content:drop:subject:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3App9sendEMailSbSS2to_SS7content5Vapor7DropletC4dropSS7subjecttF">sendEMail(to:content:drop:subject:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -367,7 +311,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">sendEMail</span><span class="p">(</span><span class="n">to</span> <span class="nv">email</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">content</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">config</span><span class="p">:</span> <span class="kt">Config</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">sendEMail</span><span class="p">(</span><span class="n">to</span> <span class="nv">email</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">content</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">drop</span><span class="p">:</span> <span class="kt">Droplet</span><span class="p">,</span> <span class="nv">subject</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -402,12 +346,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>config</em>
+                                <em>drop</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Config in order to get the mail API key</p>
+                                  <p>Droplet in order to get the mail API key and send the request</p>
                                 </div>
                               </td>
                             </tr>
@@ -423,11 +367,126 @@
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3App17generateJSONError4JSONACVSS4from_tF"></a>
+                    <a name="//apple_ref/swift/Function/generateJSONError(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3App17generateJSONError4JSONACVSS4from_tF">generateJSONError(from:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Generates a JSON object from a string to allow for easier parsing on the clinet side</p>
+
+<p>JSON encoding:</p>
+<pre class="highlight swift"><code><span class="p">{</span>
+  <span class="s">"error"</span><span class="p">:</span> <span class="err">$</span><span class="kt">MESSAGE</span>
+<span class="p">}</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">generateJSONError</span><span class="p">(</span><span class="n">from</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">JSON</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>message</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The error message</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The error message wrapped in JSON</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3App8makeJSON0C0ACVyp4from_tKF"></a>
+                    <a name="//apple_ref/swift/Function/makeJSON(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3App8makeJSON0C0ACVyp4from_tKF">makeJSON(from:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Tries to generate a JSON object from any given object</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws when the object can&rsquo;t be encoded as JSON
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">makeJSON</span><span class="p">(</span><span class="n">from</span> <span class="nv">content</span><span class="p">:</span> <span class="kt">Any</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">JSON</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>content</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The object that should be encoded</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The object in JSON encoding if possible</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-01-11)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-01-16)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

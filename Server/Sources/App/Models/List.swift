@@ -65,7 +65,7 @@ extension List: Preparation {
     /// Prepares the database for using the list model
     /// - parameters:
     ///   - database: The database that should be prepared
-    /// - throws: When the database can't be reverted
+    /// - throws: When the database can't be created
     static func prepare(_ database: Database) throws {
         try database.create(self, closure: { builder in
             builder.id()
@@ -88,7 +88,7 @@ extension List: NodeRepresentable {
     ///
     /// - parameters:
     ///   - context: The context for the node encoding
-    /// - throws: Throws if the is an error when setting the keys or values
+    /// - throws: Throws if there is an error when setting the keys or values
     /// - returns: The list as a node
     func makeNode(in context: Context?) throws -> Node {
         var node = Node(context)
@@ -100,7 +100,7 @@ extension List: NodeRepresentable {
 
 //MARK: JSON
 extension List: JSONConvertible {
-    /// Creates a list from a JSON object of the user
+    /// Creates a list from a JSON object
     ///
     /// Required json structure:
     ///

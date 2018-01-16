@@ -3,9 +3,16 @@ import HTTP
 import FluentProvider
 import AuthProvider
 
+/// Controlling all routes concerning anything related user infos
+///
+/// This excludes routes about password changes, etc. These can be found in `PasswordController`
 final class UserController {
+    /// Used to create webviews that can be shown in any webbrowser
     let view: ViewRenderer
     
+    /// Initializer
+    ///
+    /// - Parameter view: Used for creating webviews
     init(_ view: ViewRenderer) {
         self.view = view
     }

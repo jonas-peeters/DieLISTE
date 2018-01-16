@@ -1,6 +1,7 @@
 import Vapor
 import FluentProvider
 
+/// Controlling all routes concerning lists
 final class ListController {
     
     /// ## Adds all routes relevant to lists

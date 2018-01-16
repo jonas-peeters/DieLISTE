@@ -1,1 +1,1 @@
-jazzy --min-acl private -x "-target","Run"
+jazzy --min-acl private -x "-target","App"

@@ -3,13 +3,24 @@ import HTTP
 import FluentProvider
 import AuthProvider
 
+/// Controlling all routes concerning anything with the users password
 final class PasswordController {
+    /// Used to create webviews that can be shown in any webbrowser
     let view: ViewRenderer
     
+    /// Initializer
+    ///
+    /// - Parameter view: Used for creating webviews
     init(_ view: ViewRenderer) {
         self.view = view
     }
     
+    /// Add routes that have something to do with the users password
+    ///
+    /// - Parameters:
+    ///   - drop: The droplet in order to access the cache
+    ///   - userRoute: Route to '/user'
+    ///   - authedRoute: Autheticated route to '/user'
     func addRoutes(drop: Droplet, userRoute: RouteBuilder, authedRoute: RouteBuilder) {
         // Change password
         authedRoute.post("password", "change", handler: changePassword)

@@ -14,7 +14,7 @@
     <a title="User Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (78% documented)</p>
+        <p><a href="../index.html"> Docs</a> (86% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -55,6 +55,9 @@
                 <a href="../Classes/ListController.html">ListController</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/PasswordController.html">PasswordController</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/Supermarket.html">Supermarket</a>
               </li>
               <li class="nav-group-task">
@@ -68,17 +71,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/UserController.html">UserController</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Global Variables.html">Global Variables</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Global Variables.html#/s:3Run6config7Configs6ConfigCv">config</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Global Variables.html#/s:3Run4drop5Vapor7DropletCv">drop</a>
               </li>
             </ul>
           </li>
@@ -100,19 +92,19 @@
             <a href="../Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:3Run17generateJSONError4JSONACVSS4from_tF">generateJSONError(from:)</a>
+                <a href="../Functions.html#/s:3App17generateJSONError4JSONACVSS4from_tF">generateJSONError(from:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:3Run8makeJSON0C0ACVyp4from_tKF">makeJSON(from:)</a>
+                <a href="../Functions.html#/s:3App8makeJSON0C0ACVyp4from_tKF">makeJSON(from:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:3Run9sendEMailSbSS2to_SS7content7Configs6ConfigC6configtF">sendEMail(to:content:config:)</a>
+                <a href="../Functions.html#/s:3App9sendEMailSbSS2to_SS7content5Vapor7DropletC4dropSS7subjecttF">sendEMail(to:content:drop:subject:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:3Run021sendEMailVerificationC0SbSS5email_SS8usernameSS4link7Configs6ConfigC6configtF">sendEMailVerificationEMail(email:username:link:config:)</a>
+                <a href="../Functions.html#/s:3App021sendEMailVerificationC0SbSS5email_SS8usernameSS4link5Vapor7DropletC4droptF">sendEMailVerificationEMail(email:username:link:drop:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:3Run23sendForgotPasswordEMailSbSS5email_SS8usernameSS4link7Configs6ConfigC6configtF">sendForgotPasswordEMail(email:username:link:config:)</a>
+                <a href="../Functions.html#/s:3App23sendForgotPasswordEMailSbSS5email_SS8usernameSS4link5Vapor7DropletC4droptF">sendForgotPasswordEMail(email:username:link:drop:)</a>
               </li>
             </ul>
           </li>
@@ -124,7 +116,7 @@
             <h1>User</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt">Model</span><span class="p">,</span> <span class="kt">SessionPersistable</span><span class="p">,</span> <span class="kt">PasswordAuthenticatable</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt">Model</span><span class="p">,</span> <span class="kt">SessionPersistable</span><span class="p">,</span> <span class="kt">PasswordAuthenticatable</span></code></pre>
 
                 </div>
               </div>
@@ -139,9 +131,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Run4UserC7storage6Fluent7StorageCv"></a>
+                    <a name="/s:3App4UserC7storage6Fluent7StorageCv"></a>
                     <a name="//apple_ref/swift/Property/storage" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run4UserC7storage6Fluent7StorageCv">storage</a>
+                    <a class="token" href="#/s:3App4UserC7storage6Fluent7StorageCv">storage</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -156,7 +148,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">storage</span> <span class="o">=</span> <span class="kt">Storage</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">storage</span> <span class="o">=</span> <span class="nf">Storage</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -166,9 +158,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Run4UserC8usernameSSv"></a>
+                    <a name="/s:3App4UserC8usernameSSv"></a>
                     <a name="//apple_ref/swift/Property/username" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run4UserC8usernameSSv">username</a>
+                    <a class="token" href="#/s:3App4UserC8usernameSSv">username</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -183,7 +175,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">username</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">username</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -193,9 +185,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Run4UserC5emailSSv"></a>
+                    <a name="/s:3App4UserC5emailSSv"></a>
                     <a name="//apple_ref/swift/Property/email" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run4UserC5emailSSv">email</a>
+                    <a class="token" href="#/s:3App4UserC5emailSSv">email</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -210,7 +202,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">email</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">email</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -220,9 +212,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Run4UserC13verifiedEmailSbv"></a>
+                    <a name="/s:3App4UserC13verifiedEmailSbv"></a>
                     <a name="//apple_ref/swift/Property/verifiedEmail" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run4UserC13verifiedEmailSbv">verifiedEmail</a>
+                    <a class="token" href="#/s:3App4UserC13verifiedEmailSbv">verifiedEmail</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -237,7 +229,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">verifiedEmail</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">verifiedEmail</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -247,9 +239,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Run4UserC8passwordSSv"></a>
+                    <a name="/s:3App4UserC8passwordSSv"></a>
                     <a name="//apple_ref/swift/Property/password" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run4UserC8passwordSSv">password</a>
+                    <a class="token" href="#/s:3App4UserC8passwordSSv">password</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -264,7 +256,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -274,9 +266,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Run4UserC9allergiesSSv"></a>
+                    <a name="/s:3App4UserC9allergiesSSv"></a>
                     <a name="//apple_ref/swift/Property/allergies" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run4UserC9allergiesSSv">allergies</a>
+                    <a class="token" href="#/s:3App4UserC9allergiesSSv">allergies</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -291,7 +283,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">allergies</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">allergies</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -301,9 +293,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Run4UserC11spamCounterSiv"></a>
+                    <a name="/s:3App4UserC11spamCounterSiv"></a>
                     <a name="//apple_ref/swift/Property/spamCounter" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run4UserC11spamCounterSiv">spamCounter</a>
+                    <a class="token" href="#/s:3App4UserC11spamCounterSiv">spamCounter</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -318,7 +310,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">spamCounter</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">spamCounter</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -328,9 +320,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Run4UserC5lists6Fluent8SiblingsCyAcA4ListCAE5PivotCyAcIGGv"></a>
+                    <a name="/s:3App4UserC5lists6Fluent8SiblingsCyAcA4ListCAE5PivotCyAcIGGv"></a>
                     <a name="//apple_ref/swift/Property/lists" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run4UserC5lists6Fluent8SiblingsCyAcA4ListCAE5PivotCyAcIGGv">lists</a>
+                    <a class="token" href="#/s:3App4UserC5lists6Fluent8SiblingsCyAcA4ListCAE5PivotCyAcIGGv">lists</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -345,7 +337,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">lists</span><span class="p">:</span> <span class="kt">Siblings</span><span class="o">&lt;</span><span class="kt">User</span><span class="p">,</span> <span class="kt"><a href="../Classes/List.html">List</a></span><span class="p">,</span> <span class="kt">Pivot</span><span class="o">&lt;</span><span class="kt">User</span><span class="p">,</span> <span class="kt"><a href="../Classes/List.html">List</a></span><span class="o">&gt;&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">lists</span><span class="p">:</span> <span class="kt">Siblings</span><span class="o">&lt;</span><span class="kt">User</span><span class="p">,</span> <span class="kt"><a href="../Classes/List.html">List</a></span><span class="p">,</span> <span class="kt">Pivot</span><span class="o">&lt;</span><span class="kt">User</span><span class="p">,</span> <span class="kt"><a href="../Classes/List.html">List</a></span><span class="o">&gt;&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -355,9 +347,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Run4UserC4KeysV"></a>
+                    <a name="/s:3App4UserC4KeysV"></a>
                     <a name="//apple_ref/swift/Struct/Keys" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run4UserC4KeysV">Keys</a>
+                    <a class="token" href="#/s:3App4UserC4KeysV">Keys</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -376,7 +368,7 @@ used in the database to name the single columns</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">Keys</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">Keys</span></code></pre>
 
                         </div>
                       </div>
@@ -386,9 +378,9 @@ used in the database to name the single columns</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Run4UserCACSS8username_SS5emailSb13verifiedEmailSS8passwordSS9allergiesSi11spamCountertcfc"></a>
+                    <a name="/s:3App4UserCACSS8username_SS5emailSb13verifiedEmailSS8passwordSS9allergiesSi11spamCountertcfc"></a>
                     <a name="//apple_ref/swift/Method/init(username:email:verifiedEmail:password:allergies:spamCounter:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run4UserCACSS8username_SS5emailSb13verifiedEmailSS8passwordSS9allergiesSi11spamCountertcfc">init(username:email:verifiedEmail:password:allergies:spamCounter:)</a>
+                    <a class="token" href="#/s:3App4UserCACSS8username_SS5emailSb13verifiedEmailSS8passwordSS9allergiesSi11spamCountertcfc">init(username:email:verifiedEmail:password:allergies:spamCounter:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -403,7 +395,7 @@ used in the database to name the single columns</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">email</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">verifiedEmail</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">allergies</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">spamCounter</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">email</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">verifiedEmail</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">allergies</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">spamCounter</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -492,9 +484,9 @@ used in the database to name the single columns</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Run4UserC7makeRow6Fluent0D0VyKF"></a>
+                    <a name="/s:3App4UserC7makeRow6Fluent0D0VyKF"></a>
                     <a name="//apple_ref/swift/Method/makeRow()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run4UserC7makeRow6Fluent0D0VyKF">makeRow()</a>
+                    <a class="token" href="#/s:3App4UserC7makeRow6Fluent0D0VyKF">makeRow()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -514,7 +506,7 @@ used in the database to name the single columns</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">makeRow</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Row</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">makeRow</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Row</span></code></pre>
 
                         </div>
                       </div>
@@ -528,9 +520,9 @@ used in the database to name the single columns</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Run4UserCAC6Fluent3RowV3row_tKcfc"></a>
+                    <a name="/s:3App4UserCAC6Fluent3RowV3row_tKcfc"></a>
                     <a name="//apple_ref/swift/Method/init(row:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run4UserCAC6Fluent3RowV3row_tKcfc">init(row:)</a>
+                    <a class="token" href="#/s:3App4UserCAC6Fluent3RowV3row_tKcfc">init(row:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -550,7 +542,7 @@ used in the database to name the single columns</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">row</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">row</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -587,9 +579,9 @@ used in the database to name the single columns</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Run4UserC7preparey6Fluent8DatabaseCKFZ"></a>
+                    <a name="/s:3App4UserC7preparey6Fluent8DatabaseCKFZ"></a>
                     <a name="//apple_ref/swift/Method/prepare(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run4UserC7preparey6Fluent8DatabaseCKFZ">prepare(_:)</a>
+                    <a class="token" href="#/s:3App4UserC7preparey6Fluent8DatabaseCKFZ">prepare(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -600,7 +592,7 @@ used in the database to name the single columns</p>
                         <p>Prepares the database for using the user model</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
-    When the database can&rsquo;t be reverted
+    When the database can&rsquo;t be created
 
 </div>
 
@@ -609,7 +601,7 @@ used in the database to name the single columns</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">prepare</span><span class="p">(</span><span class="n">_</span> <span class="nv">database</span><span class="p">:</span> <span class="kt">Database</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">prepare</span><span class="p">(</span><span class="n">_</span> <span class="nv">database</span><span class="p">:</span> <span class="kt">Database</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -638,9 +630,9 @@ used in the database to name the single columns</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Run4UserC6reverty6Fluent8DatabaseCKFZ"></a>
+                    <a name="/s:3App4UserC6reverty6Fluent8DatabaseCKFZ"></a>
                     <a name="//apple_ref/swift/Method/revert(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run4UserC6reverty6Fluent8DatabaseCKFZ">revert(_:)</a>
+                    <a class="token" href="#/s:3App4UserC6reverty6Fluent8DatabaseCKFZ">revert(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -660,7 +652,7 @@ used in the database to name the single columns</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">revert</span><span class="p">(</span><span class="n">_</span> <span class="nv">database</span><span class="p">:</span> <span class="kt">Database</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">revert</span><span class="p">(</span><span class="n">_</span> <span class="nv">database</span><span class="p">:</span> <span class="kt">Database</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -693,9 +685,9 @@ used in the database to name the single columns</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Run4UserC8makeNode0D0AEVAE7Context_pSg2in_tKF"></a>
+                    <a name="/s:3App4UserC8makeNode0D0AEVAE7Context_pSg2in_tKF"></a>
                     <a name="//apple_ref/swift/Method/makeNode(in:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run4UserC8makeNode0D0AEVAE7Context_pSg2in_tKF">makeNode(in:)</a>
+                    <a class="token" href="#/s:3App4UserC8makeNode0D0AEVAE7Context_pSg2in_tKF">makeNode(in:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -706,7 +698,7 @@ used in the database to name the single columns</p>
                         <p>Makes the user model node representable</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
-    Throws if the is an error when setting the keys or values
+    Throws if there is an error when setting the keys or values
 
 </div>
 
@@ -715,7 +707,7 @@ used in the database to name the single columns</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">makeNode</span><span class="p">(</span><span class="k">in</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">?)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Node</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">makeNode</span><span class="p">(</span><span class="k">in</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">?)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Node</span></code></pre>
 
                         </div>
                       </div>
@@ -752,9 +744,9 @@ used in the database to name the single columns</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Run4UserCAC4JSONADV4json_tKcfc"></a>
+                    <a name="/s:3App4UserCAC4JSONADV4json_tKcfc"></a>
                     <a name="//apple_ref/swift/Method/init(json:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run4UserCAC4JSONADV4json_tKcfc">init(json:)</a>
+                    <a class="token" href="#/s:3App4UserCAC4JSONADV4json_tKcfc">init(json:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -765,12 +757,12 @@ used in the database to name the single columns</p>
                         <p>Creates a user from a JSON object of the user</p>
 
 <p>Required json structure:</p>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="err">$EMAIL_String</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="err">$USERNAME_String</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="err">$PASSWORD_String</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<pre class="highlight swift"><code><span class="p">{</span>
+  <span class="s">"email"</span><span class="p">:</span> <span class="err">$</span><span class="kt">EMAIL_String</span><span class="p">,</span>
+  <span class="s">"username"</span><span class="p">:</span> <span class="err">$</span><span class="kt">USERNAME_String</span><span class="p">,</span>
+  <span class="s">"password"</span><span class="p">:</span> <span class="err">$</span><span class="kt">PASSWORD_String</span>
+<span class="p">}</span>
+</code></pre>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
     Throws if the json can&rsquo;t be parsed as a user
@@ -782,7 +774,7 @@ used in the database to name the single columns</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">json</span><span class="p">:</span> <span class="kt">JSON</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">json</span><span class="p">:</span> <span class="kt">JSON</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -815,9 +807,9 @@ used in the database to name the single columns</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Run4UserC8makeJSON0D0AEVyKF"></a>
+                    <a name="/s:3App4UserC8makeJSON0D0AEVyKF"></a>
                     <a name="//apple_ref/swift/Method/makeJSON()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Run4UserC8makeJSON0D0AEVyKF">makeJSON()</a>
+                    <a class="token" href="#/s:3App4UserC8makeJSON0D0AEVyKF">makeJSON()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -837,7 +829,7 @@ used in the database to name the single columns</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">makeJSON</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">JSON</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">makeJSON</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">JSON</span></code></pre>
 
                         </div>
                       </div>
@@ -853,8 +845,8 @@ used in the database to name the single columns</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-01-11)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-01-16)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

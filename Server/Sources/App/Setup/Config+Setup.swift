@@ -3,6 +3,7 @@ import FluentProvider
 import LeafProvider
 
 extension Config {
+    /// Setting up the config, the different providers and the database
     public func setup() throws {
         // allow fuzzy conversions for these types
         // (add your own types here)
@@ -19,8 +20,7 @@ extension Config {
         try addProvider(LeafProvider.Provider.self)
     }
     
-    /// Add all models that should have their
-    /// schemas prepared before the app boots
+    /// Add all models that should have their schemas prepared before the app boots
     private func setupPreparations() throws {
         preparations.append((User.self))
         preparations.append(List.self)

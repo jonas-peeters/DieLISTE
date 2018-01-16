@@ -76,7 +76,7 @@ extension Supermarket: Preparation {
     /// Undoes what prepare() ist doing
     /// - parameters:
     ///   - database: The database where the preparation should be reverted
-    /// - throws: When the database can't be reverted
+    /// - throws: When the database can't be created
     static func revert(_ database: Database) throws {
         try database.delete(self)
     }
@@ -88,7 +88,7 @@ extension Supermarket: NodeRepresentable {
     ///
     /// - parameters:
     ///   - context: The context for the node encoding
-    /// - throws: Throws if the is an error when setting the keys or values
+    /// - throws: Throws if there is an error when setting the keys or values
     /// - returns: The supermarket as a node
     func makeNode(in context: Context?) throws -> Node {
         var node = Node(context)

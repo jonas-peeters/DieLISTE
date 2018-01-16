@@ -93,7 +93,7 @@ extension User: Preparation {
     /// Prepares the database for using the user model
     /// - parameters:
     ///   - database: The database that should be prepared
-    /// - throws: When the database can't be reverted
+    /// - throws: When the database can't be created
     public static func prepare(_ database: Database) throws {
         try database.create(self, closure: { builder in
             builder.id()
@@ -122,7 +122,7 @@ extension User: NodeRepresentable {
     ///
     /// - parameters:
     ///   - context: The context for the node encoding
-    /// - throws: Throws if the is an error when setting the keys or values
+    /// - throws: Throws if there is an error when setting the keys or values
     /// - returns: The user as a node
     public func makeNode(in context: Context?) throws -> Node {
         var node = Node(context)

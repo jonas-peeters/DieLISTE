@@ -84,7 +84,7 @@ extension Item: Preparation {
     /// Prepares the database for using the item model
     /// - parameters:
     ///   - database: The database that should be prepared
-    /// - throws: When the database can't be reverted
+    /// - throws: When the database can't be created
     static func prepare(_ database: Database) throws {
         try database.create(self, closure: { builder in
             builder.id()
@@ -111,7 +111,7 @@ extension Item: NodeRepresentable {
     ///
     /// - parameters:
     ///   - context: The context for the node encoding
-    /// - throws: Throws if the is an error when setting the keys or values
+    /// - throws: Throws if there is an error when setting the keys or values
     /// - returns: The item as a node
     func makeNode(in context: Context?) throws -> Node {
         var node = Node(context)
@@ -127,7 +127,7 @@ extension Item: NodeRepresentable {
 
 //MARK: JSON
 extension Item: JSONConvertible {
-    /// Creates an item from a JSON object of the user
+    /// Creates an item from a JSON object
     ///
     /// Required json structure:
     ///
@@ -141,7 +141,7 @@ extension Item: JSONConvertible {
     ///
     /// - parameters:
     ///   - json: An item encoded as JSON
-    /// - throws: Throws if the json can't be parsed as a user
+    /// - throws: Throws if the json can't be parsed as an item
     /// - returns: The item
     convenience init(json: JSON) throws {
         try self.init(name: json.get(Item.Keys.name),

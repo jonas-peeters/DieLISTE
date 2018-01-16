@@ -2,6 +2,9 @@ import Vapor
 import HTTP
 import PostgreSQL
 
+/// Controlling all routes concerning special information
+///
+/// These routes are for debug purposes only
 final class InfoController {
     
     /// Adds all routes relevant to special information

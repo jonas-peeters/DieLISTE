@@ -45,6 +45,11 @@ final class Category: Model {
 
 //MARK: Preparation
 extension Category: Preparation {
+    /// Prepares the database for using the category model and adding the categories
+    ///
+    /// - parameters:
+    ///   - database: The database that should be prepared
+    /// - throws: When the database can't be reverted
     static func prepare(_ database: Database) throws {
         try database.create(self, closure: { builder in
             builder.id()
@@ -61,6 +66,10 @@ extension Category: Preparation {
         try Category(name: "Spread").save()
     }
     
+    /// Undoes what prepare() ist doing
+    /// - parameters:
+    ///   - database: The database where the preparation should be reverted
+    /// - throws: When the database can't be reverted
     static func revert(_ database: Database) throws {
         try database.delete(self)
     }
@@ -68,6 +77,12 @@ extension Category: Preparation {
 
 //MARK: Node
 extension Category: NodeRepresentable {
+    /// Makes the category model node representable
+    ///
+    /// - parameters:
+    ///   - context: The context for the node encoding
+    /// - throws: Throws if there is an error when setting the keys or values
+    /// - returns: The item as a node
     func makeNode(in context: Context?) throws -> Node {
         var node = Node(context)
         try node.set(Category.Keys.id, id)
@@ -78,10 +93,26 @@ extension Category: NodeRepresentable {
 
 //MARK: JSON
 extension Category: JSONConvertible {
+    /// Creates a category from a JSON object
+    ///
+    /// Required json structure:
+    ///
+    ///     {
+    ///       "name": $NAME_String
+    ///     }
+    ///
+    /// - parameters:
+    ///   - json: A categroy encoded as JSON
+    /// - throws: Throws if the json can't be parsed as a category
+    /// - returns: The category
     convenience init(json: JSON) throws {
         try self.init(name: json.get(Category.Keys.name))
     }
     
+    /// Creates a JSON object from a category
+    ///
+    /// - throws: If something goes wrong when setting keys and values
+    /// - returns: The category encoded as JSON
     func makeJSON() throws -> JSON {
         var json = JSON()
         try json.set(Category.Keys.id, id)
