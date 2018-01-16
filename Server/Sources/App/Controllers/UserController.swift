@@ -4,6 +4,11 @@ import FluentProvider
 import AuthProvider
 
 final class UserController {
+    let view: ViewRenderer
+    
+    init(_ view: ViewRenderer) {
+        self.view = view
+    }
     
     /// Adds all routes relevant to user information
     ///
@@ -35,13 +40,9 @@ final class UserController {
         // Delete user account
         authedUserRoute.delete(handler: delete)
         
-        // Change password
-        authedUserRoute.post("password", handler: changePassword)
-        
-        // Forgot password
-        userRoute.get("password") { req in
-            return try self.forgotPassword(req, drop: drop)
-        }
+        // Add password specific routes
+        let passwordController = PasswordController(self.view)
+        passwordController.addRoutes(drop: drop, userRoute: userRoute, authedRoute: authedUserRoute)
         
         // Add lists specified in the list controller
         listController.addRoutes(drop: drop, listRoute: authedUserRoute.grouped("lists"))
@@ -94,6 +95,8 @@ final class UserController {
     
     /// Request to verify an email address using a previously generated unique id
     ///
+    /// Route: GET to '/user/verify/$UUID'
+    ///
     /// - Parameters:
     ///   - request: A HTTP request
     ///   - drop: Vapor droplet for access to the cache
@@ -101,21 +104,18 @@ final class UserController {
     func verifyEMail(_ request: Request, drop: Droplet) throws -> ResponseRepresentable {
         do {
             let verifyId = try request.parameters.next(String.self)
-            if let cacheNode = try drop.cache.get(verifyId) {
-                let id = cacheNode.string
-                do {
-                    let user = try User.find(id)
-                    user?.verifiedEmail = true
-                    try user?.save()
-                    return try makeJSON(from: "Success")
-                } catch {
-                    return generateJSONError(from: "User could not be found. Account may be deleted?")
-                }
-            } else {
-                return generateJSONError(from: "We could not find your account. Maybe the key has expired. Try and request a new one.")
+            guard let cacheNode = try drop.cache.get(verifyId) else {
+                return try self.view.make("error", ["message": "Token abgelaufen"], for: request)
             }
+            let id = cacheNode.string
+            guard let user = try User.find(id) else {
+                return try self.view.make("error", ["message": "User nicht gefunden"], for: request)
+            }
+            user.verifiedEmail = true
+            try user.save()
+            return try self.view.make("success", ["message": "E-Mail erfolgreich verifiziert"], for: request)
         } catch {
-            return generateJSONError(from: "Could not get required parameter")
+            return try self.view.make("error", ["message": "Parameter nicht gefunden"], for: request)
         }
     }
     
@@ -172,62 +172,6 @@ final class UserController {
         try user?.delete()
         
         return try makeJSON(from: "Deleted user")
-    }
-    
-    /// Changes the password of a user (only when authenticated)
-    ///
-    /// Route for request: POST to '/user/password'
-    ///
-    /// JSON encoding for request:
-    ///
-    ///     {
-    ///       "password": $NEW_PASSWORD_String
-    ///     }
-    ///
-    /// - Parameter request: A HTTP request
-    /// - Returns: "Changed Password" when the action was successful
-    func changePassword(_ request: Request) throws -> ResponseRepresentable {
-        let user = request.auth.authenticated(User.self)
-        
-        do {
-            let json = request.json
-            let newPassword = try json!.get(User.Keys.password) as String
-            user?.password = newPassword
-            
-            do {
-                try user?.save()
-            } catch {
-                return generateJSONError(from: "Could not save new password! Try again later.")
-            }
-        } catch {
-            return generateJSONError(from: "Could not read password from JSON.")
-        }
-        
-        return try makeJSON(from: "Changed Password")
-    }
-    
-    /// Sends an email to the user so that he/she can reset their password
-    ///
-    /// - Parameter request: A HTTP request
-    /// - Returns: "EMail sent" on success
-    func forgotPassword(_ request: Request, drop: Droplet) throws -> ResponseRepresentable {
-        do {
-            let json = request.json
-            let email = try json!.get(User.Keys.email) as String
-            var user: User? = nil
-            user = try User.all().first(where: { $0.email.lowercased() == email.lowercased() })
-            if user != nil {
-                if sendForgotPasswordEMail(email: email, username: user!.username, link: "Not existent", config: drop.config) {
-                    return try makeJSON(from: "EMail sent")
-                } else {
-                    return generateJSONError(from: "EMail not sent")
-                }
-            } else {
-                return generateJSONError(from: "User with that email not found")
-            }
-        } catch {
-            return generateJSONError(from: "Could not read e-mail from json")
-        }
     }
     
     /// Only works when authenticated

@@ -1,0 +1,13 @@
+#extend("base")
+
+#export("title") { Fehler }
+
+#export("script") {}
+
+#export("content") {
+<center>
+    <h1>Fehler</h1>
+    <div id="errorMessage">#raw(message)</div>
+</center>
+}
+

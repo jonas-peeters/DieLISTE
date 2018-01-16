@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>#import("title")</title>
+    <link href="/styles/app.css" rel="stylesheet">
+    <script>#import("script")</script>
+</head>
+<body>
+    #import("content")
+</body>
+</html>

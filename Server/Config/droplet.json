@@ -42,5 +42,7 @@
     ],
     
     "//":"Use the database for caching",
-    "driver": "fluent"
+    "driver": "fluent",
+    
+    "view": "leaf"
 }

@@ -1,0 +1,12 @@
+#extend("base")
+
+#export("title") { Erfolgreich }
+
+#export("script") {}
+
+#export("content") {
+<center>
+    <h1>Erfolgreich</h1>
+    <div id="successMessage">#raw(message)</div>
+</center>
+}

@@ -1,0 +1,45 @@
+body, html {
+	height: 100%;
+}
+
+input.password {
+    width: 50%;
+    height: 25px;
+    background-color: #DDDDDD;
+    color: #222222;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #222222;
+    font-size: 20px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+button.password {
+    width: 25%;
+    height: 35px;
+    background-color: #54C5EC;
+    color: #DDDDDD;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 20px;
+    text-align: center;
+    border-style: solid;
+    border-color: #222222;
+    border-radius: 10px;
+}
+
+h1 {
+    color: #54C5EC;
+    font-size: 30px;
+}
+
+#errorMessage {
+    color: red;
+    font-size: 20px;
+}
+
+#successMessage {
+    color: #222222;
+    font-size: 20px;
+}
