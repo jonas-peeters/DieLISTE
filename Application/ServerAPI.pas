@@ -34,8 +34,8 @@ type
     function deleteUser(): String;
     function me(): String;
     function jsonToRecord(jsonString: string): TUserData;
-    function addList();
-    function getLists(request:TRESTRequest);
+    function addList(): String;
+    function getLists(): String;
     function jsonArrayToArray(const s:string):TArray;
     procedure AddToArray(var a:TArray; const value: string);
 end;
@@ -115,7 +115,7 @@ begin
   result := userData;
 end;
 
-function TServerAPI.addList();
+function TServerAPI.addList(): String;
 var  request: TRESTRequest;
 begin
   request := TRESTRequest.Create(nil);
@@ -126,7 +126,9 @@ begin
   result := request.Response.Content;
 end;
 
-function TServerAPI.getLists(request:TRESTRequest);
+function TServerAPI.getLists(): String;
+var
+  request: TRESTRequest;
 begin
   request := TRESTRequest.Create(nil);
   request.Method := REST.Types.rmGET;  //GET
@@ -136,10 +138,9 @@ begin
   result := request.Response.Content;
 end;
 
-procedure TServerAPI.AddToArray(var a:TArray; const value: string);           //Zeile 139 bis 161
-overload;                                                                     //ist das konvertieren der
-var laenge: integer;                                                          //Arrays zu für uns
-begin                                                                         //brauchbaren Arrays
+procedure TServerAPI.AddToArray(var a:TArray; const value: string);
+var laenge: integer;
+begin
   laenge:=length(a);
   Setlength(a,laenge+1);
   a[laenge]:=value;
@@ -154,7 +155,7 @@ begin
   jar:=TjsonObject.ParseJSONValue(s)as TjsonArray;
   for I := 0 to (jar.Count-1) do
     begin
-      item:= jar.Items as Tjsonstring;
+      item:= jar.Items[i] as Tjsonstring;
       AddToArray(result,item.Value);
     end;
   jar.Free;
