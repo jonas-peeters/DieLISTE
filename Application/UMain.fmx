@@ -1,4 +1,4 @@
-object Form6: TForm6
+﻿object Form6: TForm6
   Left = 0
   Top = 0
   Caption = 'Form6'
@@ -125,10 +125,10 @@ object Form6: TForm6
         end
         object EditButton: TButton
           Anchors = []
-          Position.X = 248.997787475586000000
-          Position.Y = 37.707637786865240000
-          Size.Width = 57.669174194335940000
-          Size.Height = 22.000000000000000000
+          Position.X = 261.355468750000000000
+          Position.Y = 37.923858642578120000
+          Size.Width = 32.953796386718750000
+          Size.Height = 21.567554473876950000
           Size.PlatformDefault = False
           TabOrder = 2
           Text = 'Edit'
@@ -258,6 +258,30 @@ object Form6: TForm6
           DefaultItemStyles.GroupFooterStyle = ''
           Viewport.Width = 368.000000000000000000
           Viewport.Height = 431.300000000000000000
+          object LBIUserLöschen: TListBoxItem
+            TabOrder = 0
+            Text = 'User l'#246'schen'
+            OnClick = LBIUserLöschenClick
+          end
+          object LBIPasswortvergessen: TListBoxItem
+            Position.Y = 44.000000000000000000
+            TabOrder = 1
+            Text = 'Passwort vergessen'
+          end
+          object LBIPasswortändern: TListBoxItem
+            Position.Y = 88.000000000000000000
+            TabOrder = 2
+            Text = 'Passwort '#228'ndern'
+          end
+          object Label5: TLabel
+            Position.X = 152.000000000000000000
+            Position.Y = 96.000000000000000000
+            Size.Width = 177.000000000000000000
+            Size.Height = 25.000000000000000000
+            Size.PlatformDefault = False
+            Text = 'Label5'
+            TabOrder = 0
+          end
         end
       end
     end
