@@ -44,7 +44,7 @@ begin
    email:= EdtEmail.Text;
    name:= EdtBenutzername2.Text;
    password:= EdtPW2.Text;
-   TServerAPI.createUser(email,name, password);
+   serverAPI.createUser(email,name, password);
 end;
 
 procedure TForm5.FormCreate(Sender:TObject);
