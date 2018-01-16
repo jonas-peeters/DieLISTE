@@ -32,7 +32,6 @@ type
 
 var
   Form5: TForm5;
-  serverAPI: TServerAPI;
 
 implementation
 
@@ -44,14 +43,8 @@ begin
    email:= EdtEmail.Text;
    name:= EdtBenutzername2.Text;
    password:= EdtPW2.Text;
-   serverAPI.createUser(email,name, password);
+   UMain.serverAPI.createUser(email,name, password);
 end;
-
-procedure TForm5.FormCreate(Sender:TObject);
-begin
-  serverAPI := TServerAPI.create();
-end;
-
 
 procedure TForm5.BtnLosClick(Sender: TObject);
 var
