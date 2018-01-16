@@ -39,7 +39,7 @@ procedure TForm5.BtnLosClick(Sender: TObject);
 var
   i: Integer;
 begin
-  if True then // Check if the user gets autheticated
+  if UMain.serverAPI.login(EdtBenutzername1.Text, EdtPW1.Text)='"OK: Authenticated"' then // Check if the user gets autheticated
   begin
     Form6.ShowModal;
   end;

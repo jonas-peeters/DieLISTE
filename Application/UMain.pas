@@ -29,7 +29,12 @@ type
     Label4: TLabel;
     ListBox3: TListBox;
     Button2: TButton;
+    LBIUserLöschen: TListBoxItem;
+    LBIPasswortvergessen: TListBoxItem;
+    LBIPasswortändern: TListBoxItem;
+    Label5: TLabel;
     procedure FormCreate(Sender: TObject);
+    procedure LBIUserLöschenClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -49,4 +54,25 @@ begin
   serverAPI := TServerAPI.create();
 end;
 
+procedure TForm6.LBIUserLöschenClick(Sender: TObject);
+begin
+MessageDlg('Wollen Sie den Account wirklich löschen?', System.UITypes.TMsgDlgType.mtCustom,
+[ System.UITypes.TMsgDlgBtn.mbYes,
+  System.UITypes.TMsgDlgBtn.mbNo,
+  System.UITypes.TMsgDlgBtn.mbCancel
+],0,
+procedure (const AResult:System.UITypes.TModalResult)
+begin
+  case AResult of
+    mrYES:
+    if UMain.serverAPI.deleteUser()='"Deleted user"' then
+      begin
+        ShowMessage('Der User wurde gelöscht!');
+        Form6.CloseModal;
+      end;
+  end;
+end);
+end;
+
 end.
+
