@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, UMain;
+  FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, UMain, ServerAPI;
 
 type
   TForm5 = class(TForm)
@@ -22,6 +22,7 @@ type
     BtnRegistrieren: TButton;
     TitleLabel: TLabel;
     procedure BtnLosClick(Sender: TObject);
+    procedure BtnRegistrierenClick(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -34,6 +35,15 @@ var
 implementation
 
 {$R *.fmx}
+
+procedure TForm5.BtnRegistrierenClick(Sender: TObject);
+var email, name, password: string;
+begin
+   email:= EdtEmail.Text;
+   name:= EdtBenutzername2.Text;
+   password:= EdtPW2.Text;
+   UMain.serverAPI.createUser(email,name, password);
+end;
 
 procedure TForm5.BtnLosClick(Sender: TObject);
 var
