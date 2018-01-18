@@ -12,7 +12,9 @@ final class ListController {
     ///
     /// Delete `/user/lists`: Deletes a list
     ///
-    /// Post `/user/lists/items`: Puts a new item into a list
+    /// Post `/user/lists/items`: Adds an item to a list
+    ///
+    /// Delete to `/user/lists/items`: Deleted an item from a list
     ///
     /// - parameters:
     ///   - drop: The droplet the routes should be added to
@@ -21,7 +23,9 @@ final class ListController {
         listRoute.get(handler: getLists)
         listRoute.post(handler: addList)
         listRoute.delete(handler: removeList)
-        listRoute.post("items", handler: addToList)
+        let itemRoute = listRoute.grouped("items")
+        itemRoute.post(handler: addToList)
+        itemRoute.delete(handler: deleteFromList)
     }
     
     /// Creates a new list
@@ -89,7 +93,7 @@ final class ListController {
     func addToList(_ request: Request) throws -> ResponseRepresentable {
         let user = request.auth.authenticated(User.self)!
         guard let json = request.json else {
-            throw Abort.badRequest
+            return generateJSONError(from: "Could not retrieve JSON")
         }
         
         let item: Item?
@@ -109,6 +113,41 @@ final class ListController {
         try item?.save()
         
         return try getLists(request)
+    }
+    
+    /// Deletes an item from a list
+    ///
+    /// Route for request: DELETE to `/user/lists/items`
+    ///
+    /// JSON encoding for request
+    ///
+    ///     {
+    ///         "id": $ID_Int
+    ///     }
+    ///
+    /// User must be authenticated/logged in
+    ///
+    /// - Parameter request: The HTTP request
+    /// - Returns: "Item deleted" on success
+    func deleteFromList(_ request: Request) throws -> ResponseRepresentable {
+        guard let user = request.auth.authenticated(User.self) else {
+            return generateJSONError(from: "User not found")
+        }
+        guard let json = request.json else {
+            return generateJSONError(from: "Could not retrieve JSON")
+        }
+        do {
+            let id = try json.get("id") as Int
+            do {
+                guard let item = user.items.first(where: { $0.id!.int! == id}) else {
+                    return generateJSONError(from: "Could not find item")
+                }
+                try user.lists.find(item.listId!)?.children(type: Item.self, foreignIdKey: List.foreignIdKey).delete(item)
+                return try makeJSON(from: "Item deleted")
+            }
+        } catch {
+            return generateJSONError(from: "Could not interfere item")
+        }
     }
     
     /// Deletes a list

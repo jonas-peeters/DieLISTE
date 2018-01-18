@@ -27,6 +27,19 @@ public final class User: Model, SessionPersistable, PasswordAuthenticatable {
         return siblings()
     }
     
+    // All item from all lists the user has access to
+    var items: [Item] {
+        var itemList: [Item] = []
+        do {
+            for list in try self.lists.all() {
+                itemList.append(contentsOf: list.items)
+            }
+        } catch {
+            return itemList
+        }
+        return itemList
+    }
+    
     /// # Keys
     /// This struct defines a number of keys that are
     /// used in the database to name the single columns
