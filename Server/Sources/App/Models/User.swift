@@ -27,7 +27,7 @@ public final class User: Model, SessionPersistable, PasswordAuthenticatable {
         return siblings()
     }
     
-    // All item from all lists the user has access to
+    /// All items from all lists the user has access to
     var items: [Item] {
         var itemList: [Item] = []
         do {

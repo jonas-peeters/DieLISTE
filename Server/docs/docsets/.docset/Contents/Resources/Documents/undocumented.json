@@ -93,49 +93,56 @@
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 34,
+      "line": 31,
+      "symbol": "User.items",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
+      "line": 47,
       "symbol": "User.Keys.id",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 35,
+      "line": 48,
       "symbol": "User.Keys.username",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 36,
+      "line": 49,
       "symbol": "User.Keys.email",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 37,
+      "line": 50,
       "symbol": "User.Keys.verifiedEmail",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 38,
+      "line": 51,
       "symbol": "User.Keys.password",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 39,
+      "line": 52,
       "symbol": "User.Keys.allergies",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 40,
+      "line": 53,
       "symbol": "User.Keys.spam",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
