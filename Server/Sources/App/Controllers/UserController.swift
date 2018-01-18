@@ -47,6 +47,9 @@ final class UserController {
         // Delete user account
         authedUserRoute.delete(handler: delete)
         
+        // Change the allergies
+        authedUserRoute.post("allergies", handler: writeAllergies)
+        
         // Add password specific routes
         let passwordController = PasswordController(self.view)
         passwordController.addRoutes(drop: drop, userRoute: userRoute, authedRoute: authedUserRoute)
@@ -190,5 +193,36 @@ final class UserController {
     /// - returns: The requesting user
     func me(_ request: Request) throws -> ResponseRepresentable {
         return try makeJSON(from: request.auth.authenticated(User.self)!)
+    }
+    
+    /// Write into the allergies string of a user
+    ///
+    /// Route for request: POST to `/user/allergies`
+    ///
+    /// JSON encoding for request
+    ///
+    ///     {
+    ///       "allergies": $ALLERGIES_String
+    ///     }
+    ///
+    /// The user has to be autheticated
+    ///
+    /// - Parameter request: The HTTP request
+    /// - Returns: "Updated allergies" on success
+    func writeAllergies(_ request: Request) throws -> ResponseRepresentable {
+        guard let user = request.auth.authenticated(User.self) else {
+            return generateJSONError(from: "User not found")
+        }
+        guard let json = request.json else {
+            return generateJSONError(from: "Could not retrieve JSON")
+        }
+        do {
+            let allergies = try json.get("allergies") as String
+            user.allergies = allergies
+            try user.save()
+            return try makeJSON(from: "Updated allergies")
+        } catch {
+            return generateJSONError(from: "Could not read allergies")
+        }
     }
 }
