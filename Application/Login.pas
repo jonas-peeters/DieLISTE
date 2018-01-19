@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, UMain, ServerAPI;
+  FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, UMain, ServerAPI, PWVergessen;
 
 type
   TForm5 = class(TForm)
@@ -23,6 +23,7 @@ type
     TitleLabel: TLabel;
     procedure BtnLosClick(Sender: TObject);
     procedure BtnRegistrierenClick(Sender: TObject);
+    procedure BtnPWVergessenClick(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -31,10 +32,17 @@ type
 
 var
   Form5: TForm5;
-
+  serverAPI: TServerAPI;
 implementation
 
 {$R *.fmx}
+
+procedure TForm5.BtnPWVergessenClick(Sender: TObject);
+var PwVergessenForm: TForm;
+begin
+  PwVergessenForm:= Tform10.Create(Application,serverAPI);
+  PWvergessenform.Show;
+end;
 
 procedure TForm5.BtnRegistrierenClick(Sender: TObject);
 var email, name, password: string;

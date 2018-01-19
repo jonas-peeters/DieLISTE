@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.ScrollBox, FMX.Memo, serverAPI,
-  FMX.TabControl, FMX.Layouts, FMX.ListBox;
+  FMX.TabControl, FMX.Layouts, FMX.ListBox, PWvergessen, PWaendern;
 
 type
   TForm6 = class(TForm)
@@ -29,12 +29,11 @@ type
     Label4: TLabel;
     ListBox3: TListBox;
     Button2: TButton;
-    LBIUserLöschen: TListBoxItem;
-    LBIPasswortvergessen: TListBoxItem;
-    LBIPasswortändern: TListBoxItem;
-    Label5: TLabel;
+    LBUserlöschen: TListBoxItem;
+    LBPasswortaendern: TListBoxItem;
     procedure FormCreate(Sender: TObject);
     procedure LBIUserLöschenClick(Sender: TObject);
+    procedure LBIPasswortändernClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,6 +51,14 @@ implementation
 procedure TForm6.FormCreate(Sender: TObject);
 begin
   serverAPI := TServerAPI.create();
+end;
+
+procedure TForm6.LBIPasswortändernClick(Sender: TObject);
+var
+  pwAendernForm: TForm;
+begin
+  pwAendernForm := TForm7.Create(Application, serverAPI);
+  pwAendernForm.Show;
 end;
 
 procedure TForm6.LBIUserLöschenClick(Sender: TObject);
@@ -73,6 +80,7 @@ begin
   end;
 end);
 end;
+
 
 end.
 

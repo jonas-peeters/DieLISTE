@@ -29,6 +29,8 @@ type
     function createUser(email: String; name: String; password: String): String;
     function login(email : String; password: String): String;
     function deleteUser(): String;
+    function changePassword(password:string): String;
+    function forgotPassword(email: string): String;
     function me(): String;
     function jsonToRecord(jsonString: string): TUserData;
 end;
@@ -79,6 +81,36 @@ begin
   request := TRESTRequest.Create(nil);
   request.Method := REST.Types.rmDELETE;
   request.Resource := 'user';
+  request.Client := self.client;
+  request.Execute;
+  result := request.Response.Content;
+end;
+
+function TServerAPI.changePassword(password:string): String;
+var
+  jsonString: string;
+  request: TRESTRequest;
+begin
+  jsonString := '{"password": "' + password + '"}';
+  request := TRESTRequest.Create(nil);
+  request.Method := REST.Types.rmPOST;
+  request.Body.JSONWriter.WriteRaw(jsonString);
+  request.Resource := 'user/password/change';
+  request.Client := self.client;
+  request.Execute;
+  result := request.Response.Content;
+end;
+
+function TServerAPI.forgotPassword(email: string): String;
+var
+  jsonString: string;
+  request: TRESTRequest;
+begin
+  jsonString := '{"email": "' + email + '"}';
+  request := TRESTRequest.Create(nil);
+  request.Method := REST.Types.rmPOST;
+  request.Body.JSONWriter.WriteRaw(jsonString);
+  request.Resource := '/user/password/forgot';
   request.Client := self.client;
   request.Execute;
   result := request.Response.Content;

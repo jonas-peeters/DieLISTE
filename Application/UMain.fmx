@@ -16,7 +16,7 @@
     Size.Height = 573.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 1
     TabPosition = PlatformDefault
     Sizes = (
@@ -30,7 +30,7 @@
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 122.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -118,7 +118,7 @@
         object Label3: TLabel
           Align = Client
           Size.Width = 245.761703491210900000
-          Size.Height = 57.910911560058600000
+          Size.Height = 57.910911560058590000
           Size.PlatformDefault = False
           Text = 'BSP: Z'#246'liakie'
           TabOrder = 1
@@ -126,7 +126,7 @@
         object EditButton: TButton
           Anchors = []
           Position.X = 261.355468750000000000
-          Position.Y = 37.923858642578120000
+          Position.Y = 37.923858642578130000
           Size.Width = 32.953796386718750000
           Size.Height = 21.567554473876950000
           Size.PlatformDefault = False
@@ -145,6 +145,17 @@
           DefaultItemStyles.GroupFooterStyle = ''
           Viewport.Width = 368.000000000000000000
           Viewport.Height = 345.000000000000000000
+          object LBUserlöschen: TListBoxItem
+            TabOrder = 0
+            Text = 'User l'#246'schen'
+            OnClick = LBIUserLöschenClick
+          end
+          object LBPasswortaendern: TListBoxItem
+            Position.Y = 44.000000000000000000
+            TabOrder = 1
+            Text = 'Passwort '#228'ndern'
+            OnClick = LBIPasswortändernClick
+          end
         end
       end
     end
@@ -152,7 +163,7 @@
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 122.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -220,7 +231,7 @@
             Value = 5.894452983715341000
           end
           item
-            Value = 82.316641048853930000
+            Value = 82.316641048853920000
           end>
         object PlusBtn2: TButton
           Align = Client
@@ -258,30 +269,6 @@
           DefaultItemStyles.GroupFooterStyle = ''
           Viewport.Width = 368.000000000000000000
           Viewport.Height = 431.300000000000000000
-          object LBIUserLöschen: TListBoxItem
-            TabOrder = 0
-            Text = 'User l'#246'schen'
-            OnClick = LBIUserLöschenClick
-          end
-          object LBIPasswortvergessen: TListBoxItem
-            Position.Y = 44.000000000000000000
-            TabOrder = 1
-            Text = 'Passwort vergessen'
-          end
-          object LBIPasswortändern: TListBoxItem
-            Position.Y = 88.000000000000000000
-            TabOrder = 2
-            Text = 'Passwort '#228'ndern'
-          end
-          object Label5: TLabel
-            Position.X = 152.000000000000000000
-            Position.Y = 96.000000000000000000
-            Size.Width = 177.000000000000000000
-            Size.Height = 25.000000000000000000
-            Size.PlatformDefault = False
-            Text = 'Label5'
-            TabOrder = 0
-          end
         end
       end
     end
@@ -357,7 +344,7 @@
             Value = 5.894452983715341000
           end
           item
-            Value = 82.316641048853930000
+            Value = 82.316641048853920000
           end>
         object Button1: TButton
           Align = Client

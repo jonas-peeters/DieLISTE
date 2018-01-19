@@ -16,13 +16,13 @@ object Form10: TForm10
     TabOrder = 0
     ColumnCollection = <
       item
-        Value = 9.999930092166500000
+        Value = 9.999930092166501000
       end
       item
-        Value = 80.007892595597040000
+        Value = 80.007892595597060000
       end
       item
-        Value = 9.992177312236453000
+        Value = 9.992177312236455000
       end>
     ControlCollection = <
       item
@@ -62,10 +62,10 @@ object Form10: TForm10
         Value = 7.964079890178560000
       end
       item
-        Value = 7.908378847366999000
+        Value = 7.908378847366998000
       end
       item
-        Value = 7.899659706457652000
+        Value = 7.899659706457653000
       end
       item
         Value = 7.490536564747323000
@@ -77,7 +77,7 @@ object Form10: TForm10
         Value = 7.269121343637960000
       end
       item
-        Value = 7.258830208538205000
+        Value = 7.258830208538206000
       end
       item
         Value = 7.174656900607265000
@@ -113,14 +113,17 @@ object Form10: TForm10
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 1
+      Text = 'EMail'
       Size.Width = 280.027618408203100000
-      Size.Height = 39.125091552734370000
+      Size.Height = 39.125091552734380000
       Size.PlatformDefault = False
+      OnClick = BtnSendenClick
     end
     object EdtBenutzername: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 2
+      Text = 'Benutzername'
       Size.Width = 280.027618408203100000
       Size.Height = 38.671386718750000000
       Size.PlatformDefault = False
@@ -132,6 +135,7 @@ object Form10: TForm10
       Size.PlatformDefault = False
       TabOrder = 3
       Text = 'Anleitung Senden'
+      OnClick = BtnSendenClick
     end
     object LblPWvergessen: TLabel
       Align = Client

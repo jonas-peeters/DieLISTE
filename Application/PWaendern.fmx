@@ -90,7 +90,7 @@ object Form7: TForm7
         Value = 9.550217255482478000
       end
       item
-        Value = 9.507877481870284000
+        Value = 9.507877481870286000
       end
       item
         Value = 9.362030900164122000
@@ -109,6 +109,7 @@ object Form7: TForm7
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 2
+      Text = 'altes Passwort'
       Size.Width = 197.387802124023400000
       Size.Height = 23.049362182617190000
       Size.PlatformDefault = False
@@ -117,6 +118,7 @@ object Form7: TForm7
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 1
+      Text = 'neues Passwort'
       Size.Width = 197.387802124023400000
       Size.Height = 23.766418457031250000
       Size.PlatformDefault = False
@@ -125,6 +127,7 @@ object Form7: TForm7
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 0
+      Text = 'neues Passwort wiederholen'
       Size.Width = 197.387802124023400000
       Size.Height = 23.875549316406250000
       Size.PlatformDefault = False
@@ -136,6 +139,7 @@ object Form7: TForm7
       Size.PlatformDefault = False
       TabOrder = 3
       Text = 'Passwort '#228'ndern'
+      OnClick = BtnPWaendernClick
     end
     object LblPWaendern: TLabel
       Align = Client

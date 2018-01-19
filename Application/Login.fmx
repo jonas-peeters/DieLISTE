@@ -145,7 +145,7 @@ object Form5: TForm5
       end>
     object LblAnmelden: TLabel
       Align = Client
-      Size.Width = 268.252502441406200000
+      Size.Width = 268.252502441406300000
       Size.Height = 34.375076293945310000
       Size.PlatformDefault = False
       Text = 'Anmelden'
@@ -153,7 +153,7 @@ object Form5: TForm5
     end
     object LblRegistrieren: TLabel
       Align = Client
-      Size.Width = 268.252502441406200000
+      Size.Width = 268.252502441406300000
       Size.Height = 34.374908447265630000
       Size.PlatformDefault = False
       Text = 'Registrieren'
@@ -163,7 +163,7 @@ object Form5: TForm5
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 6
-      Size.Width = 268.252502441406200000
+      Size.Width = 268.252502441406300000
       Size.Height = 34.375015258789060000
       Size.PlatformDefault = False
       TextPrompt = 'E-Mail/Benutzername'
@@ -173,7 +173,7 @@ object Form5: TForm5
       Align = Client
       TabOrder = 5
       Password = True
-      Size.Width = 268.252502441406200000
+      Size.Width = 268.252502441406300000
       Size.Height = 34.374969482421880000
       Size.PlatformDefault = False
       TextPrompt = 'Passwort'
@@ -182,7 +182,7 @@ object Form5: TForm5
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 4
-      Size.Width = 268.252502441406200000
+      Size.Width = 268.252502441406300000
       Size.Height = 34.374938964843750000
       Size.PlatformDefault = False
       TextPrompt = 'E-Mail'
@@ -191,7 +191,7 @@ object Form5: TForm5
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 3
-      Size.Width = 268.252502441406200000
+      Size.Width = 268.252502441406300000
       Size.Height = 34.374938964843750000
       Size.PlatformDefault = False
       TextPrompt = 'Benutzername'
@@ -201,14 +201,14 @@ object Form5: TForm5
       Align = Client
       TabOrder = 2
       Password = True
-      Size.Width = 268.252502441406200000
+      Size.Width = 268.252502441406300000
       Size.Height = 34.374969482421880000
       Size.PlatformDefault = False
       TextPrompt = 'Passwort'
     end
     object BtnLos: TButton
       Align = Client
-      Size.Width = 89.160919189453120000
+      Size.Width = 89.160919189453130000
       Size.Height = 34.374908447265630000
       Size.PlatformDefault = False
       TabOrder = 7
@@ -217,16 +217,17 @@ object Form5: TForm5
     end
     object BtnPWVergessen: TButton
       Align = Client
-      Size.Width = 89.667198181152350000
-      Size.Height = 34.375030517578120000
+      Size.Width = 89.667198181152340000
+      Size.Height = 34.375030517578130000
       Size.PlatformDefault = False
       TabOrder = 8
       Text = 'Passwort vergessen'
+      OnClick = BtnPWVergessenClick
     end
     object BtnRegistrieren: TButton
       Align = Client
-      Size.Width = 89.160919189453120000
-      Size.Height = 34.375030517578120000
+      Size.Width = 89.160919189453130000
+      Size.Height = 34.375030517578130000
       Size.PlatformDefault = False
       TabOrder = 9
       Text = 'Registrieren'
