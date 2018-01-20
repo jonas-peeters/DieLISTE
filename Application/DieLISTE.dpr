@@ -18,11 +18,6 @@ begin
   Application.Initialize;
 
   Application.CreateForm(TForm5, Form5);
-
-  Application.CreateForm(TForm6, Form6);
-  Application.CreateForm(TForm2, Form2);
-  Application.CreateForm(TForm8, Form8);
-  Application.CreateForm(TForm9, Form9);
   Application.Run;
 
 end.

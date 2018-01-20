@@ -55,10 +55,10 @@ end;
 
 procedure TForm6.LBIPasswortändernClick(Sender: TObject);
 var
-  pwAendernForm: TForm;
+  PWAendernForm: TForm;
 begin
-  pwAendernForm := TForm7.Create(Application, serverAPI);
-  pwAendernForm.Show;
+  PWAendernForm := TForm7.Create(Application, serverAPI);
+  PWAendernForm.Show;
 end;
 
 procedure TForm6.LBIUserLöschenClick(Sender: TObject);
@@ -75,7 +75,7 @@ begin
     if UMain.serverAPI.deleteUser()='"Deleted user"' then
       begin
         ShowMessage('Der User wurde gelöscht!');
-        Form6.CloseModal;
+        Release;
       end;
   end;
 end);

@@ -63,40 +63,45 @@ object Form7: TForm7
         Control = Panel1
         Row = 0
         RowSpan = 3
+      end
+      item
+        Column = 1
+        Control = BtnCancel
+        Row = 9
       end>
     RowCollection = <
       item
-        Value = 8.159296334363834000
+        Value = 8.159296334363836000
       end
       item
-        Value = 8.462895063470596000
+        Value = 8.462895063470597000
       end
       item
-        Value = 8.746123088819878000
+        Value = 8.746123088819880000
       end
       item
-        Value = 9.001155829913559000
+        Value = 9.001155829913560000
       end
       item
-        Value = 9.219744442566772000
+        Value = 9.219744442566775000
       end
       item
-        Value = 9.392054672881176000
+        Value = 9.392054672881180000
       end
       item
-        Value = 9.506568260475131000
+        Value = 9.506568260475132000
       end
       item
-        Value = 9.550217255482478000
+        Value = 9.550217255482482000
       end
       item
-        Value = 9.507877481870286000
+        Value = 9.507877481870289000
       end
       item
-        Value = 9.362030900164122000
+        Value = 9.362030900164124000
       end
       item
-        Value = 9.092036669992160000
+        Value = 9.092036669992161000
       end>
     object Panel1: TPanel
       Align = Client
@@ -109,28 +114,28 @@ object Form7: TForm7
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 2
-      Text = 'altes Passwort'
       Size.Width = 197.387802124023400000
       Size.Height = 23.049362182617190000
       Size.PlatformDefault = False
+      TextPrompt = 'altes Passwort'
     end
     object EdtPWneu1: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 1
-      Text = 'neues Passwort'
       Size.Width = 197.387802124023400000
       Size.Height = 23.766418457031250000
       Size.PlatformDefault = False
+      TextPrompt = 'neues Passwort'
     end
     object EdtPWneu2: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 0
-      Text = 'neues Passwort wiederholen'
       Size.Width = 197.387802124023400000
       Size.Height = 23.875549316406250000
       Size.PlatformDefault = False
+      TextPrompt = 'neues Passwort wiederholen'
     end
     object BtnPWaendern: TButton
       Align = Client
@@ -149,6 +154,15 @@ object Form7: TForm7
       TextSettings.HorzAlign = Center
       Text = 'Passwort '#228'ndern'
       TabOrder = 4
+    end
+    object BtnCancel: TButton
+      Align = Client
+      Size.Width = 98.061203002929690000
+      Size.Height = 23.405075073242190000
+      Size.PlatformDefault = False
+      TabOrder = 6
+      Text = 'Abbrechen'
+      OnClick = BtnCancelClick
     end
   end
 end

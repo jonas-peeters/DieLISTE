@@ -16,7 +16,9 @@ type
     BtnPWaendern: TButton;
     LblPWaendern: TLabel;
     Panel1: TPanel;
+    BtnCancel: TButton;
     procedure BtnPWaendernClick(Sender: TObject);
+    procedure BtnCancelClick(Sender: TObject);
     public constructor Create(AOwner: TComponent; var serverAPI: TServerAPI);
   private
   public
@@ -37,6 +39,11 @@ begin
   privateServerAPI := serverAPI;
 end;
 
+procedure TForm7.BtnCancelClick(Sender: TObject);
+begin
+  Release;
+end;
+
 procedure TForm7.BtnPWaendernClick(Sender: TObject);
 begin
 if EdtPWneu1.text=EdtPWneu2.text then
@@ -44,7 +51,7 @@ if EdtPWneu1.text=EdtPWneu2.text then
   if privateServerAPI.changePassword(EdtPWneu1.Text)='"Changed Password"' then
     begin
       ShowMessage('Ihr Passwort wurde verändert.');
-      Form7.Close;
+      Release;
     end;
   end;
 end;

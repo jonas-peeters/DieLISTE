@@ -18,12 +18,11 @@ type
     EdtBenutzername2: TEdit;
     EdtPW2: TEdit;
     BtnLos: TButton;
-    BtnPWVergessen: TButton;
     BtnRegistrieren: TButton;
-    TitleLabel: TLabel;
     procedure BtnLosClick(Sender: TObject);
     procedure BtnRegistrierenClick(Sender: TObject);
     procedure BtnPWVergessenClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -32,7 +31,8 @@ type
 
 var
   Form5: TForm5;
-  serverAPI: TServerAPI;
+  MainForm: TForm;
+
 implementation
 
 {$R *.fmx}
@@ -40,8 +40,8 @@ implementation
 procedure TForm5.BtnPWVergessenClick(Sender: TObject);
 var PwVergessenForm: TForm;
 begin
-  PwVergessenForm:= Tform10.Create(Application,serverAPI);
-  PWvergessenform.Show;
+  PwVergessenForm:= TForm10.Create(nil, UMain.serverAPI);
+  PwVergessenForm.Show;
 end;
 
 procedure TForm5.BtnRegistrierenClick(Sender: TObject);
@@ -53,13 +53,19 @@ begin
    UMain.serverAPI.createUser(email,name, password);
 end;
 
+procedure TForm5.FormCreate(Sender: TObject);
+begin
+  MainForm := TForm6.Create(nil);
+  MainForm.Hide;
+end;
+
 procedure TForm5.BtnLosClick(Sender: TObject);
 var
   i: Integer;
 begin
   if UMain.serverAPI.login(EdtBenutzername1.Text, EdtPW1.Text)='"OK: Authenticated"' then // Check if the user gets autheticated
   begin
-    Form6.ShowModal;
+    MainForm.Show;
   end;
 end;
 

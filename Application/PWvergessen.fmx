@@ -16,28 +16,30 @@ object Form10: TForm10
     TabOrder = 0
     ColumnCollection = <
       item
-        Value = 9.999930092166501000
+        SizeStyle = Absolute
+        Value = 30.000000000000000000
       end
       item
-        Value = 80.007892595597060000
+        Value = 50.000487516537290000
       end
       item
-        Value = 9.992177312236455000
+        Value = 49.999512483462710000
+      end
+      item
+        SizeStyle = Absolute
+        Value = 30.000000000000000000
       end>
     ControlCollection = <
       item
         Column = 1
+        ColumnSpan = 2
         Control = LblText
         Row = 4
       end
       item
         Column = 1
+        ColumnSpan = 2
         Control = EdtEMail
-        Row = 6
-      end
-      item
-        Column = 1
-        Control = EdtBenutzername
         Row = 7
       end
       item
@@ -47,15 +49,21 @@ object Form10: TForm10
       end
       item
         Column = 1
+        ColumnSpan = 2
         Control = LblPWvergessen
         Row = 1
       end
       item
         Column = 0
-        ColumnSpan = 3
+        ColumnSpan = 4
         Control = Panel1
         Row = 0
         RowSpan = 3
+      end
+      item
+        Column = 2
+        Control = BtnCancel
+        Row = 9
       end>
     RowCollection = <
       item
@@ -65,7 +73,7 @@ object Form10: TForm10
         Value = 7.908378847366998000
       end
       item
-        Value = 7.899659706457653000
+        Value = 7.899659706457652000
       end
       item
         Value = 7.490536564747323000
@@ -77,7 +85,7 @@ object Form10: TForm10
         Value = 7.269121343637960000
       end
       item
-        Value = 7.258830208538206000
+        Value = 7.258830208538205000
       end
       item
         Value = 7.174656900607265000
@@ -96,55 +104,55 @@ object Form10: TForm10
       Size.Width = 350.000000000000000000
       Size.Height = 128.131713867187500000
       Size.PlatformDefault = False
-      TabOrder = 5
+      TabOrder = 4
     end
     object LblText: TLabel
       Align = Client
-      Size.Width = 280.027618408203100000
+      Size.Width = 290.000000000000000000
       Size.Height = 128.066558837890600000
       Size.PlatformDefault = False
       Text = 
-        'Sie haben Ihr Passwort vergessen? Unter Angabe Ihres Benutzernam' +
-        'ens oder Ihrer E-Mail-Adresse senden wir Ihnen eine Anleitung zu' +
-        'm Zur'#252'cksetzen Ihres Passwortes automatisch per E-Mail zu.'
+        'Sie haben Ihr Passwort vergessen? Unter Angabe Ihrer E-Mail-Adre' +
+        'sse senden wir Ihnen eine Anleitung zum Zur'#252'cksetzen Ihres Passw' +
+        'ortes automatisch per E-Mail zu.'
       TabOrder = 0
     end
     object EdtEMail: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 1
-      Text = 'EMail'
-      Size.Width = 280.027618408203100000
-      Size.Height = 39.125091552734380000
-      Size.PlatformDefault = False
-      OnClick = BtnSendenClick
-    end
-    object EdtBenutzername: TEdit
-      Touch.InteractiveGestures = [LongTap, DoubleTap]
-      Align = Client
-      TabOrder = 2
-      Text = 'Benutzername'
-      Size.Width = 280.027618408203100000
+      Size.Width = 290.000000000000000000
       Size.Height = 38.671386718750000000
       Size.PlatformDefault = False
+      TextPrompt = 'E-Mail'
+      OnClick = BtnSendenClick
     end
     object BtnSenden: TButton
       Align = Client
-      Size.Width = 280.027618408203100000
+      Size.Width = 145.001419067382800000
       Size.Height = 41.993225097656250000
       Size.PlatformDefault = False
-      TabOrder = 3
+      TabOrder = 2
       Text = 'Anleitung Senden'
       OnClick = BtnSendenClick
     end
     object LblPWvergessen: TLabel
       Align = Client
-      Size.Width = 280.027618408203100000
+      Size.Width = 290.000000000000000000
       Size.Height = 42.626159667968750000
       Size.PlatformDefault = False
       TextSettings.HorzAlign = Center
       Text = 'Passwort vergessen'
-      TabOrder = 4
+      TabOrder = 3
+    end
+    object BtnCancel: TButton
+      Align = Client
+      Size.Width = 144.998580932617200000
+      Size.Height = 41.993225097656250000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      Text = 'Abbrechen'
+      OnClick = BtnCancelClick
     end
   end
 end

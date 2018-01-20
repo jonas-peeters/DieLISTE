@@ -12,11 +12,12 @@ type
     GridPanelLayout1: TGridPanelLayout;
     LblText: TLabel;
     EdtEMail: TEdit;
-    EdtBenutzername: TEdit;
     BtnSenden: TButton;
     LblPWvergessen: TLabel;
     Panel1: TPanel;
+    BtnCancel: TButton;
     procedure BtnSendenClick(Sender: TObject);
+    procedure BtnCancelClick(Sender: TObject);
     public constructor Create(AOwner: TComponent; var serverAPI: TServerAPI);
   private
     { Private-Deklarationen }
@@ -38,13 +39,17 @@ begin
   privateServerAPI := serverAPI;
 end;
 
-procedure TForm10.BtnSendenClick(Sender: TObject);
+procedure TForm10.BtnCancelClick(Sender: TObject);
+begin
+  Release;
+end;
 
+procedure TForm10.BtnSendenClick(Sender: TObject);
 begin
   if privateServerAPI.forgotPassword(EdtEMail.Text)= '"EMail sent"' then
   begin
     ShowMessage('Die EMail wurde versendet. Sie können dort ihr Passwort neu erstellen.');
-    Form10.CloseModal;
+    Form10.Free;
   end;
 end;
 

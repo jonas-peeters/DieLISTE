@@ -118,7 +118,7 @@
         object Label3: TLabel
           Align = Client
           Size.Width = 245.761703491210900000
-          Size.Height = 57.910911560058590000
+          Size.Height = 57.910911560058600000
           Size.PlatformDefault = False
           Text = 'BSP: Z'#246'liakie'
           TabOrder = 1
@@ -126,7 +126,7 @@
         object EditButton: TButton
           Anchors = []
           Position.X = 261.355468750000000000
-          Position.Y = 37.923858642578130000
+          Position.Y = 37.923858642578120000
           Size.Width = 32.953796386718750000
           Size.Height = 21.567554473876950000
           Size.PlatformDefault = False
@@ -231,7 +231,7 @@
             Value = 5.894452983715341000
           end
           item
-            Value = 82.316641048853920000
+            Value = 82.316641048853930000
           end>
         object PlusBtn2: TButton
           Align = Client
@@ -344,7 +344,7 @@
             Value = 5.894452983715341000
           end
           item
-            Value = 82.316641048853920000
+            Value = 82.316641048853930000
           end>
         object Button1: TButton
           Align = Client
