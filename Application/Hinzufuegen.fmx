@@ -147,6 +147,7 @@ object Form9: TForm9
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 5
+      Text = 'Name'
       Size.Width = 199.727996826171900000
       Size.Height = 28.620788574218750000
       Size.PlatformDefault = False
@@ -155,6 +156,7 @@ object Form9: TForm9
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 4
+      Text = 'Einheit'
       Size.Width = 120.064170837402300000
       Size.Height = 27.515426635742190000
       Size.PlatformDefault = False
@@ -163,6 +165,7 @@ object Form9: TForm9
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 3
+      Text = 'Menge'
       Size.Width = 79.663818359375000000
       Size.Height = 27.515426635742190000
       Size.PlatformDefault = False
@@ -171,6 +174,7 @@ object Form9: TForm9
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 2
+      Text = 'Kategorie'
       Size.Width = 199.727996826171900000
       Size.Height = 26.487243652343750000
       Size.PlatformDefault = False
@@ -178,26 +182,29 @@ object Form9: TForm9
     object BtnOK: TButton
       Align = Client
       Size.Width = 39.897144317626950000
-      Size.Height = 25.595855712890620000
+      Size.Height = 25.595855712890630000
       Size.PlatformDefault = False
       TabOrder = 6
       Text = 'OK'
+      OnClick = BtnOKClick
     end
     object BtnSchliessen: TButton
       Align = Client
       Size.Width = 39.766677856445310000
-      Size.Height = 25.595855712890620000
+      Size.Height = 25.595855712890630000
       Size.PlatformDefault = False
       TabOrder = 7
       Text = 'X'
+      OnClick = BtnSchliessenClick
     end
     object BtnHinzufuegen: TButton
       Align = Client
       Size.Width = 120.064170837402300000
-      Size.Height = 25.595855712890620000
+      Size.Height = 25.595855712890630000
       Size.PlatformDefault = False
       TabOrder = 8
       Text = 'Weitere Hinzuf'#252'gen'
+      OnClick = BtnHinzufuegenClick
     end
   end
 end

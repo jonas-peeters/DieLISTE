@@ -16,7 +16,7 @@ object Form8: TForm8
     TabOrder = 0
     ColumnCollection = <
       item
-        Value = 15.766541549442830000
+        Value = 15.766541549442820000
       end
       item
         Value = 16.600691695835980000
@@ -82,13 +82,13 @@ object Form8: TForm8
     object Panel1: TPanel
       Align = Client
       Size.Width = 350.000000000000000000
-      Size.Height = 161.124740600586000000
+      Size.Height = 161.124740600585900000
       Size.PlatformDefault = False
       TabOrder = 4
     end
     object LblListe: TLabel
       Align = Client
-      Size.Width = 116.309387207031200000
+      Size.Width = 116.309387207031300000
       Size.Height = 53.787956237792970000
       Size.PlatformDefault = False
       TextSettings.HorzAlign = Center
@@ -102,6 +102,7 @@ object Form8: TForm8
       Size.PlatformDefault = False
       TabOrder = 1
       Text = 'Edit'
+      OnClick = BtnEditClick
     end
     object BtnHinzufuegen: TButton
       Align = Client
@@ -124,6 +125,27 @@ object Form8: TForm8
       DefaultItemStyles.GroupFooterStyle = ''
       Viewport.Width = 346.000000000000000000
       Viewport.Height = 348.900000000000000000
+      object EdtNeuerName: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 0
+        Position.X = 40.000000000000000000
+        Position.Y = -112.000000000000000000
+        Size.Width = 124.000000000000000000
+        Size.Height = 57.000000000000000000
+        Size.PlatformDefault = False
+        Visible = False
+      end
+      object BtnAendern: TButton
+        Position.X = 168.000000000000000000
+        Position.Y = -112.000000000000000000
+        Size.Width = 121.000000000000000000
+        Size.Height = 57.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = #196'ndern'
+        Visible = False
+        OnClick = BtnAendernClick
+      end
     end
   end
 end

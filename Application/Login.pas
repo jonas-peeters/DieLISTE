@@ -22,6 +22,7 @@ type
     BtnRegistrieren: TButton;
     TitleLabel: TLabel;
     procedure BtnLosClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -30,18 +31,26 @@ type
 
 var
   Form5: TForm5;
+  MainForm: TForm6;
 
 implementation
 
 {$R *.fmx}
 
+procedure TForm5.FormCreate(Sender: TObject);
+begin
+  MainForm := TForm6.Create(nil);
+  MainForm.Hide;
+end;
+
 procedure TForm5.BtnLosClick(Sender: TObject);
 var
   i: Integer;
 begin
-  if True then // Check if the user gets autheticated
+  if UMain.serverAPI.login(EdtBenutzername1.Text, EdtPW1.Text)='"OK: Authenticated"' then // Check if the user gets autheticated
   begin
-    Form6.ShowModal;
+    MainForm.Show;
+    MainForm.UpdateLists();
   end;
 end;
 

@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.ScrollBox, FMX.Memo, serverAPI,
-  FMX.TabControl, FMX.Layouts, FMX.ListBox;
+  FMX.TabControl, FMX.Layouts, FMX.ListBox, Liste;
 
 type
   TForm6 = class(TForm)
@@ -18,7 +18,7 @@ type
     PlusBtn2: TButton;
     Label1: TLabel;
     EditBtn2: TButton;
-    ListBox1: TListBox;
+    LBLists: TListBox;
     GridPanelLayout2: TGridPanelLayout;
     Label2: TLabel;
     Label3: TLabel;
@@ -34,7 +34,7 @@ type
   private
     { Private declarations }
   public
-    { Public declarations }
+    procedure UpdateLists();
   end;
 
 var
@@ -52,7 +52,23 @@ end;
 
 procedure TForm6.PlusBtn2Click(Sender: TObject);
 begin
-TServerAPI.AddList;
+  serverAPI.AddList('Neue Liste');
+  UpdateLists();
+end;
+
+Procedure TForm6.UpdateLists();
+var
+  response: String;
+  responseAsArray: TArray;
+  i: Integer;
+  listItem: TListBoxItem;
+begin
+  response := serverAPI.getLists();
+  responseAsArray := serverAPI.jsonArrayToArray(response);
+  for i := 0 to High(responseAsArray)-1 do
+  begin
+    LBLists.Items.Append(responseAsArray[i]);
+  end;
 end;
 
 end.

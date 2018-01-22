@@ -34,9 +34,11 @@ type
     function deleteUser(): String;
     function me(): String;
     function jsonToRecord(jsonString: string): TUserData;
-    function addList(): String;
+    function addList(name:string): String;
     function getLists(): String;
     function jsonArrayToArray(const s:string):TArray;
+    function AddToList(name:string; menge:real; einheit:string; kategorie:string):string;
+    function ChangeListName(name:string):string;
     procedure AddToArray(var a:TArray; const value: string);
 end;
 
@@ -115,10 +117,14 @@ begin
   result := userData;
 end;
 
-function TServerAPI.addList(): String;
-var  request: TRESTRequest;
+function TServerAPI.addList(name: string): String;
+var
+  request: TRESTRequest;
+  jsonString: String;
 begin
   request := TRESTRequest.Create(nil);
+  jsonString := '{"name": "' + name + '"}';
+  request.Body.JSONWriter.WriteRaw(jsonString);
   request.Method := REST.Types.rmPOST;  //POST
   request.Resource := 'user/lists';
   request.Client := self.client;
@@ -148,17 +154,40 @@ begin
 
 function TServerAPI.jsonArrayToArray(const s:string):TArray;
 var jar: TjsonArray;
-    item: Tjsonstring;
+    item: TJSONValue;
     i:integer;
 begin
   result:=nil;
   jar:=TjsonObject.ParseJSONValue(s)as TjsonArray;
   for I := 0 to (jar.Count-1) do
-    begin
-      item:= jar.Items[i] as Tjsonstring;
-      AddToArray(result,item.Value);
-    end;
+  begin
+    item:= jar.Items[i];
+    AddToArray(result,item.GetValue('name', 'No Name Error'));
+  end;
   jar.Free;
 end;
+
+function TServerAPI.AddToList(name:string; menge:real; einheit:string; kategorie:string):string;
+var  request: TRESTRequest;
+begin
+  request := TRESTRequest.Create(nil);
+  request.Method := REST.Types.rmPOST;  //POST
+  request.Resource := 'user/lists/items';
+  request.Client := self.client;
+  request.Execute;
+  result := request.Response.Content;
+end;
+
+function TServerAPI.ChangeListName(name:string):string;
+var  request: TRESTRequest;
+begin
+  request := TRESTRequest.Create(nil);
+  request.Method := REST.Types.rmPOST;  //POST
+  request.Resource := 'user/lists';
+  request.Client := self.client;
+  request.Execute;
+  result := request.Response.Content;
+end;
+
 
 end.
