@@ -16,7 +16,7 @@ object FormPWaendern: TFormPWaendern
     TabOrder = 0
     ColumnCollection = <
       item
-        Value = 9.999846909737809000
+        Value = 9.999846909737808000
       end
       item
         Value = 39.224481468322570000
@@ -71,37 +71,37 @@ object FormPWaendern: TFormPWaendern
       end>
     RowCollection = <
       item
-        Value = 8.159296334363836000
+        Value = 8.159296334363834000
       end
       item
-        Value = 8.462895063470597000
+        Value = 8.462895063470596000
       end
       item
-        Value = 8.746123088819880000
+        Value = 8.746123088819878000
       end
       item
-        Value = 9.001155829913560000
+        Value = 9.001155829913559000
       end
       item
-        Value = 9.219744442566775000
+        Value = 9.219744442566773000
       end
       item
-        Value = 9.392054672881180000
+        Value = 9.392054672881176000
       end
       item
-        Value = 9.506568260475132000
+        Value = 9.506568260475129000
       end
       item
-        Value = 9.550217255482482000
+        Value = 9.550217255482478000
       end
       item
-        Value = 9.507877481870286000
+        Value = 9.507877481870283000
       end
       item
-        Value = 9.362030900164124000
+        Value = 9.362030900164122000
       end
       item
-        Value = 9.092036669992161000
+        Value = 9.092036669992160000
       end>
     object Panel1: TPanel
       Align = Client

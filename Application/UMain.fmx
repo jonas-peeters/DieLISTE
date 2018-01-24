@@ -1,4 +1,4 @@
-object MainForm: TFormMain
+object FormMain: TFormMain
   Left = 0
   Top = 0
   Caption = 'Form6'
@@ -16,7 +16,7 @@ object MainForm: TFormMain
     Size.Height = 573.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 1
     TabPosition = PlatformDefault
     Sizes = (
@@ -30,7 +30,7 @@ object MainForm: TFormMain
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 122.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -118,7 +118,7 @@ object MainForm: TFormMain
         object Label3: TLabel
           Align = Client
           Size.Width = 245.761703491210900000
-          Size.Height = 57.910911560058600000
+          Size.Height = 57.910911560058590000
           Size.PlatformDefault = False
           Text = 'BSP: Z'#246'liakie'
           TabOrder = 1
@@ -126,7 +126,7 @@ object MainForm: TFormMain
         object EditButton: TButton
           Anchors = []
           Position.X = 261.355468750000000000
-          Position.Y = 37.923858642578120000
+          Position.Y = 37.923858642578130000
           Size.Width = 32.953796386718750000
           Size.Height = 21.567554473876950000
           Size.PlatformDefault = False
@@ -145,16 +145,16 @@ object MainForm: TFormMain
           DefaultItemStyles.GroupFooterStyle = ''
           Viewport.Width = 368.000000000000000000
           Viewport.Height = 345.000000000000000000
-          object LBUserlöschen: TListBoxItem
+          object LBUserloeschen: TListBoxItem
             TabOrder = 0
             Text = 'User l'#246'schen'
-            OnClick = LBIUserLöschenClick
+            OnClick = LBIUserLoeschenClick
           end
           object LBPasswortaendern: TListBoxItem
             Position.Y = 44.000000000000000000
             TabOrder = 1
             Text = 'Passwort '#228'ndern'
-            OnClick = LBIPasswortändernClick
+            OnClick = LBIPasswortaendernClick
           end
         end
       end
@@ -163,7 +163,7 @@ object MainForm: TFormMain
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 122.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -231,7 +231,7 @@ object MainForm: TFormMain
             Value = 5.894452983715341000
           end
           item
-            Value = 82.316641048853930000
+            Value = 82.316641048853920000
           end>
         object PlusBtn2: TButton
           Align = Client
@@ -270,7 +270,7 @@ object MainForm: TFormMain
           DefaultItemStyles.GroupHeaderStyle = ''
           DefaultItemStyles.GroupFooterStyle = ''
           Viewport.Width = 368.000000000000000000
-          Viewport.Height = 431.300000000000000000
+          Viewport.Height = 387.300000000000000000
           object SearchBox1: TSearchBox
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             Align = Top
@@ -354,7 +354,7 @@ object MainForm: TFormMain
             Value = 5.894452983715341000
           end
           item
-            Value = 82.316641048853930000
+            Value = 82.316641048853920000
           end>
         object Button1: TButton
           Align = Client

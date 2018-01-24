@@ -1,4 +1,4 @@
-unit UMain;
+﻿unit UMain;
 
 interface
 
@@ -34,8 +34,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure PlusBtn2Click(Sender: TObject);
     procedure LBListsClick(Sender: TObject);
-    procedure LBIUserLöschenClick(Sender: TObject);
-    procedure LBIPasswort‰ndernClick(Sender: TObject);
+    procedure LBIUserLoeschenClick(Sender: TObject);
+    procedure LBIPasswortaendernClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -90,7 +90,7 @@ begin
   end;
 end;
 
-procedure TFormMain.LBIPasswort‰ndernClick(Sender: TObject);
+procedure TFormMain.LBIPasswortaendernClick(Sender: TObject);
 var
   PWAendernForm: TForm;
 begin
@@ -98,7 +98,7 @@ begin
   PWAendernForm.Show;
 end;
 
-procedure TFormMain.LBIUserLöschenClick(Sender: TObject);
+procedure TFormMain.LBIUserLoeschenClick(Sender: TObject);
 begin
 MessageDlg('Wollen Sie den Account wirklich löschen?', System.UITypes.TMsgDlgType.mtCustom,
 [ System.UITypes.TMsgDlgBtn.mbYes,

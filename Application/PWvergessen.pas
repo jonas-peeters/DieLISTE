@@ -1,4 +1,4 @@
-unit PWvergessen;
+﻿unit PWvergessen;
 
 interface
 
@@ -27,6 +27,7 @@ type
 
 var
   FormPWvergessen: TFormPWvergessen;
+  privateServerAPI: TServerAPI;
 
 implementation
 

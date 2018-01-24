@@ -59,9 +59,7 @@ begin
   MainForm.Hide;
 end;
 
-procedure TForm5.BtnLosClick(Sender: TObject);
-var
-  i: Integer;
+procedure TFormLogin.BtnLosClick(Sender: TObject);
 begin
   if UMain.serverAPI.login(EdtBenutzername1.Text, EdtPW1.Text)='"OK: Authenticated"' then // Check if the user gets autheticated
   begin

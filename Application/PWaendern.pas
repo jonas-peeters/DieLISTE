@@ -1,4 +1,4 @@
-unit PWaendern;
+﻿unit PWaendern;
 
 interface
 
@@ -27,6 +27,7 @@ type
 
 var
   FormPWaendern: TFormPWaendern;
+  privateServerAPI: TServerAPI;
 
 implementation
 
