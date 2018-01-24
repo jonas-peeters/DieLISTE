@@ -21,6 +21,27 @@ type
 end;
 
 type
+  TItem=record
+    name: String;
+    quantity: String;
+    done: boolean;
+    categoryId: Integer;
+  end;
+
+type
+  TListe=record
+    name: String;
+    id: Integer;
+    items: Array of TItem;
+  end;
+
+type
+  TListArray = Array of TListe;
+
+type
+ TArray= Array of string;
+
+type
   TServerAPI=class(TObject)
   private
     client: TRESTClient;
@@ -33,6 +54,11 @@ type
     function forgotPassword(email: string): String;
     function me(): String;
     function jsonToRecord(jsonString: string): TUserData;
+    function addList(name:string): String;
+    function getLists(): TListArray;
+    function jsonArrayToArray(const s:string): TListArray;
+    function AddToList(name:string; menge: String; fertig: boolean; kategorie: Integer; liste: Integer):string;
+    function ChangeListName(name:string):string;
 end;
 
 implementation
@@ -141,5 +167,93 @@ begin
   userData.email:= jsonObject.GetValue('email').Value;
   result := userData;
 end;
+
+function TServerAPI.addList(name: string): String;
+var
+  request: TRESTRequest;
+  jsonString: String;
+begin
+  request := TRESTRequest.Create(nil);
+  jsonString := '{"name": "' + name + '"}';
+  request.Body.JSONWriter.WriteRaw(jsonString);
+  request.Method := REST.Types.rmPOST;  //POST
+  request.Resource := 'user/lists';
+  request.Client := self.client;
+  request.Execute;
+  result := request.Response.Content;
+end;
+
+function TServerAPI.getLists(): TListArray;
+var
+  request: TRESTRequest;
+begin
+  request := TRESTRequest.Create(nil);
+  request.Method := REST.Types.rmGET;  //GET
+  request.Resource := 'user/lists';
+  request.Client := self.client;
+  request.Execute;
+  result := jsonArrayToArray(request.Response.Content);
+end;
+
+function TServerAPI.jsonArrayToArray(const s:string): TListArray;
+var jsonListArray: TJSONArray;
+    jsonItemArray: TJSONArray;
+    memberOfListArray: TJSONValue;
+    memberOfItemArray: TJSONValue;
+    i, j:integer;
+begin
+  result := nil;
+  jsonListArray:=TjsonObject.ParseJSONValue(s) as TjsonArray;
+  SetLength(Result, jsonListArray.Count);
+  for i := 0 to (jsonListArray.Count-1) do
+  begin
+    memberOfListArray := jsonListArray.Items[i];
+    Result[i].name := memberOfListArray.GetValue('name', 'Kein Name gefunden');
+    Result[i].id := memberOfListArray.GetValue('id', -1);
+    jsonItemArray := memberOfListArray.GetValue('items', TJSONArray.Create());
+    SetLength(Result[i].items, jsonItemArray.Count);
+    for j := 0 to (jsonItemArray.Count - 1) do
+    begin
+      memberOfItemArray := jsonItemArray.Items[j];
+      Result[i].items[j].name := memberOfItemArray.GetValue('name', 'Keine Name gefunden');
+      Result[i].items[j].quantity := memberOfItemArray.GetValue('quantity', 'Keine Menge gefunden');
+      Result[i].items[j].done := memberOfItemArray.GetValue('done', false);
+      Result[i].items[j].categoryId := memberOfItemArray.GetValue('categoryId', 0);
+    end;
+  end;
+end;
+
+function TServerAPI.AddToList(name: string; menge: String; fertig: boolean; kategorie: Integer; liste: Integer):string;
+var
+  request: TRESTRequest;
+  jsonString: String;
+  done: String;
+begin
+  if fertig then
+    done := 'true'
+  else
+    done := 'false';
+  request := TRESTRequest.Create(nil);
+  jsonString := '{"name": "' + name + '", "quantity": "' + menge + '", "done": "' + done + '", "categoryId": "' + IntToStr(kategorie) + '", "listId": "' + IntToStr(liste) + '"}';
+  request.Body.JSONWriter.WriteRaw(jsonString);
+  request.Method := REST.Types.rmPOST;  //POST
+  request.Resource := 'user/lists/items';
+  request.Client := self.client;
+  request.Execute;
+  result := request.Response.Content;
+end;
+
+// Not working currently (Back-End)
+function TServerAPI.ChangeListName(name:string):string;
+var  request: TRESTRequest;
+begin
+  request := TRESTRequest.Create(nil);
+  request.Method := REST.Types.rmPOST;  //POST
+  request.Resource := 'user/lists';
+  request.Client := self.client;
+  request.Execute;
+  result := request.Response.Content;
+end;
+
 
 end.

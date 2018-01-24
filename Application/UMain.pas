@@ -6,10 +6,11 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.ScrollBox, FMX.Memo, serverAPI,
-  FMX.TabControl, FMX.Layouts, FMX.ListBox, PWvergessen, PWaendern;
+  FMX.TabControl, FMX.Layouts, FMX.ListBox, Liste, JSON, FMX.Edit, FMX.SearchBox,
+  Windows, PWvergessen, PWaendern;
 
 type
-  TForm6 = class(TForm)
+  TFormMain = class(TForm)
     TabControl1: TTabControl;
     ProfilTab: TTabItem;
     HomeTab: TTabItem;
@@ -18,7 +19,7 @@ type
     PlusBtn2: TButton;
     Label1: TLabel;
     EditBtn2: TButton;
-    ListBox1: TListBox;
+    LBLists: TListBox;
     GridPanelLayout2: TGridPanelLayout;
     Label2: TLabel;
     Label3: TLabel;
@@ -29,41 +30,77 @@ type
     Label4: TLabel;
     ListBox3: TListBox;
     Button2: TButton;
-    LBUserlöschen: TListBoxItem;
-    LBPasswortaendern: TListBoxItem;
+    SearchBox1: TSearchBox;
     procedure FormCreate(Sender: TObject);
-    procedure LBIUserLöschenClick(Sender: TObject);
-    procedure LBIPasswortändernClick(Sender: TObject);
+    procedure PlusBtn2Click(Sender: TObject);
+    procedure LBListsClick(Sender: TObject);
+    procedure LBIUserLÃ¶schenClick(Sender: TObject);
+    procedure LBIPasswortâ€°ndernClick(Sender: TObject);
   private
     { Private declarations }
   public
-    { Public declarations }
+    procedure UpdateLists();
   end;
 
 var
-  Form6: TForm6;
+  MainForm: TFormMain;
   serverAPI: TServerAPI;
+  lists: TListArray;
 
 implementation
 
 {$R *.fmx}
 
-procedure TForm6.FormCreate(Sender: TObject);
+procedure TFormMain.FormCreate(Sender: TObject);
 begin
   serverAPI := TServerAPI.create();
 end;
 
-procedure TForm6.LBIPasswortändernClick(Sender: TObject);
+procedure TFormMain.LBListsClick(Sender: TObject);
+var
+  listForm: TFormListe;
+begin
+  if LBLists.Selected.Index <> -1 then
+  begin
+    listForm := TFormListe.Create(Application, serverAPI, lists[LBLists.ItemIndex]);
+    listForm.Show;
+    UpdateLists();
+  end;
+end;
+
+procedure TFormMain.PlusBtn2Click(Sender: TObject);
+begin
+  serverAPI.AddList('Neue Liste');
+  UpdateLists();
+end;
+
+procedure TFormMain.UpdateLists();
+var
+  i: Integer;
+  item: TListBoxItem;
+begin
+  LBLists.Items.Clear;
+  lists := serverAPI.getLists();
+  for i := 0 to High(lists) do
+  begin
+    item := TListBoxItem.Create(LBLists);
+    item.Text := lists[i].name;
+    item.ItemData.Accessory := TListBoxItemData.TAccessory(1);
+    LBLists.AddObject(item);
+  end;
+end;
+
+procedure TFormMain.LBIPasswortâ€°ndernClick(Sender: TObject);
 var
   PWAendernForm: TForm;
 begin
-  PWAendernForm := TForm7.Create(Application, serverAPI);
+  PWAendernForm := TFormPWaendern.Create(Application, serverAPI);
   PWAendernForm.Show;
 end;
 
-procedure TForm6.LBIUserLöschenClick(Sender: TObject);
+procedure TFormMain.LBIUserLÃ¶schenClick(Sender: TObject);
 begin
-MessageDlg('Wollen Sie den Account wirklich löschen?', System.UITypes.TMsgDlgType.mtCustom,
+MessageDlg('Wollen Sie den Account wirklich lÃ¶schen?', System.UITypes.TMsgDlgType.mtCustom,
 [ System.UITypes.TMsgDlgBtn.mbYes,
   System.UITypes.TMsgDlgBtn.mbNo,
   System.UITypes.TMsgDlgBtn.mbCancel
@@ -74,7 +111,7 @@ begin
     mrYES:
     if UMain.serverAPI.deleteUser()='"Deleted user"' then
       begin
-        ShowMessage('Der User wurde gelöscht!');
+        ShowMessage('Der User wurde gelÃ¶scht!');
         Release;
       end;
   end;

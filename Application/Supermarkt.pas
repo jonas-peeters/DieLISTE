@@ -8,7 +8,7 @@ uses
   FMX.StdCtrls, FMX.Controls.Presentation, FMX.ListBox;
 
 type
-  TForm2 = class(TForm)
+  TFormSupermarkt = class(TForm)
     GridPanelLayout1: TGridPanelLayout;
     PlusBtn2: TButton;
     Label1: TLabel;
@@ -21,7 +21,7 @@ type
   end;
 
 var
-  Form2: TForm2;
+  SupermarktForm: TFormSupermarkt;
 
 implementation
 

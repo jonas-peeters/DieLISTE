@@ -1,4 +1,4 @@
-object Form8: TForm8
+object FormListe: TFormListe
   Left = 0
   Top = 0
   Caption = 'Form8'
@@ -16,7 +16,7 @@ object Form8: TForm8
     TabOrder = 0
     ColumnCollection = <
       item
-        Value = 15.766541549442830000
+        Value = 15.766541549442820000
       end
       item
         Value = 16.600691695835980000
@@ -102,6 +102,7 @@ object Form8: TForm8
       Size.PlatformDefault = False
       TabOrder = 1
       Text = 'Edit'
+      OnClick = BtnEditClick
     end
     object BtnHinzufuegen: TButton
       Align = Client

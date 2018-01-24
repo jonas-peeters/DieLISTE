@@ -8,7 +8,7 @@ uses
   FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, ServerAPI;
 
 type
-  TForm7 = class(TForm)
+  TFormPWaendern = class(TForm)
     GridPanelLayout1: TGridPanelLayout;
     EdtPWalt: TEdit;
     EdtPWneu1: TEdit;
@@ -26,31 +26,30 @@ type
   end;
 
 var
-  Form7: TForm7;
-  privateServerAPI: TServerAPI;
+  FormPWaendern: TFormPWaendern;
 
 implementation
 
 {$R *.fmx}
 
-constructor TForm7.Create(AOwner: TComponent; var serverAPI: TServerAPI);
+constructor TFormPWaendern.Create(AOwner: TComponent; var serverAPI: TServerAPI);
 begin
   inherited Create(AOwner);
   privateServerAPI := serverAPI;
 end;
 
-procedure TForm7.BtnCancelClick(Sender: TObject);
+procedure TFormPWaendern.BtnCancelClick(Sender: TObject);
 begin
   Release;
 end;
 
-procedure TForm7.BtnPWaendernClick(Sender: TObject);
+procedure TFormPWaendern.BtnPWaendernClick(Sender: TObject);
 begin
 if EdtPWneu1.text=EdtPWneu2.text then
   begin
   if privateServerAPI.changePassword(EdtPWneu1.Text)='"Changed Password"' then
     begin
-      ShowMessage('Ihr Passwort wurde ver‰ndert.');
+      ShowMessage('Ihr Passwort wurde ver√§ndert.');
       Release;
     end;
   end;

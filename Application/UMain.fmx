@@ -1,4 +1,4 @@
-﻿object Form6: TForm6
+object MainForm: TFormMain
   Left = 0
   Top = 0
   Caption = 'Form6'
@@ -217,7 +217,7 @@
           item
             Column = 0
             ColumnSpan = 6
-            Control = ListBox1
+            Control = LBLists
             Row = 3
           end>
         RowCollection = <
@@ -240,6 +240,7 @@
           Size.PlatformDefault = False
           TabOrder = 0
           Text = '+'
+          OnClick = PlusBtn2Click
         end
         object Label1: TLabel
           Align = Client
@@ -257,18 +258,27 @@
           TabOrder = 2
           Text = 'Edit'
         end
-        object ListBox1: TListBox
+        object LBLists: TListBox
           Align = Client
           Size.Width = 368.000000000000000000
           Size.Height = 431.339202880859400000
           Size.PlatformDefault = False
           TabOrder = 3
+          OnClick = LBListsClick
           DisableFocusEffect = True
           DefaultItemStyles.ItemStyle = ''
           DefaultItemStyles.GroupHeaderStyle = ''
           DefaultItemStyles.GroupFooterStyle = ''
           Viewport.Width = 368.000000000000000000
           Viewport.Height = 431.300000000000000000
+          object SearchBox1: TSearchBox
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Top
+            TabOrder = 0
+            Size.Width = 368.000000000000000000
+            Size.Height = 44.000000000000000000
+            Size.PlatformDefault = False
+          end
         end
       end
     end

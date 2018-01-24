@@ -8,7 +8,7 @@ uses
   FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, UMain, ServerAPI, PWVergessen;
 
 type
-  TForm5 = class(TForm)
+  TFormLogin = class(TForm)
     GridPanelLayout1: TGridPanelLayout;
     LblAnmelden: TLabel;
     LblRegistrieren: TLabel;
@@ -30,21 +30,21 @@ type
   end;
 
 var
-  Form5: TForm5;
-  MainForm: TForm;
+  LoginForm: TFormLogin;
+  MainForm: TFormMain;
 
 implementation
 
 {$R *.fmx}
 
-procedure TForm5.BtnPWVergessenClick(Sender: TObject);
+procedure TFormLogin.BtnPWVergessenClick(Sender: TObject);
 var PwVergessenForm: TForm;
 begin
-  PwVergessenForm:= TForm10.Create(nil, UMain.serverAPI);
+  PwVergessenForm:= TFormPWVergessen.Create(nil, UMain.serverAPI);
   PwVergessenForm.Show;
 end;
 
-procedure TForm5.BtnRegistrierenClick(Sender: TObject);
+procedure TFormLogin.BtnRegistrierenClick(Sender: TObject);
 var email, name, password: string;
 begin
    email:= EdtEmail.Text;
@@ -53,9 +53,9 @@ begin
    UMain.serverAPI.createUser(email,name, password);
 end;
 
-procedure TForm5.FormCreate(Sender: TObject);
+procedure TFormLogin.FormCreate(Sender: TObject);
 begin
-  MainForm := TForm6.Create(nil);
+  MainForm := TFormMain.Create(nil);
   MainForm.Hide;
 end;
 
@@ -66,6 +66,7 @@ begin
   if UMain.serverAPI.login(EdtBenutzername1.Text, EdtPW1.Text)='"OK: Authenticated"' then // Check if the user gets autheticated
   begin
     MainForm.Show;
+    MainForm.UpdateLists();
   end;
 end;
 
