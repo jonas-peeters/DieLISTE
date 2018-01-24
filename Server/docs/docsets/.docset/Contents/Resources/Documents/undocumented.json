@@ -93,13 +93,6 @@
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 31,
-      "symbol": "User.items",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
       "line": 47,
       "symbol": "User.Keys.id",
       "symbol_kind": "source.lang.swift.decl.var.static",
