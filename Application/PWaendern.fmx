@@ -1,4 +1,4 @@
-object Form7: TForm7
+object FormPWaendern: TFormPWaendern
   Left = 0
   Top = 0
   Caption = 'Form7'
@@ -90,7 +90,7 @@ object Form7: TForm7
         Value = 9.550217255482478000
       end
       item
-        Value = 9.507877481870284000
+        Value = 9.507877481870286000
       end
       item
         Value = 9.362030900164122000

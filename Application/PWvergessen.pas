@@ -8,7 +8,7 @@ uses
   FMX.Edit, FMX.Controls.Presentation, FMX.Layouts;
 
 type
-  TForm10 = class(TForm)
+  TFormPWvergessen = class(TForm)
     GridPanelLayout1: TGridPanelLayout;
     LblText: TLabel;
     EdtEMail: TEdit;
@@ -23,7 +23,7 @@ type
   end;
 
 var
-  Form10: TForm10;
+  FormPWvergessen: TFormPWvergessen;
 
 implementation
 

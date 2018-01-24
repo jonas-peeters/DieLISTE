@@ -8,7 +8,7 @@ uses
   FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, UMain;
 
 type
-  TForm5 = class(TForm)
+  TFormLogin = class(TForm)
     GridPanelLayout1: TGridPanelLayout;
     LblAnmelden: TLabel;
     LblRegistrieren: TLabel;
@@ -30,20 +30,20 @@ type
   end;
 
 var
-  Form5: TForm5;
-  MainForm: TForm6;
+  LoginForm: TFormLogin;
+  MainForm: TFormMain;
 
 implementation
 
 {$R *.fmx}
 
-procedure TForm5.FormCreate(Sender: TObject);
+procedure TFormLogin.FormCreate(Sender: TObject);
 begin
-  MainForm := TForm6.Create(nil);
+  MainForm := TFormMain.Create(nil);
   MainForm.Hide;
 end;
 
-procedure TForm5.BtnLosClick(Sender: TObject);
+procedure TFormLogin.BtnLosClick(Sender: TObject);
 var
   i: Integer;
 begin

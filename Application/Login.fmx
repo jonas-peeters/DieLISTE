@@ -1,4 +1,4 @@
-object Form5: TForm5
+object FormLogin: TFormLogin
   Left = 0
   Top = 0
   Caption = 'Form5'
@@ -146,25 +146,25 @@ object Form5: TForm5
       end>
     object LblAnmelden: TLabel
       Align = Client
-      Size.Width = 268.252502441406300000
+      Size.Width = 268.252502441406200000
       Size.Height = 34.375076293945310000
       Size.PlatformDefault = False
       Text = 'Anmelden'
-      TabOrder = 0
+      TabOrder = 8
     end
     object LblRegistrieren: TLabel
       Align = Client
-      Size.Width = 268.252502441406300000
+      Size.Width = 268.252502441406200000
       Size.Height = 34.374908447265630000
       Size.PlatformDefault = False
       Text = 'Registrieren'
-      TabOrder = 1
+      TabOrder = 9
     end
     object EdtBenutzername1: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
-      TabOrder = 6
-      Size.Width = 268.252502441406300000
+      TabOrder = 0
+      Size.Width = 268.252502441406200000
       Size.Height = 34.375015258789060000
       Size.PlatformDefault = False
       TextPrompt = 'E-Mail/Benutzername'
@@ -172,9 +172,9 @@ object Form5: TForm5
     object EdtPW1: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
-      TabOrder = 5
+      TabOrder = 1
       Password = True
-      Size.Width = 268.252502441406300000
+      Size.Width = 268.252502441406200000
       Size.Height = 34.374969482421880000
       Size.PlatformDefault = False
       TextPrompt = 'Passwort'
@@ -182,8 +182,8 @@ object Form5: TForm5
     object EdtEMail: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
-      TabOrder = 4
-      Size.Width = 268.252502441406300000
+      TabOrder = 3
+      Size.Width = 268.252502441406200000
       Size.Height = 34.374938964843750000
       Size.PlatformDefault = False
       TextPrompt = 'E-Mail'
@@ -191,8 +191,8 @@ object Form5: TForm5
     object EdtBenutzername2: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
-      TabOrder = 3
-      Size.Width = 268.252502441406300000
+      TabOrder = 4
+      Size.Width = 268.252502441406200000
       Size.Height = 34.374938964843750000
       Size.PlatformDefault = False
       TextPrompt = 'Benutzername'
@@ -200,36 +200,36 @@ object Form5: TForm5
     object EdtPW2: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
-      TabOrder = 2
+      TabOrder = 5
       Password = True
-      Size.Width = 268.252502441406300000
+      Size.Width = 268.252502441406200000
       Size.Height = 34.374969482421880000
       Size.PlatformDefault = False
       TextPrompt = 'Passwort'
     end
     object BtnLos: TButton
       Align = Client
-      Size.Width = 89.160919189453130000
+      Size.Width = 89.160919189453120000
       Size.Height = 34.374908447265630000
       Size.PlatformDefault = False
-      TabOrder = 7
+      TabOrder = 2
       Text = 'Los'
       OnClick = BtnLosClick
     end
     object BtnPWVergessen: TButton
       Align = Client
-      Size.Width = 89.667198181152340000
-      Size.Height = 34.375030517578130000
+      Size.Width = 89.667198181152350000
+      Size.Height = 34.375030517578120000
       Size.PlatformDefault = False
-      TabOrder = 8
+      TabOrder = 7
       Text = 'Passwort vergessen'
     end
     object BtnRegistrieren: TButton
       Align = Client
-      Size.Width = 89.160919189453130000
-      Size.Height = 34.375030517578130000
+      Size.Width = 89.160919189453120000
+      Size.Height = 34.375030517578120000
       Size.PlatformDefault = False
-      TabOrder = 9
+      TabOrder = 6
       Text = 'Registrieren'
     end
     object TitleLabel: TLabel

@@ -5,23 +5,32 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, serverAPI;
+  FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, serverAPI, FMX.ListBox;
 
 type
-  TForm9 = class(TForm)
+  TFormHinzufuegen = class(TForm)
     GridPanelLayout1: TGridPanelLayout;
     LblHinzufuegen: TLabel;
     EdtName: TEdit;
     EdtEinheit: TEdit;
     EdtMenge: TEdit;
-    EdtKategorie: TEdit;
     BtnOK: TButton;
     BtnSchliessen: TButton;
     BtnHinzufuegen: TButton;
     Panel1: TPanel;
+    CBCategory: TComboBox;
+    ListBoxItem1: TListBoxItem;
+    ListBoxItem2: TListBoxItem;
+    ListBoxItem3: TListBoxItem;
+    ListBoxItem4: TListBoxItem;
+    ListBoxItem5: TListBoxItem;
+    ListBoxItem6: TListBoxItem;
+    ListBoxItem7: TListBoxItem;
+    ListBoxItem8: TListBoxItem;
+    ListBoxItem9: TListBoxItem;
     procedure BtnSchliessenClick(Sender: TObject);
     procedure BtnOKClick(Sender: TObject);
-    constructor Create(AOwner: TComponent; var serverAPI: TServerAPI);
+    constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; selectedListId: Integer);
     procedure BtnHinzufuegenClick(Sender: TObject);
   private
     { Private-Deklarationen }
@@ -30,46 +39,50 @@ type
   end;
 
 var
-  Form9: TForm9;
+  HinzufuegenForm: TFormHinzufuegen;
   privateServerAPI: TServerAPI;
+  listId: Integer;
 
 implementation
 
 {$R *.fmx}
-constructor TForm9.Create(AOwner: TComponent; var serverAPI: TServerAPI);
+constructor TFormHinzufuegen.Create(AOwner: TComponent; var serverAPI: TServerAPI; selectedListId: Integer);
 begin
   inherited Create(AOwner);
   privateServerAPI := serverAPI;
+  listId := selectedListId;
 end;
 
-procedure TForm9.BtnHinzufuegenClick(Sender: TObject);
-var name, einheit, kategorie: string;
-    menge: real;
+procedure TFormHinzufuegen.BtnHinzufuegenClick(Sender: TObject);
+var
+  name, einheit, menge: string;
+  kategorie: Integer;
 begin
     name:= EdtName.Text;
     einheit:= EdtEinheit.Text;
-    kategorie:=EdtKategorie.Text;
-    menge:= StrToFloat(EdtMenge.Text);
-    privateServerAPI.AddToList(name, menge, einheit, kategorie);
-    EDTname.Text:='Name';
-    Edteinheit.Text:= 'Einheit';
-    Edtkategorie.Text:='Kategorie';
-    Edtmenge.Text:='Menge';
+    menge:= EdtMenge.Text;
+    kategorie := CBCategory.ItemIndex;
+    privateServerAPI.AddToList(name, menge + einheit, false, kategorie, listId);
+    EdtName.Text := '';
+    EdtEinheit.Text := '';
+    EdtMenge.Text := '';
+    CBCategory.ItemIndex := 0;
 end;
 
-procedure TForm9.BtnOKClick(Sender: TObject);
-var name, einheit, kategorie: string;
-    menge: real;
+procedure TFormHinzufuegen.BtnOKClick(Sender: TObject);
+var
+  name, einheit, menge: string;
+  kategorie: Integer;
 begin
     name:= EdtName.Text;
     einheit:= EdtEinheit.Text;
-    kategorie:=EdtKategorie.Text;
-    menge:= StrToFloat(EdtMenge.Text);
-    privateServerAPI.AddToList(name, menge, einheit, kategorie);
+    menge:= EdtMenge.Text;
+    kategorie := CBCategory.ItemIndex;
+    privateServerAPI.AddToList(name, menge + einheit, false, kategorie, listId);
     Release;
 end;
 
-procedure TForm9.BtnSchliessenClick(Sender: TObject);
+procedure TFormHinzufuegen.BtnSchliessenClick(Sender: TObject);
 begin
  Release;
 end;

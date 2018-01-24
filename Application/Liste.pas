@@ -9,20 +9,18 @@ uses
   FMX.Edit;
 
 type
-  TForm8 = class(TForm)
+  TFormListe = class(TForm)
     GridPanelLayout1: TGridPanelLayout;
     LblListe: TLabel;
     BtnEdit: TButton;
     BtnHinzufuegen: TButton;
     ListBox1: TListBox;
     Panel1: TPanel;
-    EdtNeuerName: TEdit;
-    BtnAendern: TButton;
     procedure BtnHinzufuegenClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure BtnEditClick(Sender: TObject);
-    procedure BtnAendernClick(Sender: TObject);
-    constructor Create(AOwner: TComponent; var serverAPI: TServerAPI);
+    constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; clickedList: TListe);
+    procedure Update();
+    procedure FormActivate(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -30,47 +28,77 @@ type
   end;
 
 var
-  Form8: TForm8;
+  ListForm: TFormListe;
   privateServerAPI: TServerAPI;
+  list: TListe;
+  listId: Integer;
 
 implementation
 
 {$R *.fmx}
 
-procedure TForm8.BtnAendernClick(Sender: TObject);
+procedure TFormListe.BtnEditClick(Sender: TObject);
+var
+  neuerName: String;
 begin
-  privateServerAPI.ChangeListName(EdtNeuerName.Text);
-end;
-
-procedure TForm8.BtnEditClick(Sender: TObject);
-begin
-  EdtNeuerName.Visible:=true;
-  BtnAendern.Visible:=true;
-  EdtNeuerName.Text:= LblListe.Text;
-end;
-
-procedure TForm8.BtnHinzufuegenClick(Sender: TObject);
-begin
-  Hinzufuegen.Form9.Visible:=true;
-end;
-
-procedure TForm8.FormCreate(Sender: TObject);
-var a: TArray;
-    I:integer;
-begin
-  A:=privateServerAPI.jsonArrayToArray(privateServerAPI.GetLists());
-  for I := Low(A) to High(A) do
+  repeat
+    if not InputQuery('Namen ändern', 'Neuer Name:', neuerName) then
+      neuerName := list.name
+  until neuerName <> '';
+  if neuerName <> list.name then
   begin
-      ListBox1.items.Add(A[i]);
+    privateServerAPI.ChangeListName(neuerName);
+    Update();
   end;
-  EdtNeuerName.Visible:=False;
-  BtnAendern.Visible:=false;
 end;
 
-constructor TForm8.Create(AOwner: TComponent; var serverAPI: TServerAPI);
+procedure TFormListe.BtnHinzufuegenClick(Sender: TObject);
+var
+  additemForm: TFormHinzufuegen;
+begin
+  additemForm := TFormHinzufuegen.Create(Application, privateServerAPI, listId);
+  additemForm.Show;
+end;
+
+constructor TFormListe.Create(AOwner: TComponent; var serverAPI: TServerAPI; clickedList: TListe);
 begin
   inherited Create(AOwner);
   privateServerAPI := serverAPI;
+  listId := clickedList.id;
+  Update();
+end;
+
+procedure TFormListe.FormActivate(Sender: TObject);
+begin
+  Update();
+end;
+
+procedure TFormListe.Update();
+var
+  i: Integer;
+  item: TListBoxItem;
+  lists: TListArray;
+begin
+  lists := privateServerAPI.getLists();
+  for i := 0 to High(lists) do
+  begin
+    if lists[i].id = listId then
+    begin
+      list := lists[i];
+    end;
+  end;
+  LblListe.Text := list.name;
+  ListBox1.Clear;
+  for i := 0 to High(list.items) do
+  begin
+    item := TListBoxItem.Create(ListBox1);
+    item.Text := list.items[i].name + Tabulator + list.items[i].quantity;
+    if list.items[i].done then
+      item.ItemData.Accessory := TListBoxItemData.TAccessory(1)
+    else
+      item.ItemData.Accessory := TListBoxItemData.TAccessory(0);
+    ListBox1.AddObject(item);
+  end;
 end;
 
 end.

@@ -1,4 +1,4 @@
-object Form10: TForm10
+object FormPWvergessen: TFormPWvergessen
   Left = 0
   Top = 0
   Caption = 'Vergessen'
@@ -62,7 +62,7 @@ object Form10: TForm10
         Value = 7.964079890178560000
       end
       item
-        Value = 7.908378847366999000
+        Value = 7.908378847366998000
       end
       item
         Value = 7.899659706457652000

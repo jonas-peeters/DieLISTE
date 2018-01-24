@@ -8,7 +8,7 @@ uses
   FMX.Edit, FMX.Controls.Presentation, FMX.Layouts;
 
 type
-  TForm7 = class(TForm)
+  TFormPWaendern = class(TForm)
     GridPanelLayout1: TGridPanelLayout;
     EdtPWalt: TEdit;
     EdtPWneu1: TEdit;
@@ -23,7 +23,7 @@ type
   end;
 
 var
-  Form7: TForm7;
+  FormPWaendern: TFormPWaendern;
 
 implementation
 
