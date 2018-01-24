@@ -12,6 +12,8 @@ final class ListController {
     ///
     /// Delete `/user/lists`: Deletes a list
     ///
+    /// Post `/user/lists/name`: Changes the name of a list
+    ///
     /// Post `/user/lists/items`: Adds an item to a list
     ///
     /// Delete to `/user/lists/items`: Deleted an item from a list
@@ -23,6 +25,7 @@ final class ListController {
         listRoute.get(handler: getLists)
         listRoute.post(handler: addList)
         listRoute.delete(handler: removeList)
+        listRoute.post("name", handler: changeName)
         let itemRoute = listRoute.grouped("items")
         itemRoute.post(handler: addToList)
         itemRoute.delete(handler: deleteFromList)
@@ -35,7 +38,7 @@ final class ListController {
     /// JSON encoding for request
     ///
     ///     {
-    ///         "name": $LISTNAME
+    ///         "name": $LISTNAME_String
     ///     }
     ///
     /// User must be authenticated/logged in
@@ -69,6 +72,40 @@ final class ListController {
         }
         
         return json
+    }
+    
+    /// Changes the name of a list
+    ///
+    /// Route for request: POST to `/user/lists/name`
+    ///
+    /// JSON encoding for request:
+    ///
+    ///     {
+    ///         "name": $NEWLISTNAME_String,
+    ///         "id": $LISTID_Int
+    ///     }
+    ///
+    /// - Parameter request: A HTTP request
+    /// - Returns: "Changed name" on success
+    func changeName(_ request: Request) throws -> ResponseRepresentable {
+        guard let user = request.auth.authenticated(User.self) else {
+            return generateJSONError(from: "User not autheticated")
+        }
+        guard let json = request.json else {
+            return generateJSONError(from: "Could not get JSON")
+        }
+        do {
+            let listId = try json.get("id") as Int
+            let newName = try json.get("name") as String
+            guard let list = try user.lists.find(listId) else {
+                return generateJSONError(from: "Could not find list")
+            }
+            list.name = newName
+            try list.save()
+            return try makeJSON(from: "Changed name")
+        } catch {
+            return generateJSONError(from: "Could not read data from json")
+        }
     }
     
     /// Adds an item to a list
@@ -171,7 +208,7 @@ final class ListController {
         try request.auth.authenticated(User.self)!.lists.remove(list)
         try list.delete()
         
-        return try getLists(request)
+        return try makeJSON(from: "Deleted list")
     }
 }
 
@@ -203,14 +240,10 @@ extension Request {
         }
         let user: User = auth.authenticated(User.self)!
         let idToFind: Int = try json.get(idKey)
-        let lists = try user.lists.all()
-        
-        let list = lists.filter({ list in list.id!.wrapped.int! == idToFind })
-        
-        if list.isEmpty {
-            throw Abort.notFound
+        guard let list = try user.lists.find(idToFind) else {
+            throw Abort(.notFound, reason: "List not found")
         }
         
-        return list[0]
+        return list
     }
 }
