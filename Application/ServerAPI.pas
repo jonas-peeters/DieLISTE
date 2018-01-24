@@ -50,15 +50,15 @@ type
     function createUser(email: String; name: String; password: String): String;
     function login(email : String; password: String): String;
     function deleteUser(): String;
-    function changePassword(password:string): String;
+    function changePassword(password: string): String;
     function forgotPassword(email: string): String;
     function me(): String;
     function jsonToRecord(jsonString: string): TUserData;
-    function addList(name:string): String;
+    function addList(name: string): String;
     function getLists(): TListArray;
-    function jsonArrayToArray(const s:string): TListArray;
-    function AddToList(name:string; menge: String; fertig: boolean; kategorie: Integer; liste: Integer):string;
-    function ChangeListName(name:string):string;
+    function jsonArrayToArray(const s: string): TListArray;
+    function AddToList(name: string; menge: String; fertig: boolean; kategorie: Integer; liste: Integer): string;
+    function ChangeListName(name: string; id: Integer): string;
 end;
 
 implementation
@@ -243,13 +243,16 @@ begin
   result := request.Response.Content;
 end;
 
-// Not working currently (Back-End)
-function TServerAPI.ChangeListName(name:string):string;
-var  request: TRESTRequest;
+function TServerAPI.ChangeListName(name: string; id: Integer):string;
+var
+  request: TRESTRequest;
+  jsonString: String;
 begin
   request := TRESTRequest.Create(nil);
+  jsonString := '{"id": "' + IntToStr(id) + '", "name": "' + name + '"}';
+  request.Body.JSONWriter.WriteRaw(jsonString);
   request.Method := REST.Types.rmPOST;  //POST
-  request.Resource := 'user/lists';
+  request.Resource := 'user/lists/name';
   request.Client := self.client;
   request.Execute;
   result := request.Response.Content;

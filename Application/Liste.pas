@@ -47,7 +47,7 @@ begin
   until neuerName <> '';
   if neuerName <> list.name then
   begin
-    privateServerAPI.ChangeListName(neuerName);
+    privateServerAPI.ChangeListName(neuerName, listId);
     Update();
   end;
 end;
