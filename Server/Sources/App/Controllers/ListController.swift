@@ -10,13 +10,13 @@ final class ListController {
     ///
     /// Post `/user/lists`: Creates a new list
     ///
-    /// Delete `/user/lists`: Deletes a list
+    /// Post `/user/lists/delete`: Deletes a list
     ///
     /// Post `/user/lists/name`: Changes the name of a list
     ///
     /// Post `/user/lists/items`: Adds an item to a list
     ///
-    /// Delete to `/user/lists/items`: Deleted an item from a list
+    /// POST to `/user/lists/items/delete`: Deleted an item from a list
     ///
     /// - parameters:
     ///   - drop: The droplet the routes should be added to
@@ -24,11 +24,11 @@ final class ListController {
     func addRoutes(drop: Droplet, listRoute: RouteBuilder) {
         listRoute.get(handler: getLists)
         listRoute.post(handler: addList)
-        listRoute.delete(handler: removeList)
+        listRoute.post("delete", handler: removeList)
         listRoute.post("name", handler: changeName)
         let itemRoute = listRoute.grouped("items")
         itemRoute.post(handler: addToList)
-        itemRoute.delete(handler: deleteFromList)
+        itemRoute.post("delete", handler: deleteFromList)
     }
     
     /// Creates a new list
@@ -154,7 +154,7 @@ final class ListController {
     
     /// Deletes an item from a list
     ///
-    /// Route for request: DELETE to `/user/lists/items`
+    /// Route for request: POST to `/user/lists/items/delete`
     ///
     /// JSON encoding for request
     ///
@@ -189,7 +189,7 @@ final class ListController {
     
     /// Deletes a list
     ///
-    /// Route for request: DELETE to `/user/lists`
+    /// Route for request: POST to `/user/lists`
     ///
     /// JSON encoding for request
     ///
