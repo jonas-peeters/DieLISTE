@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
-  FMX.ListBox, FMX.StdCtrls, FMX.Controls.Presentation, Hinzufuegen, serverAPI,
+  FMX.ListBox, FMX.StdCtrls, FMX.Controls.Presentation, Hinzufuegen, ListeBearbeiten, serverAPI,
   FMX.Edit;
 
 type
@@ -15,12 +15,13 @@ type
     BtnEdit: TButton;
     BtnHinzufuegen: TButton;
     ListBox1: TListBox;
-    Panel1: TPanel;
+    BtnBack: TButton;
     procedure BtnHinzufuegenClick(Sender: TObject);
     procedure BtnEditClick(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; clickedList: TListe);
     procedure Update();
     procedure FormActivate(Sender: TObject);
+    procedure BtnBackClick(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -37,7 +38,12 @@ implementation
 
 {$R *.fmx}
 
-procedure TFormListe.BtnEditClick(Sender: TObject);
+procedure TFormListe.BtnBackClick(Sender: TObject);
+begin
+  Release;
+end;
+
+{procedure TFormListe.BtnEditClick(Sender: TObject);
 var
   neuerName: String;
 begin
@@ -50,6 +56,13 @@ begin
     privateServerAPI.ChangeListName(neuerName, listId);
     Update();
   end;
+end;   }
+
+procedure TFormListe.BtnEditClick(Sender: TObject);
+var editlistForm:TFormListeBearbeiten;
+begin
+  editlistForm := TFormListeBearbeiten.Create(Application,privateServerAPI,listId,list.name);
+  editlistForm.Show;
 end;
 
 procedure TFormListe.BtnHinzufuegenClick(Sender: TObject);
