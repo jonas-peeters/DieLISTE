@@ -19,7 +19,7 @@ object FormListeBearbeiten: TFormListeBearbeiten
         Value = 16.666666666666680000
       end
       item
-        Value = 83.333333333333320000
+        Value = 83.333333333333310000
       end>
     ControlCollection = <
       item
@@ -31,28 +31,28 @@ object FormListeBearbeiten: TFormListeBearbeiten
         Column = 0
         ColumnSpan = 2
         Control = ListBox1
-        Row = 2
+        Row = 1
       end
       item
         Column = 1
         Control = Label1
-        Row = 1
+        Row = 0
       end>
     RowCollection = <
       item
-        Value = 10.001343410751660000
+        Value = 10.000000000000020000
       end
       item
-        Value = 20.038190874245920000
+        Value = 89.999999999999970000
       end
       item
-        Value = 69.960465715002420000
+        SizeStyle = Auto
       end>
     object BtnBack: TButton
       Align = Client
       StyledSettings = [Family, Style, FontColor]
       Size.Width = 58.333332061767580000
-      Size.Height = 55.007389068603510000
+      Size.Height = 55.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
       Text = '<'
@@ -61,7 +61,7 @@ object FormListeBearbeiten: TFormListeBearbeiten
     object ListBox1: TListBox
       Align = Client
       Size.Width = 350.000000000000000000
-      Size.Height = 384.782562255859400000
+      Size.Height = 495.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
       DisableFocusEffect = True
@@ -69,7 +69,7 @@ object FormListeBearbeiten: TFormListeBearbeiten
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
       Viewport.Width = 346.000000000000000000
-      Viewport.Height = 380.800000000000000000
+      Viewport.Height = 491.000000000000000000
       object LBIEditListName: TListBoxItem
         TabOrder = 0
         Text = 'ListeXY'
@@ -90,7 +90,7 @@ object FormListeBearbeiten: TFormListeBearbeiten
     object Label1: TLabel
       Align = Client
       Size.Width = 291.666656494140600000
-      Size.Height = 110.210052490234400000
+      Size.Height = 55.000000000000000000
       Size.PlatformDefault = False
       Text = 'Liste Bearbeiten'
       TabOrder = 2

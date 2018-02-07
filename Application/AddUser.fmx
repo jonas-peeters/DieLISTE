@@ -31,27 +31,27 @@ object Form1: TForm1
         Column = 0
         ColumnSpan = 2
         Control = ListBox1
-        Row = 2
+        Row = 1
       end
       item
         Column = 1
         Control = Label1
-        Row = 1
+        Row = 0
       end>
     RowCollection = <
       item
-        Value = 10.000899880800310000
+        Value = 10.000000000000020000
       end
       item
-        Value = 20.086862525942320000
+        Value = 89.999999999999970000
       end
       item
-        Value = 69.912237593257370000
+        SizeStyle = Auto
       end>
     object BtnBack: TButton
       Align = Client
       Size.Width = 58.345108032226560000
-      Size.Height = 55.004947662353520000
+      Size.Height = 55.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
       Text = '<'
@@ -60,7 +60,7 @@ object Form1: TForm1
     object ListBox1: TListBox
       Align = Client
       Size.Width = 350.000000000000000000
-      Size.Height = 384.517303466796900000
+      Size.Height = 495.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
       DisableFocusEffect = True
@@ -68,12 +68,12 @@ object Form1: TForm1
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
       Viewport.Width = 346.000000000000000000
-      Viewport.Height = 380.500000000000000000
+      Viewport.Height = 491.000000000000000000
     end
     object Label1: TLabel
       Align = Client
       Size.Width = 291.654907226562500000
-      Size.Height = 110.477752685546900000
+      Size.Height = 55.000000000000000000
       Size.PlatformDefault = False
       Text = 'User hinzuf'#252'gen'
       TabOrder = 2
