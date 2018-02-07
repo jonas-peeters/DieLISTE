@@ -59,6 +59,7 @@ type
     function jsonArrayToArray(const s: string): TListArray;
     function AddToList(name: string; menge: String; fertig: boolean; kategorie: Integer; liste: Integer): string;
     function ChangeListName(name: string; id: Integer): string;
+    function removeList(id: integer):String;
 end;
 
 implementation
@@ -182,6 +183,22 @@ begin
   request.Execute;
   result := request.Response.Content;
 end;
+
+function TserverAPI.removeList(id: Integer):String;
+var
+  jsonString: string;
+  request: TRESTRequest;
+begin
+  request := TRESTRequest.Create(nil);
+  jsonString := '{"id": "' + IntToStr(id) + '"}';
+  request.Method := REST.Types.rmPOST;
+  request.Body.JSONWriter.WriteRaw(jsonString);
+  request.Resource := '/user/lists/delete';
+  request.Client := self.client;
+  request.Execute;
+  result := request.Response.Content;
+end;
+
 
 function TServerAPI.getLists(): TListArray;
 var

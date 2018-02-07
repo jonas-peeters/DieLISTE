@@ -15,12 +15,15 @@ type
     BtnEdit: TButton;
     BtnHinzufuegen: TButton;
     ListBox1: TListBox;
+    Panel1: TPanel;
+    Btnlistelöschen: TButton;
     BtnBack: TButton;
     procedure BtnHinzufuegenClick(Sender: TObject);
     procedure BtnEditClick(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; clickedList: TListe);
     procedure Update();
     procedure FormActivate(Sender: TObject);
+    procedure BtnListelöschenClick(Sender: TObject);
     procedure BtnBackClick(Sender: TObject);
   private
     { Private-Deklarationen }
@@ -33,6 +36,7 @@ var
   privateServerAPI: TServerAPI;
   list: TListe;
   listId: Integer;
+  lists: Tlistarray;
 
 implementation
 
@@ -48,7 +52,7 @@ var
   neuerName: String;
 begin
   repeat
-    if not InputQuery('Namen �ndern', 'Neuer Name:', neuerName) then
+    if not InputQuery('Namen ändern', 'Neuer Name:', neuerName) then
       neuerName := list.name
   until neuerName <> '';
   if neuerName <> list.name then
@@ -84,6 +88,28 @@ end;
 procedure TFormListe.FormActivate(Sender: TObject);
 begin
   Update();
+end;
+
+procedure TFormListe.BtnListelöschenClick(Sender: TObject);
+begin
+MessageDlg('Wollen Sie die Liste wirklich löschen?', System.UITypes.TMsgDlgType.mtCustom,
+[ System.UITypes.TMsgDlgBtn.mbYes,
+  System.UITypes.TMsgDlgBtn.mbNo,
+  System.UITypes.TMsgDlgBtn.mbCancel
+],0,
+procedure (const AResult:System.UITypes.TModalResult)
+ var
+ item: TListBoxItem;
+begin
+  case AResult of
+    mrYES:
+      begin
+      privateServerAPI.removeList(listId);
+      ShowMessage('Die Liste wurde gelöscht!');
+      Release;
+      end;
+  end;
+end);
 end;
 
 procedure TFormListe.Update();

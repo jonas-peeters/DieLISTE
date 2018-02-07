@@ -1,4 +1,4 @@
-object FormListe: TFormListe
+﻿object FormListe: TFormListe
   Left = 0
   Top = 0
   Caption = 'Form8'
@@ -114,6 +114,16 @@ object FormListe: TFormListe
       DefaultItemStyles.ItemStyle = ''
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
+      object Btnlistelöschen: TButton
+        Position.X = 176.000000000000000000
+        Position.Y = -56.000000000000000000
+        Size.Width = 105.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Liste löschen'
+        OnClick = BtnListelöschenClick
+      end
       Viewport.Width = 350.000000000000000000
       Viewport.Height = 352.900000000000000000
     end
