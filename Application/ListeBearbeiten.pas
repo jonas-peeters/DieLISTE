@@ -16,6 +16,8 @@ type
     LBIEditListName: TListBoxItem;
     LBIDeleteList: TListBoxItem;
     LBIAddUser: TListBoxItem;
+    SettingsGroupHeader: TListBoxGroupHeader;
+    GroupHeaderUser: TListBoxGroupHeader;
     procedure BtnBackClick(Sender: TObject);
     procedure LBIEditListNameClick(Sender: TObject);
     procedure LBIDeleteListClick(Sender: TObject);
@@ -49,7 +51,6 @@ procedure TFormListeBearbeiten.BtnBackClick(Sender: TObject);
 begin
   Release;
 end;
-
 
 procedure TFormListeBearbeiten.LBIDeleteListClick(Sender: TObject);
 begin

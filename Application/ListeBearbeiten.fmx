@@ -43,7 +43,7 @@ object FormListeBearbeiten: TFormListeBearbeiten
         Value = 10.000000000000020000
       end
       item
-        Value = 89.999999999999970000
+        Value = 89.999999999999990000
       end
       item
         SizeStyle = Auto
@@ -70,19 +70,35 @@ object FormListeBearbeiten: TFormListeBearbeiten
       DefaultItemStyles.GroupFooterStyle = ''
       Viewport.Width = 346.000000000000000000
       Viewport.Height = 491.000000000000000000
+      object SettingsGroupHeader: TListBoxGroupHeader
+        Size.Width = 346.000000000000000000
+        Size.Height = 44.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        Text = 'Allgemein'
+      end
       object LBIEditListName: TListBoxItem
+        Position.Y = 44.000000000000000000
         TabOrder = 0
         Text = 'ListeXY'
         OnClick = LBIEditListNameClick
       end
       object LBIDeleteList: TListBoxItem
-        Position.Y = 19.000000000000000000
+        Position.Y = 63.000000000000000000
         TabOrder = 1
         Text = 'Liste l'#246'schen'
         OnClick = LBIDeleteListClick
       end
+      object GroupHeaderUser: TListBoxGroupHeader
+        Position.Y = 82.000000000000000000
+        Size.Width = 346.000000000000000000
+        Size.Height = 44.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        Text = 'Benutzer'
+      end
       object LBIAddUser: TListBoxItem
-        Position.Y = 38.000000000000000000
+        Position.Y = 126.000000000000000000
         TabOrder = 2
         Text = 'User hinzuf'#252'gen'
       end
