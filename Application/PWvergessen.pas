@@ -14,10 +14,11 @@ type
     EdtEMail: TEdit;
     BtnSenden: TButton;
     LblPWvergessen: TLabel;
-    Panel1: TPanel;
     BtnCancel: TButton;
+    BtnBack: TButton;
     procedure BtnSendenClick(Sender: TObject);
     procedure BtnCancelClick(Sender: TObject);
+    procedure BtnBackClick(Sender: TObject);
     public constructor Create(AOwner: TComponent; var serverAPI: TServerAPI);
   private
     { Private-Deklarationen }
@@ -37,6 +38,11 @@ constructor TFormPWvergessen.Create(AOwner: TComponent; var serverAPI: TServerAP
 begin
   inherited Create(AOwner);
   privateServerAPI := serverAPI;
+end;
+
+procedure TFormPWvergessen.BtnBackClick(Sender: TObject);
+begin
+  Release;
 end;
 
 procedure TFormPWvergessen.BtnCancelClick(Sender: TObject);

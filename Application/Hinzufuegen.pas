@@ -17,7 +17,6 @@ type
     BtnOK: TButton;
     BtnSchliessen: TButton;
     BtnHinzufuegen: TButton;
-    Panel1: TPanel;
     CBCategory: TComboBox;
     ListBoxItem1: TListBoxItem;
     ListBoxItem2: TListBoxItem;
@@ -28,10 +27,12 @@ type
     ListBoxItem7: TListBoxItem;
     ListBoxItem8: TListBoxItem;
     ListBoxItem9: TListBoxItem;
+    BtnBack: TButton;
     procedure BtnSchliessenClick(Sender: TObject);
     procedure BtnOKClick(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; selectedListId: Integer);
     procedure BtnHinzufuegenClick(Sender: TObject);
+    procedure BtnBackClick(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -51,6 +52,11 @@ begin
   inherited Create(AOwner);
   privateServerAPI := serverAPI;
   listId := selectedListId;
+end;
+
+procedure TFormHinzufuegen.BtnBackClick(Sender: TObject);
+begin
+  Release;
 end;
 
 procedure TFormHinzufuegen.BtnHinzufuegenClick(Sender: TObject);

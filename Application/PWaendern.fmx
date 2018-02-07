@@ -16,105 +16,102 @@ object FormPWaendern: TFormPWaendern
     TabOrder = 0
     ColumnCollection = <
       item
-        Value = 9.999846909737808000
+        Value = 10.914771084713800000
       end
       item
-        Value = 39.224481468322570000
+        Value = 10.257378535799400000
       end
       item
-        Value = 39.730639284219760000
+        Value = 28.646295228588700000
       end
       item
-        Value = 11.045032337719860000
+        Value = 40.177411619089100000
+      end
+      item
+        Value = 10.004143531808990000
       end>
     ControlCollection = <
       item
         Column = 1
-        ColumnSpan = 2
+        ColumnSpan = 3
         Control = EdtPWalt
         Row = 4
       end
       item
         Column = 1
-        ColumnSpan = 2
+        ColumnSpan = 3
         Control = EdtPWneu1
         Row = 6
       end
       item
         Column = 1
-        ColumnSpan = 2
+        ColumnSpan = 3
         Control = EdtPWneu2
         Row = 7
       end
       item
-        Column = 2
+        Column = 3
         Control = BtnPWaendern
         Row = 9
       end
       item
         Column = 1
-        ColumnSpan = 2
+        ColumnSpan = 3
         Control = LblPWaendern
         Row = 1
       end
       item
-        Column = 0
-        ColumnSpan = 4
-        Control = Panel1
-        Row = 0
-        RowSpan = 3
-      end
-      item
         Column = 1
+        ColumnSpan = 2
         Control = BtnCancel
         Row = 9
+      end
+      item
+        Column = 0
+        ColumnSpan = 2
+        Control = BtnBack
+        Row = 0
+        RowSpan = 2
       end>
     RowCollection = <
       item
-        Value = 8.159296334363834000
+        Value = 8.159296334363836000
       end
       item
-        Value = 8.462895063470596000
+        Value = 8.462895063470597000
       end
       item
-        Value = 8.746123088819878000
+        Value = 8.746123088819880000
       end
       item
-        Value = 9.001155829913559000
+        Value = 9.001155829913560000
       end
       item
-        Value = 9.219744442566773000
+        Value = 9.219744442566775000
       end
       item
-        Value = 9.392054672881176000
+        Value = 9.392054672881180000
       end
       item
-        Value = 9.506568260475129000
+        Value = 9.506568260475131000
       end
       item
-        Value = 9.550217255482478000
+        Value = 9.550217255482482000
       end
       item
-        Value = 9.507877481870283000
+        Value = 9.507877481870286000
       end
       item
-        Value = 9.362030900164122000
+        Value = 9.362030900164124000
       end
       item
-        Value = 9.092036669992160000
+        Value = 9.092036669992161000
       end>
-    object Panel1: TPanel
-      Align = Client
-      Size.Width = 250.000000000000000000
-      Size.Height = 63.420787811279300000
-      Size.PlatformDefault = False
-      TabOrder = 5
-    end
     object EdtPWalt: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 2
-      Size.Width = 197.387802124023400000
+      Size.Width = 197.702713012695300000
       Size.Height = 23.049362182617190000
       Size.PlatformDefault = False
       TextPrompt = 'altes Passwort'
@@ -123,7 +120,7 @@ object FormPWaendern: TFormPWaendern
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 1
-      Size.Width = 197.387802124023400000
+      Size.Width = 197.702713012695300000
       Size.Height = 23.766418457031250000
       Size.PlatformDefault = False
       TextPrompt = 'neues Passwort'
@@ -132,14 +129,14 @@ object FormPWaendern: TFormPWaendern
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 0
-      Size.Width = 197.387802124023400000
+      Size.Width = 197.702713012695300000
       Size.Height = 23.875549316406250000
       Size.PlatformDefault = False
       TextPrompt = 'neues Passwort wiederholen'
     end
     object BtnPWaendern: TButton
       Align = Client
-      Size.Width = 99.326599121093750000
+      Size.Width = 100.443527221679700000
       Size.Height = 23.405075073242190000
       Size.PlatformDefault = False
       TabOrder = 3
@@ -148,7 +145,7 @@ object FormPWaendern: TFormPWaendern
     end
     object LblPWaendern: TLabel
       Align = Client
-      Size.Width = 197.387802124023400000
+      Size.Width = 197.702713012695300000
       Size.Height = 21.157239913940430000
       Size.PlatformDefault = False
       TextSettings.HorzAlign = Center
@@ -157,12 +154,21 @@ object FormPWaendern: TFormPWaendern
     end
     object BtnCancel: TButton
       Align = Client
-      Size.Width = 98.061203002929690000
+      Size.Width = 97.259185791015630000
       Size.Height = 23.405075073242190000
       Size.PlatformDefault = False
-      TabOrder = 6
+      TabOrder = 5
       Text = 'Abbrechen'
       OnClick = BtnCancelClick
+    end
+    object BtnBack: TButton
+      Align = Client
+      Size.Width = 52.930374145507810000
+      Size.Height = 41.555480957031250000
+      Size.PlatformDefault = False
+      TabOrder = 6
+      Text = '<'
+      OnClick = BtnBackClick
     end
   end
 end
