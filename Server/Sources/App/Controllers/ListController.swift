@@ -206,7 +206,9 @@ final class ListController {
         let list = try request.getListFromUser(idKey: "id")
         
         try request.auth.authenticated(User.self)!.lists.remove(list)
-        try list.delete()
+        if list.items.isEmpty && list.users.isEmpty {
+            try list.delete()
+        }
         
         return try makeJSON(from: "Deleted list")
     }
