@@ -40,6 +40,22 @@ public final class User: Model, SessionPersistable, PasswordAuthenticatable {
         return itemList
     }
     
+    /// All users this user has a list with in common
+    var connectedUsers: [String : Int] {
+        do {
+            let lists = try self.lists.all()
+            var users: [String : Int]  = [:]
+            for userList in lists {
+                for user in userList.users {
+                    users[user, default:0]+=1
+                }
+            }
+            return users
+        } catch {
+            return [:]
+        }
+    }
+    
     /// # Keys
     /// This struct defines a number of keys that are
     /// used in the database to name the single columns

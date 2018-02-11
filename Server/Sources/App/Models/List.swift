@@ -20,6 +20,23 @@ final class List: Model {
         }
     }
     
+    private var connectedUsers: Siblings<List, User, Pivot<User, List>> {
+        return siblings()
+    }
+    
+    /// Get the users that have access to the list
+    var users: [String] {
+        do {
+            var userStringList: [String] = []
+            for userModel in try connectedUsers.all() {
+                userStringList.append(userModel.username)
+            }
+            return userStringList
+        } catch {
+            return []
+        }
+    }
+    
     /// Keys for the column names in the database
     struct Keys {
         static let id = "id"

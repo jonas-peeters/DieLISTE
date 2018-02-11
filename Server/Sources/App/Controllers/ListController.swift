@@ -26,6 +26,8 @@ final class ListController {
         listRoute.post(handler: addList)
         listRoute.post("delete", handler: removeList)
         listRoute.post("name", handler: changeName)
+        listRoute.get(Int.parameter, "suggestions", handler: userSuggestions) // With typed suggestion
+        listRoute.get(Int.parameter, "suggestions", String.parameter, handler: userSuggestions) // Without typed suggestion
         let itemRoute = listRoute.grouped("items")
         itemRoute.post(handler: addToList)
         itemRoute.post("delete", handler: deleteFromList)
@@ -69,6 +71,7 @@ final class ListController {
         
         for (listCount, list) in lists.makeIterator().enumerated() {
             try json[listCount]!.set("items", list.items)
+            try json[listCount]!.set("user", list.users)
         }
         
         return json
@@ -211,6 +214,51 @@ final class ListController {
         }
         
         return try makeJSON(from: "Deleted list")
+    }
+    
+    /// Evaluates a search term by the user to show some suggestions on which users to invite to a list
+    ///
+    /// - Parameter request: A HTTP request
+    /// - Returns: A JSON array with strings
+    func userSuggestions(_ request: Request) throws -> ResponseRepresentable {
+        let user = request.auth.authenticated(User.self)!
+        do {
+            
+            guard let list = try user.lists.find(request.parameters.next() as Int) else {
+                return generateJSONError(from: "The user has no access to this list")
+            }
+            do {
+                let typedString = try request.parameters.next() as String
+                var users = user.connectedUsers.filter({ $0.key.contains(typedString) })
+                for otherUser in try User.all().filter({ $0.username.contains(typedString) && users[$0.username] == nil }) {
+                    users[otherUser.username] = 0
+                }
+                for otherUser in list.users {
+                    users.removeValue(forKey: otherUser)
+                }
+                
+                let sortedUsers = users.sorted {
+                    if $0.value == $1.value {
+                        return max($0.key, $1.key).equals(caseInsensitive: $1.key)
+                    } else {
+                        return $0.value > $1.value
+                    }
+                }.map({ $0.key })
+                var fifteenSortedUsers: [String] = []
+                for i in 0...15 {
+                    fifteenSortedUsers.append(sortedUsers[i])
+                }
+                return try makeJSON(from: sortedUsers)
+            } catch { // When there is no search term, all users this user is currently working with on other lists are shown
+                var users = user.connectedUsers
+                for otherUser in list.users {
+                    users.removeValue(forKey: otherUser)
+                }
+                return try makeJSON(from: users.sorted { $0.value > $1.value }.map({ $0.key }))
+            }
+        } catch {
+            return generateJSONError(from: "Could not get list from URI")
+        }
     }
 }
 
