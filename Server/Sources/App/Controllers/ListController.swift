@@ -218,6 +218,8 @@ final class ListController {
     
     /// Evaluates a search term by the user to show some suggestions on which users to invite to a list
     ///
+    /// Path for request: /user/lists/$LISTID_Int/suggestions/$SEARCH_String
+    ///
     /// - Parameter request: A HTTP request
     /// - Returns: A JSON array with strings
     func userSuggestions(_ request: Request) throws -> ResponseRepresentable {

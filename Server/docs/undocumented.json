@@ -58,14 +58,21 @@
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/List.swift",
-      "line": 25,
+      "line": 23,
+      "symbol": "List.connectedUsers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/List.swift",
+      "line": 42,
       "symbol": "List.Keys.id",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/List.swift",
-      "line": 26,
+      "line": 43,
       "symbol": "List.Keys.name",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
@@ -93,49 +100,49 @@
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 47,
+      "line": 63,
       "symbol": "User.Keys.id",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 48,
+      "line": 64,
       "symbol": "User.Keys.username",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 49,
+      "line": 65,
       "symbol": "User.Keys.email",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 50,
+      "line": 66,
       "symbol": "User.Keys.verifiedEmail",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 51,
+      "line": 67,
       "symbol": "User.Keys.password",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 52,
+      "line": 68,
       "symbol": "User.Keys.allergies",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/User.swift",
-      "line": 53,
+      "line": 69,
       "symbol": "User.Keys.spam",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
