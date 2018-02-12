@@ -12,15 +12,16 @@ uses
   PWvergessen in 'PWvergessen.pas' {Form10},
   ServerAPI in 'ServerAPI.pas',
   ListeBearbeiten in 'ListeBearbeiten.pas' {FormListeBearbeiten},
-  AddUser in 'AddUser.pas' {Form1};
+  AddUser in 'AddUser.pas' {Form1},
+  ItemBearbeiten in 'ItemBearbeiten.pas';
 
 {$R *.res}
 
 begin
 Application.Initialize;
-  Application.CreateForm(TFormLogin, LoginForm);
+  AApplication.CreateForm(TLoginForm, LoginForm);
   Application.CreateForm(TFormListeBearbeiten, FormListeBearbeiten);
   Application.CreateForm(TForm1, Form1);
-  Application.Run;
+  pplication.Run;
 
 end.
