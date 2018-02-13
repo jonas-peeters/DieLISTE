@@ -87,8 +87,10 @@ final class PasswordController {
     /// - Returns: "EMail sent" on success
     func forgotPassword(_ request: Request, drop: Droplet) throws -> ResponseRepresentable {
         do {
-            let json = request.json
-            let email = try json!.get(User.Keys.email) as String
+            guard let json = request.json else {
+                return status(20)
+            }
+            let email = try json.get(User.Keys.email) as String
             var user: User? = nil
             user = try User.all().first(where: { $0.email.lowercased() == email.lowercased() })
             if user != nil {
@@ -98,16 +100,16 @@ final class PasswordController {
                     if sendForgotPasswordEMail(email: email, username: user!.username, link: "https://die-liste.herokuapp.com/user/password/reset/\(uniqueId)", drop: drop) {
                         return try makeJSON(from: "EMail sent")
                     } else {
-                        return generateJSONError(from: "EMail not sent")
+                        return status(32)
                     }
                 } else {
-                    return generateJSONError(from: "E-Mail not verified")
+                    return status(45)
                 }
             } else {
-                return generateJSONError(from: "User with that email not found")
+                return status(42)
             }
         } catch {
-            return generateJSONError(from: "Could not read e-mail from json")
+            return status(25)
         }
     }
     

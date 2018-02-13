@@ -41,6 +41,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		F05C53A420333CCC0075F4BD /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C53A320333CCC0075F4BD /* Status.swift */; };
+		F05C53A520333CCC0075F4BD /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C53A320333CCC0075F4BD /* Status.swift */; };
 		OBJ_1005 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_470 /* Package.swift */; };
 		OBJ_1011 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_482 /* Package.swift */; };
 		OBJ_1017 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_534 /* Package.swift */; };
@@ -97,7 +99,6 @@
 		OBJ_1124 /* libc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Core::libc::Product" /* libc.framework */; };
 		OBJ_1125 /* Bits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Bits::Bits::Product" /* Bits.framework */; };
 		OBJ_1126 /* PathIndexable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Node::PathIndexable::Product" /* PathIndexable.framework */; };
-		OBJ_1216 /* PostControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* PostControllerTests.swift */; };
 		OBJ_1217 /* RouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* RouteTests.swift */; };
 		OBJ_1218 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* Utilities.swift */; };
 		OBJ_1220 /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Server::App::Product" /* App.framework */; };
@@ -5007,6 +5008,7 @@
 		"Engine::SMTP::Product" /* SMTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SMTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Engine::URI::Product" /* URI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = URI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Engine::WebSockets::Product" /* WebSockets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WebSockets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F05C53A320333CCC0075F4BD /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		"Fluent::Fluent::Product" /* Fluent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Fluent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"FluentProvider::FluentProvider::Product" /* FluentProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FluentProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"JSON::JSON::Product" /* JSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -5202,7 +5204,6 @@
 		OBJ_317 /* Config+Console.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Config+Console.swift"; sourceTree = "<group>"; };
 		OBJ_318 /* DumpConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DumpConfig.swift; sourceTree = "<group>"; };
 		OBJ_319 /* Vapor+Console.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vapor+Console.swift"; sourceTree = "<group>"; };
-		OBJ_32 /* PostControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostControllerTests.swift; sourceTree = "<group>"; };
 		OBJ_320 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		OBJ_322 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		OBJ_323 /* Directories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Directories.swift; sourceTree = "<group>"; };
@@ -6698,6 +6699,7 @@
 			children = (
 				OBJ_15 /* EMail.swift */,
 				OBJ_16 /* JSON.swift */,
+				F05C53A320333CCC0075F4BD /* Status.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -7187,7 +7189,6 @@
 		OBJ_31 /* AppTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_32 /* PostControllerTests.swift */,
 				OBJ_33 /* RouteTests.swift */,
 				OBJ_34 /* Utilities.swift */,
 			);
@@ -10724,6 +10725,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_1083 /* main.swift in Sources */,
+				F05C53A420333CCC0075F4BD /* Status.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10731,7 +10733,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_1216 /* PostControllerTests.swift in Sources */,
 				OBJ_1217 /* RouteTests.swift in Sources */,
 				OBJ_1218 /* Utilities.swift in Sources */,
 			);
@@ -10752,6 +10753,7 @@
 				OBJ_1316 /* List.swift in Sources */,
 				OBJ_1317 /* Supermarket.swift in Sources */,
 				OBJ_1318 /* User.swift in Sources */,
+				F05C53A520333CCC0075F4BD /* Status.swift in Sources */,
 				OBJ_1319 /* Routes.swift in Sources */,
 				OBJ_1320 /* Config+Setup.swift in Sources */,
 				OBJ_1321 /* Droplet+Setup.swift in Sources */,

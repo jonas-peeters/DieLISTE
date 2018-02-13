@@ -81,12 +81,12 @@ final class UserController {
     func create(_ request: Request, drop: Droplet) throws -> ResponseRepresentable {
         do {
             guard let json = request.json else {
-                return generateJSONError(from: "Bad request\n\nReason: No JSON content found\n\nPossible solutions:\n - Try to format the body of the request as application/json")
+                return status(20)
             }
             let newUser: User = try User(json: json)
             
             if !(try User.all().filter({ user in user.username == newUser.username || user.email == newUser.email}).isEmpty) {
-                return generateJSONError(from: "Username of email is unavailable.")
+                return status(44)
             }
             
             do {
@@ -95,16 +95,15 @@ final class UserController {
                 try drop.cache.set(uniqueId, newUser.id!.string!, expiration: Date(timeIntervalSinceNow: 86400)) // Expires in 24 hours
                 //if !sendEMailVerificationEMail(email: newUser.email, username: newUser.username, link: "http://localhost:4343/user/verify/\(uniqueId)", config: drop.config) { // For local tests only
                 if !sendEMailVerificationEMail(email: newUser.email, username: newUser.username, link: "https://die-liste.herokuapp.com/user/verify/\(uniqueId)", drop: drop) {
-                    return generateJSONError(from: "User created but email not sent")
+                    return status(32)
                 }
             } catch {
-                print(error)
-                return generateJSONError(from: "Internal Server Error: Unable to save user data.\nPlease contact the server administrator or the software support team.")
+                return status(31)
             }
             
             return newUser
         } catch {
-            return generateJSONError(from: "Bad request\n\nReason: Couldn't parse JSON as user\n\nPossible solutions:\n - Check JSON keys for typos\n - Check JSON values for the correct type")
+            return status(25)
         }
     }
     
@@ -179,19 +178,22 @@ final class UserController {
         let email: String
         let password: String
         do {
-            let json = request.json
-            if json == nil {
-                return generateJSONError(from: "No JSON content found\n\nTry to format the body as application/json.")
+            guard let json = request.json else {
+                return status(20)
             }
-            email = try json!.get(User.Keys.email) as String
-            password = try json!.get(User.Keys.password) as String
+            email = try json.get(User.Keys.email) as String
+            password = try json.get(User.Keys.password) as String
         } catch {
-            return generateJSONError(from: "Bad credentials:\n\nPossible solutions: - email and password have to provided\n - email and password have to be provided as strings\n - content type has to be application/json")
+            return status(25)
         }
         let credentials = Password(username: email, password: password)
         
-        let user = try User.authenticate(credentials)
-        request.auth.authenticate(user)
+        do {
+            let user = try User.authenticate(credentials)
+            request.auth.authenticate(user)
+        } catch {
+            return status(43)
+        }
         
         return try makeJSON(from: "OK: Authenticated")
     }
@@ -240,18 +242,22 @@ final class UserController {
     /// - Returns: "Updated allergies" on success
     func writeAllergies(_ request: Request) throws -> ResponseRepresentable {
         guard let user = request.auth.authenticated(User.self) else {
-            return generateJSONError(from: "User not found")
+            return status(22)
         }
         guard let json = request.json else {
-            return generateJSONError(from: "Could not retrieve JSON")
+            return status(20)
         }
         do {
             let allergies = try json.get("allergies") as String
             user.allergies = allergies
-            try user.save()
-            return try makeJSON(from: "Updated allergies")
+            do {
+                try user.save()
+                return try makeJSON(from: "Updated allergies")
+            } catch {
+                return status(31)
+            }
         } catch {
-            return generateJSONError(from: "Could not read allergies")
+            return status(25)
         }
     }
 }

@@ -1,4 +1,5 @@
 import JSON
+import Vapor
 
 /// Generates a JSON object from a string to allow for easier parsing on the clinet side
 ///
@@ -32,4 +33,5 @@ func makeJSON(from content: Any) throws -> JSON {
         try json.set("content", content)
         return try json.get("content")
 }
+
 

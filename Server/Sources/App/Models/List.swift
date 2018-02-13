@@ -20,7 +20,7 @@ final class List: Model {
         }
     }
     
-    private var connectedUsers: Siblings<List, User, Pivot<User, List>> {
+    var connectedUsers: Siblings<List, User, Pivot<User, List>> {
         return siblings()
     }
     

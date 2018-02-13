@@ -64,11 +64,25 @@ final class ListController {
     ///   - request: A HTTP request
     /// - returns: The lists of the user
     func addList(_ request: Request) throws -> ResponseRepresentable {
-        let list = try request.list()
-        try list.save()
-        let connection = try Pivot<User, List>.init(request.auth.authenticated(User.self)!, list)
-        try connection.save()
-        return try getLists(request)
+        guard let user = request.auth.authenticated(User.self) else {
+            return status(40)
+        }
+        guard let json = request.json else {
+            return status(20)
+        }
+        do {
+            let list = try List(json: json)
+            do {
+                try list.save()
+                let connection = try Pivot<User, List>(user, list)
+                try connection.save()
+                return try getLists(request)
+            } catch {
+                return status(31)
+            }
+        } catch {
+            return status(25)
+        }
     }
     
     /// Returns a JSON array with all the lists and their items
@@ -81,15 +95,22 @@ final class ListController {
     ///   - request: A HTTP request
     /// - returns: The lists of the user
     func getLists(_ request: Request) throws -> ResponseRepresentable {
-        let lists = try request.auth.authenticated(User.self)!.lists.all()
-        var json: JSON = try makeJSON(from: lists)
-        
-        for (listCount, list) in lists.makeIterator().enumerated() {
-            try json[listCount]!.set("items", list.items)
-            try json[listCount]!.set("user", list.users)
+        guard let user = request.auth.authenticated(User.self) else {
+            return status(40)
         }
-        
-        return json
+        do {
+            let lists = try user.lists.all()
+            var json: JSON = try makeJSON(from: lists)
+            
+            for (listCount, list) in lists.makeIterator().enumerated() {
+                try json[listCount]!.set("items", list.items)
+                try json[listCount]!.set("user", list.users)
+            }
+            
+            return json
+        } catch {
+            return status(30)
+        }
     }
     
     /// Changes the name of a list
@@ -107,22 +128,22 @@ final class ListController {
     /// - Returns: "Changed name" on success
     func changeName(_ request: Request) throws -> ResponseRepresentable {
         guard let user = request.auth.authenticated(User.self) else {
-            return generateJSONError(from: "User not autheticated")
+            return status(40)
         }
         guard let json = request.json else {
-            return generateJSONError(from: "Could not get JSON")
+            return status(20)
         }
         do {
             let listId = try json.get("id") as Int
             let newName = try json.get("name") as String
             guard let list = try user.lists.find(listId) else {
-                return generateJSONError(from: "Could not find list")
+                return status(23)
             }
             list.name = newName
             try list.save()
             return try makeJSON(from: "Changed name")
         } catch {
-            return generateJSONError(from: "Could not read data from json")
+            return status(25)
         }
     }
     
@@ -146,9 +167,11 @@ final class ListController {
     ///   - request: A HTTP request
     /// - returns: The lists of the user
     func addToList(_ request: Request) throws -> ResponseRepresentable {
-        let user = request.auth.authenticated(User.self)!
+        guard let user = request.auth.authenticated(User.self) else {
+            return status(40)
+        }
         guard let json = request.json else {
-            return generateJSONError(from: "Could not retrieve JSON")
+            return status(20)
         }
         
         let item: Item?
@@ -156,18 +179,20 @@ final class ListController {
             item = try Item(json: json)
             do {
                 if try !user.lists.all().contains(where: { $0.id!.int! == item!.listId!.int! }) {
-                    return generateJSONError(from: "\(user.username) as no access to list \(String(describing: item!.listId!.int!))")
+                    return status(23)
+                }
+                do {
+                    try item?.save()
+                    return try getLists(request)
+                } catch {
+                    return status(31)
                 }
             } catch {
-                return generateJSONError(from: "Could not get user's lists")
+                return status(30)
             }
         } catch {
-            return generateJSONError(from: "Malformed JSON: Could not interfer item from json")
+            return status(25)
         }
-        
-        try item?.save()
-        
-        return try getLists(request)
     }
     
     /// Deletes an item from a list
@@ -186,22 +211,22 @@ final class ListController {
     /// - Returns: "Item deleted" on success
     func deleteFromList(_ request: Request) throws -> ResponseRepresentable {
         guard let user = request.auth.authenticated(User.self) else {
-            return generateJSONError(from: "User not found")
+            return status(40)
         }
         guard let json = request.json else {
-            return generateJSONError(from: "Could not retrieve JSON")
+            return status(20)
         }
         do {
             let id = try json.get("id") as Int
             do {
                 guard let item = user.items.first(where: { $0.id!.int! == id}) else {
-                    return generateJSONError(from: "Could not find item")
+                    return status(24)
                 }
                 try user.lists.find(item.listId!)?.children(type: Item.self, foreignIdKey: List.foreignIdKey).delete(item)
                 return try makeJSON(from: "Item deleted")
             }
         } catch {
-            return generateJSONError(from: "Could not interfere item")
+            return status(25)
         }
     }
     
@@ -221,14 +246,28 @@ final class ListController {
     ///   - request: A HTTP request
     /// - returns: The lists of the user
     func removeList(_ request: Request) throws -> ResponseRepresentable {
-        let list = try request.getListFromUser(idKey: "id")
-        
-        try request.auth.authenticated(User.self)!.lists.remove(list)
-        if list.items.isEmpty && list.users.isEmpty {
-            try list.delete()
+        guard let user = request.auth.authenticated(User.self) else {
+            return status(40)
         }
-        
-        return try makeJSON(from: "Deleted list")
+        guard let json = request.json else {
+            return status(20)
+        }
+        do {
+            guard let list = try user.lists.find(json.get("id")) else {
+                return status(23)
+            }
+            do {
+                try user.lists.remove(list)
+                if list.items.isEmpty && list.users.isEmpty {
+                    try list.delete()
+                }
+                return try makeJSON(from: "Deleted list")
+            } catch {
+                return status(31)
+            }
+        } catch {
+            return status(25)
+        }
     }
     
     /// Evaluates a search term by the user to show some suggestions on which users to invite to a list
@@ -238,11 +277,13 @@ final class ListController {
     /// - Parameter request: A HTTP request
     /// - Returns: A JSON array with strings
     func userSuggestions(_ request: Request) throws -> ResponseRepresentable {
-        let user = request.auth.authenticated(User.self)!
+        guard let user = request.auth.authenticated(User.self) else {
+            return status(40)
+        }
         do {
             
             guard let list = try user.lists.find(request.parameters.next() as Int) else {
-                return generateJSONError(from: "The user has no access to this list")
+                return status(23)
             }
             do {
                 let typedString = try request.parameters.next() as String
@@ -274,7 +315,7 @@ final class ListController {
                 return try makeJSON(from: users.sorted { $0.value > $1.value }.map({ $0.key }))
             }
         } catch {
-            return generateJSONError(from: "Could not get list from URI")
+            return status(21)
         }
     }
     
@@ -287,15 +328,17 @@ final class ListController {
     ///   - drop: The Droplet. Needed for sending the email and accessing the cache
     /// - Returns: "Success" on success
     func inviteUser(_ request: Request, drop: Droplet) throws -> ResponseRepresentable {
-        let user = request.auth.authenticated(User.self)!
+        guard let user = request.auth.authenticated(User.self) else {
+            return status(40)
+        }
         do {
             guard let list = try user.lists.find(request.parameters.next() as Int) else {
-                return generateJSONError(from: "The user has no access to this list")
+                return status(23)
             }
             do {
                 let username = try request.parameters.next() as String
                 guard let invitedUser = try User.all().first(where: { $0.username.equals(caseInsensitive: username) }) else {
-                    return generateJSONError(from: "Could not find user")
+                    return status(22)
                 }
                 let uuid = UUID().uuidString
                 let spamuuid = UUID().uuidString
@@ -308,16 +351,16 @@ final class ListController {
                     if sendInvitedToListEMail(email: invitedUser.email, targetUsername: username, sourceUsername: user.username, listName: list.name, link: "https://die-liste.herokuapp.com/user/lists/acceptinvitation/" + uuid, spamLink: "https://die-liste.herokuapp.com/spam/" + spamuuid, drop: drop) {
                         return try makeJSON(from: "Success")
                     } else {
-                        return generateJSONError(from: "Could not send E-Mail")
+                        return status(32)
                     }
                 } catch {
                     throw Abort.serverError
                 }
             } catch {
-                return generateJSONError(from: "Could not get username")
+                return status(21)
             }
         } catch {
-            return generateJSONError(from: "Could not get list")
+            return status(21)
         }
     }
     
@@ -348,40 +391,41 @@ final class ListController {
             return try self.view.make("error", ["message": "Parameter nicht gefunden"], for: request)
         }
     }
-}
-
-extension Request {
-    /// Creates a list from the JSON provided in the body of the request
+    
+    /// Remove a user from a list
     ///
-    /// - returns: A list if one could be created and badRequest if no JSON could be retrieved or the JSON is malformed
-    func list() throws -> List {
-        guard let json = json else {
-            throw Abort.badRequest
+    /// - Parameter request: A HTTP request
+    /// - Returns: "Success"
+    func removeUser(_ request: Request) -> ResponseRepresentable {
+        guard let user = request.auth.authenticated(User.self) else {
+            return status(40)
+        }
+        guard let json = request.json else {
+            return status(20)
         }
         do {
-            return try List(json: json)
+            let listId = try json.get("list_id") as Int
+            let userId = try json.get("user_id") as Int
+            
+            do {
+                guard let list = try user.lists.find(listId) else {
+                    return status(23)
+                }
+                guard let userToRemove = try list.connectedUsers.find(userId) else {
+                    return status(22)
+                }
+                do {
+                    try userToRemove.lists.remove(list)
+                    return try makeJSON(from: "Success")
+                } catch {
+                    return status(31)
+                }
+                
+            } catch {
+                return status(23)
+            }
         } catch {
-            print(generateJSONError(from: "Malformed JSON: The provided JSON data couldn't be parsed.\n\nPossible solutions:\n - Check if all keys are spelled correctly\n - Check if all types are correct").wrapped)
-            throw Abort.badRequest
+            return status(25)
         }
-    }
-    
-    /// Finds the list from a request if the user has access.
-    /// If the user has no access to this list "notFound" will be returned.
-    ///
-    /// - parameters:
-    ///   - idKey: The key in the json from the request that contains the list id
-    /// - returns: A list if a list is found, notFound if no list is found and badRequest if no JSON could be retrieved
-    func getListFromUser(idKey: String) throws -> List {
-        guard let json = json else {
-            throw Abort.badRequest
-        }
-        let user: User = auth.authenticated(User.self)!
-        let idToFind: Int = try json.get(idKey)
-        guard let list = try user.lists.find(idToFind) else {
-            throw Abort(.notFound, reason: "List not found")
-        }
-        
-        return list
     }
 }
