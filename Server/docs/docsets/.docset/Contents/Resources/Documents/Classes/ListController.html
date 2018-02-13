@@ -106,6 +106,9 @@
               <li class="nav-group-task">
                 <a href="../Functions.html#/s:3App23sendForgotPasswordEMailSbSS5email_SS8usernameSS4link5Vapor7DropletC4droptF">sendForgotPasswordEMail(email:username:link:drop:)</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:3App22sendInvitedToListEMailSbSS5email_SS14targetUsernameSS06sourceI0SS8listNameSS4linkSS8spamLink5Vapor7DropletC4droptF">sendInvitedToListEMail(email:targetUsername:sourceUsername:listName:link:spamLink:drop:)</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -126,6 +129,79 @@
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3App14ListControllerC4view5Vapor12ViewRenderer_pv"></a>
+                    <a name="//apple_ref/swift/Property/view" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3App14ListControllerC4view5Vapor12ViewRenderer_pv">view</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Used to create webviews that can be shown in any webbrowser</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">ViewRenderer</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3App14ListControllerCAC5Vapor12ViewRenderer_pcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3App14ListControllerCAC5Vapor12ViewRenderer_pcfc">init(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializer</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">ViewRenderer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>view</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Used for creating webviews</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -568,7 +644,7 @@
                       <div class="abstract">
                         <p>Evaluates a search term by the user to show some suggestions on which users to invite to a list</p>
 
-<p>Path for request: /user/lists/$LISTID_Int/suggestions/$SEARCH_String</p>
+<p>Path for request: GET to /user/lists/$LISTID_Int/suggestions/$SEARCH_String</p>
 
                       </div>
                       <div class="declaration">
@@ -605,12 +681,138 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3App14ListControllerC10inviteUser4HTTP21ResponseRepresentable_pAE7RequestC_5Vapor7DropletC4droptKF"></a>
+                    <a name="//apple_ref/swift/Method/inviteUser(_:drop:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3App14ListControllerC10inviteUser4HTTP21ResponseRepresentable_pAE7RequestC_5Vapor7DropletC4droptKF">inviteUser(_:drop:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Invite a user to a list</p>
+
+<p>Path for request: GET to /user/list/LISTID_Int/invite/USERNAME_String</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">inviteUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">Request</span><span class="p">,</span> <span class="nv">drop</span><span class="p">:</span> <span class="kt">Droplet</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">ResponseRepresentable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A HTTP request</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>drop</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The Droplet. Needed for sending the email and accessing the cache</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><q>Success</q> on success</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3App14ListControllerC16acceptInvitation4HTTP21ResponseRepresentable_pAE7RequestC_5Vapor7DropletC4droptKF"></a>
+                    <a name="//apple_ref/swift/Method/acceptInvitation(_:drop:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3App14ListControllerC16acceptInvitation4HTTP21ResponseRepresentable_pAE7RequestC_5Vapor7DropletC4droptKF">acceptInvitation(_:drop:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Accept an invitation to a list</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">acceptInvitation</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">Request</span><span class="p">,</span> <span class="nv">drop</span><span class="p">:</span> <span class="kt">Droplet</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">ResponseRepresentable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A HTTP request</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>drop</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The droplet in order to access the cache</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A webview with a message</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-02-11)</p>
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-02-13)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
