@@ -1,0 +1,4 @@
+before_install: cd Server
+language: swift
+xcode_project: Server.xcodeproj
+xcode_scheme: AppTest
