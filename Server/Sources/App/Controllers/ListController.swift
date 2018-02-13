@@ -3,6 +3,15 @@ import FluentProvider
 
 /// Controlling all routes concerning lists
 final class ListController {
+    /// Used to create webviews that can be shown in any webbrowser
+    let view: ViewRenderer
+    
+    /// Initializer
+    ///
+    /// - Parameter view: Used for creating webviews
+    init(_ view: ViewRenderer) {
+        self.view = view
+    }
     
     /// ## Adds all routes relevant to lists
     ///
@@ -28,6 +37,12 @@ final class ListController {
         listRoute.post("name", handler: changeName)
         listRoute.get(Int.parameter, "suggestions", handler: userSuggestions) // With typed suggestion
         listRoute.get(Int.parameter, "suggestions", String.parameter, handler: userSuggestions) // Without typed suggestion
+        listRoute.get(Int.parameter, "invite", String.parameter, handler: { request in
+            try self.inviteUser(request, drop: drop)
+        })
+        drop.get("user", "lists", "acceptinvitation", String.parameter, handler: { request in
+            try self.acceptInvitation(request, drop: drop)
+        })
         let itemRoute = listRoute.grouped("items")
         itemRoute.post(handler: addToList)
         itemRoute.post("delete", handler: deleteFromList)
@@ -218,7 +233,7 @@ final class ListController {
     
     /// Evaluates a search term by the user to show some suggestions on which users to invite to a list
     ///
-    /// Path for request: /user/lists/$LISTID_Int/suggestions/$SEARCH_String
+    /// Path for request: GET to /user/lists/$LISTID_Int/suggestions/$SEARCH_String
     ///
     /// - Parameter request: A HTTP request
     /// - Returns: A JSON array with strings
@@ -260,6 +275,77 @@ final class ListController {
             }
         } catch {
             return generateJSONError(from: "Could not get list from URI")
+        }
+    }
+    
+    /// Invite a user to a list
+    ///
+    /// Path for request: GET to /user/list/LISTID_Int/invite/USERNAME_String
+    ///
+    /// - Parameters:
+    ///   - request: A HTTP request
+    ///   - drop: The Droplet. Needed for sending the email and accessing the cache
+    /// - Returns: "Success" on success
+    func inviteUser(_ request: Request, drop: Droplet) throws -> ResponseRepresentable {
+        let user = request.auth.authenticated(User.self)!
+        do {
+            guard let list = try user.lists.find(request.parameters.next() as Int) else {
+                return generateJSONError(from: "The user has no access to this list")
+            }
+            do {
+                let username = try request.parameters.next() as String
+                guard let invitedUser = try User.all().first(where: { $0.username.equals(caseInsensitive: username) }) else {
+                    return generateJSONError(from: "Could not find user")
+                }
+                let uuid = UUID().uuidString
+                let spamuuid = UUID().uuidString
+                do {
+                    var node = JSON()
+                    try node.set("user_id", invitedUser.id?.int!)
+                    try node.set("list_id", list.id?.int!)
+                    try drop.cache.set(uuid, node, expiration: Date(timeIntervalSinceNow: 86400*2)) // Expires in two days
+                    try drop.cache.set(spamuuid, user.id?.int!, expiration: Date(timeIntervalSinceNow: 86400*7)) // Expires in seven days
+                    if sendInvitedToListEMail(email: invitedUser.email, targetUsername: username, sourceUsername: user.username, listName: list.name, link: "https://die-liste.herokuapp.com/user/lists/acceptinvitation/" + uuid, spamLink: "https://die-liste.herokuapp.com/spam/" + spamuuid, drop: drop) {
+                        return try makeJSON(from: "Success")
+                    } else {
+                        return generateJSONError(from: "Could not send E-Mail")
+                    }
+                } catch {
+                    throw Abort.serverError
+                }
+            } catch {
+                return generateJSONError(from: "Could not get username")
+            }
+        } catch {
+            return generateJSONError(from: "Could not get list")
+        }
+    }
+    
+    /// Accept an invitation to a list
+    ///
+    /// - Parameters:
+    ///   - request: A HTTP request
+    ///   - drop: The droplet in order to access the cache
+    /// - Returns: A webview with a message
+    func acceptInvitation(_ request: Request, drop: Droplet) throws -> ResponseRepresentable {
+        do {
+            let uuid = try request.parameters.next() as String
+            guard let cacheNode = try drop.cache.get(uuid) else {
+                return try self.view.make("error", ["message": "Token abgelaufen. Bitte lasse dir einen neuen zusenden."], for: request)
+            }
+            let userId = try cacheNode.get("user_id") as Int
+            let listId = try cacheNode.get("list_id") as Int
+            guard let user = try User.find(userId) else {
+                return try self.view.make("error", ["message": "User nicht gefunden"], for: request)
+            }
+            guard let list = try List.find(listId) else {
+                return try self.view.make("error", ["message": "Liste nicht gefunden"], for: request)
+            }
+            try user.lists.add(list)
+            try user.save()
+            return try self.view.make("success", ["message": "Du bist erfolgreich der Liste \(list.name) beigetreten."], for: request)
+        } catch {
+            return try self.view.make("error", ["message": "Parameter nicht gefunden"], for: request)
         }
     }
 }

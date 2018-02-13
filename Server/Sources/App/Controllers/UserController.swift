@@ -26,7 +26,7 @@ final class UserController {
     func addRoutes(drop: Droplet, loginRoute: RouteBuilder, authedRoute: RouteBuilder) {
         let userRoute = drop.grouped("user")
         let authedUserRoute = authedRoute.grouped("user")
-        let listController = ListController()
+        let listController = ListController(view)
         
         // Logging in
         loginRoute.post("login", handler: login)
@@ -40,6 +40,11 @@ final class UserController {
         userRoute.get("verify", String.parameter) { req in
             return try self.verifyEMail(req, drop: drop)
         }
+        
+        // Spam
+        drop.get("spam", String.parameter, handler: { request in
+            try self.spam(request, drop: drop)
+        })
         
         // Get profil information
         authedUserRoute.get(handler: me)
@@ -124,6 +129,30 @@ final class UserController {
             user.verifiedEmail = true
             try user.save()
             return try self.view.make("success", ["message": "E-Mail erfolgreich verifiziert"], for: request)
+        } catch {
+            return try self.view.make("error", ["message": "Parameter nicht gefunden"], for: request)
+        }
+    }
+    
+    /// Spam report
+    ///
+    /// - Parameters:
+    ///   - request: A HTTP request
+    ///   - drop: The droplet to access the cache
+    /// - Returns: Webview with message
+    func spam(_ request: Request, drop: Droplet) throws -> ResponseRepresentable {
+        do {
+            let uuid = try request.parameters.next() as String
+            guard let cacheNode = try drop.cache.get(uuid) else {
+                return try self.view.make("error", ["message": "Token abgelaufen. Bitte lasse dir einen neuen zusenden."], for: request)
+            }
+            let id = cacheNode.string
+            guard let user = try User.find(id) else {
+                return try self.view.make("error", ["message": "User nicht gefunden"], for: request)
+            }
+            user.spamCounter += 1
+            try user.save()
+            return try self.view.make("success", ["message": "Spam-Meldung erfolgreich verzeichnet. Vielen Dank für deine Unterstützung."], for: request)
         } catch {
             return try self.view.make("error", ["message": "Parameter nicht gefunden"], for: request)
         }

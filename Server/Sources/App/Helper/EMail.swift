@@ -26,6 +26,22 @@ func sendForgotPasswordEMail(email: String, username: String, link: String, drop
     return sendEMail(to: email, content: content, drop: drop, subject: "Passwort zurücksetzen")
 }
 
+/// Sends an email to invite a user to a list
+///
+/// - Parameters:
+///   - email: The users email address
+///   - targetUsername: The username of the invited user
+///   - sourceUsername: The username of the inviting user
+///   - listName: The name of the list
+///   - link: The link to accept the invitation
+///   - spamLink: A link to mark this message as spam
+///   - drop: Th Droplet in order to get the mail API key and send the request
+/// - Returns: true on success, false when something goes wrong
+func sendInvitedToListEMail(email: String, targetUsername: String, sourceUsername: String, listName: String, link: String, spamLink: String, drop: Droplet) -> Bool {
+    let content = "<html lang='en'> <head> <meta charset='UTF-8'> <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet'> <style>*{margin: 0; padding: 0; outline: 0; box-sizing: border-box;}html, body{width: 100%; height: 100%; background-color: #fafafa; color: #333333; -webkit-font-smoothing: antialiased;}.container{width: 90%; padding: 32px; margin: 0 auto; position: relative; border-radius: 10px; top: 5%; text-align: left; background-color: #EEE;}.title{font-size: 40px; opacity: 0.9; font-weight: 100; font-family: 'Source Code Pro', monospace; text-shadow: 2px 2px rgba(0,0,0,0.1); line-height: 100px;}.message{font-size: 20px; opacity: 0.8; font-family: 'Source Code Pro', monospace; text-shadow: 1px 1px rgba(0,0,0,0.2); line-height: 25px;}a.button{font-size: 20px; opacity: 0.8; font-family: 'Source Code Pro', monospace; text-shadow: 1px 1px rgba(0,0,0,0.2); line-height: 25px; border-radius: 10px; border-width: 2px; border-style: solid; border-color: #FFFFFF; background-color: #54C5EC; color: #FFFFFF; padding: 5px; margin: 40px; text-decoration: none;}</style> </head> <body> <div class='container'> <h1 class='title'>Einladung </h1> <p class='message'>Hallo \(targetUsername),</p><br><p class='message'> \(sourceUsername) hat dich zu der Liste \(listName) eingeladen. </p><br><p class='message'> Klicke auf den folgenden Button, um der Liste beizutreten: </p><br><a href='\(link)' class='button'>Beitreten</a> <br><br><p class='message'> Viel Spaß! </p><br><p class='message'> Dein DieLISTE Team! </p><br><br><br><br><p class='message'> <a href='\(spamLink)'>Spam/Werbung?</a> </p></div></body></html>"
+    return sendEMail(to: email, content: content, drop: drop, subject: "Einladung zu \(listName)")
+}
+
 /// Send an email via the Sendgrid email api
 ///
 /// - Parameters:
