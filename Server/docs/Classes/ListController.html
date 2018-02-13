@@ -83,14 +83,17 @@
               <li class="nav-group-task">
                 <a href="../Extensions/Droplet.html">Droplet</a>
               </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/Request.html">Request</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="../Functions.html">Functions</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:3App12createStatus4JSONACVSi_SStF">createStatus(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:3App12createStatus4JSONACVSi_SSSaySSGtF">createStatus(_:_:_:)</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Functions.html#/s:3App17generateJSONError4JSONACVSS4from_tF">generateJSONError(from:)</a>
               </li>
@@ -108,6 +111,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Functions.html#/s:3App22sendInvitedToListEMailSbSS5email_SS14targetUsernameSS06sourceI0SS8listNameSS4linkSS8spamLink5Vapor7DropletC4droptF">sendInvitedToListEMail(email:targetUsername:sourceUsername:listName:link:spamLink:drop:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:3App6status4HTTP8ResponseCSiF">status(_:)</a>
               </li>
             </ul>
           </li>
@@ -803,6 +809,56 @@
                       <div>
                         <h4>Return Value</h4>
                         <p>A webview with a message</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3App14ListControllerC10removeUser4HTTP21ResponseRepresentable_pAE7RequestCF"></a>
+                    <a name="//apple_ref/swift/Method/removeUser(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3App14ListControllerC10removeUser4HTTP21ResponseRepresentable_pAE7RequestCF">removeUser(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Remove a user from a list</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">removeUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ResponseRepresentable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A HTTP request</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><q>Success</q></p>
                       </div>
                     </section>
                   </div>
