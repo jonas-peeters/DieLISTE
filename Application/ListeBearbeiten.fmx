@@ -101,6 +101,7 @@ object FormListeBearbeiten: TFormListeBearbeiten
         Position.Y = 126.000000000000000000
         TabOrder = 2
         Text = 'User hinzuf'#252'gen'
+        OnClick = LBIAddUserClick
       end
     end
     object Label1: TLabel

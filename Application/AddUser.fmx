@@ -1,4 +1,4 @@
-object Form1: TForm1
+object FormAddUser: TFormAddUser
   Left = 0
   Top = 0
   Caption = 'Form1'
@@ -31,19 +31,32 @@ object Form1: TForm1
         Column = 0
         ColumnSpan = 2
         Control = ListBox1
-        Row = 1
+        Row = 2
+        RowSpan = 2
       end
       item
         Column = 1
         Control = Label1
         Row = 0
+      end
+      item
+        Column = 0
+        ColumnSpan = 2
+        Control = Edit1
+        Row = 1
       end>
     RowCollection = <
       item
-        Value = 10.000000000000020000
+        Value = 10.378288706080170000
       end
       item
-        Value = 89.999999999999970000
+        Value = 9.000000048361134000
+      end
+      item
+        Value = 6.394045980351976000
+      end
+      item
+        Value = 74.227665265206720000
       end
       item
         SizeStyle = Auto
@@ -51,7 +64,7 @@ object Form1: TForm1
     object BtnBack: TButton
       Align = Client
       Size.Width = 58.345108032226560000
-      Size.Height = 55.000000000000000000
+      Size.Height = 57.080589294433590000
       Size.PlatformDefault = False
       TabOrder = 0
       Text = '<'
@@ -60,7 +73,7 @@ object Form1: TForm1
     object ListBox1: TListBox
       Align = Client
       Size.Width = 350.000000000000000000
-      Size.Height = 495.000000000000000000
+      Size.Height = 443.419403076171900000
       Size.PlatformDefault = False
       TabOrder = 1
       DisableFocusEffect = True
@@ -68,15 +81,24 @@ object Form1: TForm1
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
       Viewport.Width = 346.000000000000000000
-      Viewport.Height = 491.000000000000000000
+      Viewport.Height = 439.400000000000000000
     end
     object Label1: TLabel
       Align = Client
       Size.Width = 291.654907226562500000
-      Size.Height = 55.000000000000000000
+      Size.Height = 57.080589294433590000
       Size.PlatformDefault = False
       Text = 'User hinzuf'#252'gen'
       TabOrder = 2
+    end
+    object Edit1: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 3
+      Size.Width = 350.000000000000000000
+      Size.Height = 49.500000000000000000
+      Size.PlatformDefault = False
+      OnChange = Edit1Change
     end
   end
 end

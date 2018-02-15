@@ -19,9 +19,7 @@ uses
 
 begin
 Application.Initialize;
-  AApplication.CreateForm(TLoginForm, LoginForm);
-  Application.CreateForm(TFormListeBearbeiten, FormListeBearbeiten);
-  Application.CreateForm(TForm1, Form1);
-  pplication.Run;
+ Application.CreateForm(TFormLogin, LoginForm);
+  Application.Run;
 
 end.
