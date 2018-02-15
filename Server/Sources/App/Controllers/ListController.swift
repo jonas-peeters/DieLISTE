@@ -304,8 +304,10 @@ final class ListController {
                     }
                 }.map({ $0.key })
                 var fifteenSortedUsers: [String] = []
-                for i in 0...15 {
-                    fifteenSortedUsers.append(sortedUsers[i])
+                if sortedUsers.count > 0 {
+                    for i in 0...(min(15, sortedUsers.count-1)) {
+                        fifteenSortedUsers.append(sortedUsers[i])
+                    }
                 }
                 return try makeJSON(from: sortedUsers)
             } catch { // When there is no search term, all users this user is currently working with on other lists are shown
