@@ -60,6 +60,7 @@ type
     function AddToList(name: string; menge: String; fertig: boolean; kategorie: Integer; liste: Integer): string;
     function ChangeListName(name: string; id: Integer): string;
     function removeList(id: integer):String;
+    function removeUser(listId: Integer; name:string):String;
 end;
 
 implementation
@@ -275,5 +276,19 @@ begin
   result := request.Response.Content;
 end;
 
+function TserverAPI.removeUser(listId: Integer; name:string):String;
+  var
+  jsonString: string;
+  request: TRESTRequest;
+begin
+  request := TRESTRequest.Create(nil);
+  jsonString := '{"list_id": "' + IntToStr(listId) + '", "username": "' + name + '"}';
+  request.Method := REST.Types.rmPOST;
+  request.Body.JSONWriter.WriteRaw(jsonString);
+  request.Resource := '/user/lists/removeuser';
+  request.Client := self.client;
+  request.Execute;
+  result := request.Response.Content;
+end;
 
 end.

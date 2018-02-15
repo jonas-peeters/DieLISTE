@@ -54,7 +54,24 @@ end;
 
 procedure TFormListeBearbeiten.LBIDeleteListClick(Sender: TObject);
 begin
-  //ListeLöschen
+MessageDlg('Wollen Sie die Liste wirklich löschen?', System.UITypes.TMsgDlgType.mtCustom,
+[ System.UITypes.TMsgDlgBtn.mbYes,
+  System.UITypes.TMsgDlgBtn.mbNo,
+  System.UITypes.TMsgDlgBtn.mbCancel
+],0,
+procedure (const AResult:System.UITypes.TModalResult)
+ var
+ item: TListBoxItem;
+begin
+  case AResult of
+    mrYES:
+      begin
+      privateServerAPI.removeList(listId);
+      ShowMessage('Die Liste wurde gelöscht!');
+      Release;
+      end;
+  end;
+end);
 end;
 
 procedure TFormListeBearbeiten.LBIEditListNameClick(Sender: TObject);

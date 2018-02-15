@@ -79,7 +79,7 @@ object FormListe: TFormListe
       end>
     object LblListe: TLabel
       Align = Client
-      Size.Width = 116.309387207031200000
+      Size.Width = 116.309387207031300000
       Size.Height = 53.787956237792970000
       Size.PlatformDefault = False
       TextSettings.HorzAlign = Center
@@ -114,8 +114,8 @@ object FormListe: TFormListe
       DefaultItemStyles.ItemStyle = ''
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
-      Viewport.Width = 350.000000000000000000
-      Viewport.Height = 352.900000000000000000
+      Viewport.Width = 346.000000000000000000
+      Viewport.Height = 348.900000000000000000
     end
     object BtnBack: TButton
       Align = Client
@@ -124,7 +124,6 @@ object FormListe: TFormListe
       Size.PlatformDefault = False
       TabOrder = 4
       Text = '<'
-      OnClick = BtnBackClick
     end
   end
 end
