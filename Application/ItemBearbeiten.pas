@@ -5,7 +5,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, serverAPI, FMX.ListBox;
+  FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, serverAPI, FMX.ListBox,
+  Helper;
 
 type
   TFormItemBearbeiten = class(TForm)
@@ -32,7 +33,6 @@ type
     procedure BtnSchliessenClick(Sender: TObject);
     procedure BtnOKClick(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; item: TItem);
-    procedure BtnHinzufuegenClick(Sender: TObject);
     procedure BtnBackClick(Sender: TObject);
   private
     { Private-Deklarationen }
@@ -69,12 +69,12 @@ var
   name, einheit, menge: string;
   kategorie: Integer;
 begin
-    privateServerAPI.DeleteItem();
+    privateServerAPI.DeleteItem(itemToChange.itemId);
     name:= EdtName.Text;
     einheit:= EdtEinheit.Text;
     menge:= EdtMenge.Text;
     kategorie := CBCategory.ItemIndex;
-    privateServerAPI.AddToList(name, menge + einheit, false, kategorie, itemToChange.listId);
+    privateServerAPI.AddToList(name, menge + ' ' + einheit, false, kategorie, itemToChange.listId);
     Release;
 end;
 

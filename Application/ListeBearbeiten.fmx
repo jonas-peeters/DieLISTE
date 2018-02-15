@@ -68,8 +68,8 @@ object FormListeBearbeiten: TFormListeBearbeiten
       DefaultItemStyles.ItemStyle = ''
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
-      Viewport.Width = 350.000000000000000000
-      Viewport.Height = 495.000000000000000000
+      Viewport.Width = 346.000000000000000000
+      Viewport.Height = 491.000000000000000000
       object SettingsGroupHeader: TListBoxGroupHeader
         Size.Width = 346.000000000000000000
         Size.Height = 44.000000000000000000

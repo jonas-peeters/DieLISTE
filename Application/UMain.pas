@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.ScrollBox, FMX.Memo, serverAPI,
   FMX.TabControl, FMX.Layouts, FMX.ListBox, Liste, JSON, FMX.Edit, FMX.SearchBox,
-  PWvergessen, PWaendern;
+  PWvergessen, PWaendern, Helper;
 
 type
   TFormMain = class(TForm)
@@ -27,7 +27,7 @@ type
     SearchBox1: TSearchBox;
     procedure FormCreate(Sender: TObject);
     procedure PlusBtn2Click(Sender: TObject);
-    procedure LBListsClick(Sender: TObject);
+    procedure LBListItemClick(Sender: TObject);
     procedure LBIUserLoeschenClick(Sender: TObject);
     procedure LBIPasswortaendernClick(Sender: TObject);
   private
@@ -50,16 +50,13 @@ begin
   serverAPI := TServerAPI.create();
 end;
 
-procedure TFormMain.LBListsClick(Sender: TObject);
+procedure TFormMain.LBListItemClick(Sender: TObject);
 var
   listForm: TFormListe;
 begin
-  if LBLists.Selected.Index <> -1 then
-  begin
-    listForm := TFormListe.Create(Application, serverAPI, lists[LBLists.ItemIndex]);
-    listForm.Show;
-    UpdateLists();
-  end;
+  listForm := TFormListe.Create(Application, serverAPI, lists[StrToInt((sender as TListBoxItem).ItemData.Detail)]);
+  listForm.Show;
+  UpdateLists();
 end;
 
 procedure TFormMain.PlusBtn2Click(Sender: TObject);
@@ -80,6 +77,8 @@ begin
     item := TListBoxItem.Create(LBLists);
     item.Text := lists[i].name;
     item.ItemData.Accessory := TListBoxItemData.TAccessory(1);
+    item.ItemData.Detail := IntToStr(i);
+    item.OnClick := LBListItemClick;
     LBLists.AddObject(item);
   end;
 end;

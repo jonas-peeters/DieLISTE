@@ -5,7 +5,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, UMain, ServerAPI, PWVergessen;
+  FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, UMain, ServerAPI, PWVergessen,
+  Helper;
 
 type
   TFormLogin = class(TForm)
@@ -61,7 +62,7 @@ end;
 
 procedure TFormLogin.BtnLosClick(Sender: TObject);
 begin
-  if UMain.serverAPI.login(EdtBenutzername1.Text, EdtPW1.Text)='"OK: Authenticated"' then // Check if the user gets autheticated
+  if interpretServerResponse(UMain.serverAPI.login(EdtBenutzername1.Text, EdtPW1.Text)) then
   begin
     MainForm.Show;
     MainForm.UpdateLists();

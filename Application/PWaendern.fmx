@@ -25,7 +25,7 @@ object FormPWaendern: TFormPWaendern
         Value = 28.646295228588700000
       end
       item
-        Value = 40.177411619089100000
+        Value = 40.177411619089110000
       end
       item
         Value = 10.004143531808990000

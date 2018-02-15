@@ -20,7 +20,7 @@ uses
 
 begin
   Application.Initialize;
-  Application.CreateForm(TLoginForm, LoginForm);
+  Application.CreateForm(TFormLogin, LoginForm);
   Application.Run;
 
 end.

@@ -178,7 +178,7 @@ object FormItemBearbeiten: TFormItemBearbeiten
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 1
-      Size.Width = 88.586174011230470000
+      Size.Width = 88.586174011230460000
       Size.Height = 30.000000000000000000
       Size.PlatformDefault = False
       TextPrompt = 'Menge'

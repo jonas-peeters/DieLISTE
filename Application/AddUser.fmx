@@ -50,7 +50,7 @@ object FormAddUser: TFormAddUser
         Value = 10.097386773056200000
       end
       item
-        Value = 9.999999985713464000
+        Value = 9.999999985713463000
       end
       item
         Value = 79.902613241230340000

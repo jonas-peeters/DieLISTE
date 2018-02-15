@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, ServerAPI;
+  FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, ServerAPI, Helper;
 
 type
   TFormPWaendern = class(TForm)
@@ -54,9 +54,10 @@ procedure TFormPWaendern.BtnPWaendernClick(Sender: TObject);
 begin
 if EdtPWneu1.text=EdtPWneu2.text then
   begin
-  if privateServerAPI.changePassword(EdtPWneu1.Text)='"Changed Password"' then
+
+  if interpretServerResponse(privateServerAPI.changePassword(EdtPWneu1.Text)) then
     begin
-      ShowMessage('Ihr Passwort wurde verändert.');
+      ShowMessage('Ihr Passwort wurde geändert.');
       Release;
     end;
   end;

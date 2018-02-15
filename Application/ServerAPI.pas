@@ -9,40 +9,8 @@ uses
   REST.Types,
   IPPeerCommon,
   IPPeerClient,
-  JSON;
-
-type
-  TUserData= record
-  email:string;
-  name: string;
-  password: string;
-  allergies: string;
-  verifiedemail: boolean;
-end;
-
-type
-  TItem=record
-    name: String;
-    quantity: String;
-    done: boolean;
-    categoryId: Integer;
-    listId: Integer;
-    itemId: Integer;
-  end;
-
-type
-  TListe=record
-    name: String;
-    id: Integer;
-    items: Array of TItem;
-    user: Array of String;
-  end;
-
-type
-  TListArray = Array of TListe;
-
-type
- TArray= Array of string;
+  JSON,
+  Helper;
 
 type
   TServerAPI=class(TObject)
@@ -64,7 +32,6 @@ type
     function ChangeListName(name: string; id: Integer): string;
     function removeList(id: integer):String;
     function userSuggestions(ListID:integer; Name: string): TArray;
-    function jsonArrayToStringArray(const s:string): TArray;
     function inviteUser(ListID:integer; Name: string): string;
     function removeUser(listId: Integer; name:string):String;
     function DeleteItem(id:integer):string;
@@ -275,19 +242,6 @@ begin
       Result[i].items[j].itemId := memberOfItemArray.GetValue('itemId', 0);
       Result[i].items[j].listId := memberOfItemArray.GetValue('listId', 0);
     end;
-  end;
-end;
-
-function TServerAPI.jsonArrayToStringArray(const s:string): TArray;
-var jsonArray: TJSONArray;
-    i:integer;
-begin
-  result := nil;
-  jsonArray:=TjsonObject.ParseJSONValue(s) as TjsonArray;
-  SetLength(Result, jsonArray.Count);
-  for i := 0 to (jsonArray.Count-1) do
-  begin
-    result[i] := jsonArray.Items[i].Value;
   end;
 end;
 

@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, ServerAPI;
+  FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, ServerAPI, Helper;
 
 type
   TFormPWvergessen = class(TForm)
@@ -52,9 +52,9 @@ end;
 
 procedure TFormPWvergessen.BtnSendenClick(Sender: TObject);
 begin
-  if privateServerAPI.forgotPassword(EdtEMail.Text)= '"EMail sent"' then
+  if interpretServerResponse(privateServerAPI.forgotPassword(EdtEMail.Text)) then
   begin
-    ShowMessage('Die EMail wurde versendet. Sie kˆnnen dort ihr Passwort neu erstellen.');
+    ShowMessage('Die E-Mail wurde versendet. Sie können dort ihr Passwort neu erstellen.');
     Release;
   end;
 end;

@@ -68,7 +68,7 @@ begin
     einheit:= EdtEinheit.Text;
     menge:= EdtMenge.Text;
     kategorie := CBCategory.ItemIndex;
-    privateServerAPI.AddToList(name, menge + einheit, false, kategorie, listId);
+    privateServerAPI.AddToList(name, menge + ' ' + einheit, false, kategorie, listId);
     EdtName.Text := '';
     EdtEinheit.Text := '';
     EdtMenge.Text := '';
@@ -84,7 +84,7 @@ begin
     einheit:= EdtEinheit.Text;
     menge:= EdtMenge.Text;
     kategorie := CBCategory.ItemIndex;
-    privateServerAPI.AddToList(name, menge + einheit, false, kategorie, listId);
+    privateServerAPI.AddToList(name, menge + ' ' + einheit, false, kategorie, listId);
     Release;
 end;
 
