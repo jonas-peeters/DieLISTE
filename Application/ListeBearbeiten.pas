@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
-  FMX.StdCtrls, FMX.ListBox, FMX.Controls.Presentation, serverAPI;
+  FMX.StdCtrls, FMX.ListBox, FMX.Controls.Presentation, serverAPI, AddUser;
 
 type
   TFormListeBearbeiten = class(TForm)
@@ -22,6 +22,7 @@ type
     procedure LBIEditListNameClick(Sender: TObject);
     procedure LBIDeleteListClick(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; selectedListId: Integer;selectedListName: String);
+    procedure LBIAddUserClick(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -50,6 +51,14 @@ end;
 procedure TFormListeBearbeiten.BtnBackClick(Sender: TObject);
 begin
   Release;
+end;
+
+procedure TFormListeBearbeiten.LBIAddUserClick(Sender: TObject);
+var
+  addUserForm: TFormAddUser;
+begin
+  addUserForm := TFormAddUser.Create(nil, privateServerAPI, listId);
+  addUserForm.Show();
 end;
 
 procedure TFormListeBearbeiten.LBIDeleteListClick(Sender: TObject);

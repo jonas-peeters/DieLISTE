@@ -60,6 +60,9 @@ type
     function AddToList(name: string; menge: String; fertig: boolean; kategorie: Integer; liste: Integer): string;
     function ChangeListName(name: string; id: Integer): string;
     function removeList(id: integer):String;
+    function userSuggestions(ListID:integer; Name: string): TArray;
+    function jsonArrayToStringArray(const s:string): TArray;
+    function inviteUser(ListID:integer; Name: string): string;
     function removeUser(listId: Integer; name:string):String;
 end;
 
@@ -85,6 +88,29 @@ begin
   result := request.Response.Content;
 end;
 
+function TServerAPI.userSuggestions(ListID:integer; Name: string): TArray;
+var
+  request: TRESTRequest;
+begin
+  request := TRESTRequest.Create(nil);
+  request.Method := REST.Types.rmGET;
+  request.Resource := 'user/lists/' + IntToStr(listId) + '/suggestions/' + name;
+  request.Client := self.client;
+  request.Execute;
+  result := jsonArrayToStringArray(request.Response.Content);
+end;
+
+function TServerAPI.inviteUser(ListID:integer; Name: string): string;
+var
+  request: TRESTRequest;
+begin
+  request := TRESTRequest.Create(nil);
+  request.Method := REST.Types.rmGET;
+  request.Resource := 'user/lists/' + IntToStr(listId) + '/invite/' + name;
+  request.Client := self.client;
+  request.Execute;
+  result := request.Response.Content;
+end;
 
 
 function TServerAPI.login(email: String; password: String): String;
@@ -238,6 +264,19 @@ begin
       Result[i].items[j].done := memberOfItemArray.GetValue('done', false);
       Result[i].items[j].categoryId := memberOfItemArray.GetValue('categoryId', 0);
     end;
+  end;
+end;
+
+function TServerAPI.jsonArrayToStringArray(const s:string): TArray;
+var jsonArray: TJSONArray;
+    i:integer;
+begin
+  result := nil;
+  jsonArray:=TjsonObject.ParseJSONValue(s) as TjsonArray;
+  SetLength(Result, jsonArray.Count);
+  for i := 0 to (jsonArray.Count-1) do
+  begin
+    result[i] := jsonArray.Items[i].Value;
   end;
 end;
 
