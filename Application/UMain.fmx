@@ -16,7 +16,7 @@ object FormMain: TFormMain
     Size.Height = 573.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 1
     TabPosition = PlatformDefault
     Sizes = (
@@ -30,7 +30,7 @@ object FormMain: TFormMain
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 122.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -118,7 +118,7 @@ object FormMain: TFormMain
         object Label3: TLabel
           Align = Client
           Size.Width = 245.761703491210900000
-          Size.Height = 57.910911560058590000
+          Size.Height = 57.910911560058600000
           Size.PlatformDefault = False
           Text = 'BSP: Z'#246'liakie'
           TabOrder = 1
@@ -126,7 +126,7 @@ object FormMain: TFormMain
         object EditButton: TButton
           Anchors = []
           Position.X = 261.355468750000000000
-          Position.Y = 37.923858642578130000
+          Position.Y = 37.923858642578120000
           Size.Width = 32.953796386718750000
           Size.Height = 21.567554473876950000
           Size.PlatformDefault = False
@@ -163,7 +163,7 @@ object FormMain: TFormMain
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 122.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -231,7 +231,7 @@ object FormMain: TFormMain
             Value = 5.894452983715341000
           end
           item
-            Value = 82.316641048853920000
+            Value = 82.316641048853930000
           end>
         object PlusBtn2: TButton
           Align = Client
@@ -354,7 +354,7 @@ object FormMain: TFormMain
             Value = 5.894452983715341000
           end
           item
-            Value = 82.316641048853920000
+            Value = 82.316641048853930000
           end>
         object Button1: TButton
           Align = Client

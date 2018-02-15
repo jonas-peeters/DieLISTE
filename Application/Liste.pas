@@ -1,4 +1,4 @@
-unit Liste;
+﻿unit Liste;
 
 interface
 
@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.ListBox, FMX.StdCtrls, FMX.Controls.Presentation, Hinzufuegen, ListeBearbeiten, serverAPI,
-  FMX.Edit;
+  FMX.Edit, ItemBearbeiten;
 
 type
   TFormListe = class(TForm)
@@ -15,8 +15,6 @@ type
     BtnEdit: TButton;
     BtnHinzufuegen: TButton;
     ListBox1: TListBox;
-    Panel1: TPanel;
-    Btnlistelöschen: TButton;
     BtnBack: TButton;
     procedure BtnHinzufuegenClick(Sender: TObject);
     procedure BtnEditClick(Sender: TObject);
@@ -25,6 +23,7 @@ type
     procedure FormActivate(Sender: TObject);
     procedure BtnListelöschenClick(Sender: TObject);
     procedure BtnBackClick(Sender: TObject);
+    procedure ClickOnItem(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -136,8 +135,19 @@ begin
       item.ItemData.Accessory := TListBoxItemData.TAccessory(1)
     else
       item.ItemData.Accessory := TListBoxItemData.TAccessory(0);
+    item.ItemData.Detail := IntToStr(i);
+    item.OnClick := ClickOnItem;
     ListBox1.AddObject(item);
   end;
 end;
+
+procedure TFormListe.ClickOnItem(Sender: TObject);
+var
+  itemAendernForm: TFormItemBearbeiten;
+begin
+  itemAendernForm := TFormItemBearbeiten.Create(nil, privateServerAPI, list.items[StrToInt(ListBox1.Selected.ItemData.Detail)]);
+  itemAendernForm.Show();
+end;
+
 
 end.

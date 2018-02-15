@@ -26,6 +26,8 @@ type
     quantity: String;
     done: boolean;
     categoryId: Integer;
+    listId: Integer;
+    itemId: Integer;
   end;
 
 type
@@ -33,6 +35,7 @@ type
     name: String;
     id: Integer;
     items: Array of TItem;
+    user: Array of String;
   end;
 
 type
@@ -60,6 +63,7 @@ type
     function AddToList(name: string; menge: String; fertig: boolean; kategorie: Integer; liste: Integer): string;
     function ChangeListName(name: string; id: Integer): string;
     function removeList(id: integer):String;
+    function DeleteItem(id:integer):string;
 end;
 
 implementation
@@ -215,6 +219,7 @@ end;
 function TServerAPI.jsonArrayToArray(const s:string): TListArray;
 var jsonListArray: TJSONArray;
     jsonItemArray: TJSONArray;
+    jsonUserArray: TJSONArray;
     memberOfListArray: TJSONValue;
     memberOfItemArray: TJSONValue;
     i, j:integer;
@@ -227,6 +232,10 @@ begin
     memberOfListArray := jsonListArray.Items[i];
     Result[i].name := memberOfListArray.GetValue('name', 'Kein Name gefunden');
     Result[i].id := memberOfListArray.GetValue('id', -1);
+    jsonUserArray := memberOfListArray.GetValue('user', TJSONArray.Create());
+    SetLength(Result[i].user, jsonUserArray.Count);
+    for j := 0 to (jsonUserArray.Count - 1) do
+      Result[i].user[j] := jsonUserArray.Items[j].Value;
     jsonItemArray := memberOfListArray.GetValue('items', TJSONArray.Create());
     SetLength(Result[i].items, jsonItemArray.Count);
     for j := 0 to (jsonItemArray.Count - 1) do
@@ -236,6 +245,8 @@ begin
       Result[i].items[j].quantity := memberOfItemArray.GetValue('quantity', 'Keine Menge gefunden');
       Result[i].items[j].done := memberOfItemArray.GetValue('done', false);
       Result[i].items[j].categoryId := memberOfItemArray.GetValue('categoryId', 0);
+      Result[i].items[j].itemId := memberOfItemArray.GetValue('itemId', 0);
+      Result[i].items[j].listId := memberOfItemArray.GetValue('listId', 0);
     end;
   end;
 end;
@@ -275,5 +286,19 @@ begin
   result := request.Response.Content;
 end;
 
+function TServerAPI.DeleteItem(id:integer):string;
+var
+  request: TRESTRequest;
+  jsonString: string;
+begin
+  request := TRESTRequest.Create(nil);
+  request.Method := REST.Types.rmPOST;
+  jsonString := '{"id": "' + IntToStr(id) +'"}';
+  request.Body.JSONWriter.WriteRaw(jsonString);
+  request.Resource := 'user/lists/items/delete';
+  request.Client := self.client;
+  request.Execute;
+  result := request.Response.Content;
+end;
 
 end.

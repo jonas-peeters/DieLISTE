@@ -54,7 +54,7 @@ end;
 
 procedure TFormListeBearbeiten.LBIDeleteListClick(Sender: TObject);
 begin
-  //ListeLöschen
+  TServerAPI.removelist;
 end;
 
 procedure TFormListeBearbeiten.LBIEditListNameClick(Sender: TObject);
