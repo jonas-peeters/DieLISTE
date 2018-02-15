@@ -78,17 +78,17 @@ object FormHinzufuegen: TFormHinzufuegen
         Row = 10
       end
       item
-        Column = 0
-        ColumnSpan = 7
-        Control = Panel1
-        Row = 0
-        RowSpan = 3
-      end
-      item
         Column = 1
         ColumnSpan = 5
         Control = CBCategory
         Row = 8
+      end
+      item
+        Column = 0
+        ColumnSpan = 2
+        Control = BtnBack
+        Row = 0
+        RowSpan = 2
       end>
     RowCollection = <
       item
@@ -127,13 +127,6 @@ object FormHinzufuegen: TFormHinzufuegen
       item
         Value = 10.236152316554540000
       end>
-    object Panel1: TPanel
-      Align = Client
-      Size.Width = 250.000030517578100000
-      Size.Height = 60.653244018554690000
-      Size.PlatformDefault = False
-      TabOrder = 7
-    end
     object LblHinzufuegen: TLabel
       Align = Client
       Size.Width = 119.719749450683600000
@@ -141,7 +134,7 @@ object FormHinzufuegen: TFormHinzufuegen
       Size.PlatformDefault = False
       TextSettings.HorzAlign = Center
       Text = 'Hinzuf'#252'gen'
-      TabOrder = 8
+      TabOrder = 7
     end
     object EdtName: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -247,6 +240,15 @@ object FormHinzufuegen: TFormHinzufuegen
         TabOrder = 8
         Text = 'S'#252#223'es'
       end
+    end
+    object BtnBack: TButton
+      Align = Client
+      Size.Width = 65.168540954589850000
+      Size.Height = 45.768089294433590000
+      Size.PlatformDefault = False
+      TabOrder = 8
+      Text = '<'
+      OnClick = BtnBackClick
     end
   end
 end

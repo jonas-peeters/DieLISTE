@@ -58,10 +58,8 @@ object FormListe: TFormListe
       end
       item
         Column = 0
-        ColumnSpan = 6
-        Control = Panel1
+        Control = BtnBack
         Row = 0
-        RowSpan = 3
       end>
     RowCollection = <
       item
@@ -79,13 +77,6 @@ object FormListe: TFormListe
       item
         SizeStyle = Auto
       end>
-    object Panel1: TPanel
-      Align = Client
-      Size.Width = 350.000000000000000000
-      Size.Height = 161.124740600586000000
-      Size.PlatformDefault = False
-      TabOrder = 4
-    end
     object LblListe: TLabel
       Align = Client
       Size.Width = 116.309387207031200000
@@ -123,8 +114,17 @@ object FormListe: TFormListe
       DefaultItemStyles.ItemStyle = ''
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
-      Viewport.Width = 346.000000000000000000
-      Viewport.Height = 348.900000000000000000
+      Viewport.Width = 350.000000000000000000
+      Viewport.Height = 352.900000000000000000
+    end
+    object BtnBack: TButton
+      Align = Client
+      Size.Width = 55.182895660400390000
+      Size.Height = 51.404624938964840000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      Text = '<'
+      OnClick = BtnBackClick
     end
   end
 end

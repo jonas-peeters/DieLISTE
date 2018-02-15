@@ -1,0 +1,283 @@
+object FormItemBearbeiten: TFormItemBearbeiten
+  Left = 0
+  Top = 0
+  Caption = 'Form9'
+  ClientHeight = 456
+  ClientWidth = 278
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object GridPanelLayout1: TGridPanelLayout
+    Align = Client
+    Size.Width = 278.000000000000000000
+    Size.Height = 456.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    ColumnCollection = <
+      item
+        Value = 10.108558764882840000
+      end
+      item
+        Value = 15.958858197368950000
+      end
+      item
+        Value = 15.906670535826420000
+      end
+      item
+        Value = 15.953352714537360000
+      end
+      item
+        Value = 16.027873273261500000
+      end
+      item
+        Value = 16.044435990084130000
+      end
+      item
+        Value = 10.000250524038810000
+      end>
+    ControlCollection = <
+      item
+        Column = 2
+        ColumnSpan = 3
+        Control = LblBearbeiten
+        Row = 1
+      end
+      item
+        Column = 1
+        ColumnSpan = 5
+        Control = EdtName
+        Row = 4
+      end
+      item
+        Column = 3
+        ColumnSpan = 3
+        Control = EdtEinheit
+        Row = 6
+      end
+      item
+        Column = 1
+        ColumnSpan = 2
+        Control = EdtMenge
+        Row = 6
+      end
+      item
+        Column = 4
+        ColumnSpan = 2
+        Control = BtnOK
+        Row = 10
+      end
+      item
+        Column = 1
+        ColumnSpan = 2
+        Control = BtnSchliessen
+        Row = 10
+      end
+      item
+        Column = 1
+        ColumnSpan = 5
+        Control = CBCategory
+        Row = 8
+      end
+      item
+        Column = 0
+        ColumnSpan = 2
+        Control = BtnBack
+        Row = 0
+        RowSpan = 2
+      end
+      item
+        Column = 1
+        ColumnSpan = 5
+        Control = BtnErledigt
+        Row = 12
+      end
+      item
+        Column = 1
+        ColumnSpan = 5
+        Control = BtnLoeschen
+        Row = 14
+      end>
+    RowCollection = <
+      item
+        Value = 5.951649632405577000
+      end
+      item
+        Value = 5.990237173559859000
+      end
+      item
+        Value = 6.029074897494219000
+      end
+      item
+        Value = 6.068164426367185000
+      end
+      item
+        Value = 6.107507392752646000
+      end
+      item
+        Value = 6.147105439731936000
+      end
+      item
+        Value = 6.186960220995627000
+      end
+      item
+        Value = 6.227073400946034000
+      end
+      item
+        Value = 6.267446654794202000
+      end
+      item
+        Value = 6.308081668648022000
+      end
+      item
+        Value = 6.348980139590429000
+      end
+      item
+        Value = 6.390143775748604000
+      end
+      item
+        Value = 6.431574296356464000
+      end
+      item
+        Value = 6.473273431813475000
+      end
+      item
+        Value = 6.515242923742976000
+      end
+      item
+        Value = 6.557484525052770000
+      end>
+    OnClick = GridPanelLayout1Click
+    object LblBearbeiten: TLabel
+      Align = Client
+      Size.Width = 133.128341674804700000
+      Size.Height = 27.315479278564450000
+      Size.PlatformDefault = False
+      TextSettings.HorzAlign = Center
+      Text = 'Bearbeiten'
+      TabOrder = 6
+      OnClick = LblBearbeitenClick
+    end
+    object EdtName: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 0
+      Size.Width = 222.097503662109400000
+      Size.Height = 27.850227355957030000
+      Size.PlatformDefault = False
+      TextPrompt = 'Name'
+    end
+    object EdtEinheit: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 2
+      Size.Width = 133.511322021484400000
+      Size.Height = 28.212539672851560000
+      Size.PlatformDefault = False
+      TextPrompt = 'Einheit'
+    end
+    object EdtMenge: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 1
+      Size.Width = 88.586174011230470000
+      Size.Height = 28.212539672851560000
+      Size.PlatformDefault = False
+      TextPrompt = 'Menge'
+    end
+    object BtnOK: TButton
+      Align = Client
+      Size.Width = 89.161010742187500000
+      Size.Height = 28.951354980468750000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      Text = 'OK'
+      OnClick = BtnOKClick
+    end
+    object BtnSchliessen: TButton
+      Align = Client
+      Size.Width = 88.586174011230470000
+      Size.Height = 28.951354980468750000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      Text = 'X'
+      OnClick = BtnSchliessenClick
+    end
+    object CBCategory: TComboBox
+      Align = Client
+      ItemIndex = 0
+      Size.Width = 222.097503662109400000
+      Size.Height = 28.579559326171880000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      object ListBoxItem1: TListBoxItem
+        IsSelected = True
+        Size.Width = 19.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Sonstiges'
+      end
+      object ListBoxItem2: TListBoxItem
+        Size.Width = 19.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'Obst'
+      end
+      object ListBoxItem3: TListBoxItem
+        TabOrder = 2
+        Text = 'Gem'#252'se'
+      end
+      object ListBoxItem4: TListBoxItem
+        TabOrder = 3
+        Text = 'Fleisch'
+      end
+      object ListBoxItem5: TListBoxItem
+        TabOrder = 4
+        Text = 'Frisch'
+      end
+      object ListBoxItem6: TListBoxItem
+        TabOrder = 5
+        Text = 'Gefroren'
+      end
+      object ListBoxItem7: TListBoxItem
+        TabOrder = 6
+        Text = 'Aufstrich'
+      end
+      object ListBoxItem8: TListBoxItem
+        TabOrder = 7
+        Text = 'Getr'#228'nke'
+      end
+      object ListBoxItem9: TListBoxItem
+        TabOrder = 8
+        Text = 'S'#252#223'es'
+      end
+    end
+    object BtnBack: TButton
+      Align = Client
+      Size.Width = 72.467422485351560000
+      Size.Height = 54.455001831054690000
+      Size.PlatformDefault = False
+      TabOrder = 7
+      Text = '<'
+      OnClick = BtnBackClick
+    end
+    object BtnErledigt: TButton
+      Align = Client
+      Size.Width = 222.097503662109400000
+      Size.Height = 29.327972412109380000
+      Size.PlatformDefault = False
+      TabOrder = 8
+      Text = 'Erledigt'
+    end
+    object BtnLoeschen: TButton
+      Align = Client
+      Size.Width = 222.097503662109400000
+      Size.Height = 29.709503173828130000
+      Size.PlatformDefault = False
+      TabOrder = 9
+      Text = 'L'#246'schen'
+    end
+  end
+end

@@ -10,13 +10,18 @@ uses
   Liste in 'Liste.pas' {Form8},
   Hinzufuegen in 'Hinzufuegen.pas' {Form9},
   PWvergessen in 'PWvergessen.pas' {Form10},
-  ServerAPI in 'ServerAPI.pas';
+  ServerAPI in 'ServerAPI.pas',
+  ListeBearbeiten in 'ListeBearbeiten.pas' {FormListeBearbeiten},
+  AddUser in 'AddUser.pas' {Form1},
+  ItemBearbeiten in 'ItemBearbeiten.pas';
 
 {$R *.res}
 
 begin
 Application.Initialize;
-  Application.CreateForm(TFormLogin, LoginForm);
-  Application.Run;
+  AApplication.CreateForm(TLoginForm, LoginForm);
+  Application.CreateForm(TFormListeBearbeiten, FormListeBearbeiten);
+  Application.CreateForm(TForm1, Form1);
+  pplication.Run;
 
 end.

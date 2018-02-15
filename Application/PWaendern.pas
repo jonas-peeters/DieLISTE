@@ -15,10 +15,11 @@ type
     EdtPWneu2: TEdit;
     BtnPWaendern: TButton;
     LblPWaendern: TLabel;
-    Panel1: TPanel;
     BtnCancel: TButton;
+    BtnBack: TButton;
     procedure BtnPWaendernClick(Sender: TObject);
     procedure BtnCancelClick(Sender: TObject);
+    procedure BtnBackClick(Sender: TObject);
     public constructor Create(AOwner: TComponent; var serverAPI: TServerAPI);
   private
   public
@@ -37,6 +38,11 @@ constructor TFormPWaendern.Create(AOwner: TComponent; var serverAPI: TServerAPI)
 begin
   inherited Create(AOwner);
   privateServerAPI := serverAPI;
+end;
+
+procedure TFormPWaendern.BtnBackClick(Sender: TObject);
+begin
+  Release;
 end;
 
 procedure TFormPWaendern.BtnCancelClick(Sender: TObject);

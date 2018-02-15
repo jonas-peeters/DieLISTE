@@ -16,54 +16,55 @@ object FormPWvergessen: TFormPWvergessen
     TabOrder = 0
     ColumnCollection = <
       item
-        SizeStyle = Absolute
-        Value = 30.000000000000000000
+        Value = 7.056000708507235000
       end
       item
-        Value = 50.000487516537290000
+        Value = 8.000359550903822000
       end
       item
-        Value = 49.999512483462710000
+        Value = 34.062200983280970000
       end
       item
-        SizeStyle = Absolute
-        Value = 30.000000000000000000
+        Value = 43.788132252541890000
+      end
+      item
+        Value = 7.093306504766089000
       end>
     ControlCollection = <
       item
         Column = 1
-        ColumnSpan = 2
+        ColumnSpan = 3
         Control = LblText
         Row = 4
       end
       item
         Column = 1
-        ColumnSpan = 2
+        ColumnSpan = 3
         Control = EdtEMail
         Row = 7
       end
       item
         Column = 1
+        ColumnSpan = 2
         Control = BtnSenden
         Row = 9
       end
       item
         Column = 1
-        ColumnSpan = 2
+        ColumnSpan = 3
         Control = LblPWvergessen
         Row = 1
       end
       item
-        Column = 0
-        ColumnSpan = 4
-        Control = Panel1
-        Row = 0
-        RowSpan = 3
-      end
-      item
-        Column = 2
+        Column = 3
         Control = BtnCancel
         Row = 9
+      end
+      item
+        Column = 0
+        ColumnSpan = 2
+        Control = BtnBack
+        Row = 0
       end>
     RowCollection = <
       item
@@ -99,16 +100,9 @@ object FormPWvergessen: TFormPWvergessen
       item
         Value = 7.591776490099660000
       end>
-    object Panel1: TPanel
-      Align = Client
-      Size.Width = 350.000000000000000000
-      Size.Height = 128.131713867187500000
-      Size.PlatformDefault = False
-      TabOrder = 4
-    end
     object LblText: TLabel
       Align = Client
-      Size.Width = 290.000000000000000000
+      Size.Width = 300.477416992187500000
       Size.Height = 128.066558837890600000
       Size.PlatformDefault = False
       Text = 
@@ -121,7 +115,7 @@ object FormPWvergessen: TFormPWvergessen
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 1
-      Size.Width = 290.000000000000000000
+      Size.Width = 300.477416992187500000
       Size.Height = 38.671386718750000000
       Size.PlatformDefault = False
       TextPrompt = 'E-Mail'
@@ -129,7 +123,7 @@ object FormPWvergessen: TFormPWvergessen
     end
     object BtnSenden: TButton
       Align = Client
-      Size.Width = 145.001419067382800000
+      Size.Width = 147.218963623046900000
       Size.Height = 41.993225097656250000
       Size.PlatformDefault = False
       TabOrder = 2
@@ -138,7 +132,7 @@ object FormPWvergessen: TFormPWvergessen
     end
     object LblPWvergessen: TLabel
       Align = Client
-      Size.Width = 290.000000000000000000
+      Size.Width = 300.477416992187500000
       Size.Height = 42.626159667968750000
       Size.PlatformDefault = False
       TextSettings.HorzAlign = Center
@@ -147,12 +141,21 @@ object FormPWvergessen: TFormPWvergessen
     end
     object BtnCancel: TButton
       Align = Client
-      Size.Width = 144.998580932617200000
+      Size.Width = 153.258468627929700000
       Size.Height = 41.993225097656250000
       Size.PlatformDefault = False
-      TabOrder = 5
+      TabOrder = 4
       Text = 'Abbrechen'
       OnClick = BtnCancelClick
+    end
+    object BtnBack: TButton
+      Align = Client
+      Size.Width = 52.697261810302730000
+      Size.Height = 42.926391601562500000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      Text = '<'
+      OnClick = BtnBackClick
     end
   end
 end
