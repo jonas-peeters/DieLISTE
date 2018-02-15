@@ -13,13 +13,14 @@ uses
   ServerAPI in 'ServerAPI.pas',
   ListeBearbeiten in 'ListeBearbeiten.pas' {FormListeBearbeiten},
   AddUser in 'AddUser.pas' {Form1},
-  ItemBearbeiten in 'ItemBearbeiten.pas';
+  ItemBearbeiten in 'ItemBearbeiten.pas' {FormItemBearbeiten},
+  Helper in 'Helper.pas';
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  Application.CreateForm(TFormLogin, LoginForm);
+  Application.CreateForm(TLoginForm, LoginForm);
   Application.Run;
 
 end.

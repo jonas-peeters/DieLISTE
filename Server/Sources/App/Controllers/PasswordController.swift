@@ -20,7 +20,7 @@ final class PasswordController {
     /// - Parameters:
     ///   - drop: The droplet in order to access the cache
     ///   - userRoute: Route to '/user'
-    ///   - authedRoute: Autheticated route to '/user'
+    ///   - authedRoute: Authenticated route to '/user'
     func addRoutes(drop: Droplet, userRoute: RouteBuilder, authedRoute: RouteBuilder) {
         // Change password
         authedRoute.post("password", "change", handler: changePassword)
@@ -52,25 +52,28 @@ final class PasswordController {
     ///     }
     ///
     /// - Parameter request: A HTTP request
-    /// - Returns: "Changed Password" when the action was successful
+    /// - Returns: A status (see docs)
     func changePassword(_ request: Request) throws -> ResponseRepresentable {
-        let user = request.auth.authenticated(User.self)
-        
+        guard let user = request.auth.authenticated(User.self) else {
+            return status(40)
+        }
         do {
-            let json = request.json
-            let newPassword = try json!.get(User.Keys.password) as String
-            user?.password = newPassword
+            guard let json = request.json else {
+                return status(20)
+            }
+            let newPassword = try json.get(User.Keys.password) as String
+            user.password = newPassword
             
             do {
-                try user?.save()
+                try user.save()
             } catch {
                 return generateJSONError(from: "Could not save new password! Try again later.")
             }
         } catch {
-            return generateJSONError(from: "Could not read password from JSON.")
+            return status(25)
         }
         
-        return try makeJSON(from: "Changed Password")
+        return status(10)
     }
     
     /// Sends an email to the user so that he/she can reset their password
@@ -84,7 +87,7 @@ final class PasswordController {
     ///     }
     ///
     /// - Parameter request: A HTTP request
-    /// - Returns: "EMail sent" on success
+    /// - Returns: A status (see docs)
     func forgotPassword(_ request: Request, drop: Droplet) throws -> ResponseRepresentable {
         do {
             guard let json = request.json else {
@@ -98,7 +101,7 @@ final class PasswordController {
                     let uniqueId = UUID().uuidString
                     try drop.cache.set(uniqueId, user!.id!.string!, expiration: Date(timeIntervalSinceNow: 86400))
                     if sendForgotPasswordEMail(email: email, username: user!.username, link: "https://die-liste.herokuapp.com/user/password/reset/\(uniqueId)", drop: drop) {
-                        return try makeJSON(from: "EMail sent")
+                        return status(10)
                     } else {
                         return status(32)
                     }

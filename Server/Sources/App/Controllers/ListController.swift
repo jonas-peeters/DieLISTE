@@ -63,7 +63,7 @@ final class ListController {
     ///
     /// - parameters:
     ///   - request: A HTTP request
-    /// - returns: The lists of the user
+    /// - returns: A status (see docs)
     func addList(_ request: Request) throws -> ResponseRepresentable {
         guard let user = request.auth.authenticated(User.self) else {
             return status(40)
@@ -77,7 +77,7 @@ final class ListController {
                 try list.save()
                 let connection = try Pivot<User, List>(user, list)
                 try connection.save()
-                return try getLists(request)
+                return status(10)
             } catch {
                 return status(31)
             }
@@ -94,7 +94,7 @@ final class ListController {
     ///
     /// - parameters:
     ///   - request: A HTTP request
-    /// - returns: The lists of the user
+    /// - returns: A status (see docs)
     func getLists(_ request: Request) throws -> ResponseRepresentable {
         guard let user = request.auth.authenticated(User.self) else {
             return status(40)
@@ -142,7 +142,7 @@ final class ListController {
             }
             list.name = newName
             try list.save()
-            return try makeJSON(from: "Changed name")
+            return status(10)
         } catch {
             return status(25)
         }
@@ -166,7 +166,7 @@ final class ListController {
     ///
     /// - parameters:
     ///   - request: A HTTP request
-    /// - returns: The lists of the user
+    /// - returns: A status (see docs)
     func addToList(_ request: Request) throws -> ResponseRepresentable {
         guard let user = request.auth.authenticated(User.self) else {
             return status(40)
@@ -184,7 +184,7 @@ final class ListController {
                 }
                 do {
                     try item?.save()
-                    return try getLists(request)
+                    return status(10)
                 } catch {
                     return status(31)
                 }
@@ -209,7 +209,7 @@ final class ListController {
     /// User must be authenticated/logged in
     ///
     /// - Parameter request: The HTTP request
-    /// - Returns: "Item deleted" on success
+    /// - Returns: A status (see docs)
     func deleteFromList(_ request: Request) throws -> ResponseRepresentable {
         guard let user = request.auth.authenticated(User.self) else {
             return status(40)
@@ -224,7 +224,7 @@ final class ListController {
                     return status(24)
                 }
                 try user.lists.find(item.listId!)?.children(type: Item.self, foreignIdKey: List.foreignIdKey).delete(item)
-                return try makeJSON(from: "Item deleted")
+                return status(10)
             }
         } catch {
             return status(25)
@@ -245,7 +245,7 @@ final class ListController {
     ///
     /// - parameters:
     ///   - request: A HTTP request
-    /// - returns: The lists of the user
+    /// - returns: A status (see docs)
     func removeList(_ request: Request) throws -> ResponseRepresentable {
         guard let user = request.auth.authenticated(User.self) else {
             return status(40)
@@ -262,7 +262,7 @@ final class ListController {
                 if list.items.isEmpty && list.users.isEmpty {
                     try list.delete()
                 }
-                return try makeJSON(from: "Deleted list")
+                return status(10)
             } catch {
                 return status(31)
             }
@@ -329,7 +329,7 @@ final class ListController {
     /// - Parameters:
     ///   - request: A HTTP request
     ///   - drop: The Droplet. Needed for sending the email and accessing the cache
-    /// - Returns: "Success" on success
+    /// - Returns: A status (see docs)
     func inviteUser(_ request: Request, drop: Droplet) throws -> ResponseRepresentable {
         guard let user = request.auth.authenticated(User.self) else {
             return status(40)
@@ -352,12 +352,12 @@ final class ListController {
                     try drop.cache.set(uuid, node, expiration: Date(timeIntervalSinceNow: 86400*2)) // Expires in two days
                     try drop.cache.set(spamuuid, user.id?.int!, expiration: Date(timeIntervalSinceNow: 86400*7)) // Expires in seven days
                     if sendInvitedToListEMail(email: invitedUser.email, targetUsername: username, sourceUsername: user.username, listName: list.name, link: "https://die-liste.herokuapp.com/user/lists/acceptinvitation/" + uuid, spamLink: "https://die-liste.herokuapp.com/spam/" + spamuuid, drop: drop) {
-                        return try makeJSON(from: "Success")
+                        return status(10)
                     } else {
                         return status(32)
                     }
                 } catch {
-                    throw Abort.serverError
+                    return status(31)
                 }
             } catch {
                 return status(21)
@@ -407,7 +407,7 @@ final class ListController {
     ///     }
     ///
     /// - Parameter request: A HTTP request
-    /// - Returns: "Success"
+    /// - Returns: A status (see docs)
     func removeUser(_ request: Request) -> ResponseRepresentable {
         guard let user = request.auth.authenticated(User.self) else {
             return status(40)
@@ -428,7 +428,7 @@ final class ListController {
                 }
                 do {
                     try userToRemove.lists.remove(list)
-                    return try makeJSON(from: "Success")
+                    return status(10)
                 } catch {
                     return status(31)
                 }

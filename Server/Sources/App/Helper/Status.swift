@@ -7,7 +7,7 @@ import JSON
 /// ## Codes:
 /// ### Good:
 ///     10: Success
-///     11: Autheticated
+///     11: Authenticated
 ///     12: Accepted
 ///
 ///
@@ -42,7 +42,7 @@ func status(_ code: Int) -> Response {
             )
         case 11:
             return try Response(status: .ok, json:
-                createStatus(11, "Autheticated")
+                createStatus(11, "Authenticated")
             )
         case 12:
             return try Response(status: .ok, json:
@@ -89,7 +89,7 @@ func status(_ code: Int) -> Response {
             
         case 40:
             return try Response(status: .badRequest, json:
-                createStatus(40, "Not autheticated", ["Try to re-login.", "Make sure you have the permission to access the requested resource."])
+                createStatus(40, "Not authenticated", ["Try to re-login.", "Make sure you have the permission to access the requested resource."])
             )
         case 41:
             return try Response(status: .badRequest, json:

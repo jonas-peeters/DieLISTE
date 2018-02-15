@@ -29,7 +29,7 @@ class RouteTests: TestCase {
             .assertBody(contains: "Authenticated")
     }
     
-    /// Used for autheticated routes
+    /// Used for authenticated routes
     func getSessionCookie() throws -> Cookie {
         let loginRequest = Request(method: .post,
                                    uri: "/login",

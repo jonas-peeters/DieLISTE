@@ -5,6 +5,10 @@ import AuthProvider
 
 /// Controlling all routes concerning anything related user infos
 ///
+/// Unless otherwise stated the routes return a status code.
+/// Even if otherwise stated the routes can still return a "bad" status code.
+/// For more infos about status codes see `Status`
+///
 /// This excludes routes about password changes, etc. These can be found in `PasswordController`
 final class UserController {
     /// Used to create webviews that can be shown in any webbrowser
@@ -173,7 +177,7 @@ final class UserController {
     ///
     /// - parameters:
     ///   - request: A HTTP request
-    /// - returns: "OK: Authenticated" when the credentials are valid
+    /// - returns: A status (see docs)
     func login(_ request: Request) throws -> ResponseRepresentable {
         let email: String
         let password: String
@@ -195,7 +199,7 @@ final class UserController {
             return status(43)
         }
         
-        return try makeJSON(from: "OK: Authenticated")
+        return status(11)
     }
     
     /// Deleting a user
@@ -206,13 +210,17 @@ final class UserController {
     ///
     /// - parameters:
     ///   - request: A HTTP request
-    /// - returns: "Deleted user" when the credentials are valid
+    /// - returns: A status (see docs)
     func delete(_ request: Request) throws -> ResponseRepresentable {
-        let user = request.auth.authenticated(User.self)
-        
-        try user?.delete()
-        
-        return try makeJSON(from: "Deleted user")
+        guard let user = request.auth.authenticated(User.self) else {
+            return status(40)
+        }
+        do {
+            try user.delete()
+        } catch {
+            return status(31)
+        }
+        return status(10)
     }
     
     /// Only works when authenticated
@@ -223,7 +231,10 @@ final class UserController {
     ///   - request: A HTTP request
     /// - returns: The requesting user
     func me(_ request: Request) throws -> ResponseRepresentable {
-        return try makeJSON(from: request.auth.authenticated(User.self)!)
+        guard let user = request.auth.authenticated(User.self) else {
+            return status(40)
+        }
+        return try makeJSON(from: user)
     }
     
     /// Write into the allergies string of a user
@@ -236,10 +247,10 @@ final class UserController {
     ///       "allergies": $ALLERGIES_String
     ///     }
     ///
-    /// The user has to be autheticated
+    /// The user has to be authenticated
     ///
     /// - Parameter request: The HTTP request
-    /// - Returns: "Updated allergies" on success
+    /// - Returns: A status (see docs)
     func writeAllergies(_ request: Request) throws -> ResponseRepresentable {
         guard let user = request.auth.authenticated(User.self) else {
             return status(22)
@@ -252,7 +263,7 @@ final class UserController {
             user.allergies = allergies
             do {
                 try user.save()
-                return try makeJSON(from: "Updated allergies")
+                return status(10)
             } catch {
                 return status(31)
             }
