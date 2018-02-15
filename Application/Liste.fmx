@@ -36,25 +36,25 @@ object FormListe: TFormListe
     ControlCollection = <
       item
         Column = 1
-        ColumnSpan = 2
+        ColumnSpan = 3
         Control = LblListe
-        Row = 1
+        Row = 0
       end
       item
-        Column = 3
+        Column = 5
         Control = BtnEdit
-        Row = 1
+        Row = 0
       end
       item
         Column = 4
         Control = BtnHinzufuegen
-        Row = 1
+        Row = 0
       end
       item
         Column = 0
         ColumnSpan = 6
         Control = ListBox1
-        Row = 3
+        Row = 1
       end
       item
         Column = 0
@@ -63,24 +63,18 @@ object FormListe: TFormListe
       end>
     RowCollection = <
       item
-        Value = 10.000899995600040000
+        Value = 9.999999999999998000
       end
       item
-        Value = 10.464583140627240000
-      end
-      item
-        Value = 10.881743239267850000
-      end
-      item
-        Value = 68.652773624504870000
+        Value = 90.000000000000000000
       end
       item
         SizeStyle = Auto
       end>
     object LblListe: TLabel
       Align = Client
-      Size.Width = 116.309387207031300000
-      Size.Height = 53.787956237792970000
+      Size.Width = 175.063888549804700000
+      Size.Height = 51.400001525878910000
       Size.PlatformDefault = False
       TextSettings.HorzAlign = Center
       Text = 'ListeXY'
@@ -88,8 +82,8 @@ object FormListe: TFormListe
     end
     object BtnEdit: TButton
       Align = Client
-      Size.Width = 58.754501342773440000
-      Size.Height = 53.787956237792970000
+      Size.Width = 60.279144287109380000
+      Size.Height = 51.400001525878910000
       Size.PlatformDefault = False
       TabOrder = 1
       Text = 'Edit'
@@ -98,7 +92,7 @@ object FormListe: TFormListe
     object BtnHinzufuegen: TButton
       Align = Client
       Size.Width = 59.474075317382810000
-      Size.Height = 53.787956237792970000
+      Size.Height = 51.400001525878910000
       Size.PlatformDefault = False
       TabOrder = 2
       Text = '+'
@@ -107,7 +101,7 @@ object FormListe: TFormListe
     object ListBox1: TListBox
       Align = Client
       Size.Width = 350.000000000000000000
-      Size.Height = 352.875244140625000000
+      Size.Height = 462.600006103515600000
       Size.PlatformDefault = False
       TabOrder = 3
       DisableFocusEffect = True
@@ -115,15 +109,16 @@ object FormListe: TFormListe
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
       Viewport.Width = 346.000000000000000000
-      Viewport.Height = 348.900000000000000000
+      Viewport.Height = 458.600000000000000000
     end
     object BtnBack: TButton
       Align = Client
       Size.Width = 55.182895660400390000
-      Size.Height = 51.404624938964840000
+      Size.Height = 51.400001525878910000
       Size.PlatformDefault = False
       TabOrder = 4
       Text = '<'
+      OnClick = BtnBackClick
     end
   end
 end

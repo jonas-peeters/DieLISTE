@@ -1,4 +1,4 @@
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <ProjectGuid>{2A93BF69-C0D9-41C2-8ACB-427620DD9571}</ProjectGuid>
         <ProjectVersion>18.2</ProjectVersion>
@@ -310,42 +310,45 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="Supermarkt.pas">
-            <Form>SupermarktForm</Form>
+            <Form>Form2</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="Login.pas">
-            <Form>FormLogin</Form>
+            <Form>LoginForm</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="UMain.pas">
-            <Form>FormMain</Form>
+            <Form>Form6</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="PWaendern.pas">
-            <Form>FormPWaendern</Form>
+            <Form>Form7</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="Liste.pas">
-            <Form>FormListe</Form>
+            <Form>Form8</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="Hinzufuegen.pas">
-            <Form>FormHinzufuegen</Form>
+            <Form>Form9</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="PWvergessen.pas">
-            <Form>FormPWvergessen</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
-	<DCCReference Include="ItemBearbeiten.pas">
-            <Form>FormItemBearbeiten</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
-	<DCCReference Include="ListeBearbeiten.pas">
-            <Form>FormListeBearbeiten</Form>
+            <Form>Form10</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="ServerAPI.pas"/>
+        <DCCReference Include="ListeBearbeiten.pas">
+            <Form>FormListeBearbeiten</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="AddUser.pas">
+            <Form>Form1</Form>
+        </DCCReference>
+        <DCCReference Include="ItemBearbeiten.pas">
+            <Form>FormItemBearbeiten</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
