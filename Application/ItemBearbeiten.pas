@@ -34,8 +34,6 @@ type
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; selectedListId: Integer);
     procedure BtnHinzufuegenClick(Sender: TObject);
     procedure BtnBackClick(Sender: TObject);
-    procedure GridPanelLayout1Click(Sender: TObject);
-    procedure LblBearbeitenClick(Sender: TObject);
   private
     { Private-Deklarationen }
   public

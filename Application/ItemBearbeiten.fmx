@@ -147,7 +147,6 @@ object FormItemBearbeiten: TFormItemBearbeiten
       item
         Value = 6.557484525052770000
       end>
-    OnClick = GridPanelLayout1Click
     object LblBearbeiten: TLabel
       Align = Client
       Size.Width = 133.128341674804700000
@@ -156,7 +155,6 @@ object FormItemBearbeiten: TFormItemBearbeiten
       TextSettings.HorzAlign = Center
       Text = 'Bearbeiten'
       TabOrder = 6
-      OnClick = LblBearbeitenClick
     end
     object EdtName: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]

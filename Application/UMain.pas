@@ -14,7 +14,6 @@ type
     TabControl1: TTabControl;
     ProfilTab: TTabItem;
     HomeTab: TTabItem;
-    SupermaerkteTab: TTabItem;
     GridPanelLayout1: TGridPanelLayout;
     PlusBtn2: TButton;
     Label1: TLabel;
@@ -25,11 +24,6 @@ type
     Label3: TLabel;
     EditButton: TButton;
     ListBox2: TListBox;
-    GridPanelLayout3: TGridPanelLayout;
-    Button1: TButton;
-    Label4: TLabel;
-    ListBox3: TListBox;
-    Button2: TButton;
     SearchBox1: TSearchBox;
     procedure FormCreate(Sender: TObject);
     procedure PlusBtn2Click(Sender: TObject);
