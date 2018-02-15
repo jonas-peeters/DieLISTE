@@ -63,6 +63,7 @@ type
     function userSuggestions(ListID:integer; Name: string): TArray;
     function jsonArrayToStringArray(const s:string): TArray;
     function inviteUser(ListID:integer; Name: string): string;
+    function removeUser(listId: Integer; name:string):String;
 end;
 
 implementation
@@ -314,5 +315,19 @@ begin
   result := request.Response.Content;
 end;
 
+function TserverAPI.removeUser(listId: Integer; name:string):String;
+  var
+  jsonString: string;
+  request: TRESTRequest;
+begin
+  request := TRESTRequest.Create(nil);
+  jsonString := '{"list_id": "' + IntToStr(listId) + '", "username": "' + name + '"}';
+  request.Method := REST.Types.rmPOST;
+  request.Body.JSONWriter.WriteRaw(jsonString);
+  request.Resource := '/user/lists/removeuser';
+  request.Client := self.client;
+  request.Execute;
+  result := request.Response.Content;
+end;
 
 end.

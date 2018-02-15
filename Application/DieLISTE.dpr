@@ -18,8 +18,8 @@ uses
 {$R *.res}
 
 begin
-Application.Initialize;
- Application.CreateForm(TFormLogin, LoginForm);
+  Application.Initialize;
+  Application.CreateForm(TFormLogin, LoginForm);
   Application.Run;
 
 end.
