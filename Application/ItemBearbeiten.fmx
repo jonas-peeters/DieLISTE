@@ -106,7 +106,7 @@ object FormItemBearbeiten: TFormItemBearbeiten
         Value = 5.990237173559859000
       end
       item
-        Value = 6.029074897494219000
+        Value = 6.029074897494220000
       end
       item
         Value = 6.068164426367185000
@@ -118,13 +118,13 @@ object FormItemBearbeiten: TFormItemBearbeiten
         Value = 6.147105439731936000
       end
       item
-        Value = 6.186960220995627000
+        Value = 6.186960220995628000
       end
       item
         Value = 6.227073400946034000
       end
       item
-        Value = 6.267446654794202000
+        Value = 6.267446654794200000
       end
       item
         Value = 6.308081668648022000
@@ -136,16 +136,16 @@ object FormItemBearbeiten: TFormItemBearbeiten
         Value = 6.390143775748604000
       end
       item
-        Value = 6.431574296356464000
+        Value = 6.431574296356465000
       end
       item
-        Value = 6.473273431813475000
+        Value = 6.473273431813473000
       end
       item
-        Value = 6.515242923742976000
+        Value = 6.515242923742975000
       end
       item
-        Value = 6.557484525052770000
+        Value = 6.557484525052769000
       end>
     object LblBearbeiten: TLabel
       Align = Client
@@ -185,7 +185,7 @@ object FormItemBearbeiten: TFormItemBearbeiten
     end
     object BtnOK: TButton
       Align = Client
-      Size.Width = 89.161010742187500000
+      Size.Width = 89.161010742187490000
       Size.Height = 28.951354980468750000
       Size.PlatformDefault = False
       TabOrder = 4
@@ -194,7 +194,7 @@ object FormItemBearbeiten: TFormItemBearbeiten
     end
     object BtnSchliessen: TButton
       Align = Client
-      Size.Width = 88.586174011230470000
+      Size.Width = 88.586174011230460000
       Size.Height = 28.951354980468750000
       Size.PlatformDefault = False
       TabOrder = 5

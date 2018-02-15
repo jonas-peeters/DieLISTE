@@ -24,12 +24,145 @@ object FormMain: TFormMain
       524s
       368s
       524s)
-    object HomeTab: TTabItem
+    object ProfilTab: TTabItem
       CustomIcon = <
         item
         end>
       IsSelected = True
-      Size.Width = 184.000000000000000000
+      Size.Width = 122.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Profil'
+      ExplicitSize.cx = 122.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      object GridPanelLayout2: TGridPanelLayout
+        Align = Client
+        Size.Width = 368.000000000000000000
+        Size.Height = 524.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        ColumnCollection = <
+          item
+            Value = 16.953306930890600000
+          end
+          item
+            Value = 16.879972080101000000
+          end
+          item
+            Value = 16.779388862528330000
+          end
+          item
+            Value = 16.646806720278740000
+          end
+          item
+            Value = 16.476902368593340000
+          end
+          item
+            Value = 16.263623037607990000
+          end>
+        ControlCollection = <
+          item
+            Column = 1
+            ColumnSpan = 2
+            Control = Label2
+            Row = 1
+          end
+          item
+            Column = 1
+            ColumnSpan = 4
+            Control = Label3
+            Row = 3
+          end
+          item
+            Column = 4
+            Control = EditButton
+            Row = 1
+          end
+          item
+            Column = 0
+            ColumnSpan = 6
+            Control = ListBox2
+            Row = 5
+          end>
+        RowCollection = <
+          item
+            Value = 3.903461910493596000
+          end
+          item
+            Value = 10.783777304353030000
+          end
+          item
+            Value = 4.105753822975614000
+          end
+          item
+            Value = 11.051702071964990000
+          end
+          item
+            Value = 4.310088646327735000
+          end
+          item
+            Value = 65.845216243885030000
+          end>
+        object Label2: TLabel
+          Align = Client
+          Size.Width = 123.866455078125000000
+          Size.Height = 56.506996154785160000
+          Size.PlatformDefault = False
+          Text = 'Max Mustermann'
+          TabOrder = 0
+        end
+        object Label3: TLabel
+          Align = Client
+          Size.Width = 245.761703491210900000
+          Size.Height = 57.910911560058600000
+          Size.PlatformDefault = False
+          Text = 'BSP: Zöliakie'
+          TabOrder = 1
+        end
+        object EditButton: TButton
+          Anchors = []
+          Position.X = 261.355468750000000000
+          Position.Y = 37.923858642578120000
+          Size.Width = 32.953796386718750000
+          Size.Height = 21.567554473876950000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          Text = 'Edit'
+        end
+        object ListBox2: TListBox
+          Align = Client
+          Size.Width = 368.000000000000000000
+          Size.Height = 345.028930664062500000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          DisableFocusEffect = True
+          DefaultItemStyles.ItemStyle = ''
+          DefaultItemStyles.GroupHeaderStyle = ''
+          DefaultItemStyles.GroupFooterStyle = ''
+          Viewport.Width = 368.000000000000000000
+          Viewport.Height = 345.000000000000000000
+          object LBUserloeschen: TListBoxItem
+            TabOrder = 0
+            Text = 'User löschen'
+            OnClick = LBIUserLoeschenClick
+          end
+          object LBPasswortaendern: TListBoxItem
+            Position.Y = 44.000000000000000000
+            TabOrder = 1
+            Text = 'Passwort ändern'
+            OnClick = LBIPasswortaendernClick
+          end
+        end
+      end
+    end
+    object HomeTab: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 122.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
@@ -96,7 +229,7 @@ object FormMain: TFormMain
             Value = 5.894452983715341000
           end
           item
-            Value = 82.316641048853920000
+            Value = 82.316641048853930000
           end>
         object PlusBtn2: TButton
           Align = Client
@@ -220,13 +353,7 @@ object FormMain: TFormMain
             Value = 4.105753822975614000
           end
           item
-            Value = 11.051702071964990000
-          end
-          item
-            Value = 4.310088646327735000
-          end
-          item
-            Value = 65.845216243885030000
+            Value = 82.316641048853930000
           end>
         object Label2: TLabel
           Align = Client
@@ -241,7 +368,7 @@ object FormMain: TFormMain
           Size.Width = 245.761703491210900000
           Size.Height = 57.910911560058590000
           Size.PlatformDefault = False
-          Text = 'BSP: Z'#246'liakie'
+          Text = 'BSP: Zöliakie'
           TabOrder = 1
         end
         object EditButton: TButton
@@ -268,13 +395,13 @@ object FormMain: TFormMain
           Viewport.Height = 345.000000000000000000
           object LBUserloeschen: TListBoxItem
             TabOrder = 0
-            Text = 'User l'#246'schen'
+            Text = 'User löschen'
             OnClick = LBIUserLoeschenClick
           end
           object LBPasswortaendern: TListBoxItem
             Position.Y = 44.000000000000000000
             TabOrder = 1
-            Text = 'Passwort '#228'ndern'
+            Text = 'Passwort ändern'
             OnClick = LBIPasswortaendernClick
           end
         end

@@ -31,7 +31,7 @@ type
     BtnLoeschen: TButton;
     procedure BtnSchliessenClick(Sender: TObject);
     procedure BtnOKClick(Sender: TObject);
-    constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; selectedListId: Integer);
+    constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; item: TItem);
     procedure BtnHinzufuegenClick(Sender: TObject);
     procedure BtnBackClick(Sender: TObject);
   private
@@ -43,16 +43,20 @@ type
 var
   FormItemBearbeiten: TFormItemBearbeiten;
   privateServerAPI: TServerAPI;
-  listId: Integer;
+  itemToChange: TItem;
 
 implementation
 
 {$R *.fmx}
-constructor TFormItemBearbeiten.Create(AOwner: TComponent; var serverAPI: TServerAPI; selectedListId: Integer);
+constructor TFormItemBearbeiten.Create(AOwner: TComponent; var serverAPI: TServerAPI; item: TItem);
 begin
   inherited Create(AOwner);
   privateServerAPI := serverAPI;
-  listId := selectedListId;
+  itemToChange := item;
+  EdtName.Text:= item.name;
+  EdtMenge.Text:= item.quantity.Split([' '])[0];
+  EdtEinheit.Text:=item.quantity.Split([' '])[1];
+  CBCategory.itemindex:=item.categoryId;
 end;
 
 procedure TFormItemBearbeiten.BtnBackClick(Sender: TObject);
@@ -60,32 +64,17 @@ begin
   Release;
 end;
 
-procedure TFormItemBearbeiten.BtnHinzufuegenClick(Sender: TObject);
-var
-  name, einheit, menge: string;
-  kategorie: Integer;
-begin
-    name:= EdtName.Text;
-    einheit:= EdtEinheit.Text;
-    menge:= EdtMenge.Text;
-    kategorie := CBCategory.ItemIndex;
-    privateServerAPI.AddToList(name, menge + einheit, false, kategorie, listId);
-    EdtName.Text := '';
-    EdtEinheit.Text := '';
-    EdtMenge.Text := '';
-    CBCategory.ItemIndex := 0;
-end;
-
 procedure TFormItemBearbeiten.BtnOKClick(Sender: TObject);
 var
   name, einheit, menge: string;
   kategorie: Integer;
 begin
+    privateServerAPI.DeleteItem();
     name:= EdtName.Text;
     einheit:= EdtEinheit.Text;
     menge:= EdtMenge.Text;
     kategorie := CBCategory.ItemIndex;
-    privateServerAPI.AddToList(name, menge + einheit, false, kategorie, listId);
+    privateServerAPI.AddToList(name, menge + einheit, false, kategorie, itemToChange.listId);
     Release;
 end;
 
