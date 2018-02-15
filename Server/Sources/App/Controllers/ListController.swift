@@ -43,6 +43,7 @@ final class ListController {
         drop.get("user", "lists", "acceptinvitation", String.parameter, handler: { request in
             try self.acceptInvitation(request, drop: drop)
         })
+        listRoute.post("removeuser", handler: removeUser)
         let itemRoute = listRoute.grouped("items")
         itemRoute.post(handler: addToList)
         itemRoute.post("delete", handler: deleteFromList)
@@ -394,6 +395,15 @@ final class ListController {
     
     /// Remove a user from a list
     ///
+    /// Route for request: GET to /user/lists
+    ///
+    /// JSON encoding for request
+    ///
+    ///     {
+    ///         "list_id": $LISTID,
+    ///         "username": $USERNAME_String
+    ///     }
+    ///
     /// - Parameter request: A HTTP request
     /// - Returns: "Success"
     func removeUser(_ request: Request) -> ResponseRepresentable {
@@ -405,13 +415,13 @@ final class ListController {
         }
         do {
             let listId = try json.get("list_id") as Int
-            let userId = try json.get("user_id") as Int
+            let username = try json.get("username") as String
             
             do {
                 guard let list = try user.lists.find(listId) else {
                     return status(23)
                 }
-                guard let userToRemove = try list.connectedUsers.find(userId) else {
+                guard let userToRemove = try list.connectedUsers.all().first(where: { $0.username.equals(caseInsensitive: username) }) else {
                     return status(22)
                 }
                 do {
