@@ -24,11 +24,133 @@ object FormMain: TFormMain
       524s
       368s
       524s)
-    object ProfilTab: TTabItem
+    object HomeTab: TTabItem
       CustomIcon = <
         item
         end>
       IsSelected = True
+      Size.Width = 184.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Home'
+      ExplicitSize.cx = 122.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      object GridPanelLayout1: TGridPanelLayout
+        Align = Client
+        Size.Width = 368.000000000000000000
+        Size.Height = 524.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        ColumnCollection = <
+          item
+            Value = 15.238146681804800000
+          end
+          item
+            Value = 15.931348612213400000
+          end
+          item
+            Value = 16.655838258006800000
+          end
+          item
+            Value = 17.413234388729360000
+          end
+          item
+            Value = 18.205133344232030000
+          end
+          item
+            Value = 16.556298715013610000
+          end>
+        ControlCollection = <
+          item
+            Column = 4
+            Control = PlusBtn2
+            Row = 1
+          end
+          item
+            Column = 1
+            ColumnSpan = 2
+            Control = Label1
+            Row = 1
+          end
+          item
+            Column = 3
+            Control = EditBtn2
+            Row = 1
+          end
+          item
+            Column = 0
+            ColumnSpan = 6
+            Control = LBLists
+            Row = 3
+          end>
+        RowCollection = <
+          item
+            Value = 5.894452983715379000
+          end
+          item
+            Value = 5.894452983715350000
+          end
+          item
+            Value = 5.894452983715341000
+          end
+          item
+            Value = 82.316641048853930000
+          end>
+        object PlusBtn2: TButton
+          Align = Client
+          Size.Width = 66.994888305664060000
+          Size.Height = 30.886934280395510000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = '+'
+          OnClick = PlusBtn2Click
+        end
+        object Label1: TLabel
+          Align = Client
+          Size.Width = 119.920837402343800000
+          Size.Height = 30.886934280395510000
+          Size.PlatformDefault = False
+          Text = 'HOME'
+          TabOrder = 1
+        end
+        object EditBtn2: TButton
+          Align = Client
+          Size.Width = 64.080703735351560000
+          Size.Height = 30.886934280395510000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          Text = 'Edit'
+        end
+        object LBLists: TListBox
+          Align = Client
+          Size.Width = 368.000000000000000000
+          Size.Height = 431.339202880859400000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          DisableFocusEffect = True
+          DefaultItemStyles.ItemStyle = ''
+          DefaultItemStyles.GroupHeaderStyle = ''
+          DefaultItemStyles.GroupFooterStyle = ''
+          Viewport.Width = 368.000000000000000000
+          Viewport.Height = 387.300000000000000000
+          object SearchBox1: TSearchBox
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Top
+            TabOrder = 0
+            Size.Width = 368.000000000000000000
+            Size.Height = 44.000000000000000000
+            Size.PlatformDefault = False
+          end
+        end
+      end
+    end
+    object ProfilTab: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
       Size.Width = 184.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -154,127 +276,11 @@ object FormMain: TFormMain
             Text = 'Passwort '#228'ndern'
             OnClick = LBIPasswortaendernClick
           end
-        end
-      end
-    end
-    object HomeTab: TTabItem
-      CustomIcon = <
-        item
-        end>
-      IsSelected = False
-      Size.Width = 184.000000000000000000
-      Size.Height = 49.000000000000000000
-      Size.PlatformDefault = False
-      StyleLookup = ''
-      TabOrder = 0
-      Text = 'Home'
-      ExplicitSize.cx = 122.000000000000000000
-      ExplicitSize.cy = 49.000000000000000000
-      object GridPanelLayout1: TGridPanelLayout
-        Align = Client
-        Size.Width = 368.000000000000000000
-        Size.Height = 524.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 0
-        ColumnCollection = <
-          item
-            Value = 15.238146681804800000
-          end
-          item
-            Value = 15.931348612213400000
-          end
-          item
-            Value = 16.655838258006800000
-          end
-          item
-            Value = 17.413234388729360000
-          end
-          item
-            Value = 18.205133344232030000
-          end
-          item
-            Value = 16.556298715013610000
-          end>
-        ControlCollection = <
-          item
-            Column = 4
-            Control = PlusBtn2
-            Row = 1
-          end
-          item
-            Column = 1
-            ColumnSpan = 2
-            Control = Label1
-            Row = 1
-          end
-          item
-            Column = 3
-            Control = EditBtn2
-            Row = 1
-          end
-          item
-            Column = 0
-            ColumnSpan = 6
-            Control = LBLists
-            Row = 3
-          end>
-        RowCollection = <
-          item
-            Value = 5.894452983715379000
-          end
-          item
-            Value = 5.894452983715350000
-          end
-          item
-            Value = 5.894452983715341000
-          end
-          item
-            Value = 82.316641048853930000
-          end>
-        object PlusBtn2: TButton
-          Align = Client
-          Size.Width = 66.994888305664060000
-          Size.Height = 30.886934280395510000
-          Size.PlatformDefault = False
-          TabOrder = 0
-          Text = '+'
-          OnClick = PlusBtn2Click
-        end
-        object Label1: TLabel
-          Align = Client
-          Size.Width = 119.920837402343800000
-          Size.Height = 30.886934280395510000
-          Size.PlatformDefault = False
-          Text = 'HOME'
-          TabOrder = 1
-        end
-        object EditBtn2: TButton
-          Align = Client
-          Size.Width = 64.080703735351560000
-          Size.Height = 30.886934280395510000
-          Size.PlatformDefault = False
-          TabOrder = 2
-          Text = 'Edit'
-        end
-        object LBLists: TListBox
-          Align = Client
-          Size.Width = 368.000000000000000000
-          Size.Height = 431.339202880859400000
-          Size.PlatformDefault = False
-          TabOrder = 3
-          DisableFocusEffect = True
-          DefaultItemStyles.ItemStyle = ''
-          DefaultItemStyles.GroupHeaderStyle = ''
-          DefaultItemStyles.GroupFooterStyle = ''
-          Viewport.Width = 368.000000000000000000
-          Viewport.Height = 387.300000000000000000
-          object SearchBox1: TSearchBox
-            Touch.InteractiveGestures = [LongTap, DoubleTap]
-            Align = Top
-            TabOrder = 0
-            Size.Width = 368.000000000000000000
-            Size.Height = 44.000000000000000000
-            Size.PlatformDefault = False
+          object LblAbmelden: TListBoxItem
+            Position.Y = 88.000000000000000000
+            TabOrder = 2
+            Text = 'Abmelden'
+            OnClick = LblAbmeldenClick
           end
         end
       end

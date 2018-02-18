@@ -1,3 +1,13 @@
+{*
+  Here the user can change the properties of a list.
+
+  Possible actions are:
+  - Changing the name of the list
+  - Remove users from the list
+  - See who has access to the list
+  - Open the page for adding users to this list
+  - Deleting this list
+}
 unit ListeBearbeiten;
 
 interface
@@ -20,10 +30,12 @@ type
     SettingsGroupHeader: TListBoxGroupHeader;
     GroupHeaderUser: TListBoxGroupHeader;
     procedure BtnBackClick(Sender: TObject);
-    procedure LBIEditListNameClick(Sender: TObject);
-    procedure LBIDeleteListClick(Sender: TObject);
-    constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; selectedListId: Integer;selectedListName: String);
-    procedure LBIAddUserClick(Sender: TObject);
+    procedure EditListNameClick(Sender: TObject);
+    procedure DeleteListClick(Sender: TObject);
+    constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; selectedListId: Integer);
+    procedure AddUserClick(Sender: TObject);
+    procedure subFormClosed(Sender: TObject; var Action: TCloseAction);
+    procedure Update();
   private
     { Private-Deklarationen }
   public
@@ -40,31 +52,89 @@ implementation
 
 {$R *.fmx}
 
-constructor TFormListeBearbeiten.Create(AOwner: TComponent; var serverAPI: TServerAPI; selectedListId: Integer; selectedListName:String);
+constructor TFormListeBearbeiten.Create(AOwner: TComponent; var serverAPI: TServerAPI; selectedListId: Integer);
 begin
   inherited Create(AOwner);
   privateServerAPI := serverAPI;
   listId := selectedListId;
-  list.name:=selectedListName;
-  LBIEditListName.Text:=list.name+'(Zum ändern klicken)';
+  Update;
+end;
+
+procedure TFormListeBearbeiten.subFormClosed(Sender: TObject; var Action: TCloseAction);
+begin
+  Update();
+end;
+
+procedure TFormListeBearbeiten.Update();
+var
+  lists: TListArray;
+  i: Integer;
+  item: TListBoxItem;
+  header: TListBoxGroupHeader;
+begin
+  lists := privateServerAPI.getLists;
+  for i := 0 to High(lists) do
+    if lists[i].id = listId then
+      list := lists[i];
+
+  ListBox1.Clear;
+
+  // Add Listname
+  header := TListBoxGroupHeader.Create(ListBox1);
+  header.Text := list.name;
+  ListBox1.AddObject(header);
+
+  // Add change name
+  item := TListBoxItem.Create(ListBox1);
+  item.Text := 'Name ändern';
+  item.OnClick := EditListNameClick;
+  ListBox1.AddObject(item);
+
+  // Add delete list
+  item := TListBoxItem.Create(ListBox1);
+  item.Text := 'Liste löschen';
+  item.OnClick := DeleteListClick;
+  ListBox1.AddObject(item);
+
+  // Add 'Benutzer' header
+  header := TListBoxGroupHeader.Create(ListBox1);
+  header.Text := 'Benutzer';
+  ListBox1.AddObject(header);
+
+  // Add add user
+  item := TListBoxItem.Create(ListBox1);
+  item.Text := 'User hinzufügen';
+  item.OnClick := AddUserClick;
+  ListBox1.AddObject(item);
+
+  // Add users with access
+  for i := 0 to High(list.user) do
+  begin
+    item := TListBoxItem.Create(ListBox1);
+    item.Text := list.user[i];
+    item.ItemData.Detail := IntToStr(i);
+    ListBox1.AddObject(item);
+  end;
 end;
 
 procedure TFormListeBearbeiten.BtnBackClick(Sender: TObject);
 begin
+  Close;
   Release;
 end;
 
-procedure TFormListeBearbeiten.LBIAddUserClick(Sender: TObject);
+procedure TFormListeBearbeiten.AddUserClick(Sender: TObject);
 var
   addUserForm: TFormAddUser;
 begin
   addUserForm := TFormAddUser.Create(nil, privateServerAPI, listId);
   addUserForm.Show();
+  addUserForm.OnClose := subFormClosed;
 end;
 
-procedure TFormListeBearbeiten.LBIDeleteListClick(Sender: TObject);
+procedure TFormListeBearbeiten.DeleteListClick(Sender: TObject);
 begin
-MessageDlg('Wollen Sie die Liste wirklich lšschen?', System.UITypes.TMsgDlgType.mtCustom,
+MessageDlg('Wollen Sie die Liste wirklich löschen?', System.UITypes.TMsgDlgType.mtCustom,
 [ System.UITypes.TMsgDlgBtn.mbYes,
   System.UITypes.TMsgDlgBtn.mbNo,
   System.UITypes.TMsgDlgBtn.mbCancel
@@ -77,14 +147,15 @@ begin
     mrYES:
       begin
       privateServerAPI.removeList(listId);
-      ShowMessage('Die Liste wurde gelšscht!');
+      ShowMessage('Die Liste wurde gelöscht!');
+      Close;
       Release;
       end;
   end;
 end);
 end;
 
-procedure TFormListeBearbeiten.LBIEditListNameClick(Sender: TObject);
+procedure TFormListeBearbeiten.EditListNameClick(Sender: TObject);
 var neuerName:String;
 begin
   repeat
@@ -94,6 +165,7 @@ begin
   if neuerName <> list.name then
   begin
     privateServerAPI.ChangeListName(neuerName, listId);
+    Update();
   end;
 end;
 

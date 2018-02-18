@@ -1,4 +1,7 @@
-﻿unit PWvergessen;
+﻿{*
+  The user can request a password reset
+}
+unit PWvergessen;
 
 interface
 

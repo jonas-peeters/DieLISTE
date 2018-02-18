@@ -1,4 +1,7 @@
-﻿unit PWaendern;
+﻿{*
+  The user can change their password
+}
+unit PWaendern;
 
 interface
 

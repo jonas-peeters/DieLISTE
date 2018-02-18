@@ -1,3 +1,13 @@
+{*
+  The user can edit an item on this form.
+
+  Possible actions include:
+  - Changing the name
+  - Changing the quantity
+  - Changing the category
+  - Changing the done/not done status
+  - Deleting the item
+}
 unit ItemBearbeiten;
 
 interface
@@ -49,18 +59,22 @@ implementation
 
 {$R *.fmx}
 constructor TFormItemBearbeiten.Create(AOwner: TComponent; var serverAPI: TServerAPI; item: TItem);
+var
+  i: Integer;
 begin
   inherited Create(AOwner);
   privateServerAPI := serverAPI;
   itemToChange := item;
-  EdtName.Text:= item.name;
-  EdtMenge.Text:= item.quantity.Split([' '])[0];
-  EdtEinheit.Text:=item.quantity.Split([' '])[1];
-  CBCategory.itemindex:=item.categoryId;
+  EdtName.Text := item.name;
+  EdtMenge.Text := item.quantity.Split([' '])[0];
+  for i := 1 to High(item.quantity.Split([' '])) do
+    EdtEinheit.Text := EdtEinheit.Text + ' ' + item.quantity.Split([' '])[i];
+  CBCategory.Index := item.categoryId;
 end;
 
 procedure TFormItemBearbeiten.BtnBackClick(Sender: TObject);
 begin
+  Close;
   Release;
 end;
 
@@ -69,18 +83,20 @@ var
   name, einheit, menge: string;
   kategorie: Integer;
 begin
-    privateServerAPI.DeleteItem(itemToChange.itemId);
-    name:= EdtName.Text;
-    einheit:= EdtEinheit.Text;
-    menge:= EdtMenge.Text;
-    kategorie := CBCategory.ItemIndex;
-    privateServerAPI.AddToList(name, menge + ' ' + einheit, false, kategorie, itemToChange.listId);
+    interpretServerResponse(privateServerAPI.DeleteItem(itemToChange.itemId));
+    name := EdtName.Text;
+    einheit := EdtEinheit.Text;
+    menge := EdtMenge.Text;
+    kategorie := CBCategory.Index;
+    interpretServerResponse(privateServerAPI.AddToList(name, menge + ' ' + einheit, false, kategorie, itemToChange.listId));
+    Close;
     Release;
 end;
 
 procedure TFormItemBearbeiten.BtnSchliessenClick(Sender: TObject);
 begin
- Release;
+  Close;
+  Release;
 end;
 
 end.

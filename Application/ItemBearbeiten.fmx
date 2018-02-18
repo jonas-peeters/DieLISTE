@@ -7,7 +7,7 @@ object FormItemBearbeiten: TFormItemBearbeiten
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  DesignerMasterStyle = 2
+  DesignerMasterStyle = 0
   object GridPanelLayout1: TGridPanelLayout
     Align = Client
     Size.Width = 278.000000000000000000
@@ -161,7 +161,7 @@ object FormItemBearbeiten: TFormItemBearbeiten
       Align = Client
       TabOrder = 0
       Size.Width = 222.097503662109400000
-      Size.Height = 30.000000000000000000
+      Size.Height = 27.850227355957030000
       Size.PlatformDefault = False
       TextPrompt = 'Name'
     end
@@ -170,7 +170,7 @@ object FormItemBearbeiten: TFormItemBearbeiten
       Align = Client
       TabOrder = 2
       Size.Width = 133.511322021484400000
-      Size.Height = 30.000000000000000000
+      Size.Height = 28.212539672851560000
       Size.PlatformDefault = False
       TextPrompt = 'Einheit'
     end
@@ -179,7 +179,7 @@ object FormItemBearbeiten: TFormItemBearbeiten
       Align = Client
       TabOrder = 1
       Size.Width = 88.586174011230460000
-      Size.Height = 30.000000000000000000
+      Size.Height = 28.212539672851560000
       Size.PlatformDefault = False
       TextPrompt = 'Menge'
     end
@@ -205,7 +205,7 @@ object FormItemBearbeiten: TFormItemBearbeiten
       Align = Client
       ItemIndex = 0
       Size.Width = 222.097503662109400000
-      Size.Height = 30.000000000000000000
+      Size.Height = 28.579559326171880000
       Size.PlatformDefault = False
       TabOrder = 3
       object ListBoxItem1: TListBoxItem

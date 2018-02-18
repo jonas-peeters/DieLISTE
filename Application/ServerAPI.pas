@@ -1,3 +1,12 @@
+{*
+  The 'ServerAPI' is an interface to communicate with the server.
+
+  Because the user is authenticated by a session cookie, it is nessecary to
+  route all private server request beginning at the login-request through the
+  same client object.
+
+  All the functions to do a request can be found here.
+}
 unit ServerAPI;
 
 interface
@@ -23,11 +32,9 @@ type
     function deleteUser(): String;
     function changePassword(password: string): String;
     function forgotPassword(email: string): String;
-    function me(): String;
-    function jsonToRecord(jsonString: string): TUserData;
+    function me(): TUserData;
     function addList(name: string): String;
     function getLists(): TListArray;
-    function jsonArrayToArray(const s: string): TListArray;
     function AddToList(name: string; menge: String; fertig: boolean; kategorie: Integer; liste: Integer): string;
     function ChangeListName(name: string; id: Integer): string;
     function removeList(id: integer):String;
@@ -141,7 +148,7 @@ begin
   result := request.Response.Content;
 end;
 
-function TServerAPI.me(): String;
+function TServerAPI.me(): TUserData;
 var
   request: TRESTRequest;
 begin
@@ -150,21 +157,7 @@ begin
   request.Resource := 'user';
   request.Client := self.client;
   request.Execute;
-  result := request.Response.Content;
-end;
-
-function TServerAPI.jsonToRecord(jsonString: string): TUserData;
-var
-  jsonObject: TJSONObject;
-  userData: TUserData;
-begin
-  jsonObject := JSON.TJSONObject.ParseJSONValue(jsonString) as TJSONObject;
-  userData.name := jsonObject.GetValue('username').Value;
-  userData.password:= jsonObject.GetValue('password').Value;
-  userData.allergies := jsonObject.GetValue('allergies').Value;
-  userData.verifiedemail := jsonObject.GetValue('verified').Value.ToBoolean;
-  userData.email:= jsonObject.GetValue('email').Value;
-  result := userData;
+  result := responseToUser(request.Response.Content);
 end;
 
 function TServerAPI.addList(name: string): String;
@@ -207,42 +200,7 @@ begin
   request.Resource := 'user/lists';
   request.Client := self.client;
   request.Execute;
-  result := jsonArrayToArray(request.Response.Content);
-end;
-
-function TServerAPI.jsonArrayToArray(const s:string): TListArray;
-var jsonListArray: TJSONArray;
-    jsonItemArray: TJSONArray;
-    jsonUserArray: TJSONArray;
-    memberOfListArray: TJSONValue;
-    memberOfItemArray: TJSONValue;
-    i, j:integer;
-begin
-  result := nil;
-  jsonListArray:=TjsonObject.ParseJSONValue(s) as TjsonArray;
-  SetLength(Result, jsonListArray.Count);
-  for i := 0 to (jsonListArray.Count-1) do
-  begin
-    memberOfListArray := jsonListArray.Items[i];
-    Result[i].name := memberOfListArray.GetValue('name', 'Kein Name gefunden');
-    Result[i].id := memberOfListArray.GetValue('id', -1);
-    jsonUserArray := memberOfListArray.GetValue('user', TJSONArray.Create());
-    SetLength(Result[i].user, jsonUserArray.Count);
-    for j := 0 to (jsonUserArray.Count - 1) do
-      Result[i].user[j] := jsonUserArray.Items[j].Value;
-    jsonItemArray := memberOfListArray.GetValue('items', TJSONArray.Create());
-    SetLength(Result[i].items, jsonItemArray.Count);
-    for j := 0 to (jsonItemArray.Count - 1) do
-    begin
-      memberOfItemArray := jsonItemArray.Items[j];
-      Result[i].items[j].name := memberOfItemArray.GetValue('name', 'Keine Name gefunden');
-      Result[i].items[j].quantity := memberOfItemArray.GetValue('quantity', 'Keine Menge gefunden');
-      Result[i].items[j].done := memberOfItemArray.GetValue('done', false);
-      Result[i].items[j].categoryId := memberOfItemArray.GetValue('categoryId', 0);
-      Result[i].items[j].itemId := memberOfItemArray.GetValue('itemId', 0);
-      Result[i].items[j].listId := memberOfItemArray.GetValue('listId', 0);
-    end;
-  end;
+  result := responseToListArray(request.Response.Content);
 end;
 
 function TServerAPI.AddToList(name: string; menge: String; fertig: boolean; kategorie: Integer; liste: Integer):string;

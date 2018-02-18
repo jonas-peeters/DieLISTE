@@ -1,4 +1,9 @@
-﻿unit UMain;
+﻿{*
+  The main window of the application
+
+  Here the user can see all their lists and edit their personal data.
+}
+unit UMain;
 
 interface
 
@@ -25,11 +30,14 @@ type
     EditButton: TButton;
     ListBox2: TListBox;
     SearchBox1: TSearchBox;
+    LblAbmelden: TListBoxItem;
     procedure FormCreate(Sender: TObject);
     procedure PlusBtn2Click(Sender: TObject);
     procedure LBListItemClick(Sender: TObject);
     procedure LBIUserLoeschenClick(Sender: TObject);
     procedure LBIPasswortaendernClick(Sender: TObject);
+    procedure listFormClose(Sender: TObject; var Action: TCloseAction);
+    procedure LblAbmeldenClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -50,13 +58,18 @@ begin
   serverAPI := TServerAPI.create();
 end;
 
+procedure TFormMain.listFormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  UpdateLists();
+end;
+
 procedure TFormMain.LBListItemClick(Sender: TObject);
 var
   listForm: TFormListe;
 begin
   listForm := TFormListe.Create(Application, serverAPI, lists[StrToInt((sender as TListBoxItem).ItemData.Detail)]);
   listForm.Show;
-  UpdateLists();
+  listForm.OnClose := listFormClose;
 end;
 
 procedure TFormMain.PlusBtn2Click(Sender: TObject);
@@ -111,6 +124,15 @@ begin
 end);
 end;
 
+procedure TFormMain.LblAbmeldenClick(Sender: TObject);
+var
+  loginData: TLoginData;
+begin
+  loginData.worked := false;
+  saveLoginData(loginData);
+  MainForm.Close;
+  MainForm.Release;
+end;
 
 end.
 

@@ -1,3 +1,12 @@
+{*
+  Login form
+
+  This is the first from any user will see.
+  The user can log in, register a new account and open the forgot password page.
+
+  The login data of the users are saved, so that they will automatically be
+  logged in the next time.
+}
 unit Login;
 
 interface
@@ -20,10 +29,11 @@ type
     EdtPW2: TEdit;
     BtnLos: TButton;
     BtnRegistrieren: TButton;
-    procedure BtnLosClick(Sender: TObject);
     procedure BtnRegistrierenClick(Sender: TObject);
     procedure BtnPWVergessenClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
+    procedure login(email: String; password: String);
+    procedure BtnLosClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -37,6 +47,25 @@ var
 implementation
 
 {$R *.fmx}
+
+procedure TFormLogin.login(email: String; password: String);
+var loginData: TLoginData;
+begin
+  if interpretServerResponse(UMain.serverAPI.login(email, password)) then
+  begin
+    loginData.email := email;
+    loginData.password := password;
+    loginData.worked := true;
+    saveLoginData(loginData);
+    MainForm.Show;
+    MainForm.UpdateLists();
+  end;
+end;
+
+procedure TFormLogin.BtnLosClick(Sender: TObject);
+begin
+  login(EdtBenutzername1.Text, EdtPW1.Text);
+end;
 
 procedure TFormLogin.BtnPWVergessenClick(Sender: TObject);
 var PwVergessenForm: TForm;
@@ -54,19 +83,17 @@ begin
    UMain.serverAPI.createUser(email,name, password);
 end;
 
-procedure TFormLogin.FormCreate(Sender: TObject);
+procedure TFormLogin.FormShow(Sender: TObject);
+var
+  loginData: TLoginData;
 begin
   MainForm := TFormMain.Create(nil);
   MainForm.Hide;
-end;
-
-procedure TFormLogin.BtnLosClick(Sender: TObject);
-begin
-  if interpretServerResponse(UMain.serverAPI.login(EdtBenutzername1.Text, EdtPW1.Text)) then
-  begin
-    MainForm.Show;
-    MainForm.UpdateLists();
-  end;
+  loginData := getLoginData;
+  EdtBenutzername1.Text := loginData.email;
+  EdtPW1.Text := loginData.password;
+  if loginData.worked then
+    login(loginData.email, loginData.password);
 end;
 
 end.

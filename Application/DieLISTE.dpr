@@ -14,7 +14,10 @@ uses
   ListeBearbeiten in 'ListeBearbeiten.pas' {FormListeBearbeiten},
   AddUser in 'AddUser.pas' {Form1},
   ItemBearbeiten in 'ItemBearbeiten.pas' {FormItemBearbeiten},
-  Helper in 'Helper.pas';
+  Helper in 'Helper.pas',
+  CCR.PrefsIniFile in 'lib\CCR.PrefsIniFile.pas',
+  CCR.PrefsIniFile.Android in 'lib\CCR.PrefsIniFile.Android.pas',
+  CCR.PrefsIniFile.Apple in 'lib\CCR.PrefsIniFile.Apple.pas';
 
 {$R *.res}
 

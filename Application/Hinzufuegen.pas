@@ -1,3 +1,6 @@
+{*
+  The user can add an item on this form.
+}
 unit Hinzufuegen;
 
 interface
@@ -56,6 +59,7 @@ end;
 
 procedure TFormHinzufuegen.BtnBackClick(Sender: TObject);
 begin
+  Close;
   Release;
 end;
 
@@ -67,12 +71,12 @@ begin
     name:= EdtName.Text;
     einheit:= EdtEinheit.Text;
     menge:= EdtMenge.Text;
-    kategorie := CBCategory.ItemIndex;
+    kategorie := CBCategory.Index;
     privateServerAPI.AddToList(name, menge + ' ' + einheit, false, kategorie, listId);
     EdtName.Text := '';
     EdtEinheit.Text := '';
     EdtMenge.Text := '';
-    CBCategory.ItemIndex := 0;
+    CBCategory.Index := 0;
 end;
 
 procedure TFormHinzufuegen.BtnOKClick(Sender: TObject);
@@ -83,14 +87,16 @@ begin
     name:= EdtName.Text;
     einheit:= EdtEinheit.Text;
     menge:= EdtMenge.Text;
-    kategorie := CBCategory.ItemIndex;
+    kategorie := CBCategory.Index;
     privateServerAPI.AddToList(name, menge + ' ' + einheit, false, kategorie, listId);
+    Close;
     Release;
 end;
 
 procedure TFormHinzufuegen.BtnSchliessenClick(Sender: TObject);
 begin
- Release;
+  Close;
+  Release;
 end;
 
 end.

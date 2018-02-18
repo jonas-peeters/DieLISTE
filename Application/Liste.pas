@@ -1,4 +1,11 @@
-﻿unit Liste;
+﻿{*
+  View of an individual list
+
+  Here the user sees the item that are in the list, can enter the menu for
+  editing the list, can open the page for adding new items and can open the page
+  to edit an item.
+}
+unit Liste;
 
 interface
 
@@ -23,6 +30,7 @@ type
     procedure FormActivate(Sender: TObject);
     procedure BtnBackClick(Sender: TObject);
     procedure ClickOnItem(Sender: TObject);
+    procedure subFormClosed(Sender: TObject; var Action: TCloseAction);
   private
     { Private-Deklarationen }
   public
@@ -40,31 +48,23 @@ implementation
 
 {$R *.fmx}
 
-procedure TFormListe.BtnBackClick(Sender: TObject);
+procedure TFormListe.subFormClosed(Sender: TObject; var Action: TCloseAction);
 begin
-  Release;
+  Update();
 end;
 
-{procedure TFormListe.BtnEditClick(Sender: TObject);
-var
-  neuerName: String;
+procedure TFormListe.BtnBackClick(Sender: TObject);
 begin
-  repeat
-    if not InputQuery('Namen ändern', 'Neuer Name:', neuerName) then
-      neuerName := list.name
-  until neuerName <> '';
-  if neuerName <> list.name then
-  begin
-    privateServerAPI.ChangeListName(neuerName, listId);
-    Update();
-  end;
-end;   }
+  Close;
+  Release;
+end;
 
 procedure TFormListe.BtnEditClick(Sender: TObject);
 var editlistForm:TFormListeBearbeiten;
 begin
-  editlistForm := TFormListeBearbeiten.Create(Application,privateServerAPI,listId,list.name);
+  editlistForm := TFormListeBearbeiten.Create(Application, privateServerAPI, listId);
   editlistForm.Show;
+  editlistForm.OnClose := subFormClosed;
 end;
 
 procedure TFormListe.BtnHinzufuegenClick(Sender: TObject);
@@ -73,6 +73,7 @@ var
 begin
   additemForm := TFormHinzufuegen.Create(Application, privateServerAPI, listId);
   additemForm.Show;
+  additemForm.OnClose := subFormClosed;
 end;
 
 constructor TFormListe.Create(AOwner: TComponent; var serverAPI: TServerAPI; clickedList: TListe);
@@ -96,12 +97,8 @@ var
 begin
   lists := privateServerAPI.getLists();
   for i := 0 to High(lists) do
-  begin
     if lists[i].id = listId then
-    begin
       list := lists[i];
-    end;
-  end;
   LblListe.Text := list.name;
   ListBox1.Clear;
   for i := 0 to High(list.items) do

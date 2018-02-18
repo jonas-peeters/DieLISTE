@@ -80,14 +80,12 @@ object FormListeBearbeiten: TFormListeBearbeiten
       object LBIEditListName: TListBoxItem
         Position.Y = 44.000000000000000000
         TabOrder = 0
-        Text = 'ListeXY'
-        OnClick = LBIEditListNameClick
+        Text = 'Name '#228'ndern'
       end
       object LBIDeleteList: TListBoxItem
         Position.Y = 63.000000000000000000
         TabOrder = 1
         Text = 'Liste l'#246'schen'
-        OnClick = LBIDeleteListClick
       end
       object GroupHeaderUser: TListBoxGroupHeader
         Position.Y = 82.000000000000000000
@@ -101,7 +99,6 @@ object FormListeBearbeiten: TFormListeBearbeiten
         Position.Y = 126.000000000000000000
         TabOrder = 2
         Text = 'User hinzuf'#252'gen'
-        OnClick = LBIAddUserClick
       end
     end
     object Label1: TLabel

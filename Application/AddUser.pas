@@ -1,3 +1,16 @@
+{*
+  The user can find and add other users that then have access to the list
+
+  When this form is opened the user will see a list of users that he is also
+  working with on other lists.
+  Only when the users starts typing he will see other users in the system, but
+  if his search string complies with users he is working with on other projects,
+  those will be placed at the top of the list.
+
+  When clicking on a users name (after an additional confirmation) this user
+  will recieve an email, where they can accept the invitation or report it as
+  spam.
+}
 unit AddUser;
 
 interface
@@ -56,6 +69,7 @@ end;
 
 procedure TFormAddUser.BtnBackClick(Sender: TObject);
 begin
+  Close;
   Release;
 end;
 
@@ -88,9 +102,10 @@ procedure (const AResult:System.UITypes.TModalResult)
 begin
   case AResult of
     mrYES:
-    if  privateServerAPI.inviteUser(listId, ListBox1.Selected.Text)='"Success"' then
+    if  interpretServerResponse(privateServerAPI.inviteUser(listId, ListBox1.Selected.Text)) then
       begin
         ShowMessage('Der User wurde eingeladen!');
+        Close;
         Release;
       end;
   end;

@@ -54,11 +54,17 @@ object FormAddUser: TFormAddUser
       end
       item
         Value = 79.902613241230340000
+      end
+      item
+        SizeStyle = Auto
+      end
+      item
+        SizeStyle = Auto
       end>
     object BtnBack: TButton
       Align = Client
       Size.Width = 58.345108032226560000
-      Size.Height = 55.536510467529300000
+      Size.Height = 55.535625457763670000
       Size.PlatformDefault = False
       TabOrder = 0
       Text = '<'
@@ -67,7 +73,7 @@ object FormAddUser: TFormAddUser
     object ListBox1: TListBox
       Align = Client
       Size.Width = 350.000000000000000000
-      Size.Height = 439.465087890625000000
+      Size.Height = 439.464355468750000000
       Size.PlatformDefault = False
       TabOrder = 1
       DisableFocusEffect = True
@@ -80,7 +86,7 @@ object FormAddUser: TFormAddUser
     object Label1: TLabel
       Align = Client
       Size.Width = 291.654907226562500000
-      Size.Height = 55.536510467529300000
+      Size.Height = 55.535625457763670000
       Size.PlatformDefault = False
       Text = 'User hinzuf'#252'gen'
       TabOrder = 2
@@ -90,9 +96,9 @@ object FormAddUser: TFormAddUser
       Align = Client
       TabOrder = 3
       Size.Width = 350.000000000000000000
-      Size.Height = 54.999210357666020000
+      Size.Height = 55.000003814697270000
       Size.PlatformDefault = False
-      OnChange = Edit1Change
+      OnChangeTracking = Edit1Change
     end
   end
 end
