@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet version="1.0">
+  <view uin="r9v6750sm3iycr0pe_v">
+    <property name="$defaultDiagram" value="true" />
+    <property name="$metaclass" value="Package Diagram" />
+    <property name="$name" value="default" />
+    <reference referencedUin="design:view:::lddf7f630ckcbvifp_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="10,10,136,151" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:PWvergessen.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:PWvergessen.TFormPWvergessen" />
+    </reference>
+    <reference referencedUin="design:view:::0ucn1ne4cckwc5gdn_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="165,1,129,151" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:Hinzufuegen.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:Hinzufuegen.TFormHinzufuegen" />
+    </reference>
+    <reference referencedUin="design:view:::zsedsa25qckybu0mn_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="180,180,100,151" />
+      <property name="location_set_by_user" value="True" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:UMain.TFormMain" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:UMain.@unitclass" />
+    </reference>
+    <reference referencedUin="design:view:::7krwsw5yo1krtu27p_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="56,180,108,134" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:DieLISTE.@unitclass" />
+    </reference>
+    <reference referencedUin="design:view:::g1yf5efk2dkuvc4sj_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="332,1,125,151" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:PWaendern.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:PWaendern.TFormPWaendern" />
+    </reference>
+    <reference referencedUin="design:view:::6a01ee539dkcrtdkn_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="332,171,100,119" />
+      <reference referencedUin="design:view:::up7kltmi4iksgogyg_v" />
+    </reference>
+    <reference referencedUin="design:view:::wfxu37wxidk85rnwo_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="332,309,107,151" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:AddUser.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:AddUser.TFormAddUser" />
+    </reference>
+    <reference referencedUin="design:view:::8huju0vqxdk8bp9rg_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="223,360,100,151" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:Liste.TFormListe" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:Liste.@unitclass" />
+    </reference>
+    <reference referencedUin="design:view:::6530poq501k0byegg_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="60,380,111,151" />
+      <property name="location_set_by_user" value="True" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:ServerAPI.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:ServerAPI.TServerAPI" />
+    </reference>
+    <reference referencedUin="design:view:::glpj9hsyaek4mci5n_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="495,1,145,151" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:ListeBearbeiten.TFormListeBearbeiten" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:ListeBearbeiten.@unitclass" />
+    </reference>
+    <reference referencedUin="design:view:::p0mgq9n7nekibbnir_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="495,171,100,151" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:Login.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:Login.TFormLogin" />
+    </reference>
+    <reference referencedUin="design:view:::30a7e7311fkhotdlh_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="495,341,123,151" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:Supermarkt.TFormSupermarkt" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:Supermarkt.@unitclass" />
+    </reference>
+    <reference referencedUin="design:view:::0x738lsa9fkxx9lgj_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="361,479,100,196" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:Helper.TListe" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:Helper.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:Helper.TListArray" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:Helper.TArray" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:Helper.TItem" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:Helper.TLoginData" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:Helper.TUserData" />
+    </reference>
+    <reference referencedUin="design:view:::0aoj6ohofk80lbvj_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="499,511,143,151" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:ItemBearbeiten.TFormItemBearbeiten" />
+      <reference referencedUin="delphi:e_class:src:DieLISTE:ItemBearbeiten.@unitclass" />
+    </reference>
+  </view>
+</nodeSet>
