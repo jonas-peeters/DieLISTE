@@ -76,7 +76,6 @@ begin
   for i := 0 to High(lists) do
     if lists[i].id = listId then
       list := lists[i];
-
   ListBox1.Clear;
 
   // Add Listname
@@ -140,8 +139,6 @@ MessageDlg('Wollen Sie die Liste wirklich löschen?', System.UITypes.TMsgDlgType.
   System.UITypes.TMsgDlgBtn.mbCancel
 ],0,
 procedure (const AResult:System.UITypes.TModalResult)
- var
- item: TListBoxItem;
 begin
   case AResult of
     mrYES:

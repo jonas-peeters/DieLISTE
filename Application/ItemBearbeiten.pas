@@ -44,6 +44,8 @@ type
     procedure BtnOKClick(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; item: TItem);
     procedure BtnBackClick(Sender: TObject);
+    procedure BtnLoeschenClick(Sender: TObject);
+    procedure BtnErledigtClick(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -54,6 +56,7 @@ var
   FormItemBearbeiten: TFormItemBearbeiten;
   privateServerAPI: TServerAPI;
   itemToChange: TItem;
+  list:Tliste;
 
 implementation
 
@@ -78,6 +81,45 @@ begin
   Release;
 end;
 
+procedure TFormItemBearbeiten.BtnErledigtClick(Sender: TObject);
+var
+  name, einheit, menge: string;
+  kategorie: Integer;
+begin
+    interpretServerResponse(privateServerAPI.DeleteItem(itemToChange.itemId));
+    name := EdtName.Text;
+    einheit := EdtEinheit.Text;
+    menge := EdtMenge.Text;
+    kategorie := CBCategory.Index;
+    interpretServerResponse(privateServerAPI.AddToList(name, menge + ' ' + einheit + '      '+  'erledigt', false, kategorie, itemToChange.listId));
+
+    Close;
+    Release;
+end;
+
+procedure TFormItemBearbeiten.BtnLoeschenClick(Sender: TObject);
+begin
+   begin
+MessageDlg('Wollen Sie das Item löschen?', System.UITypes.TMsgDlgType.mtCustom,
+[ System.UITypes.TMsgDlgBtn.mbYes,
+  System.UITypes.TMsgDlgBtn.mbNo,
+  System.UITypes.TMsgDlgBtn.mbCancel
+],0,
+procedure (const AResult:System.UITypes.TModalResult)
+begin
+  case AResult of
+    mrYES:
+      begin
+      privateServerAPI.deleteitem(itemToChange.itemId);
+      ShowMessage('Das Item wurde gelöscht!');
+      Close;
+      Release;
+      end;
+  end;;
+end);
+end;
+end;
+
 procedure TFormItemBearbeiten.BtnOKClick(Sender: TObject);
 var
   name, einheit, menge: string;
@@ -92,6 +134,7 @@ begin
     Close;
     Release;
 end;
+
 
 procedure TFormItemBearbeiten.BtnSchliessenClick(Sender: TObject);
 begin

@@ -31,6 +31,7 @@ type
     procedure BtnBackClick(Sender: TObject);
     procedure ClickOnItem(Sender: TObject);
     procedure subFormClosed(Sender: TObject; var Action: TCloseAction);
+
   private
     { Private-Deklarationen }
   public
@@ -120,6 +121,7 @@ var
   itemAendernForm: TFormItemBearbeiten;
 begin
   itemAendernForm := TFormItemBearbeiten.Create(nil, privateServerAPI, list.items[StrToInt(ListBox1.Selected.ItemData.Detail)]);
+  itemAendernForm.OnClose := subFormClosed;
   itemAendernForm.Show();
 end;
 

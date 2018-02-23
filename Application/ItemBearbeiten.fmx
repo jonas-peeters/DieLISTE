@@ -178,14 +178,14 @@ object FormItemBearbeiten: TFormItemBearbeiten
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 1
-      Size.Width = 88.586174011230460000
+      Size.Width = 88.586174011230470000
       Size.Height = 28.212539672851560000
       Size.PlatformDefault = False
       TextPrompt = 'Menge'
     end
     object BtnOK: TButton
       Align = Client
-      Size.Width = 89.161010742187490000
+      Size.Width = 89.161010742187500000
       Size.Height = 28.951354980468750000
       Size.PlatformDefault = False
       TabOrder = 4
@@ -194,7 +194,7 @@ object FormItemBearbeiten: TFormItemBearbeiten
     end
     object BtnSchliessen: TButton
       Align = Client
-      Size.Width = 88.586174011230460000
+      Size.Width = 88.586174011230470000
       Size.Height = 28.951354980468750000
       Size.PlatformDefault = False
       TabOrder = 5
@@ -268,6 +268,7 @@ object FormItemBearbeiten: TFormItemBearbeiten
       Size.PlatformDefault = False
       TabOrder = 8
       Text = 'Erledigt'
+      OnClick = BtnErledigtClick
     end
     object BtnLoeschen: TButton
       Align = Client
@@ -276,6 +277,7 @@ object FormItemBearbeiten: TFormItemBearbeiten
       Size.PlatformDefault = False
       TabOrder = 9
       Text = 'L'#246'schen'
+      OnClick = BtnLoeschenClick
     end
   end
 end
