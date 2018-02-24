@@ -83,16 +83,16 @@ end;
 
 procedure TFormItemBearbeiten.BtnErledigtClick(Sender: TObject);
 var
-  name, einheit, menge: string;
+  name, einheit, menge, erledigt: string;
   kategorie: Integer;
 begin
     interpretServerResponse(privateServerAPI.DeleteItem(itemToChange.itemId));
     name := EdtName.Text;
     einheit := EdtEinheit.Text;
     menge := EdtMenge.Text;
+    erledigt:= btnerledigt.Text;
     kategorie := CBCategory.Index;
-    interpretServerResponse(privateServerAPI.AddToList(name, menge + ' ' + einheit + '      '+  'erledigt', false, kategorie, itemToChange.listId));
-
+    interpretServerResponse(privateServerAPI.AddToList(name, menge + ' ' + einheit + '      '+  erledigt, false, kategorie, itemToChange.listId));
     Close;
     Release;
 end;

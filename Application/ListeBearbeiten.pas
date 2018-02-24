@@ -143,7 +143,7 @@ begin
   case AResult of
     mrYES:
       begin
-      privateServerAPI.removeList(listId);
+      privateServerAPI.removeList(list.id);
       ShowMessage('Die Liste wurde gelöscht!');
       Close;
       Release;
