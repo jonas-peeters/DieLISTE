@@ -122,23 +122,23 @@ begin
   for i := 0 to (jsonListArray.Count-1) do
   begin
     memberOfListArray := jsonListArray.Items[i];
-    Result[i].name := memberOfListArray.GetValue('name', 'Kein Name gefunden');
-    Result[i].id := memberOfListArray.GetValue('id', -1);
-    jsonUserArray := memberOfListArray.GetValue('user', TJSONArray.Create());
+    Result[i].name := memberOfListArray.GetValue<String>('name', 'Kein Name gefunden');
+    Result[i].id := memberOfListArray.GetValue<Integer>('id', -1);
+    jsonUserArray := memberOfListArray.GetValue<TJSONArray>('user', TJSONArray.Create());
     SetLength(Result[i].user, jsonUserArray.Count);
     for j := 0 to (jsonUserArray.Count - 1) do
       Result[i].user[j] := jsonUserArray.Items[j].Value;
-    jsonItemArray := memberOfListArray.GetValue('items', TJSONArray.Create());
+    jsonItemArray := memberOfListArray.GetValue<TJSONArray>('items', TJSONArray.Create());
     SetLength(Result[i].items, jsonItemArray.Count);
     for j := 0 to (jsonItemArray.Count - 1) do
     begin
       memberOfItemArray := jsonItemArray.Items[j];
-      Result[i].items[j].name := memberOfItemArray.GetValue('name', 'Keine Name gefunden');
-      Result[i].items[j].quantity := memberOfItemArray.GetValue('quantity', 'Keine Menge gefunden');
-      Result[i].items[j].done := memberOfItemArray.GetValue('done', false);
-      Result[i].items[j].categoryId := memberOfItemArray.GetValue('categoryId', 0);
-      Result[i].items[j].itemId := memberOfItemArray.GetValue('id', -1);
-      Result[i].items[j].listId := memberOfListArray.GetValue('id', -1);
+      Result[i].items[j].name := memberOfItemArray.GetValue<String>('name', 'Keine Name gefunden');
+      Result[i].items[j].quantity := memberOfItemArray.GetValue<String>('quantity', 'Keine Menge gefunden');
+      Result[i].items[j].done := memberOfItemArray.GetValue<Boolean>('done', false);
+      Result[i].items[j].categoryId := memberOfItemArray.GetValue<Integer>('categoryId', 0);
+      Result[i].items[j].itemId := memberOfItemArray.GetValue<Integer>('id', -1);
+      Result[i].items[j].listId := memberOfListArray.GetValue<Integer>('id', -1);
     end;
   end;
 end;

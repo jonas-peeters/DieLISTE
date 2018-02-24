@@ -16,7 +16,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
   FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, serverAPI, FMX.ListBox,
-  Helper;
+  Helper, StrUtils;
 
 type
   TFormItemBearbeiten = class(TForm)
@@ -70,9 +70,12 @@ begin
   itemToChange := item;
   EdtName.Text := item.name;
   EdtMenge.Text := item.quantity.Split([' '])[0];
-  for i := 1 to High(item.quantity.Split([' '])) do
-    EdtEinheit.Text := EdtEinheit.Text + ' ' + item.quantity.Split([' '])[i];
-  CBCategory.Index := item.categoryId;
+  if High(item.quantity.Split([' '])) > 0 then
+    EdtEinheit.Text := item.quantity.Split([' '])[1];
+  if High(item.quantity.Split([' '])) > 1 then
+    for i := 2 to High(item.quantity.Split([' '])) do
+      EdtEinheit.Text := EdtEinheit.Text + ' ' + item.quantity.Split([' '])[i];
+  CBCategory.ItemIndex := item.categoryId - 1;
 end;
 
 procedure TFormItemBearbeiten.BtnBackClick(Sender: TObject);
@@ -83,16 +86,20 @@ end;
 
 procedure TFormItemBearbeiten.BtnErledigtClick(Sender: TObject);
 var
-  name, einheit, menge, erledigt: string;
+  name, einheit, menge: string;
+  erledigt: Boolean;
   kategorie: Integer;
 begin
     interpretServerResponse(privateServerAPI.DeleteItem(itemToChange.itemId));
     name := EdtName.Text;
     einheit := EdtEinheit.Text;
     menge := EdtMenge.Text;
-    erledigt:= btnerledigt.Text;
-    kategorie := CBCategory.Index;
-    interpretServerResponse(privateServerAPI.AddToList(name, menge + ' ' + einheit + '      '+  erledigt, false, kategorie, itemToChange.listId));
+    kategorie := CBCategory.ItemIndex + 1;
+    if itemToChange.done then
+      erledigt := false
+    else
+      erledigt := true;
+    interpretServerResponse(privateServerAPI.AddToList(name, menge + ' ' + einheit, erledigt, kategorie, itemToChange.listId));
     Close;
     Release;
 end;
@@ -129,8 +136,8 @@ begin
     name := EdtName.Text;
     einheit := EdtEinheit.Text;
     menge := EdtMenge.Text;
-    kategorie := CBCategory.Index;
-    interpretServerResponse(privateServerAPI.AddToList(name, menge + ' ' + einheit, false, kategorie, itemToChange.listId));
+    kategorie := CBCategory.ItemIndex + 1;
+    interpretServerResponse(privateServerAPI.AddToList(name, menge + ' ' + einheit, itemToChange.done, kategorie, itemToChange.listId));
     Close;
     Release;
 end;

@@ -107,9 +107,9 @@ begin
     item := TListBoxItem.Create(ListBox1);
     item.Text := list.items[i].name + Tabulator + list.items[i].quantity;
     if list.items[i].done then
-      item.ItemData.Accessory := TListBoxItemData.TAccessory(1)
+      item.ItemData.Accessory := TListBoxItemData.TAccessory.aCheckmark
     else
-      item.ItemData.Accessory := TListBoxItemData.TAccessory(0);
+      item.ItemData.Accessory := TListBoxItemData.TAccessory.aNone;
     item.ItemData.Detail := IntToStr(i);
     item.OnClick := ClickOnItem;
     ListBox1.AddObject(item);

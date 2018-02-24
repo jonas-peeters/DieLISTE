@@ -184,7 +184,7 @@ begin
   JsonString := '{"id": "' + IntToStr(id) + '"}';
   request.Method := REST.Types.rmPOST;
   request.Body.JSONWriter.WriteRaw(jsonString);
-  request.Resource := '/user/lists';
+  request.Resource := '/user/lists/delete';
   request.Client := self.client;
   request.Execute;
   result := request.Response.Content;

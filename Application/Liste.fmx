@@ -63,7 +63,7 @@ object FormListe: TFormListe
       end>
     RowCollection = <
       item
-        Value = 9.999999999999999000
+        Value = 9.999999999999998000
       end
       item
         Value = 90.000000000000000000

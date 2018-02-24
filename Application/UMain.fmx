@@ -134,7 +134,7 @@ object FormMain: TFormMain
           DefaultItemStyles.GroupHeaderStyle = ''
           DefaultItemStyles.GroupFooterStyle = ''
           Viewport.Width = 368.000000000000000000
-          Viewport.Height = 431.300000000000000000
+          Viewport.Height = 387.300000000000000000
           object SearchBox1: TSearchBox
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             Align = Top
