@@ -21,5 +21,9 @@ final class InfoController {
         info.get("request") { req in
             return req.description
         }
+        
+        info.get("online") { req in
+            return "true"
+        }
     }
 }
