@@ -96,7 +96,7 @@ object FormMain: TFormMain
             Value = 5.894452983715341000
           end
           item
-            Value = 82.316641048853930000
+            Value = 82.316641048853920000
           end>
         object PlusBtn2: TButton
           Align = Client
@@ -237,8 +237,8 @@ object FormMain: TFormMain
         end
         object LblAllergien: TLabel
           Align = Client
-          Size.Width = 185.126708984375000000
-          Size.Height = 57.910911560058600000
+          Size.Width = 245.761703491210900000
+          Size.Height = 57.910911560058590000
           Size.PlatformDefault = False
           Text = 'Allergien'
           TabOrder = 1
@@ -246,7 +246,7 @@ object FormMain: TFormMain
         object EditButton: TButton
           Anchors = []
           Position.X = 261.355468750000000000
-          Position.Y = 116.646965026855500000
+          Position.Y = 37.923858642578130000
           Size.Width = 32.953796386718750000
           Size.Height = 21.567554473876950000
           Size.PlatformDefault = False

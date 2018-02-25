@@ -106,6 +106,8 @@ begin
     item.OnClick := LBListItemClick;
     LBLists.AddObject(item);
   end;
+
+
 end;
 
 procedure TFormMain.UpdateUserData();

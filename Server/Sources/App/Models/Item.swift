@@ -161,7 +161,7 @@ extension Item: JSONConvertible {
         try json.set(Item.Keys.name, name)
         try json.set(Item.Keys.quantity, quantity)
         try json.set(Item.Keys.done, done)
-        try json.set(Item.Keys.categoryId, listId)
+        try json.set(Item.Keys.categoryId, categoryId)
         return json
     }
 }

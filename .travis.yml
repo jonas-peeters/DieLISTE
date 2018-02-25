@@ -1,4 +1,7 @@
 before_install: cd Server
+before_script: gem install xcpretty-travis-formatter
+script: xcodebuild test -scheme AppTests | xcpretty -f `xcpretty-travis-formatter`
+
 language: swift
 xcode_project: Server.xcodeproj
 xcode_scheme: Run

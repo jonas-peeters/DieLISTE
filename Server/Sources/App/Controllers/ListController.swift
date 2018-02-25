@@ -233,7 +233,7 @@ final class ListController {
     
     /// Deletes a list
     ///
-    /// Route for request: POST to `/user/lists`
+    /// Route for request: POST to `/user/lists/delete`
     ///
     /// JSON encoding for request
     ///
@@ -254,14 +254,19 @@ final class ListController {
             return status(20)
         }
         do {
-            guard let list = try user.lists.find(json.get("id")) else {
+            let id: Int = try json.get("id")
+            guard let list = try user.lists.find(id) else {
                 return status(23)
             }
             do {
                 try user.lists.remove(list)
-                if list.items.isEmpty && list.users.isEmpty {
+                if list.users.isEmpty {
+                    for item in list.items {
+                        try item.delete()
+                    }
                     try list.delete()
                 }
+                try user.save()
                 return status(10)
             } catch {
                 return status(31)

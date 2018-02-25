@@ -31,6 +31,7 @@ type
     procedure BtnBackClick(Sender: TObject);
     procedure ClickOnItem(Sender: TObject);
     procedure subFormClosed(Sender: TObject; var Action: TCloseAction);
+
   private
     { Private-Deklarationen }
   public
@@ -106,9 +107,9 @@ begin
     item := TListBoxItem.Create(ListBox1);
     item.Text := list.items[i].name + Tabulator + list.items[i].quantity;
     if list.items[i].done then
-      item.ItemData.Accessory := TListBoxItemData.TAccessory(1)
+      item.ItemData.Accessory := TListBoxItemData.TAccessory.aCheckmark
     else
-      item.ItemData.Accessory := TListBoxItemData.TAccessory(0);
+      item.ItemData.Accessory := TListBoxItemData.TAccessory.aNone;
     item.ItemData.Detail := IntToStr(i);
     item.OnClick := ClickOnItem;
     ListBox1.AddObject(item);
@@ -120,6 +121,7 @@ var
   itemAendernForm: TFormItemBearbeiten;
 begin
   itemAendernForm := TFormItemBearbeiten.Create(nil, privateServerAPI, list.items[StrToInt(ListBox1.Selected.ItemData.Detail)]);
+  itemAendernForm.OnClose := subFormClosed;
   itemAendernForm.Show();
 end;
 

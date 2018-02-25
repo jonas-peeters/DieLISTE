@@ -198,7 +198,7 @@ var
   request: TRESTRequest;
 begin
   request := TRESTRequest.Create(nil);
-  jsonString := '{"id": "' + IntToStr(id) + '"}';
+  JsonString := '{"id": "' + IntToStr(id) + '"}';
   request.Method := REST.Types.rmPOST;
   request.Body.JSONWriter.WriteRaw(jsonString);
   request.Resource := '/user/lists/delete';
