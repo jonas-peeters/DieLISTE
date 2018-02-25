@@ -25,8 +25,8 @@ type
     EditBtn2: TButton;
     LBLists: TListBox;
     GridPanelLayout2: TGridPanelLayout;
-    Label2: TLabel;
-    Label3: TLabel;
+    LblUsername: TLabel;
+    LblAllergien: TLabel;
     EditButton: TButton;
     ListBox2: TListBox;
     SearchBox1: TSearchBox;
@@ -38,20 +38,32 @@ type
     procedure LBIPasswortaendernClick(Sender: TObject);
     procedure listFormClose(Sender: TObject; var Action: TCloseAction);
     procedure LblAbmeldenClick(Sender: TObject);
+    procedure EditButtonClick(Sender: TObject);
   private
     { Private declarations }
   public
     procedure UpdateLists();
+    procedure UpdateUserData();
   end;
 
 var
   MainForm: TFormMain;
   serverAPI: TServerAPI;
   lists: TListArray;
+  user: TUserData;
 
 implementation
 
 {$R *.fmx}
+
+procedure TFormMain.EditButtonClick(Sender: TObject);
+var
+  allergienNeu: string;
+begin
+  allergienNeu := InputBox('Allergien bearbeiten', 'Allergien', user.allergies);
+  serverAPI.editInfo(allergienNeu);
+  UpdateUserData();
+end;
 
 procedure TFormMain.FormCreate(Sender: TObject);
 begin
@@ -98,7 +110,13 @@ begin
 
 end;
 
-
+procedure TFormMain.UpdateUserData();
+begin
+  user := serverAPI.me();
+  if user.allergies <> '' then
+    LblAllergien.Text := user.allergies;
+  LblUsername.Text := user.name;
+end;
 
 procedure TFormMain.LBIPasswortaendernClick(Sender: TObject);
 var
@@ -134,8 +152,8 @@ var
 begin
   loginData.worked := false;
   saveLoginData(loginData);
-  MainForm.Close;
-  MainForm.Release;
+  Close;
+  Release;
 end;
 
 end.

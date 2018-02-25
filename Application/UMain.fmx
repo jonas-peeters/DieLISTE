@@ -16,7 +16,7 @@ object FormMain: TFormMain
     Size.Height = 573.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 1
     TabPosition = PlatformDefault
     Sizes = (
@@ -28,7 +28,7 @@ object FormMain: TFormMain
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 184.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -150,7 +150,7 @@ object FormMain: TFormMain
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 184.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -188,19 +188,19 @@ object FormMain: TFormMain
           item
             Column = 1
             ColumnSpan = 2
-            Control = Label2
+            Control = LblUsername
             Row = 1
           end
           item
             Column = 1
-            ColumnSpan = 4
-            Control = Label3
+            ColumnSpan = 3
+            Control = LblAllergien
             Row = 3
           end
           item
             Column = 4
             Control = EditButton
-            Row = 1
+            Row = 3
           end
           item
             Column = 0
@@ -227,7 +227,7 @@ object FormMain: TFormMain
           item
             Value = 65.845216243885030000
           end>
-        object Label2: TLabel
+        object LblUsername: TLabel
           Align = Client
           Size.Width = 123.866455078125000000
           Size.Height = 56.506996154785160000
@@ -235,12 +235,12 @@ object FormMain: TFormMain
           Text = 'Max Mustermann'
           TabOrder = 0
         end
-        object Label3: TLabel
+        object LblAllergien: TLabel
           Align = Client
           Size.Width = 245.761703491210900000
           Size.Height = 57.910911560058590000
           Size.PlatformDefault = False
-          Text = 'BSP: Z'#246'liakie'
+          Text = 'Allergien'
           TabOrder = 1
         end
         object EditButton: TButton
@@ -252,6 +252,7 @@ object FormMain: TFormMain
           Size.PlatformDefault = False
           TabOrder = 2
           Text = 'Edit'
+          OnClick = EditButtonClick
         end
         object ListBox2: TListBox
           Align = Client
@@ -267,7 +268,7 @@ object FormMain: TFormMain
           Viewport.Height = 345.000000000000000000
           object LBUserloeschen: TListBoxItem
             TabOrder = 0
-            Text = 'User l'#246'schen'
+            Text = 'Account l'#246'schen'
             OnClick = LBIUserLoeschenClick
           end
           object LBPasswortaendern: TListBoxItem
