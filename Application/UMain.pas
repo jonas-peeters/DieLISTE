@@ -22,7 +22,6 @@ type
     GridPanelLayout1: TGridPanelLayout;
     PlusBtn2: TButton;
     Label1: TLabel;
-    EditBtn2: TButton;
     LBLists: TListBox;
     GridPanelLayout2: TGridPanelLayout;
     Label2: TLabel;
@@ -93,6 +92,7 @@ begin
     item.ItemData.Detail := IntToStr(i);
     item.OnClick := LBListItemClick;
     LBLists.AddObject(item);
+    item.Height:=25;
   end;
 
 

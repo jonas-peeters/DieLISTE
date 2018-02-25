@@ -88,23 +88,27 @@ begin
   item.Text := 'Name ändern';
   item.OnClick := EditListNameClick;
   ListBox1.AddObject(item);
+  item.Height:=23;
 
   // Add delete list
   item := TListBoxItem.Create(ListBox1);
   item.Text := 'Liste löschen';
   item.OnClick := DeleteListClick;
   ListBox1.AddObject(item);
-
-  // Add 'Benutzer' header
-  header := TListBoxGroupHeader.Create(ListBox1);
-  header.Text := 'Benutzer';
-  ListBox1.AddObject(header);
+  item.Height:=23;
 
   // Add add user
   item := TListBoxItem.Create(ListBox1);
   item.Text := 'User hinzufügen';
   item.OnClick := AddUserClick;
   ListBox1.AddObject(item);
+  item.Height:=23;
+
+   // Add 'Benutzer' header
+  header := TListBoxGroupHeader.Create(ListBox1);
+  header.Text := 'Benutzer';
+  ListBox1.AddObject(header);
+  item.Height:=23;
 
   // Add users with access
   for i := 0 to High(list.user) do
@@ -113,6 +117,7 @@ begin
     item.Text := list.user[i];
     item.ItemData.Detail := IntToStr(i);
     ListBox1.AddObject(item);
+    item.Height:=20;
   end;
 end;
 
