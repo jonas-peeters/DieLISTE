@@ -38,6 +38,7 @@ type
     procedure LBIPasswortaendernClick(Sender: TObject);
     procedure listFormClose(Sender: TObject; var Action: TCloseAction);
     procedure LblAbmeldenClick(Sender: TObject);
+    procedure EditButtonClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,6 +53,15 @@ var
 implementation
 
 {$R *.fmx}
+
+procedure TFormMain.EditButtonClick(Sender: TObject);
+var
+allergien, allergienneu: string;
+begin
+  allergien := label3.Text;
+  Allergienneu := InputBox('Allergien bearbeiten','Bisherige Allergien', allergien);
+  privateServerAPI.editInfo(Allergienneu);
+end;
 
 procedure TFormMain.FormCreate(Sender: TObject);
 begin

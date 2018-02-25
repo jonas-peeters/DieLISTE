@@ -42,6 +42,7 @@ type
     function inviteUser(ListID:integer; Name: string): string;
     function removeUser(listId: Integer; name:string):String;
     function DeleteItem(id:integer):string;
+    function editInfo(text: string):string;
 end;
 
 implementation
@@ -185,6 +186,22 @@ begin
   request.Method := REST.Types.rmPOST;
   request.Body.JSONWriter.WriteRaw(jsonString);
   request.Resource := '/user/lists/delete';
+  request.Client := self.client;
+  request.Execute;
+  result := request.Response.Content;
+end;
+
+
+function TserverAPI.editInfo(text: string):string;
+var
+  request: TRESTRequest;
+  jsonString: String;
+begin
+  request := TRESTRequest.Create(nil);
+  jsonString := '{"allergies": "' + text + '"}';
+  request.Body.JSONWriter.WriteRaw(jsonString);
+  request.Method := REST.Types.rmPOST;  //POST
+  request.Resource := 'user/allergies';
   request.Client := self.client;
   request.Execute;
   result := request.Response.Content;

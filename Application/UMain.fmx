@@ -16,7 +16,7 @@ object FormMain: TFormMain
     Size.Height = 573.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 1
     TabPosition = PlatformDefault
     Sizes = (
@@ -28,7 +28,7 @@ object FormMain: TFormMain
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 184.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -150,7 +150,7 @@ object FormMain: TFormMain
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 184.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -193,14 +193,14 @@ object FormMain: TFormMain
           end
           item
             Column = 1
-            ColumnSpan = 4
+            ColumnSpan = 3
             Control = Label3
             Row = 3
           end
           item
             Column = 4
             Control = EditButton
-            Row = 1
+            Row = 3
           end
           item
             Column = 0
@@ -237,7 +237,7 @@ object FormMain: TFormMain
         end
         object Label3: TLabel
           Align = Client
-          Size.Width = 245.761703491210900000
+          Size.Width = 185.126708984375000000
           Size.Height = 57.910911560058600000
           Size.PlatformDefault = False
           Text = 'BSP: Z'#246'liakie'
@@ -246,12 +246,13 @@ object FormMain: TFormMain
         object EditButton: TButton
           Anchors = []
           Position.X = 261.355468750000000000
-          Position.Y = 37.923858642578120000
+          Position.Y = 116.646965026855500000
           Size.Width = 32.953796386718750000
           Size.Height = 21.567554473876950000
           Size.PlatformDefault = False
           TabOrder = 2
           Text = 'Edit'
+          OnClick = EditButtonClick
         end
         object ListBox2: TListBox
           Align = Client
