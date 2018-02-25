@@ -81,6 +81,7 @@ begin
    name:= EdtBenutzername2.Text;
    password:= EdtPW2.Text;
    UMain.serverAPI.createUser(email,name, password);
+    ShowMessage('Vielen Dank für Ihre Regestrierung. Bitte verifizieren Sie ihre E-Mail, um die Regestrierung zu vollenden!');
 end;
 
 procedure TFormLogin.FormShow(Sender: TObject);

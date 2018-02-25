@@ -131,3 +131,10 @@ $RECYCLE.BIN/
 
 Server/Config/secrets/
 Application/docs/DieLISTE.xml
+Win64/
+Win32/
+OSX32/
+iOSDevice32/
+iOSDevice64/
+iOSSimulator/
+Android/

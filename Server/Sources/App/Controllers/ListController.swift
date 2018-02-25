@@ -233,7 +233,7 @@ final class ListController {
     
     /// Deletes a list
     ///
-    /// Route for request: POST to `/user/lists`
+    /// Route for request: POST to `/user/lists/delete`
     ///
     /// JSON encoding for request
     ///

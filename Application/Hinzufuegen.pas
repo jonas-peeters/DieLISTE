@@ -71,12 +71,12 @@ begin
     name:= EdtName.Text;
     einheit:= EdtEinheit.Text;
     menge:= EdtMenge.Text;
-    kategorie := CBCategory.Index;
+    kategorie := CBCategory.ItemIndex + 1;
     privateServerAPI.AddToList(name, menge + ' ' + einheit, false, kategorie, listId);
     EdtName.Text := '';
     EdtEinheit.Text := '';
     EdtMenge.Text := '';
-    CBCategory.Index := 0;
+    CBCategory.ItemIndex := 0;
 end;
 
 procedure TFormHinzufuegen.BtnOKClick(Sender: TObject);
@@ -87,7 +87,7 @@ begin
     name:= EdtName.Text;
     einheit:= EdtEinheit.Text;
     menge:= EdtMenge.Text;
-    kategorie := CBCategory.Index;
+    kategorie := CBCategory.ItemIndex + 1;
     privateServerAPI.AddToList(name, menge + ' ' + einheit, false, kategorie, listId);
     Close;
     Release;
