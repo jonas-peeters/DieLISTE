@@ -43,6 +43,7 @@ type
     function removeUser(listId: Integer; name:string):String;
     function DeleteItem(id:integer):string;
     function editInfo(text: string):string;
+    function isOnline(): Boolean;
 end;
 
 implementation
@@ -65,6 +66,21 @@ begin
   request.Client := self.client;
   request.Execute;
   result := request.Response.Content;
+end;
+
+function TServerAPI.isOnline(): Boolean;
+var
+  request: TRESTRequest;
+begin
+  request := TRESTRequest.Create(nil);
+  request.Method := Rest.Types.rmGET;
+  request.Resource := 'info/online';
+  request.Client := self.client;
+  request.Execute;
+  if request.Response.Content = 'true' then
+    result := true
+  else
+    result := false;
 end;
 
 function TServerAPI.userSuggestions(ListID:integer; Name: string): TArray;

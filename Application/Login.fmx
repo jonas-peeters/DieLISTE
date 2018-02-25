@@ -47,31 +47,31 @@ object FormLogin: TFormLogin
       item
         Column = 1
         ColumnSpan = 3
-        Control = EdtBenutzername1
+        Control = EdtEMailLogin
         Row = 4
       end
       item
         Column = 1
         ColumnSpan = 3
-        Control = EdtPW1
+        Control = EdtPWLogin
         Row = 5
       end
       item
         Column = 1
         ColumnSpan = 3
-        Control = EdtEMail
+        Control = EdtEMailRegister
         Row = 10
       end
       item
         Column = 1
         ColumnSpan = 3
-        Control = EdtBenutzername2
+        Control = EdtBenutzernameRegister
         Row = 11
       end
       item
         Column = 1
         ColumnSpan = 3
-        Control = EdtPW2
+        Control = EdtPWRegister
         Row = 12
       end
       item
@@ -160,7 +160,7 @@ object FormLogin: TFormLogin
       Text = 'Registrieren'
       TabOrder = 9
     end
-    object EdtBenutzername1: TEdit
+    object EdtEMailLogin: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 0
@@ -169,7 +169,7 @@ object FormLogin: TFormLogin
       Size.PlatformDefault = False
       TextPrompt = 'E-Mail'
     end
-    object EdtPW1: TEdit
+    object EdtPWLogin: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 1
@@ -179,7 +179,7 @@ object FormLogin: TFormLogin
       Size.PlatformDefault = False
       TextPrompt = 'Passwort'
     end
-    object EdtEMail: TEdit
+    object EdtEMailRegister: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 3
@@ -188,7 +188,7 @@ object FormLogin: TFormLogin
       Size.PlatformDefault = False
       TextPrompt = 'E-Mail'
     end
-    object EdtBenutzername2: TEdit
+    object EdtBenutzernameRegister: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 4
@@ -197,7 +197,7 @@ object FormLogin: TFormLogin
       Size.PlatformDefault = False
       TextPrompt = 'Benutzername'
     end
-    object EdtPW2: TEdit
+    object EdtPWRegister: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 5

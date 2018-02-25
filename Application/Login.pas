@@ -22,11 +22,11 @@ type
     GridPanelLayout1: TGridPanelLayout;
     LblAnmelden: TLabel;
     LblRegistrieren: TLabel;
-    EdtBenutzername1: TEdit;
-    EdtPW1: TEdit;
-    EdtEMail: TEdit;
-    EdtBenutzername2: TEdit;
-    EdtPW2: TEdit;
+    EdtEMailLogin: TEdit;
+    EdtPWLogin: TEdit;
+    EdtEMailRegister: TEdit;
+    EdtBenutzernameRegister: TEdit;
+    EdtPWRegister: TEdit;
     BtnLos: TButton;
     BtnRegistrieren: TButton;
     procedure BtnRegistrierenClick(Sender: TObject);
@@ -34,6 +34,7 @@ type
     procedure login(email: String; password: String);
     procedure BtnLosClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure subFormClosed(Sender: TObject; var Action: TCloseAction);
   private
     { Private-Deklarationen }
   public
@@ -58,13 +59,15 @@ begin
     loginData.worked := true;
     saveLoginData(loginData);
     MainForm.Show;
+    MainForm.OnClose := subFormClosed;
     MainForm.UpdateLists();
+    MainForm.UpdateUserData();
   end;
 end;
 
 procedure TFormLogin.BtnLosClick(Sender: TObject);
 begin
-  login(EdtBenutzername1.Text, EdtPW1.Text);
+  login(EdtEMailLogin.Text, EdtPWLogin.Text);
 end;
 
 procedure TFormLogin.BtnPWVergessenClick(Sender: TObject);
@@ -77,23 +80,33 @@ end;
 procedure TFormLogin.BtnRegistrierenClick(Sender: TObject);
 var email, name, password: string;
 begin
-   email:= EdtEmail.Text;
-   name:= EdtBenutzername2.Text;
-   password:= EdtPW2.Text;
+   email:= EdtEmailRegister.Text;
+   name:= EdtBenutzernameRegister.Text;
+   password:= EdtPWRegister.Text;
    UMain.serverAPI.createUser(email,name, password);
 end;
 
 procedure TFormLogin.FormShow(Sender: TObject);
 var
   loginData: TLoginData;
+  online: Boolean;
 begin
   MainForm := TFormMain.Create(nil);
   MainForm.Hide;
   loginData := getLoginData;
-  EdtBenutzername1.Text := loginData.email;
-  EdtPW1.Text := loginData.password;
+  EdtEMailLogin.Text := loginData.email;
+  EdtPWLogin.Text := loginData.password;
   if loginData.worked then
     login(loginData.email, loginData.password);
+end;
+
+procedure TFormLogin.subFormClosed(Sender: TObject; var Action: TCloseAction);
+begin
+  if getLoginData.worked = false then
+  begin
+    EdtEMailLogin.Text := '';
+    EdtPWLogin.Text := '';
+  end;
 end;
 
 end.
