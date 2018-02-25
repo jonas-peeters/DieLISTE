@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_UIDeviceFamily>iPhoneAndiPad</VerInfo_UIDeviceFamily>
+        <iPhone_AppIcon57>..\Assets\Icons\57 57.png</iPhone_AppIcon57>
+        <iPhone_AppIcon60>..\Assets\Icons\60 60.png</iPhone_AppIcon60>
+        <iPhone_AppIcon87>..\Assets\Icons\87 87.png</iPhone_AppIcon87>
+        <iPhone_AppIcon114>..\Assets\Icons\114 114.png</iPhone_AppIcon114>
+        <iPhone_AppIcon120>..\Assets\Icons\120 120.png</iPhone_AppIcon120>
+        <iPhone_AppIcon180>..\Assets\Icons\180 180.png</iPhone_AppIcon180>
+        <iPhone_Spotlight29>..\Assets\Icons\29 29.png</iPhone_Spotlight29>
+        <iPhone_Spotlight40>..\Assets\Icons\40 40.png</iPhone_Spotlight40>
+        <iPhone_Spotlight58>..\Assets\Icons\58 58.png</iPhone_Spotlight58>
+        <iPhone_Spotlight80>..\Assets\Icons\80 80.png</iPhone_Spotlight80>
+        <iPad_AppIcon72>..\Assets\Icons\72 72.png</iPad_AppIcon72>
+        <iPad_AppIcon76>..\Assets\Icons\76 76.png</iPad_AppIcon76>
+        <iPad_AppIcon144>..\Assets\Icons\144 144.png</iPad_AppIcon144>
+        <iPad_AppIcon152>..\Assets\Icons\152 152.png</iPad_AppIcon152>
+        <iPad_SpotLight40>..\Assets\Icons\40 40.png</iPad_SpotLight40>
+        <iPad_SpotLight50>..\Assets\Icons\50 50.png</iPad_SpotLight50>
+        <iPad_SpotLight80>..\Assets\Icons\80 80.png</iPad_SpotLight80>
+        <iPad_SpotLight100>..\Assets\Icons\100 100.png</iPad_SpotLight100>
+        <iPad_Setting29>..\Assets\Icons\29 29.png</iPad_Setting29>
+        <iPad_Setting58>..\Assets\Icons\58 58.png</iPad_Setting58>
+        <iPhone_Launch320>..\Assets\Splashes\320 480.png</iPhone_Launch320>
+        <iPhone_Launch640>..\Assets\Splashes\640 960.png</iPhone_Launch640>
+        <iPhone_Launch640x1136>..\Assets\Splashes\640 1136.png</iPhone_Launch640x1136>
+        <iPhone_Launch750>..\Assets\Splashes\750 1334.png</iPhone_Launch750>
+        <iPhone_Launch1242>..\Assets\Splashes\1242 2208.png</iPhone_Launch1242>
+        <iPhone_Launch2208>..\Assets\Splashes\2208 1242.png</iPhone_Launch2208>
+        <iPad_Launch768>..\Assets\Splashes\768 1004.png</iPad_Launch768>
+        <iPad_Launch768x1024>..\Assets\Splashes\768 1024.png</iPad_Launch768x1024>
+        <iPad_Launch1024>..\Assets\Splashes\1024 748.png</iPad_Launch1024>
+        <iPad_Launch1024x768>..\Assets\Splashes\1024 768.png</iPad_Launch1024x768>
+        <iPad_Launch1536>..\Assets\Splashes\1536 2008.png</iPad_Launch1536>
+        <iPad_Launch1536x2048>..\Assets\Splashes\1536 2048.png</iPad_Launch1536x2048>
+        <iPad_Launch2048>..\Assets\Splashes\2048 1496.png</iPad_Launch2048>
+        <iPad_Launch2048x1536>..\Assets\Splashes\2048 1536.png</iPad_Launch2048x1536>
+    </PropertyGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType>OptionSet</Borland.ProjectType>
+        <BorlandProject>
+            <Delphi.Personality/>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+</Project>

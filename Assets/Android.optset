@@ -1,0 +1,22 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <VerInfo_Build>1</VerInfo_Build>
+        <Android_LauncherIcon36>..\Assets\Icons\36 36.png</Android_LauncherIcon36>
+        <Android_LauncherIcon48>..\Assets\Icons\48 48.png</Android_LauncherIcon48>
+        <Android_LauncherIcon72>..\Assets\Icons\72 72.png</Android_LauncherIcon72>
+        <Android_LauncherIcon96>..\Assets\Icons\96 96.png</Android_LauncherIcon96>
+        <Android_LauncherIcon144>..\Assets\Icons\144 144.png</Android_LauncherIcon144>
+        <Android_SplashImage426>..\Assets\Splashes\426 320.png</Android_SplashImage426>
+        <Android_SplashImage470>..\Assets\Splashes\470 320.png</Android_SplashImage470>
+        <Android_SplashImage640>..\Assets\Splashes\640 480.png</Android_SplashImage640>
+        <Android_SplashImage960>..\Assets\Splashes\960 720.png</Android_SplashImage960>
+    </PropertyGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType>OptionSet</Borland.ProjectType>
+        <BorlandProject>
+            <Delphi.Personality/>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+</Project>

@@ -48,6 +48,30 @@
         <CfgParent>Base</CfgParent>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Android' and '$(Cfg_1)'=='true') or '$(Cfg_1_Android)'!=''">
+        <Cfg_1_Android>true</Cfg_1_Android>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='iOSDevice32' and '$(Cfg_1)'=='true') or '$(Cfg_1_iOSDevice32)'!=''">
+        <Cfg_1_iOSDevice32>true</Cfg_1_iOSDevice32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='iOSDevice64' and '$(Cfg_1)'=='true') or '$(Cfg_1_iOSDevice64)'!=''">
+        <Cfg_1_iOSDevice64>true</Cfg_1_iOSDevice64>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='iOSSimulator' and '$(Cfg_1)'=='true') or '$(Cfg_1_iOSSimulator)'!=''">
+        <Cfg_1_iOSSimulator>true</Cfg_1_iOSSimulator>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
         <Cfg_1_Win32>true</Cfg_1_Win32>
         <CfgParent>Cfg_1</CfgParent>
@@ -63,6 +87,36 @@
     <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
         <Cfg_2>true</Cfg_2>
         <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Android' and '$(Cfg_2)'=='true') or '$(Cfg_2_Android)'!=''">
+        <Cfg_2_Android>true</Cfg_2_Android>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='iOSDevice32' and '$(Cfg_2)'=='true') or '$(Cfg_2_iOSDevice32)'!=''">
+        <Cfg_2_iOSDevice32>true</Cfg_2_iOSDevice32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='iOSDevice64' and '$(Cfg_2)'=='true') or '$(Cfg_2_iOSDevice64)'!=''">
+        <Cfg_2_iOSDevice64>true</Cfg_2_iOSDevice64>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='iOSSimulator' and '$(Cfg_2)'=='true') or '$(Cfg_2_iOSSimulator)'!=''">
+        <Cfg_2_iOSSimulator>true</Cfg_2_iOSSimulator>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='OSX32' and '$(Cfg_2)'=='true') or '$(Cfg_2_OSX32)'!=''">
+        <Cfg_2_OSX32>true</Cfg_2_OSX32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
@@ -102,144 +156,137 @@
         <SanitizedProjectName>DieLISTE</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android)'!=''">
-        <DCC_UsePackage>DBXSqliteDriver;IndyIPCommon;bindcompdbx;DBXInterBaseDriver;IndyIPServer;IndySystem;tethering;fmxFireDAC;bindcompfmx;DbxCommonDriver;fmx;xmlrtl;rtl;DbxClientDriver;CustomIPTransport;dbexpress;IndyCore;bindcomp;dsnap;IndyIPClient;dbxcds;bindengine;dsnapxml;dbrtl;IndyProtocols;$(DCC_UsePackage)</DCC_UsePackage>
+        <VerInfo_Build>1</VerInfo_Build>
+        <Android_LauncherIcon36>..\Assets\Icons\36 36.png</Android_LauncherIcon36>
+        <Android_LauncherIcon48>..\Assets\Icons\48 48.png</Android_LauncherIcon48>
+        <Android_LauncherIcon72>..\Assets\Icons\72 72.png</Android_LauncherIcon72>
+        <Android_LauncherIcon96>..\Assets\Icons\96 96.png</Android_LauncherIcon96>
+        <Android_LauncherIcon144>..\Assets\Icons\144 144.png</Android_LauncherIcon144>
+        <Android_SplashImage426>..\Assets\Splashes\426 320.png</Android_SplashImage426>
+        <Android_SplashImage470>..\Assets\Splashes\470 320.png</Android_SplashImage470>
+        <Android_SplashImage640>..\Assets\Splashes\640 480.png</Android_SplashImage640>
+        <Android_SplashImage960>..\Assets\Splashes\960 720.png</Android_SplashImage960>
         <VerInfo_Keys>package=com.embarcadero.$(MSBuildProjectName);label=$(MSBuildProjectName);versionCode=1;versionName=1.0.0;persistent=False;restoreAnyVersion=False;installLocation=auto;largeHeap=False;theme=TitleBar;hardwareAccelerated=true;apiKey=</VerInfo_Keys>
-        <BT_BuildType>Debug</BT_BuildType>
-        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <Android_LauncherIcon36>$(BDS)\bin\Artwork\Android\FM_LauncherIcon_36x36.png</Android_LauncherIcon36>
-        <Android_LauncherIcon48>$(BDS)\bin\Artwork\Android\FM_LauncherIcon_48x48.png</Android_LauncherIcon48>
-        <Android_LauncherIcon72>$(BDS)\bin\Artwork\Android\FM_LauncherIcon_72x72.png</Android_LauncherIcon72>
-        <Android_LauncherIcon96>$(BDS)\bin\Artwork\Android\FM_LauncherIcon_96x96.png</Android_LauncherIcon96>
-        <Android_LauncherIcon144>$(BDS)\bin\Artwork\Android\FM_LauncherIcon_144x144.png</Android_LauncherIcon144>
-        <Android_SplashImage426>$(BDS)\bin\Artwork\Android\FM_SplashImage_426x320.png</Android_SplashImage426>
-        <Android_SplashImage470>$(BDS)\bin\Artwork\Android\FM_SplashImage_470x320.png</Android_SplashImage470>
-        <Android_SplashImage640>$(BDS)\bin\Artwork\Android\FM_SplashImage_640x480.png</Android_SplashImage640>
-        <Android_SplashImage960>$(BDS)\bin\Artwork\Android\FM_SplashImage_960x720.png</Android_SplashImage960>
         <EnabledSysJars>android-support-v4.dex.jar;cloud-messaging.dex.jar;fmx.dex.jar;google-analytics-v2.dex.jar;google-play-billing.dex.jar;google-play-licensing.dex.jar;google-play-services.dex.jar</EnabledSysJars>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_iOSDevice32)'!=''">
-        <DCC_UsePackage>DBXSqliteDriver;IndyIPCommon;bindcompdbx;DBXInterBaseDriver;IndyIPServer;IndySystem;tethering;fmxFireDAC;bindcompfmx;DbxCommonDriver;fmx;xmlrtl;rtl;DbxClientDriver;CustomIPTransport;dbexpress;IndyCore;bindcomp;dsnap;IndyIPClient;dbxcds;bindengine;dsnapxml;dbrtl;IndyProtocols;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
-        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDevelopmentRegion=en;CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=$(MSBuildProjectName);CFBundleInfoDictionaryVersion=7.1;CFBundleVersion=1.0.0.0;CFBundlePackageType=APPL;CFBundleSignature=????;LSRequiresIPhoneOS=true;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName);UIDeviceFamily=iPhone &amp; iPad;CFBundleResourceSpecification=ResourceRules.plist;NSLocationAlwaysUsageDescription=The reason for accessing the location information of the user;NSLocationWhenInUseUsageDescription=The reason for accessing the location information of the user;FMLocalNotificationPermission=false;UIBackgroundModes=;NSContactsUsageDescription=The reason for accessing the contacts;NSPhotoLibraryUsageDescription=The reason for accessing the photo library;NSCameraUsageDescription=The reason for accessing the camera</VerInfo_Keys>
-        <VerInfo_UIDeviceFamily>iPhoneAndiPad</VerInfo_UIDeviceFamily>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <BT_BuildType>Debug</BT_BuildType>
+        <VerInfo_UIDeviceFamily>iPhoneAndiPad</VerInfo_UIDeviceFamily>
+        <iPhone_AppIcon57>..\Assets\Icons\57 57.png</iPhone_AppIcon57>
+        <iPhone_AppIcon60>..\Assets\Icons\60 60.png</iPhone_AppIcon60>
+        <iPhone_AppIcon87>..\Assets\Icons\87 87.png</iPhone_AppIcon87>
+        <iPhone_AppIcon114>..\Assets\Icons\114 114.png</iPhone_AppIcon114>
+        <iPhone_AppIcon120>..\Assets\Icons\120 120.png</iPhone_AppIcon120>
+        <iPhone_AppIcon180>..\Assets\Icons\180 180.png</iPhone_AppIcon180>
+        <iPhone_Spotlight29>..\Assets\Icons\29 29.png</iPhone_Spotlight29>
+        <iPhone_Spotlight40>..\Assets\Icons\40 40.png</iPhone_Spotlight40>
+        <iPhone_Spotlight58>..\Assets\Icons\58 58.png</iPhone_Spotlight58>
+        <iPhone_Spotlight80>..\Assets\Icons\80 80.png</iPhone_Spotlight80>
+        <iPad_AppIcon72>..\Assets\Icons\72 72.png</iPad_AppIcon72>
+        <iPad_AppIcon76>..\Assets\Icons\76 76.png</iPad_AppIcon76>
+        <iPad_AppIcon144>..\Assets\Icons\144 144.png</iPad_AppIcon144>
+        <iPad_AppIcon152>..\Assets\Icons\152 152.png</iPad_AppIcon152>
+        <iPad_SpotLight40>..\Assets\Icons\40 40.png</iPad_SpotLight40>
+        <iPad_SpotLight50>..\Assets\Icons\50 50.png</iPad_SpotLight50>
+        <iPad_SpotLight80>..\Assets\Icons\80 80.png</iPad_SpotLight80>
+        <iPad_SpotLight100>..\Assets\Icons\100 100.png</iPad_SpotLight100>
+        <iPad_Setting29>..\Assets\Icons\29 29.png</iPad_Setting29>
+        <iPad_Setting58>..\Assets\Icons\58 58.png</iPad_Setting58>
+        <iPhone_Launch320>..\Assets\Splashes\320 480.png</iPhone_Launch320>
+        <iPhone_Launch640>..\Assets\Splashes\640 960.png</iPhone_Launch640>
+        <iPhone_Launch640x1136>..\Assets\Splashes\640 1136.png</iPhone_Launch640x1136>
+        <iPhone_Launch750>..\Assets\Splashes\750 1334.png</iPhone_Launch750>
+        <iPhone_Launch1242>..\Assets\Splashes\1242 2208.png</iPhone_Launch1242>
+        <iPhone_Launch2208>..\Assets\Splashes\2208 1242.png</iPhone_Launch2208>
+        <iPad_Launch768>..\Assets\Splashes\768 1004.png</iPad_Launch768>
+        <iPad_Launch768x1024>..\Assets\Splashes\768 1024.png</iPad_Launch768x1024>
+        <iPad_Launch1024>..\Assets\Splashes\1024 748.png</iPad_Launch1024>
+        <iPad_Launch1024x768>..\Assets\Splashes\1024 768.png</iPad_Launch1024x768>
+        <iPad_Launch1536>..\Assets\Splashes\1536 2008.png</iPad_Launch1536>
+        <iPad_Launch1536x2048>..\Assets\Splashes\1536 2048.png</iPad_Launch1536x2048>
+        <iPad_Launch2048>..\Assets\Splashes\2048 1496.png</iPad_Launch2048>
+        <iPad_Launch2048x1536>..\Assets\Splashes\2048 1536.png</iPad_Launch2048x1536>
+        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDevelopmentRegion=en;CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=$(MSBuildProjectName);CFBundleInfoDictionaryVersion=7.1;CFBundleVersion=1.0.0.0;CFBundlePackageType=APPL;CFBundleSignature=????;LSRequiresIPhoneOS=true;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName);UIDeviceFamily=iPhone &amp; iPad;CFBundleResourceSpecification=ResourceRules.plist;NSLocationAlwaysUsageDescription=The reason for accessing the location information of the user;NSLocationWhenInUseUsageDescription=The reason for accessing the location information of the user;FMLocalNotificationPermission=false;UIBackgroundModes=;NSContactsUsageDescription=The reason for accessing the contacts;NSPhotoLibraryUsageDescription=The reason for accessing the photo library;NSCameraUsageDescription=The reason for accessing the camera</VerInfo_Keys>
         <VerInfo_BundleId>$(MSBuildProjectName)</VerInfo_BundleId>
-        <iPhone_AppIcon57>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_57x57.png</iPhone_AppIcon57>
-        <iPhone_AppIcon60>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_60x60.png</iPhone_AppIcon60>
-        <iPhone_AppIcon87>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_87x87.png</iPhone_AppIcon87>
-        <iPhone_AppIcon114>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_114x114.png</iPhone_AppIcon114>
-        <iPhone_AppIcon120>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_120x120.png</iPhone_AppIcon120>
-        <iPhone_AppIcon180>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_180x180.png</iPhone_AppIcon180>
-        <iPhone_Launch320>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_320x480.png</iPhone_Launch320>
-        <iPhone_Launch640>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_640x960.png</iPhone_Launch640>
-        <iPhone_Launch640x1136>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_640x1136.png</iPhone_Launch640x1136>
-        <iPhone_Launch750>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_750x1334.png</iPhone_Launch750>
-        <iPhone_Launch1242>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_1242x2208.png</iPhone_Launch1242>
-        <iPhone_Launch2208>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_2208x1242.png</iPhone_Launch2208>
-        <iPhone_Spotlight29>$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_29x29.png</iPhone_Spotlight29>
-        <iPhone_Spotlight40>$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_40x40.png</iPhone_Spotlight40>
-        <iPhone_Spotlight58>$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_58x58.png</iPhone_Spotlight58>
-        <iPhone_Spotlight80>$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_80x80.png</iPhone_Spotlight80>
-        <iPad_AppIcon72>$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_72x72.png</iPad_AppIcon72>
-        <iPad_AppIcon76>$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_76x76.png</iPad_AppIcon76>
-        <iPad_AppIcon144>$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_144x144.png</iPad_AppIcon144>
-        <iPad_AppIcon152>$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_152x152.png</iPad_AppIcon152>
-        <iPad_Launch768>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImagePortrait_768x1004.png</iPad_Launch768>
-        <iPad_Launch768x1024>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImagePortrait_768x1024.png</iPad_Launch768x1024>
-        <iPad_Launch1024>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImageLandscape_1024x748.png</iPad_Launch1024>
-        <iPad_Launch1024x768>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImageLandscape_1024x768.png</iPad_Launch1024x768>
-        <iPad_Launch1536>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImagePortrait_1536x2008.png</iPad_Launch1536>
-        <iPad_Launch1536x2048>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImagePortrait_1536x2048.png</iPad_Launch1536x2048>
-        <iPad_Launch2048>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImageLandscape_2048x1496.png</iPad_Launch2048>
-        <iPad_Launch2048x1536>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImageLandscape_2048x1536.png</iPad_Launch2048x1536>
-        <iPad_SpotLight40>$(BDS)\bin\Artwork\iOS\iPad\FM_SpotlightSearchIcon_40x40.png</iPad_SpotLight40>
-        <iPad_SpotLight50>$(BDS)\bin\Artwork\iOS\iPad\FM_SpotlightSearchIcon_50x50.png</iPad_SpotLight50>
-        <iPad_SpotLight80>$(BDS)\bin\Artwork\iOS\iPad\FM_SpotlightSearchIcon_80x80.png</iPad_SpotLight80>
-        <iPad_SpotLight100>$(BDS)\bin\Artwork\iOS\iPad\FM_SpotlightSearchIcon_100x100.png</iPad_SpotLight100>
-        <iPad_Setting29>$(BDS)\bin\Artwork\iOS\iPad\FM_SettingIcon_29x29.png</iPad_Setting29>
-        <iPad_Setting58>$(BDS)\bin\Artwork\iOS\iPad\FM_SettingIcon_58x58.png</iPad_Setting58>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_iOSDevice64)'!=''">
-        <DCC_UsePackage>DBXSqliteDriver;IndyIPCommon;bindcompdbx;DBXInterBaseDriver;IndyIPServer;IndySystem;tethering;fmxFireDAC;bindcompfmx;DbxCommonDriver;fmx;xmlrtl;rtl;DbxClientDriver;CustomIPTransport;dbexpress;IndyCore;bindcomp;dsnap;IndyIPClient;dbxcds;bindengine;dsnapxml;dbrtl;IndyProtocols;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
-        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDevelopmentRegion=en;CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=$(MSBuildProjectName);CFBundleInfoDictionaryVersion=7.1;CFBundleVersion=1.0.0.0;CFBundlePackageType=APPL;CFBundleSignature=????;LSRequiresIPhoneOS=true;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName);UIDeviceFamily=iPhone &amp; iPad;CFBundleResourceSpecification=ResourceRules.plist;NSLocationAlwaysUsageDescription=The reason for accessing the location information of the user;NSLocationWhenInUseUsageDescription=The reason for accessing the location information of the user;FMLocalNotificationPermission=false;UIBackgroundModes=;NSContactsUsageDescription=The reason for accessing the contacts;NSPhotoLibraryUsageDescription=The reason for accessing the photo library;NSCameraUsageDescription=The reason for accessing the camera</VerInfo_Keys>
-        <VerInfo_UIDeviceFamily>iPhoneAndiPad</VerInfo_UIDeviceFamily>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <BT_BuildType>Debug</BT_BuildType>
+        <VerInfo_UIDeviceFamily>iPhoneAndiPad</VerInfo_UIDeviceFamily>
+        <iPhone_AppIcon57>..\Assets\Icons\57 57.png</iPhone_AppIcon57>
+        <iPhone_AppIcon60>..\Assets\Icons\60 60.png</iPhone_AppIcon60>
+        <iPhone_AppIcon87>..\Assets\Icons\87 87.png</iPhone_AppIcon87>
+        <iPhone_AppIcon114>..\Assets\Icons\114 114.png</iPhone_AppIcon114>
+        <iPhone_AppIcon120>..\Assets\Icons\120 120.png</iPhone_AppIcon120>
+        <iPhone_AppIcon180>..\Assets\Icons\180 180.png</iPhone_AppIcon180>
+        <iPhone_Spotlight29>..\Assets\Icons\29 29.png</iPhone_Spotlight29>
+        <iPhone_Spotlight40>..\Assets\Icons\40 40.png</iPhone_Spotlight40>
+        <iPhone_Spotlight58>..\Assets\Icons\58 58.png</iPhone_Spotlight58>
+        <iPhone_Spotlight80>..\Assets\Icons\80 80.png</iPhone_Spotlight80>
+        <iPad_AppIcon72>..\Assets\Icons\72 72.png</iPad_AppIcon72>
+        <iPad_AppIcon76>..\Assets\Icons\76 76.png</iPad_AppIcon76>
+        <iPad_AppIcon144>..\Assets\Icons\144 144.png</iPad_AppIcon144>
+        <iPad_AppIcon152>..\Assets\Icons\152 152.png</iPad_AppIcon152>
+        <iPad_SpotLight40>..\Assets\Icons\40 40.png</iPad_SpotLight40>
+        <iPad_SpotLight50>..\Assets\Icons\50 50.png</iPad_SpotLight50>
+        <iPad_SpotLight80>..\Assets\Icons\80 80.png</iPad_SpotLight80>
+        <iPad_SpotLight100>..\Assets\Icons\100 100.png</iPad_SpotLight100>
+        <iPad_Setting29>..\Assets\Icons\29 29.png</iPad_Setting29>
+        <iPad_Setting58>..\Assets\Icons\58 58.png</iPad_Setting58>
+        <iPhone_Launch320>..\Assets\Splashes\320 480.png</iPhone_Launch320>
+        <iPhone_Launch640>..\Assets\Splashes\640 960.png</iPhone_Launch640>
+        <iPhone_Launch640x1136>..\Assets\Splashes\640 1136.png</iPhone_Launch640x1136>
+        <iPhone_Launch750>..\Assets\Splashes\750 1334.png</iPhone_Launch750>
+        <iPhone_Launch1242>..\Assets\Splashes\1242 2208.png</iPhone_Launch1242>
+        <iPhone_Launch2208>..\Assets\Splashes\2208 1242.png</iPhone_Launch2208>
+        <iPad_Launch768>..\Assets\Splashes\768 1004.png</iPad_Launch768>
+        <iPad_Launch768x1024>..\Assets\Splashes\768 1024.png</iPad_Launch768x1024>
+        <iPad_Launch1024>..\Assets\Splashes\1024 748.png</iPad_Launch1024>
+        <iPad_Launch1024x768>..\Assets\Splashes\1024 768.png</iPad_Launch1024x768>
+        <iPad_Launch1536>..\Assets\Splashes\1536 2008.png</iPad_Launch1536>
+        <iPad_Launch1536x2048>..\Assets\Splashes\1536 2048.png</iPad_Launch1536x2048>
+        <iPad_Launch2048>..\Assets\Splashes\2048 1496.png</iPad_Launch2048>
+        <iPad_Launch2048x1536>..\Assets\Splashes\2048 1536.png</iPad_Launch2048x1536>
+        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDevelopmentRegion=en;CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=$(MSBuildProjectName);CFBundleInfoDictionaryVersion=7.1;CFBundleVersion=1.0.0.0;CFBundlePackageType=APPL;CFBundleSignature=????;LSRequiresIPhoneOS=true;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName);UIDeviceFamily=iPhone &amp; iPad;CFBundleResourceSpecification=ResourceRules.plist;NSLocationAlwaysUsageDescription=The reason for accessing the location information of the user;NSLocationWhenInUseUsageDescription=The reason for accessing the location information of the user;FMLocalNotificationPermission=false;UIBackgroundModes=;NSContactsUsageDescription=The reason for accessing the contacts;NSPhotoLibraryUsageDescription=The reason for accessing the photo library;NSCameraUsageDescription=The reason for accessing the camera</VerInfo_Keys>
         <VerInfo_BundleId>$(MSBuildProjectName)</VerInfo_BundleId>
-        <iPhone_AppIcon57>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_57x57.png</iPhone_AppIcon57>
-        <iPhone_AppIcon60>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_60x60.png</iPhone_AppIcon60>
-        <iPhone_AppIcon87>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_87x87.png</iPhone_AppIcon87>
-        <iPhone_AppIcon114>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_114x114.png</iPhone_AppIcon114>
-        <iPhone_AppIcon120>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_120x120.png</iPhone_AppIcon120>
-        <iPhone_AppIcon180>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_180x180.png</iPhone_AppIcon180>
-        <iPhone_Launch320>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_320x480.png</iPhone_Launch320>
-        <iPhone_Launch640>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_640x960.png</iPhone_Launch640>
-        <iPhone_Launch640x1136>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_640x1136.png</iPhone_Launch640x1136>
-        <iPhone_Launch750>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_750x1334.png</iPhone_Launch750>
-        <iPhone_Launch1242>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_1242x2208.png</iPhone_Launch1242>
-        <iPhone_Launch2208>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_2208x1242.png</iPhone_Launch2208>
-        <iPhone_Spotlight29>$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_29x29.png</iPhone_Spotlight29>
-        <iPhone_Spotlight40>$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_40x40.png</iPhone_Spotlight40>
-        <iPhone_Spotlight58>$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_58x58.png</iPhone_Spotlight58>
-        <iPhone_Spotlight80>$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_80x80.png</iPhone_Spotlight80>
-        <iPad_AppIcon72>$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_72x72.png</iPad_AppIcon72>
-        <iPad_AppIcon76>$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_76x76.png</iPad_AppIcon76>
-        <iPad_AppIcon144>$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_144x144.png</iPad_AppIcon144>
-        <iPad_AppIcon152>$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_152x152.png</iPad_AppIcon152>
-        <iPad_Launch768>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImagePortrait_768x1004.png</iPad_Launch768>
-        <iPad_Launch768x1024>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImagePortrait_768x1024.png</iPad_Launch768x1024>
-        <iPad_Launch1024>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImageLandscape_1024x748.png</iPad_Launch1024>
-        <iPad_Launch1024x768>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImageLandscape_1024x768.png</iPad_Launch1024x768>
-        <iPad_Launch1536>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImagePortrait_1536x2008.png</iPad_Launch1536>
-        <iPad_Launch1536x2048>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImagePortrait_1536x2048.png</iPad_Launch1536x2048>
-        <iPad_Launch2048>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImageLandscape_2048x1496.png</iPad_Launch2048>
-        <iPad_Launch2048x1536>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImageLandscape_2048x1536.png</iPad_Launch2048x1536>
-        <iPad_SpotLight40>$(BDS)\bin\Artwork\iOS\iPad\FM_SpotlightSearchIcon_40x40.png</iPad_SpotLight40>
-        <iPad_SpotLight50>$(BDS)\bin\Artwork\iOS\iPad\FM_SpotlightSearchIcon_50x50.png</iPad_SpotLight50>
-        <iPad_SpotLight80>$(BDS)\bin\Artwork\iOS\iPad\FM_SpotlightSearchIcon_80x80.png</iPad_SpotLight80>
-        <iPad_SpotLight100>$(BDS)\bin\Artwork\iOS\iPad\FM_SpotlightSearchIcon_100x100.png</iPad_SpotLight100>
-        <iPad_Setting29>$(BDS)\bin\Artwork\iOS\iPad\FM_SettingIcon_29x29.png</iPad_Setting29>
-        <iPad_Setting58>$(BDS)\bin\Artwork\iOS\iPad\FM_SettingIcon_58x58.png</iPad_Setting58>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_iOSSimulator)'!=''">
-        <DCC_UsePackage>DBXSqliteDriver;IndyIPCommon;bindcompdbx;DBXInterBaseDriver;IndyIPServer;IndySystem;tethering;fmxFireDAC;bindcompfmx;DbxCommonDriver;fmx;xmlrtl;rtl;DbxClientDriver;CustomIPTransport;dbexpress;IndyCore;bindcomp;dsnap;IndyIPClient;dbxcds;bindengine;dsnapxml;dbrtl;IndyProtocols;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
-        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDevelopmentRegion=en;CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=$(MSBuildProjectName);CFBundleInfoDictionaryVersion=7.1;CFBundleVersion=1.0.0.0;CFBundlePackageType=APPL;CFBundleSignature=????;LSRequiresIPhoneOS=true;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName);UIDeviceFamily=iPhone &amp; iPad;CFBundleResourceSpecification=ResourceRules.plist;NSLocationAlwaysUsageDescription=The reason for accessing the location information of the user;NSLocationWhenInUseUsageDescription=The reason for accessing the location information of the user;FMLocalNotificationPermission=false;UIBackgroundModes=;NSContactsUsageDescription=The reason for accessing the contacts;NSPhotoLibraryUsageDescription=The reason for accessing the photo library;NSCameraUsageDescription=The reason for accessing the camera</VerInfo_Keys>
-        <VerInfo_UIDeviceFamily>iPhoneAndiPad</VerInfo_UIDeviceFamily>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <iPhone_AppIcon57>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_57x57.png</iPhone_AppIcon57>
-        <iPhone_AppIcon60>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_60x60.png</iPhone_AppIcon60>
-        <iPhone_AppIcon87>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_87x87.png</iPhone_AppIcon87>
-        <iPhone_AppIcon114>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_114x114.png</iPhone_AppIcon114>
-        <iPhone_AppIcon120>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_120x120.png</iPhone_AppIcon120>
-        <iPhone_AppIcon180>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_180x180.png</iPhone_AppIcon180>
-        <iPhone_Launch320>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_320x480.png</iPhone_Launch320>
-        <iPhone_Launch640>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_640x960.png</iPhone_Launch640>
-        <iPhone_Launch640x1136>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_640x1136.png</iPhone_Launch640x1136>
-        <iPhone_Launch750>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_750x1334.png</iPhone_Launch750>
-        <iPhone_Launch1242>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_1242x2208.png</iPhone_Launch1242>
-        <iPhone_Launch2208>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_2208x1242.png</iPhone_Launch2208>
-        <iPhone_Spotlight29>$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_29x29.png</iPhone_Spotlight29>
-        <iPhone_Spotlight40>$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_40x40.png</iPhone_Spotlight40>
-        <iPhone_Spotlight58>$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_58x58.png</iPhone_Spotlight58>
-        <iPhone_Spotlight80>$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_80x80.png</iPhone_Spotlight80>
-        <iPad_AppIcon72>$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_72x72.png</iPad_AppIcon72>
-        <iPad_AppIcon76>$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_76x76.png</iPad_AppIcon76>
-        <iPad_AppIcon144>$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_144x144.png</iPad_AppIcon144>
-        <iPad_AppIcon152>$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_152x152.png</iPad_AppIcon152>
-        <iPad_Launch768>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImagePortrait_768x1004.png</iPad_Launch768>
-        <iPad_Launch768x1024>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImagePortrait_768x1024.png</iPad_Launch768x1024>
-        <iPad_Launch1024>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImageLandscape_1024x748.png</iPad_Launch1024>
-        <iPad_Launch1024x768>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImageLandscape_1024x768.png</iPad_Launch1024x768>
-        <iPad_Launch1536>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImagePortrait_1536x2008.png</iPad_Launch1536>
-        <iPad_Launch1536x2048>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImagePortrait_1536x2048.png</iPad_Launch1536x2048>
-        <iPad_Launch2048>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImageLandscape_2048x1496.png</iPad_Launch2048>
-        <iPad_Launch2048x1536>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImageLandscape_2048x1536.png</iPad_Launch2048x1536>
-        <iPad_SpotLight40>$(BDS)\bin\Artwork\iOS\iPad\FM_SpotlightSearchIcon_40x40.png</iPad_SpotLight40>
-        <iPad_SpotLight50>$(BDS)\bin\Artwork\iOS\iPad\FM_SpotlightSearchIcon_50x50.png</iPad_SpotLight50>
-        <iPad_SpotLight80>$(BDS)\bin\Artwork\iOS\iPad\FM_SpotlightSearchIcon_80x80.png</iPad_SpotLight80>
-        <iPad_SpotLight100>$(BDS)\bin\Artwork\iOS\iPad\FM_SpotlightSearchIcon_100x100.png</iPad_SpotLight100>
-        <iPad_Setting29>$(BDS)\bin\Artwork\iOS\iPad\FM_SettingIcon_29x29.png</iPad_Setting29>
-        <iPad_Setting58>$(BDS)\bin\Artwork\iOS\iPad\FM_SettingIcon_58x58.png</iPad_Setting58>
+        <VerInfo_UIDeviceFamily>iPhoneAndiPad</VerInfo_UIDeviceFamily>
+        <iPhone_AppIcon57>..\Assets\Icons\57 57.png</iPhone_AppIcon57>
+        <iPhone_AppIcon60>..\Assets\Icons\60 60.png</iPhone_AppIcon60>
+        <iPhone_AppIcon87>..\Assets\Icons\87 87.png</iPhone_AppIcon87>
+        <iPhone_AppIcon114>..\Assets\Icons\114 114.png</iPhone_AppIcon114>
+        <iPhone_AppIcon120>..\Assets\Icons\120 120.png</iPhone_AppIcon120>
+        <iPhone_AppIcon180>..\Assets\Icons\180 180.png</iPhone_AppIcon180>
+        <iPhone_Spotlight29>..\Assets\Icons\29 29.png</iPhone_Spotlight29>
+        <iPhone_Spotlight40>..\Assets\Icons\40 40.png</iPhone_Spotlight40>
+        <iPhone_Spotlight58>..\Assets\Icons\58 58.png</iPhone_Spotlight58>
+        <iPhone_Spotlight80>..\Assets\Icons\80 80.png</iPhone_Spotlight80>
+        <iPad_AppIcon72>..\Assets\Icons\72 72.png</iPad_AppIcon72>
+        <iPad_AppIcon76>..\Assets\Icons\76 76.png</iPad_AppIcon76>
+        <iPad_AppIcon144>..\Assets\Icons\144 144.png</iPad_AppIcon144>
+        <iPad_AppIcon152>..\Assets\Icons\152 152.png</iPad_AppIcon152>
+        <iPad_SpotLight40>..\Assets\Icons\40 40.png</iPad_SpotLight40>
+        <iPad_SpotLight50>..\Assets\Icons\50 50.png</iPad_SpotLight50>
+        <iPad_SpotLight80>..\Assets\Icons\80 80.png</iPad_SpotLight80>
+        <iPad_SpotLight100>..\Assets\Icons\100 100.png</iPad_SpotLight100>
+        <iPad_Setting29>..\Assets\Icons\29 29.png</iPad_Setting29>
+        <iPad_Setting58>..\Assets\Icons\58 58.png</iPad_Setting58>
+        <iPhone_Launch320>..\Assets\Splashes\320 480.png</iPhone_Launch320>
+        <iPhone_Launch640>..\Assets\Splashes\640 960.png</iPhone_Launch640>
+        <iPhone_Launch640x1136>..\Assets\Splashes\640 1136.png</iPhone_Launch640x1136>
+        <iPhone_Launch750>..\Assets\Splashes\750 1334.png</iPhone_Launch750>
+        <iPhone_Launch1242>..\Assets\Splashes\1242 2208.png</iPhone_Launch1242>
+        <iPhone_Launch2208>..\Assets\Splashes\2208 1242.png</iPhone_Launch2208>
+        <iPad_Launch768>..\Assets\Splashes\768 1004.png</iPad_Launch768>
+        <iPad_Launch768x1024>..\Assets\Splashes\768 1024.png</iPad_Launch768x1024>
+        <iPad_Launch1024>..\Assets\Splashes\1024 748.png</iPad_Launch1024>
+        <iPad_Launch1024x768>..\Assets\Splashes\1024 768.png</iPad_Launch1024x768>
+        <iPad_Launch1536>..\Assets\Splashes\1536 2008.png</iPad_Launch1536>
+        <iPad_Launch1536x2048>..\Assets\Splashes\1536 2048.png</iPad_Launch1536x2048>
+        <iPad_Launch2048>..\Assets\Splashes\2048 1496.png</iPad_Launch2048>
+        <iPad_Launch2048x1536>..\Assets\Splashes\2048 1536.png</iPad_Launch2048x1536>
+        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDevelopmentRegion=en;CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=$(MSBuildProjectName);CFBundleInfoDictionaryVersion=7.1;CFBundleVersion=1.0.0.0;CFBundlePackageType=APPL;CFBundleSignature=????;LSRequiresIPhoneOS=true;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName);UIDeviceFamily=iPhone &amp; iPad;CFBundleResourceSpecification=ResourceRules.plist;NSLocationAlwaysUsageDescription=The reason for accessing the location information of the user;NSLocationWhenInUseUsageDescription=The reason for accessing the location information of the user;FMLocalNotificationPermission=false;UIBackgroundModes=;NSContactsUsageDescription=The reason for accessing the contacts;NSPhotoLibraryUsageDescription=The reason for accessing the photo library;NSCameraUsageDescription=The reason for accessing the camera</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_OSX32)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;IndyIPCommon;bindcompdbx;DBXInterBaseDriver;IndyIPServer;IndySystem;tethering;fmxFireDAC;bindcompfmx;FireDACPgDriver;inetdb;DbxCommonDriver;fmx;fmxdae;xmlrtl;fmxobj;rtl;DbxClientDriver;CustomIPTransport;dbexpress;IndyCore;bindcomp;dsnap;IndyIPClient;dbxcds;bindengine;DBXMySQLDriver;dsnapxml;FireDACMySQLDriver;dbrtl;IndyProtocols;inetdbxpress;FireDACCommonODBC;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
@@ -266,6 +313,137 @@
         <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
         <DCC_RemoteDebug>true</DCC_RemoteDebug>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Android)'!=''">
+        <VerInfo_Build>1</VerInfo_Build>
+        <Android_LauncherIcon36>..\Assets\Icons\36 36.png</Android_LauncherIcon36>
+        <Android_LauncherIcon48>..\Assets\Icons\48 48.png</Android_LauncherIcon48>
+        <Android_LauncherIcon72>..\Assets\Icons\72 72.png</Android_LauncherIcon72>
+        <Android_LauncherIcon96>..\Assets\Icons\96 96.png</Android_LauncherIcon96>
+        <Android_LauncherIcon144>..\Assets\Icons\144 144.png</Android_LauncherIcon144>
+        <Android_SplashImage426>..\Assets\Splashes\426 320.png</Android_SplashImage426>
+        <Android_SplashImage470>..\Assets\Splashes\470 320.png</Android_SplashImage470>
+        <Android_SplashImage640>..\Assets\Splashes\640 480.png</Android_SplashImage640>
+        <Android_SplashImage960>..\Assets\Splashes\960 720.png</Android_SplashImage960>
+        <BT_BuildType>Debug</BT_BuildType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_iOSDevice32)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_UIDeviceFamily>iPhoneAndiPad</VerInfo_UIDeviceFamily>
+        <iPhone_AppIcon57>..\Assets\Icons\57 57.png</iPhone_AppIcon57>
+        <iPhone_AppIcon60>..\Assets\Icons\60 60.png</iPhone_AppIcon60>
+        <iPhone_AppIcon87>..\Assets\Icons\87 87.png</iPhone_AppIcon87>
+        <iPhone_AppIcon114>..\Assets\Icons\114 114.png</iPhone_AppIcon114>
+        <iPhone_AppIcon120>..\Assets\Icons\120 120.png</iPhone_AppIcon120>
+        <iPhone_AppIcon180>..\Assets\Icons\180 180.png</iPhone_AppIcon180>
+        <iPhone_Spotlight29>..\Assets\Icons\29 29.png</iPhone_Spotlight29>
+        <iPhone_Spotlight40>..\Assets\Icons\40 40.png</iPhone_Spotlight40>
+        <iPhone_Spotlight58>..\Assets\Icons\58 58.png</iPhone_Spotlight58>
+        <iPhone_Spotlight80>..\Assets\Icons\80 80.png</iPhone_Spotlight80>
+        <iPad_AppIcon72>..\Assets\Icons\72 72.png</iPad_AppIcon72>
+        <iPad_AppIcon76>..\Assets\Icons\76 76.png</iPad_AppIcon76>
+        <iPad_AppIcon144>..\Assets\Icons\144 144.png</iPad_AppIcon144>
+        <iPad_AppIcon152>..\Assets\Icons\152 152.png</iPad_AppIcon152>
+        <iPad_SpotLight40>..\Assets\Icons\40 40.png</iPad_SpotLight40>
+        <iPad_SpotLight50>..\Assets\Icons\50 50.png</iPad_SpotLight50>
+        <iPad_SpotLight80>..\Assets\Icons\80 80.png</iPad_SpotLight80>
+        <iPad_SpotLight100>..\Assets\Icons\100 100.png</iPad_SpotLight100>
+        <iPad_Setting29>..\Assets\Icons\29 29.png</iPad_Setting29>
+        <iPad_Setting58>..\Assets\Icons\58 58.png</iPad_Setting58>
+        <iPhone_Launch320>..\Assets\Splashes\320 480.png</iPhone_Launch320>
+        <iPhone_Launch640>..\Assets\Splashes\640 960.png</iPhone_Launch640>
+        <iPhone_Launch640x1136>..\Assets\Splashes\640 1136.png</iPhone_Launch640x1136>
+        <iPhone_Launch750>..\Assets\Splashes\750 1334.png</iPhone_Launch750>
+        <iPhone_Launch1242>..\Assets\Splashes\1242 2208.png</iPhone_Launch1242>
+        <iPhone_Launch2208>..\Assets\Splashes\2208 1242.png</iPhone_Launch2208>
+        <iPad_Launch768>..\Assets\Splashes\768 1004.png</iPad_Launch768>
+        <iPad_Launch768x1024>..\Assets\Splashes\768 1024.png</iPad_Launch768x1024>
+        <iPad_Launch1024>..\Assets\Splashes\1024 748.png</iPad_Launch1024>
+        <iPad_Launch1024x768>..\Assets\Splashes\1024 768.png</iPad_Launch1024x768>
+        <iPad_Launch1536>..\Assets\Splashes\1536 2008.png</iPad_Launch1536>
+        <iPad_Launch1536x2048>..\Assets\Splashes\1536 2048.png</iPad_Launch1536x2048>
+        <iPad_Launch2048>..\Assets\Splashes\2048 1496.png</iPad_Launch2048>
+        <iPad_Launch2048x1536>..\Assets\Splashes\2048 1536.png</iPad_Launch2048x1536>
+        <VerInfo_BundleId>$(MSBuildProjectName)</VerInfo_BundleId>
+        <BT_BuildType>Debug</BT_BuildType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_iOSDevice64)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_UIDeviceFamily>iPhoneAndiPad</VerInfo_UIDeviceFamily>
+        <iPhone_AppIcon57>..\Assets\Icons\57 57.png</iPhone_AppIcon57>
+        <iPhone_AppIcon60>..\Assets\Icons\60 60.png</iPhone_AppIcon60>
+        <iPhone_AppIcon87>..\Assets\Icons\87 87.png</iPhone_AppIcon87>
+        <iPhone_AppIcon114>..\Assets\Icons\114 114.png</iPhone_AppIcon114>
+        <iPhone_AppIcon120>..\Assets\Icons\120 120.png</iPhone_AppIcon120>
+        <iPhone_AppIcon180>..\Assets\Icons\180 180.png</iPhone_AppIcon180>
+        <iPhone_Spotlight29>..\Assets\Icons\29 29.png</iPhone_Spotlight29>
+        <iPhone_Spotlight40>..\Assets\Icons\40 40.png</iPhone_Spotlight40>
+        <iPhone_Spotlight58>..\Assets\Icons\58 58.png</iPhone_Spotlight58>
+        <iPhone_Spotlight80>..\Assets\Icons\80 80.png</iPhone_Spotlight80>
+        <iPad_AppIcon72>..\Assets\Icons\72 72.png</iPad_AppIcon72>
+        <iPad_AppIcon76>..\Assets\Icons\76 76.png</iPad_AppIcon76>
+        <iPad_AppIcon144>..\Assets\Icons\144 144.png</iPad_AppIcon144>
+        <iPad_AppIcon152>..\Assets\Icons\152 152.png</iPad_AppIcon152>
+        <iPad_SpotLight40>..\Assets\Icons\40 40.png</iPad_SpotLight40>
+        <iPad_SpotLight50>..\Assets\Icons\50 50.png</iPad_SpotLight50>
+        <iPad_SpotLight80>..\Assets\Icons\80 80.png</iPad_SpotLight80>
+        <iPad_SpotLight100>..\Assets\Icons\100 100.png</iPad_SpotLight100>
+        <iPad_Setting29>..\Assets\Icons\29 29.png</iPad_Setting29>
+        <iPad_Setting58>..\Assets\Icons\58 58.png</iPad_Setting58>
+        <iPhone_Launch320>..\Assets\Splashes\320 480.png</iPhone_Launch320>
+        <iPhone_Launch640>..\Assets\Splashes\640 960.png</iPhone_Launch640>
+        <iPhone_Launch640x1136>..\Assets\Splashes\640 1136.png</iPhone_Launch640x1136>
+        <iPhone_Launch750>..\Assets\Splashes\750 1334.png</iPhone_Launch750>
+        <iPhone_Launch1242>..\Assets\Splashes\1242 2208.png</iPhone_Launch1242>
+        <iPhone_Launch2208>..\Assets\Splashes\2208 1242.png</iPhone_Launch2208>
+        <iPad_Launch768>..\Assets\Splashes\768 1004.png</iPad_Launch768>
+        <iPad_Launch768x1024>..\Assets\Splashes\768 1024.png</iPad_Launch768x1024>
+        <iPad_Launch1024>..\Assets\Splashes\1024 748.png</iPad_Launch1024>
+        <iPad_Launch1024x768>..\Assets\Splashes\1024 768.png</iPad_Launch1024x768>
+        <iPad_Launch1536>..\Assets\Splashes\1536 2008.png</iPad_Launch1536>
+        <iPad_Launch1536x2048>..\Assets\Splashes\1536 2048.png</iPad_Launch1536x2048>
+        <iPad_Launch2048>..\Assets\Splashes\2048 1496.png</iPad_Launch2048>
+        <iPad_Launch2048x1536>..\Assets\Splashes\2048 1536.png</iPad_Launch2048x1536>
+        <VerInfo_BundleId>$(MSBuildProjectName)</VerInfo_BundleId>
+        <BT_BuildType>Debug</BT_BuildType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_iOSSimulator)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_UIDeviceFamily>iPhoneAndiPad</VerInfo_UIDeviceFamily>
+        <iPhone_AppIcon57>..\Assets\Icons\57 57.png</iPhone_AppIcon57>
+        <iPhone_AppIcon60>..\Assets\Icons\60 60.png</iPhone_AppIcon60>
+        <iPhone_AppIcon87>..\Assets\Icons\87 87.png</iPhone_AppIcon87>
+        <iPhone_AppIcon114>..\Assets\Icons\114 114.png</iPhone_AppIcon114>
+        <iPhone_AppIcon120>..\Assets\Icons\120 120.png</iPhone_AppIcon120>
+        <iPhone_AppIcon180>..\Assets\Icons\180 180.png</iPhone_AppIcon180>
+        <iPhone_Spotlight29>..\Assets\Icons\29 29.png</iPhone_Spotlight29>
+        <iPhone_Spotlight40>..\Assets\Icons\40 40.png</iPhone_Spotlight40>
+        <iPhone_Spotlight58>..\Assets\Icons\58 58.png</iPhone_Spotlight58>
+        <iPhone_Spotlight80>..\Assets\Icons\80 80.png</iPhone_Spotlight80>
+        <iPad_AppIcon72>..\Assets\Icons\72 72.png</iPad_AppIcon72>
+        <iPad_AppIcon76>..\Assets\Icons\76 76.png</iPad_AppIcon76>
+        <iPad_AppIcon144>..\Assets\Icons\144 144.png</iPad_AppIcon144>
+        <iPad_AppIcon152>..\Assets\Icons\152 152.png</iPad_AppIcon152>
+        <iPad_SpotLight40>..\Assets\Icons\40 40.png</iPad_SpotLight40>
+        <iPad_SpotLight50>..\Assets\Icons\50 50.png</iPad_SpotLight50>
+        <iPad_SpotLight80>..\Assets\Icons\80 80.png</iPad_SpotLight80>
+        <iPad_SpotLight100>..\Assets\Icons\100 100.png</iPad_SpotLight100>
+        <iPad_Setting29>..\Assets\Icons\29 29.png</iPad_Setting29>
+        <iPad_Setting58>..\Assets\Icons\58 58.png</iPad_Setting58>
+        <iPhone_Launch320>..\Assets\Splashes\320 480.png</iPhone_Launch320>
+        <iPhone_Launch640>..\Assets\Splashes\640 960.png</iPhone_Launch640>
+        <iPhone_Launch640x1136>..\Assets\Splashes\640 1136.png</iPhone_Launch640x1136>
+        <iPhone_Launch750>..\Assets\Splashes\750 1334.png</iPhone_Launch750>
+        <iPhone_Launch1242>..\Assets\Splashes\1242 2208.png</iPhone_Launch1242>
+        <iPhone_Launch2208>..\Assets\Splashes\2208 1242.png</iPhone_Launch2208>
+        <iPad_Launch768>..\Assets\Splashes\768 1004.png</iPad_Launch768>
+        <iPad_Launch768x1024>..\Assets\Splashes\768 1024.png</iPad_Launch768x1024>
+        <iPad_Launch1024>..\Assets\Splashes\1024 748.png</iPad_Launch1024>
+        <iPad_Launch1024x768>..\Assets\Splashes\1024 768.png</iPad_Launch1024x768>
+        <iPad_Launch1536>..\Assets\Splashes\1536 2008.png</iPad_Launch1536>
+        <iPad_Launch1536x2048>..\Assets\Splashes\1536 2048.png</iPad_Launch1536x2048>
+        <iPad_Launch2048>..\Assets\Splashes\2048 1496.png</iPad_Launch2048>
+        <iPad_Launch2048x1536>..\Assets\Splashes\2048 1536.png</iPad_Launch2048x1536>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
@@ -285,9 +463,144 @@
         <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
         <DCC_DebugInformation>0</DCC_DebugInformation>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Android)'!=''">
+        <VerInfo_Build>1</VerInfo_Build>
+        <Android_LauncherIcon36>..\Assets\Icons\36 36.png</Android_LauncherIcon36>
+        <Android_LauncherIcon48>..\Assets\Icons\48 48.png</Android_LauncherIcon48>
+        <Android_LauncherIcon72>..\Assets\Icons\72 72.png</Android_LauncherIcon72>
+        <Android_LauncherIcon96>..\Assets\Icons\96 96.png</Android_LauncherIcon96>
+        <Android_LauncherIcon144>..\Assets\Icons\144 144.png</Android_LauncherIcon144>
+        <Android_SplashImage426>..\Assets\Splashes\426 320.png</Android_SplashImage426>
+        <Android_SplashImage470>..\Assets\Splashes\470 320.png</Android_SplashImage470>
+        <Android_SplashImage640>..\Assets\Splashes\640 480.png</Android_SplashImage640>
+        <Android_SplashImage960>..\Assets\Splashes\960 720.png</Android_SplashImage960>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_iOSDevice32)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_UIDeviceFamily>iPhoneAndiPad</VerInfo_UIDeviceFamily>
+        <iPhone_AppIcon57>..\Assets\Icons\57 57.png</iPhone_AppIcon57>
+        <iPhone_AppIcon60>..\Assets\Icons\60 60.png</iPhone_AppIcon60>
+        <iPhone_AppIcon87>..\Assets\Icons\87 87.png</iPhone_AppIcon87>
+        <iPhone_AppIcon114>..\Assets\Icons\114 114.png</iPhone_AppIcon114>
+        <iPhone_AppIcon120>..\Assets\Icons\120 120.png</iPhone_AppIcon120>
+        <iPhone_AppIcon180>..\Assets\Icons\180 180.png</iPhone_AppIcon180>
+        <iPhone_Spotlight29>..\Assets\Icons\29 29.png</iPhone_Spotlight29>
+        <iPhone_Spotlight40>..\Assets\Icons\40 40.png</iPhone_Spotlight40>
+        <iPhone_Spotlight58>..\Assets\Icons\58 58.png</iPhone_Spotlight58>
+        <iPhone_Spotlight80>..\Assets\Icons\80 80.png</iPhone_Spotlight80>
+        <iPad_AppIcon72>..\Assets\Icons\72 72.png</iPad_AppIcon72>
+        <iPad_AppIcon76>..\Assets\Icons\76 76.png</iPad_AppIcon76>
+        <iPad_AppIcon144>..\Assets\Icons\144 144.png</iPad_AppIcon144>
+        <iPad_AppIcon152>..\Assets\Icons\152 152.png</iPad_AppIcon152>
+        <iPad_SpotLight40>..\Assets\Icons\40 40.png</iPad_SpotLight40>
+        <iPad_SpotLight50>..\Assets\Icons\50 50.png</iPad_SpotLight50>
+        <iPad_SpotLight80>..\Assets\Icons\80 80.png</iPad_SpotLight80>
+        <iPad_SpotLight100>..\Assets\Icons\100 100.png</iPad_SpotLight100>
+        <iPad_Setting29>..\Assets\Icons\29 29.png</iPad_Setting29>
+        <iPad_Setting58>..\Assets\Icons\58 58.png</iPad_Setting58>
+        <iPhone_Launch320>..\Assets\Splashes\320 480.png</iPhone_Launch320>
+        <iPhone_Launch640>..\Assets\Splashes\640 960.png</iPhone_Launch640>
+        <iPhone_Launch640x1136>..\Assets\Splashes\640 1136.png</iPhone_Launch640x1136>
+        <iPhone_Launch750>..\Assets\Splashes\750 1334.png</iPhone_Launch750>
+        <iPhone_Launch1242>..\Assets\Splashes\1242 2208.png</iPhone_Launch1242>
+        <iPhone_Launch2208>..\Assets\Splashes\2208 1242.png</iPhone_Launch2208>
+        <iPad_Launch768>..\Assets\Splashes\768 1004.png</iPad_Launch768>
+        <iPad_Launch768x1024>..\Assets\Splashes\768 1024.png</iPad_Launch768x1024>
+        <iPad_Launch1024>..\Assets\Splashes\1024 748.png</iPad_Launch1024>
+        <iPad_Launch1024x768>..\Assets\Splashes\1024 768.png</iPad_Launch1024x768>
+        <iPad_Launch1536>..\Assets\Splashes\1536 2008.png</iPad_Launch1536>
+        <iPad_Launch1536x2048>..\Assets\Splashes\1536 2048.png</iPad_Launch1536x2048>
+        <iPad_Launch2048>..\Assets\Splashes\2048 1496.png</iPad_Launch2048>
+        <iPad_Launch2048x1536>..\Assets\Splashes\2048 1536.png</iPad_Launch2048x1536>
+        <VerInfo_BundleId>$(MSBuildProjectName)</VerInfo_BundleId>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_iOSDevice64)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_UIDeviceFamily>iPhoneAndiPad</VerInfo_UIDeviceFamily>
+        <iPhone_AppIcon57>..\Assets\Icons\57 57.png</iPhone_AppIcon57>
+        <iPhone_AppIcon60>..\Assets\Icons\60 60.png</iPhone_AppIcon60>
+        <iPhone_AppIcon87>..\Assets\Icons\87 87.png</iPhone_AppIcon87>
+        <iPhone_AppIcon114>..\Assets\Icons\114 114.png</iPhone_AppIcon114>
+        <iPhone_AppIcon120>..\Assets\Icons\120 120.png</iPhone_AppIcon120>
+        <iPhone_AppIcon180>..\Assets\Icons\180 180.png</iPhone_AppIcon180>
+        <iPhone_Spotlight29>..\Assets\Icons\29 29.png</iPhone_Spotlight29>
+        <iPhone_Spotlight40>..\Assets\Icons\40 40.png</iPhone_Spotlight40>
+        <iPhone_Spotlight58>..\Assets\Icons\58 58.png</iPhone_Spotlight58>
+        <iPhone_Spotlight80>..\Assets\Icons\80 80.png</iPhone_Spotlight80>
+        <iPad_AppIcon72>..\Assets\Icons\72 72.png</iPad_AppIcon72>
+        <iPad_AppIcon76>..\Assets\Icons\76 76.png</iPad_AppIcon76>
+        <iPad_AppIcon144>..\Assets\Icons\144 144.png</iPad_AppIcon144>
+        <iPad_AppIcon152>..\Assets\Icons\152 152.png</iPad_AppIcon152>
+        <iPad_SpotLight40>..\Assets\Icons\40 40.png</iPad_SpotLight40>
+        <iPad_SpotLight50>..\Assets\Icons\50 50.png</iPad_SpotLight50>
+        <iPad_SpotLight80>..\Assets\Icons\80 80.png</iPad_SpotLight80>
+        <iPad_SpotLight100>..\Assets\Icons\100 100.png</iPad_SpotLight100>
+        <iPad_Setting29>..\Assets\Icons\29 29.png</iPad_Setting29>
+        <iPad_Setting58>..\Assets\Icons\58 58.png</iPad_Setting58>
+        <iPhone_Launch320>..\Assets\Splashes\320 480.png</iPhone_Launch320>
+        <iPhone_Launch640>..\Assets\Splashes\640 960.png</iPhone_Launch640>
+        <iPhone_Launch640x1136>..\Assets\Splashes\640 1136.png</iPhone_Launch640x1136>
+        <iPhone_Launch750>..\Assets\Splashes\750 1334.png</iPhone_Launch750>
+        <iPhone_Launch1242>..\Assets\Splashes\1242 2208.png</iPhone_Launch1242>
+        <iPhone_Launch2208>..\Assets\Splashes\2208 1242.png</iPhone_Launch2208>
+        <iPad_Launch768>..\Assets\Splashes\768 1004.png</iPad_Launch768>
+        <iPad_Launch768x1024>..\Assets\Splashes\768 1024.png</iPad_Launch768x1024>
+        <iPad_Launch1024>..\Assets\Splashes\1024 748.png</iPad_Launch1024>
+        <iPad_Launch1024x768>..\Assets\Splashes\1024 768.png</iPad_Launch1024x768>
+        <iPad_Launch1536>..\Assets\Splashes\1536 2008.png</iPad_Launch1536>
+        <iPad_Launch1536x2048>..\Assets\Splashes\1536 2048.png</iPad_Launch1536x2048>
+        <iPad_Launch2048>..\Assets\Splashes\2048 1496.png</iPad_Launch2048>
+        <iPad_Launch2048x1536>..\Assets\Splashes\2048 1536.png</iPad_Launch2048x1536>
+        <VerInfo_BundleId>$(MSBuildProjectName)</VerInfo_BundleId>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_iOSSimulator)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_UIDeviceFamily>iPhoneAndiPad</VerInfo_UIDeviceFamily>
+        <iPhone_AppIcon57>..\Assets\Icons\57 57.png</iPhone_AppIcon57>
+        <iPhone_AppIcon60>..\Assets\Icons\60 60.png</iPhone_AppIcon60>
+        <iPhone_AppIcon87>..\Assets\Icons\87 87.png</iPhone_AppIcon87>
+        <iPhone_AppIcon114>..\Assets\Icons\114 114.png</iPhone_AppIcon114>
+        <iPhone_AppIcon120>..\Assets\Icons\120 120.png</iPhone_AppIcon120>
+        <iPhone_AppIcon180>..\Assets\Icons\180 180.png</iPhone_AppIcon180>
+        <iPhone_Spotlight29>..\Assets\Icons\29 29.png</iPhone_Spotlight29>
+        <iPhone_Spotlight40>..\Assets\Icons\40 40.png</iPhone_Spotlight40>
+        <iPhone_Spotlight58>..\Assets\Icons\58 58.png</iPhone_Spotlight58>
+        <iPhone_Spotlight80>..\Assets\Icons\80 80.png</iPhone_Spotlight80>
+        <iPad_AppIcon72>..\Assets\Icons\72 72.png</iPad_AppIcon72>
+        <iPad_AppIcon76>..\Assets\Icons\76 76.png</iPad_AppIcon76>
+        <iPad_AppIcon144>..\Assets\Icons\144 144.png</iPad_AppIcon144>
+        <iPad_AppIcon152>..\Assets\Icons\152 152.png</iPad_AppIcon152>
+        <iPad_SpotLight40>..\Assets\Icons\40 40.png</iPad_SpotLight40>
+        <iPad_SpotLight50>..\Assets\Icons\50 50.png</iPad_SpotLight50>
+        <iPad_SpotLight80>..\Assets\Icons\80 80.png</iPad_SpotLight80>
+        <iPad_SpotLight100>..\Assets\Icons\100 100.png</iPad_SpotLight100>
+        <iPad_Setting29>..\Assets\Icons\29 29.png</iPad_Setting29>
+        <iPad_Setting58>..\Assets\Icons\58 58.png</iPad_Setting58>
+        <iPhone_Launch320>..\Assets\Splashes\320 480.png</iPhone_Launch320>
+        <iPhone_Launch640>..\Assets\Splashes\640 960.png</iPhone_Launch640>
+        <iPhone_Launch640x1136>..\Assets\Splashes\640 1136.png</iPhone_Launch640x1136>
+        <iPhone_Launch750>..\Assets\Splashes\750 1334.png</iPhone_Launch750>
+        <iPhone_Launch1242>..\Assets\Splashes\1242 2208.png</iPhone_Launch1242>
+        <iPhone_Launch2208>..\Assets\Splashes\2208 1242.png</iPhone_Launch2208>
+        <iPad_Launch768>..\Assets\Splashes\768 1004.png</iPad_Launch768>
+        <iPad_Launch768x1024>..\Assets\Splashes\768 1024.png</iPad_Launch768x1024>
+        <iPad_Launch1024>..\Assets\Splashes\1024 748.png</iPad_Launch1024>
+        <iPad_Launch1024x768>..\Assets\Splashes\1024 768.png</iPad_Launch1024x768>
+        <iPad_Launch1536>..\Assets\Splashes\1536 2008.png</iPad_Launch1536>
+        <iPad_Launch1536x2048>..\Assets\Splashes\1536 2048.png</iPad_Launch1536x2048>
+        <iPad_Launch2048>..\Assets\Splashes\2048 1496.png</iPad_Launch2048>
+        <iPad_Launch2048x1536>..\Assets\Splashes\2048 1536.png</iPad_Launch2048x1536>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_OSX32)'!=''">
+        <Debugger_Launcher>/usr/X11/bin/xterm -e &quot;%debuggee%&quot;</Debugger_Launcher>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <Manifest_File>(None)</Manifest_File>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppEnableHighDPI>true</AppEnableHighDPI>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
@@ -385,8 +698,9 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_144x144.png" Configuration="Debug" Class="iPad_AppIcon144">
+                <DeployFile LocalName="ModelSupport_DieLISTE\CCR\PrefsIniFile\default.txvpck" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="iOSSimulator">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -396,13 +710,38 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_58x58.png" Configuration="Debug" Class="iPhone_Spotlight58">
+                <DeployFile LocalName="ModelSupport_DieLISTE\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="iOSSimulator">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\60 60.png" Configuration="Debug" Class="iPhone_AppIcon60">
                     <Platform Name="iOSSimulator">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPad\FM_SpotlightSearchIcon_100x100.png" Configuration="Debug" Class="iPad_SpotLight100">
+                <DeployFile LocalName="ModelSupport_DieLISTE\PWaendern\default.txvpck" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="iOSSimulator">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\768 1004.png" Configuration="Debug" Class="iPad_Launch768">
+                    <Platform Name="iOSSimulator">
+                        <RemoteName>Default~ipad.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\640 1136.png" Configuration="Debug" Class="iPhone_Launch640x1136">
+                    <Platform Name="iOSSimulator">
+                        <RemoteName>Default-568h@2x.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\UMain\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win64">
+                        <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -412,14 +751,19 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPad\FM_SpotlightSearchIcon_40x40.png" Configuration="Debug" Class="iPad_SpotLight40">
+                <DeployFile LocalName="ModelSupport_DieLISTE\Helper\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="iOSSimulator">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\50 50.png" Configuration="Debug" Class="iPad_SpotLight50">
                     <Platform Name="iOSSimulator">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="ModelSupport_DieLISTE\UMain\default.txvpck" Configuration="Debug" Class="ProjectFile">
-                    <Platform Name="Win64">
-                        <RemoteDir>.\</RemoteDir>
+                <DeployFile LocalName="..\Assets\Icons\58 58.png" Configuration="Debug" Class="iPad_Setting58">
+                    <Platform Name="iOSSimulator">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -436,36 +780,37 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\DieLISTE\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="iOSSimulator">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="Win32\Debug\DieLISTE.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>DieLISTE.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_60x60.png" Configuration="Debug" Class="iPhone_AppIcon60">
+                <DeployFile LocalName="..\Assets\Splashes\768 1024.png" Configuration="Debug" Class="iPad_Launch768x1024">
+                    <Platform Name="iOSSimulator">
+                        <RemoteName>Default-Portrait~ipad.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\40 40.png" Configuration="Debug" Class="iPhone_Spotlight40">
                     <Platform Name="iOSSimulator">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_114x114.png" Configuration="Debug" Class="iPhone_AppIcon114">
+                <DeployFile LocalName="..\Assets\Icons\114 114.png" Configuration="Debug" Class="iPhone_AppIcon114">
                     <Platform Name="iOSSimulator">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImagePortrait_1536x2008.png" Configuration="Debug" Class="iPad_Launch1536">
+                <DeployFile LocalName="..\Assets\Splashes\2208 1242.png" Configuration="Debug" Class="iPhone_Launch2208">
                     <Platform Name="iOSSimulator">
-                        <RemoteName>Default-Portrait@2x.png</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_152x152.png" Configuration="Debug" Class="iPad_AppIcon152">
-                    <Platform Name="iOSSimulator">
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="ModelSupport_DieLISTE\DieLISTE\default.txvpck" Configuration="Debug" Class="ProjectFile">
-                    <Platform Name="Win64">
-                        <RemoteDir>.\</RemoteDir>
+                        <RemoteName>Default-Landscape-736h@3x.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -475,25 +820,53 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_1242x2208.png" Configuration="Debug" Class="iPhone_Launch1242">
+                <DeployFile LocalName="ModelSupport_DieLISTE\DieLISTE\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win64">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\CCR\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="iOSSimulator">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\2048 1536.png" Configuration="Debug" Class="iPad_Launch2048x1536">
+                    <Platform Name="iOSSimulator">
+                        <RemoteName>Default-Landscape@2x~ipad.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\120 120.png" Configuration="Debug" Class="iPhone_AppIcon120">
+                    <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\Supermarkt\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="iOSSimulator">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\1242 2208.png" Configuration="Debug" Class="iPhone_Launch1242">
                     <Platform Name="iOSSimulator">
                         <RemoteName>Default-736h@3x.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_750x1334.png" Configuration="Debug" Class="iPhone_Launch750">
+                <DeployFile LocalName="ModelSupport_DieLISTE\default.txaPackage" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="iOSSimulator">
-                        <RemoteName>Default-667h@2x.png</RemoteName>
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImagePortrait_768x1004.png" Configuration="Debug" Class="iPad_Launch768">
+                <DeployFile LocalName="..\Assets\Icons\100 100.png" Configuration="Debug" Class="iPad_SpotLight100">
                     <Platform Name="iOSSimulator">
-                        <RemoteName>Default~ipad.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_72x72.png" Configuration="Debug" Class="iPad_AppIcon72">
+                <DeployFile LocalName="..\Assets\Icons\152 152.png" Configuration="Debug" Class="iPad_AppIcon152">
                     <Platform Name="iOSSimulator">
                         <Overwrite>true</Overwrite>
                     </Platform>
@@ -509,14 +882,14 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImagePortrait_768x1024.png" Configuration="Debug" Class="iPad_Launch768x1024">
-                    <Platform Name="iOSSimulator">
-                        <RemoteName>Default-Portrait~ipad.png</RemoteName>
+                <DeployFile LocalName="$(BDS)\Redist\osx32\libcgsqlite3.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\Redist\osx32\libcgsqlite3.dylib" Class="DependencyModule">
-                    <Platform Name="OSX32">
+                <DeployFile LocalName="ModelSupport_DieLISTE\ListeBearbeiten\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="iOSSimulator">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -526,14 +899,19 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\76 76.png" Configuration="Debug" Class="iPad_AppIcon76">
+                    <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule">
                     <Platform Name="OSX32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_640x960.png" Configuration="Debug" Class="iPhone_Launch640">
+                <DeployFile LocalName="ModelSupport_DieLISTE\UMain\default.txvpck" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="iOSSimulator">
-                        <RemoteName>Default@2x.png</RemoteName>
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -543,7 +921,7 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_40x40.png" Configuration="Debug" Class="iPhone_Spotlight40">
+                <DeployFile LocalName="..\Assets\Icons\57 57.png" Configuration="Debug" Class="iPhone_AppIcon57">
                     <Platform Name="iOSSimulator">
                         <Overwrite>true</Overwrite>
                     </Platform>
@@ -553,31 +931,32 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImageLandscape_2048x1536.png" Configuration="Debug" Class="iPad_Launch2048x1536">
+                <DeployFile LocalName="..\Assets\Splashes\1536 2008.png" Configuration="Debug" Class="iPad_Launch1536">
                     <Platform Name="iOSSimulator">
-                        <RemoteName>Default-Landscape@2x~ipad.png</RemoteName>
+                        <RemoteName>Default-Portrait@2x.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_87x87.png" Configuration="Debug" Class="iPhone_AppIcon87">
+                <DeployFile LocalName="ModelSupport_DieLISTE\PWvergessen\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="iOSSimulator">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\ItemBearbeiten\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="iOSSimulator">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\80 80.png" Configuration="Debug" Class="iPad_SpotLight80">
                     <Platform Name="iOSSimulator">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImageLandscape_1024x768.png" Configuration="Debug" Class="iPad_Launch1024x768">
+                <DeployFile LocalName="ModelSupport_DieLISTE\Hinzufuegen\default.txvpck" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="iOSSimulator">
-                        <RemoteName>Default-Landscape~ipad.png</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_320x480.png" Configuration="Debug" Class="iPhone_Launch320">
-                    <Platform Name="iOSSimulator">
-                        <RemoteName>Default.png</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_180x180.png" Configuration="Debug" Class="iPhone_AppIcon180">
-                    <Platform Name="iOSSimulator">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -587,15 +966,32 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\180 180.png" Configuration="Debug" Class="iPhone_AppIcon180">
+                    <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="iOSSimulator\Debug\DieLISTE.info.plist" Configuration="Debug" Class="ProjectiOSInfoPList">
                     <Platform Name="iOSSimulator">
                         <RemoteName>Info.plist</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\ServerAPI\default.txaPackage" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="iOSSimulator">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="ModelSupport_DieLISTE\default.txvpck" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win64">
                         <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\320 480.png" Configuration="Debug" Class="iPhone_Launch320">
+                    <Platform Name="iOSSimulator">
+                        <RemoteName>Default.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -617,14 +1013,25 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_76x76.png" Configuration="Debug" Class="iPad_AppIcon76">
+                <DeployFile LocalName="ModelSupport_DieLISTE\ListeBearbeiten\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win64">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\2048 1496.png" Configuration="Debug" Class="iPad_Launch2048">
+                    <Platform Name="iOSSimulator">
+                        <RemoteName>Default-Landscape@2x.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\29 29.png" Configuration="Debug" Class="iPad_Setting29">
                     <Platform Name="iOSSimulator">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="ModelSupport_DieLISTE\ListeBearbeiten\default.txvpck" Configuration="Debug" Class="ProjectFile">
-                    <Platform Name="Win64">
-                        <RemoteDir>.\</RemoteDir>
+                <DeployFile LocalName="..\Assets\Icons\144 144.png" Configuration="Debug" Class="iPad_AppIcon144">
+                    <Platform Name="iOSSimulator">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -639,25 +1046,9 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPad\FM_SettingIcon_58x58.png" Configuration="Debug" Class="iPad_Setting58">
+                <DeployFile LocalName="ModelSupport_DieLISTE\Liste\default.txvpck" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="iOSSimulator">
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_80x80.png" Configuration="Debug" Class="iPhone_Spotlight80">
-                    <Platform Name="iOSSimulator">
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImagePortrait_1536x2048.png" Configuration="Debug" Class="iPad_Launch1536x2048">
-                    <Platform Name="iOSSimulator">
-                        <RemoteName>Default-Portrait@2x~ipad.png</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_2208x1242.png" Configuration="Debug" Class="iPhone_Launch2208">
-                    <Platform Name="iOSSimulator">
-                        <RemoteName>Default-Landscape-736h@3x.png</RemoteName>
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -667,19 +1058,9 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPad\FM_SpotlightSearchIcon_80x80.png" Configuration="Debug" Class="iPad_SpotLight80">
-                    <Platform Name="iOSSimulator">
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="ModelSupport_DieLISTE\AddUser\default.txvpck" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win64">
                         <RemoteDir>.\</RemoteDir>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_120x120.png" Configuration="Debug" Class="iPhone_AppIcon120">
-                    <Platform Name="iOSSimulator">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -689,14 +1070,16 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_57x57.png" Configuration="Debug" Class="iPhone_AppIcon57">
-                    <Platform Name="iOSSimulator">
+                <DeployFile LocalName="..\Assets\Logo150x150.png" Configuration="Debug" Class="UWP_DelphiLogo44">
+                    <Platform Name="Win64">
+                        <RemoteDir>Assets\</RemoteDir>
+                        <RemoteName>Logo44x44.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImageLandscape_2048x1496.png" Configuration="Debug" Class="iPad_Launch2048">
+                <DeployFile LocalName="ModelSupport_DieLISTE\ServerAPI\default.txvpck" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="iOSSimulator">
-                        <RemoteName>Default-Landscape@2x.png</RemoteName>
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -706,13 +1089,25 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\1024 768.png" Configuration="Debug" Class="iPad_Launch1024x768">
+                    <Platform Name="iOSSimulator">
+                        <RemoteName>Default-Landscape~ipad.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\AddUser\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="iOSSimulator">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="ModelSupport_DieLISTE\PWaendern\default.txvpck" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win64">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPad\FM_SpotlightSearchIcon_50x50.png" Configuration="Debug" Class="iPad_SpotLight50">
+                <DeployFile LocalName="..\Assets\Icons\87 87.png" Configuration="Debug" Class="iPhone_AppIcon87">
                     <Platform Name="iOSSimulator">
                         <Overwrite>true</Overwrite>
                     </Platform>
@@ -723,14 +1118,9 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_640x1136.png" Configuration="Debug" Class="iPhone_Launch640x1136">
+                <DeployFile LocalName="..\Assets\Splashes\640 960.png" Configuration="Debug" Class="iPhone_Launch640">
                     <Platform Name="iOSSimulator">
-                        <RemoteName>Default-568h@2x.png</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_29x29.png" Configuration="Debug" Class="iPhone_Spotlight29">
-                    <Platform Name="iOSSimulator">
+                        <RemoteName>Default@2x.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -740,9 +1130,27 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\Login\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="iOSSimulator">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="OSX32\Debug\DieLISTE.info.plist" Configuration="Debug" Class="ProjectOSXInfoPList">
                     <Platform Name="OSX32">
                         <RemoteName>Info.plist</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\1024 748.png" Configuration="Debug" Class="iPad_Launch1024">
+                    <Platform Name="iOSSimulator">
+                        <RemoteName>Default-Landscape.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\1536 2048.png" Configuration="Debug" Class="iPad_Launch1536x2048">
+                    <Platform Name="iOSSimulator">
+                        <RemoteName>Default-Portrait@2x~ipad.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -751,7 +1159,20 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPad\FM_SettingIcon_29x29.png" Configuration="Debug" Class="iPad_Setting29">
+                <DeployFile LocalName="..\Assets\Logo.png" Configuration="Debug" Class="UWP_DelphiLogo150">
+                    <Platform Name="Win64">
+                        <RemoteDir>Assets\</RemoteDir>
+                        <RemoteName>Logo150x150.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\750 1334.png" Configuration="Debug" Class="iPhone_Launch750">
+                    <Platform Name="iOSSimulator">
+                        <RemoteName>Default-667h@2x.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\72 72.png" Configuration="Debug" Class="iPad_AppIcon72">
                     <Platform Name="iOSSimulator">
                         <Overwrite>true</Overwrite>
                     </Platform>
@@ -759,12 +1180,6 @@
                 <DeployFile LocalName="ModelSupport_DieLISTE\CCR\PrefsIniFile\default.txvpck" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win64">
                         <RemoteDir>.\</RemoteDir>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImageLandscape_1024x748.png" Configuration="Debug" Class="iPad_Launch1024">
-                    <Platform Name="iOSSimulator">
-                        <RemoteName>Default-Landscape.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
