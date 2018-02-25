@@ -68,8 +68,8 @@ object FormListeBearbeiten: TFormListeBearbeiten
       DefaultItemStyles.ItemStyle = ''
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
-      Viewport.Width = 346.000000000000000000
-      Viewport.Height = 491.000000000000000000
+      Viewport.Width = 350.000000000000000000
+      Viewport.Height = 495.000000000000000000
       object SettingsGroupHeader: TListBoxGroupHeader
         Size.Width = 346.000000000000000000
         Size.Height = 44.000000000000000000
@@ -87,18 +87,18 @@ object FormListeBearbeiten: TFormListeBearbeiten
         TabOrder = 1
         Text = 'Liste l'#246'schen'
       end
-      object GroupHeaderUser: TListBoxGroupHeader
+      object LBIAddUser: TListBoxItem
         Position.Y = 82.000000000000000000
+        TabOrder = 2
+        Text = 'User hinzuf'#252'gen'
+      end
+      object GroupHeaderUser: TListBoxGroupHeader
+        Position.Y = 101.000000000000000000
         Size.Width = 346.000000000000000000
         Size.Height = 44.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 4
         Text = 'Benutzer'
-      end
-      object LBIAddUser: TListBoxItem
-        Position.Y = 126.000000000000000000
-        TabOrder = 2
-        Text = 'User hinzuf'#252'gen'
       end
     end
     object Label1: TLabel

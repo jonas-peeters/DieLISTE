@@ -75,11 +75,6 @@ object FormMain: TFormMain
             Row = 1
           end
           item
-            Column = 3
-            Control = EditBtn2
-            Row = 1
-          end
-          item
             Column = 0
             ColumnSpan = 6
             Control = LBLists
@@ -115,20 +110,12 @@ object FormMain: TFormMain
           Text = 'HOME'
           TabOrder = 1
         end
-        object EditBtn2: TButton
-          Align = Client
-          Size.Width = 64.080703735351560000
-          Size.Height = 30.886934280395510000
-          Size.PlatformDefault = False
-          TabOrder = 2
-          Text = 'Edit'
-        end
         object LBLists: TListBox
           Align = Client
           Size.Width = 368.000000000000000000
           Size.Height = 431.339202880859400000
           Size.PlatformDefault = False
-          TabOrder = 3
+          TabOrder = 2
           DisableFocusEffect = True
           DefaultItemStyles.ItemStyle = ''
           DefaultItemStyles.GroupHeaderStyle = ''
@@ -267,18 +254,27 @@ object FormMain: TFormMain
           Viewport.Width = 368.000000000000000000
           Viewport.Height = 345.000000000000000000
           object LBUserloeschen: TListBoxItem
+            Size.Width = 368.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
             TabOrder = 0
             Text = 'Account l'#246'schen'
             OnClick = LBIUserLoeschenClick
           end
           object LBPasswortaendern: TListBoxItem
-            Position.Y = 44.000000000000000000
+            Position.Y = 35.000000000000000000
+            Size.Width = 368.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
             TabOrder = 1
             Text = 'Passwort '#228'ndern'
             OnClick = LBIPasswortaendernClick
           end
           object LblAbmelden: TListBoxItem
-            Position.Y = 88.000000000000000000
+            Position.Y = 70.000000000000000000
+            Size.Width = 368.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
             TabOrder = 2
             Text = 'Abmelden'
             OnClick = LblAbmeldenClick
