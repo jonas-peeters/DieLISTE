@@ -17,9 +17,6 @@ type
     EdtName: TEdit;
     EdtEinheit: TEdit;
     EdtMenge: TEdit;
-    BtnOK: TButton;
-    BtnSchliessen: TButton;
-    BtnHinzufuegen: TButton;
     CBCategory: TComboBox;
     ListBoxItem1: TListBoxItem;
     ListBoxItem2: TListBoxItem;
@@ -31,6 +28,12 @@ type
     ListBoxItem8: TListBoxItem;
     ListBoxItem9: TListBoxItem;
     BtnBack: TButton;
+    PanelOK: TPanel;
+    LabelOK: TLabel;
+    PanelAbbrechen: TPanel;
+    LabelAbbrechen: TLabel;
+    PanelWeitere: TPanel;
+    LabelWeitere: TLabel;
     procedure BtnSchliessenClick(Sender: TObject);
     procedure BtnOKClick(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; selectedListId: Integer);

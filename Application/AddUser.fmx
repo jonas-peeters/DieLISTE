@@ -7,7 +7,7 @@ object FormAddUser: TFormAddUser
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  DesignerMasterStyle = 0
+  DesignerMasterStyle = 2
   object GridPanelLayout1: TGridPanelLayout
     Align = Client
     Size.Width = 350.000000000000000000
@@ -32,31 +32,28 @@ object FormAddUser: TFormAddUser
         ColumnSpan = 2
         Control = ListBox1
         Row = 2
-        RowSpan = 2
-      end
-      item
-        Column = 1
-        Control = Label1
-        Row = 0
       end
       item
         Column = 0
         ColumnSpan = 2
         Control = Edit1
         Row = 1
+      end
+      item
+        Column = 1
+        Control = Label1
+        Row = 0
       end>
     RowCollection = <
       item
-        Value = 10.097386773056200000
+        Value = 11.219318634948160000
       end
       item
-        Value = 9.999999985713463000
+        SizeStyle = Absolute
+        Value = 30.000000000000000000
       end
       item
-        Value = 79.902613241230340000
-      end
-      item
-        SizeStyle = Auto
+        Value = 88.780681365051840000
       end
       item
         SizeStyle = Auto
@@ -64,7 +61,7 @@ object FormAddUser: TFormAddUser
     object BtnBack: TButton
       Align = Client
       Size.Width = 58.345108032226560000
-      Size.Height = 55.535625457763670000
+      Size.Height = 58.340457916259760000
       Size.PlatformDefault = False
       TabOrder = 0
       Text = '<'
@@ -73,32 +70,42 @@ object FormAddUser: TFormAddUser
     object ListBox1: TListBox
       Align = Client
       Size.Width = 350.000000000000000000
-      Size.Height = 439.464355468750000000
+      Size.Height = 461.659545898437500000
       Size.PlatformDefault = False
       TabOrder = 1
       DisableFocusEffect = True
       DefaultItemStyles.ItemStyle = ''
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
-      Viewport.Width = 346.000000000000000000
-      Viewport.Height = 435.500000000000000000
-    end
-    object Label1: TLabel
-      Align = Client
-      Size.Width = 291.654907226562500000
-      Size.Height = 55.535625457763670000
-      Size.PlatformDefault = False
-      Text = 'User hinzuf'#252'gen'
-      TabOrder = 2
+      Viewport.Width = 350.000000000000000000
+      Viewport.Height = 461.700000000000000000
     end
     object Edit1: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 3
       Size.Width = 350.000000000000000000
-      Size.Height = 55.000003814697270000
+      Size.Height = 30.000000000000000000
       Size.PlatformDefault = False
+      TextPrompt = 'Username'
       OnChangeTracking = Edit1Change
+      object ClearEditButton1: TClearEditButton
+        CanFocus = False
+        Cursor = crArrow
+        Size.Width = 22.000000000000000000
+        Size.Height = 27.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        OnClick = ClearEditButton1Click
+      end
+    end
+    object Label1: TLabel
+      Align = Client
+      Size.Width = 291.654907226562500000
+      Size.Height = 58.340457916259760000
+      Size.PlatformDefault = False
+      Text = 'User hinzuf'#252'gen'
+      TabOrder = 2
     end
   end
 end

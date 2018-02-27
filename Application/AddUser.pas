@@ -26,12 +26,14 @@ type
     GridPanelLayout1: TGridPanelLayout;
     BtnBack: TButton;
     ListBox1: TListBox;
-    Label1: TLabel;
     Edit1: TEdit;
+    Label1: TLabel;
+    ClearEditButton1: TClearEditButton;
     procedure BtnBackClick(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
     procedure ClickOnName(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; selectedListId: Integer);
+    procedure ClearEditButton1Click(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -89,6 +91,11 @@ begin
     item.OnClick := ClickOnName;
     ListBox1.AddObject(item);
   end;
+end;
+
+procedure TFormAddUser.ClearEditButton1Click(Sender: TObject);
+begin
+  Edit1.Text := '';
 end;
 
 procedure TFormAddUser.ClickOnName(Sender: TObject);

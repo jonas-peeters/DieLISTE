@@ -2,16 +2,17 @@ object FormHinzufuegen: TFormHinzufuegen
   Left = 0
   Top = 0
   Caption = 'Form9'
-  ClientHeight = 250
-  ClientWidth = 250
+  ClientHeight = 504
+  ClientWidth = 308
+  Fill.Kind = Solid
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  DesignerMasterStyle = 0
+  DesignerMasterStyle = 2
   object GridPanelLayout1: TGridPanelLayout
     Align = Client
-    Size.Width = 250.000000000000000000
-    Size.Height = 250.000000000000000000
+    Size.Width = 308.000000000000000000
+    Size.Height = 504.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     ColumnCollection = <
@@ -63,22 +64,6 @@ object FormHinzufuegen: TFormHinzufuegen
       end
       item
         Column = 1
-        Control = BtnOK
-        Row = 10
-      end
-      item
-        Column = 2
-        Control = BtnSchliessen
-        Row = 10
-      end
-      item
-        Column = 3
-        ColumnSpan = 3
-        Control = BtnHinzufuegen
-        Row = 10
-      end
-      item
-        Column = 1
         ColumnSpan = 5
         Control = CBCategory
         Row = 8
@@ -89,59 +74,83 @@ object FormHinzufuegen: TFormHinzufuegen
         Control = BtnBack
         Row = 0
         RowSpan = 2
+      end
+      item
+        Column = 4
+        ColumnSpan = 2
+        Control = PanelOK
+        Row = 10
+      end
+      item
+        Column = 1
+        ColumnSpan = 2
+        Control = PanelAbbrechen
+        Row = 10
+      end
+      item
+        Column = 1
+        ColumnSpan = 5
+        Control = PanelWeitere
+        Row = 12
       end>
     RowCollection = <
       item
-        Value = 6.213562328332232000
+        Value = 6.374679254210007000
       end
       item
-        Value = 12.093673380895450000
+        Value = 6.391655018779732000
       end
       item
-        Value = 5.954061211011357000
+        Value = 6.408408179197405000
       end
       item
-        Value = 5.881399950431427000
+        Value = 6.424939891626696000
       end
       item
-        Value = 11.448315719516130000
+        Value = 6.441252169160901000
       end
       item
-        Value = 5.655525953567315000
+        Value = 6.457347637408957000
       end
       item
-        Value = 11.006170644579590000
+        Value = 6.473229312550301000
       end
       item
-        Value = 5.438089563257101000
+        Value = 6.488900407579858000
       end
       item
-        Value = 10.594899133050820000
+        Value = 6.504364172041349000
       end
       item
-        Value = 5.239806559778780000
+        Value = 6.519623769749937000
       end
       item
-        Value = 10.238343239025260000
+        Value = 6.534682197737998000
       end
       item
-        Value = 10.236152316554540000
+        Value = 6.549542247806520000
+      end
+      item
+        Value = 6.564206509494413000
+      end
+      item
+        Value = 15.867169232655920000
       end>
     object LblHinzufuegen: TLabel
       Align = Client
-      Size.Width = 119.719749450683600000
-      Size.Height = 30.234184265136720000
+      Size.Width = 147.494705200195300000
+      Size.Height = 32.213939666748040000
       Size.PlatformDefault = False
       TextSettings.HorzAlign = Center
       Text = 'Hinzuf'#252'gen'
-      TabOrder = 7
+      TabOrder = 4
     end
     object EdtName: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 0
-      Size.Width = 199.727996826171900000
-      Size.Height = 28.620788574218750000
+      Size.Width = 246.064849853515600000
+      Size.Height = 30.000000000000000000
       Size.PlatformDefault = False
       TextPrompt = 'Name'
     end
@@ -149,8 +158,8 @@ object FormHinzufuegen: TFormHinzufuegen
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 2
-      Size.Width = 120.064170837402300000
-      Size.Height = 27.515426635742190000
+      Size.Width = 147.919036865234400000
+      Size.Height = 30.000000000000000000
       Size.PlatformDefault = False
       TextPrompt = 'Einheit'
     end
@@ -158,43 +167,16 @@ object FormHinzufuegen: TFormHinzufuegen
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 1
-      Size.Width = 79.663818359375000000
-      Size.Height = 27.515426635742190000
+      Size.Width = 98.145820617675780000
+      Size.Height = 30.000000000000000000
       Size.PlatformDefault = False
       TextPrompt = 'Menge'
-    end
-    object BtnOK: TButton
-      Align = Client
-      Size.Width = 39.897144317626950000
-      Size.Height = 25.595855712890620000
-      Size.PlatformDefault = False
-      TabOrder = 4
-      Text = 'OK'
-      OnClick = BtnOKClick
-    end
-    object BtnSchliessen: TButton
-      Align = Client
-      Size.Width = 39.766677856445310000
-      Size.Height = 25.595855712890620000
-      Size.PlatformDefault = False
-      TabOrder = 6
-      Text = 'X'
-      OnClick = BtnSchliessenClick
-    end
-    object BtnHinzufuegen: TButton
-      Align = Client
-      Size.Width = 120.064170837402300000
-      Size.Height = 25.595855712890620000
-      Size.PlatformDefault = False
-      TabOrder = 5
-      Text = 'Weitere Hinzuf'#252'gen'
-      OnClick = BtnHinzufuegenClick
     end
     object CBCategory: TComboBox
       Align = Client
       ItemIndex = 0
-      Size.Width = 199.727996826171900000
-      Size.Height = 26.487243652343750000
+      Size.Width = 246.064849853515600000
+      Size.Height = 30.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
       object ListBoxItem1: TListBoxItem
@@ -243,12 +225,66 @@ object FormHinzufuegen: TFormHinzufuegen
     end
     object BtnBack: TButton
       Align = Client
-      Size.Width = 65.168540954589850000
-      Size.Height = 45.768089294433590000
+      Size.Width = 80.287643432617190000
+      Size.Height = 64.342323303222660000
       Size.PlatformDefault = False
-      TabOrder = 8
+      TabOrder = 5
       Text = '<'
       OnClick = BtnBackClick
+    end
+    object PanelOK: TPanel
+      Align = Client
+      Size.Width = 98.782714843750000000
+      Size.Height = 32.934814453125000000
+      Size.PlatformDefault = False
+      TabOrder = 8
+      object LabelOK: TLabel
+        Align = Client
+        HitTest = True
+        Size.Width = 98.782714843750000000
+        Size.Height = 32.934814453125000000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Center
+        Text = 'OK'
+        TabOrder = 1
+        OnClick = BtnOKClick
+      end
+    end
+    object PanelAbbrechen: TPanel
+      Align = Client
+      Size.Width = 98.145820617675780000
+      Size.Height = 32.934814453125000000
+      Size.PlatformDefault = False
+      TabOrder = 7
+      object LabelAbbrechen: TLabel
+        Align = Client
+        HitTest = True
+        Size.Width = 98.145820617675780000
+        Size.Height = 32.934814453125000000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Center
+        Text = 'Abbrechen'
+        TabOrder = 1
+        OnClick = BtnSchliessenClick
+      end
+    end
+    object PanelWeitere: TPanel
+      Align = Client
+      Size.Width = 246.064849853515600000
+      Size.Height = 33.083587646484380000
+      Size.PlatformDefault = False
+      TabOrder = 6
+      object LabelWeitere: TLabel
+        Align = Client
+        HitTest = True
+        Size.Width = 246.064849853515600000
+        Size.Height = 33.083587646484380000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Center
+        Text = 'Weitere Hinzuf'#252'gen'
+        TabOrder = 1
+        OnClick = BtnHinzufuegenClick
+      end
     end
   end
 end

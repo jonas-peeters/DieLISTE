@@ -7,7 +7,7 @@ object FormListe: TFormListe
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  DesignerMasterStyle = 0
+  DesignerMasterStyle = 2
   object GridPanelLayout1: TGridPanelLayout
     Align = Client
     Size.Width = 350.000000000000000000
@@ -63,7 +63,7 @@ object FormListe: TFormListe
       end>
     RowCollection = <
       item
-        Value = 9.999999999999998000
+        Value = 9.999999999999999000
       end
       item
         Value = 90.000000000000000000
@@ -108,8 +108,10 @@ object FormListe: TFormListe
       DefaultItemStyles.ItemStyle = ''
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
-      Viewport.Width = 346.000000000000000000
-      Viewport.Height = 458.600000000000000000
+      ShowCheckboxes = True
+      OnChangeCheck = ListBox1ChangeCheck
+      Viewport.Width = 350.000000000000000000
+      Viewport.Height = 462.600000000000000000
     end
     object BtnBack: TButton
       Align = Client

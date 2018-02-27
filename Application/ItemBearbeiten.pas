@@ -16,7 +16,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
   FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, serverAPI, FMX.ListBox,
-  Helper, StrUtils;
+  Helper, StrUtils, FMX.Colors;
 
 type
   TFormItemBearbeiten = class(TForm)
@@ -25,8 +25,6 @@ type
     EdtName: TEdit;
     EdtEinheit: TEdit;
     EdtMenge: TEdit;
-    BtnOK: TButton;
-    BtnSchliessen: TButton;
     CBCategory: TComboBox;
     ListBoxItem1: TListBoxItem;
     ListBoxItem2: TListBoxItem;
@@ -38,8 +36,14 @@ type
     ListBoxItem8: TListBoxItem;
     ListBoxItem9: TListBoxItem;
     BtnBack: TButton;
-    BtnErledigt: TButton;
-    BtnLoeschen: TButton;
+    PanelErledigt: TPanel;
+    LabelErledigt: TLabel;
+    PanelLoeschen: TPanel;
+    LabelLoeschen: TLabel;
+    PanelAbbrechen: TPanel;
+    LabelAbbrechen: TLabel;
+    PanelOK: TPanel;
+    LabelOK: TLabel;
     procedure BtnSchliessenClick(Sender: TObject);
     procedure BtnOKClick(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; item: TItem);
@@ -118,7 +122,6 @@ begin
     mrYES:
       begin
       privateServerAPI.deleteitem(itemToChange.itemId);
-      ShowMessage('Das Item wurde gelöscht!');
       Close;
       Release;
       end;

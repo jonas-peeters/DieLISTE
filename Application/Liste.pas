@@ -31,6 +31,7 @@ type
     procedure BtnBackClick(Sender: TObject);
     procedure ClickOnItem(Sender: TObject);
     procedure subFormClosed(Sender: TObject; var Action: TCloseAction);
+    procedure ListBox1ChangeCheck(Sender: TObject);
 
   private
     { Private-Deklarationen }
@@ -90,7 +91,30 @@ begin
   Update();
 end;
 
-procedure TFormListe.Update();
+procedure TFormListe.ListBox1ChangeCheck(Sender: TObject);
+var
+  item: TItem;
+  i: Integer;
+  child: TListBoxItem;
+  changed: Boolean;
+begin
+  changed := false;
+  for i := 0 to ListBox1.Items.Count - 1 do
+  begin
+    child := ListBox1.ItemByIndex(i);
+    item := list.items[StrToInt(child.ItemData.Detail)];
+    if child.IsChecked <> item.done then
+    begin
+      privateServerAPI.DeleteItem(item.itemId);
+      privateServerAPI.AddToList(item.name, item.quantity, child.IsChecked, item.categoryId, item.listId);
+      changed := true;
+    end;
+  end;
+  if changed then
+    Update;
+end;
+
+procedure TFormListe.Update;
 var
   i: Integer;
   item: TListBoxItem;
@@ -105,11 +129,11 @@ begin
   for i := 0 to High(list.items) do
   begin
     item := TListBoxItem.Create(ListBox1);
-    item.Text := list.items[i].name + Tabulator + list.items[i].quantity;
+    item.Text := Tabulator + list.items[i].name + Tabulator + list.items[i].quantity;
     if list.items[i].done then
-      item.ItemData.Accessory := TListBoxItemData.TAccessory.aCheckmark
+      item.IsChecked := true
     else
-      item.ItemData.Accessory := TListBoxItemData.TAccessory.aNone;
+      item.IsChecked := false;
     item.ItemData.Detail := IntToStr(i);
     item.OnClick := ClickOnItem;
     ListBox1.AddObject(item);

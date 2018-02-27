@@ -70,7 +70,9 @@ var
   lists: TListArray;
   i: Integer;
   item: TListBoxItem;
-  header: TListBoxGroupHeader;
+  mainHeader: TListBoxHeader;
+  mainLabel: TLabel;
+  groupHeader: TListBoxGroupHeader;
 begin
   lists := privateServerAPI.getLists;
   for i := 0 to High(lists) do
@@ -78,37 +80,50 @@ begin
       list := lists[i];
   ListBox1.Clear;
 
-  // Add Listname
-  header := TListBoxGroupHeader.Create(ListBox1);
-  header.Text := list.name;
-  ListBox1.AddObject(header);
+  Label1.Text := 'Liste "' + list.name + '" bearbeiten';
+
+  // Add 'Allgemein' header
+  groupHeader := TListBoxGroupHeader.Create(ListBox1);
+  groupHeader.Text := 'Allgemein';
+  ListBox1.AddObject(groupHeader);
+  {$IF defined(MSWINDOWS)}
+    item.Height:=23;
+  {$ENDIF}
 
   // Add change name
   item := TListBoxItem.Create(ListBox1);
   item.Text := 'Name ändern';
   item.OnClick := EditListNameClick;
   ListBox1.AddObject(item);
-  item.Height:=23;
+  {$IF defined(MSWINDOWS)}
+    item.Height:=23;
+  {$ENDIF}
 
   // Add delete list
   item := TListBoxItem.Create(ListBox1);
   item.Text := 'Liste löschen';
   item.OnClick := DeleteListClick;
   ListBox1.AddObject(item);
-  item.Height:=23;
+  {$IF defined(MSWINDOWS)}
+    item.Height:=23;
+  {$ENDIF}
 
   // Add add user
   item := TListBoxItem.Create(ListBox1);
   item.Text := 'User hinzufügen';
   item.OnClick := AddUserClick;
   ListBox1.AddObject(item);
-  item.Height:=23;
+  {$IF defined(MSWINDOWS)}
+    item.Height:=23;
+  {$ENDIF}
 
    // Add 'Benutzer' header
-  header := TListBoxGroupHeader.Create(ListBox1);
-  header.Text := 'Benutzer';
-  ListBox1.AddObject(header);
-  item.Height:=23;
+  groupHeader := TListBoxGroupHeader.Create(ListBox1);
+  groupHeader.Text := 'Benutzer';
+  ListBox1.AddObject(groupHeader);
+  {$IF defined(MSWINDOWS)}
+    item.Height:=23;
+  {$ENDIF}
 
   // Add users with access
   for i := 0 to High(list.user) do
@@ -117,7 +132,9 @@ begin
     item.Text := list.user[i];
     item.ItemData.Detail := IntToStr(i);
     ListBox1.AddObject(item);
-    item.Height:=20;
+    {$IF defined(MSWINDOWS)}
+      item.Height:=20;
+    {$ENDIF}
   end;
 end;
 

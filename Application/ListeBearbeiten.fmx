@@ -4,10 +4,11 @@ object FormListeBearbeiten: TFormListeBearbeiten
   Caption = 'Form1'
   ClientHeight = 550
   ClientWidth = 350
+  Fill.Kind = Solid
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  DesignerMasterStyle = 0
+  DesignerMasterStyle = 2
   object GridPanelLayout1: TGridPanelLayout
     Align = Client
     Size.Width = 350.000000000000000000
@@ -71,31 +72,31 @@ object FormListeBearbeiten: TFormListeBearbeiten
       Viewport.Width = 350.000000000000000000
       Viewport.Height = 495.000000000000000000
       object SettingsGroupHeader: TListBoxGroupHeader
-        Size.Width = 346.000000000000000000
-        Size.Height = 44.000000000000000000
+        Size.Width = 350.000000000000000000
+        Size.Height = 22.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 3
         Text = 'Allgemein'
       end
       object LBIEditListName: TListBoxItem
-        Position.Y = 44.000000000000000000
+        Position.Y = 22.000000000000000000
         TabOrder = 0
         Text = 'Name '#228'ndern'
       end
       object LBIDeleteList: TListBoxItem
-        Position.Y = 63.000000000000000000
+        Position.Y = 66.000000000000000000
         TabOrder = 1
         Text = 'Liste l'#246'schen'
       end
       object LBIAddUser: TListBoxItem
-        Position.Y = 82.000000000000000000
+        Position.Y = 110.000000000000000000
         TabOrder = 2
         Text = 'User hinzuf'#252'gen'
       end
       object GroupHeaderUser: TListBoxGroupHeader
-        Position.Y = 101.000000000000000000
-        Size.Width = 346.000000000000000000
-        Size.Height = 44.000000000000000000
+        Position.Y = 154.000000000000000000
+        Size.Width = 350.000000000000000000
+        Size.Height = 22.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 4
         Text = 'Benutzer'

@@ -4,6 +4,7 @@ object FormMain: TFormMain
   Caption = 'Form6'
   ClientHeight = 573
   ClientWidth = 368
+  Fill.Kind = Solid
   Visible = True
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -45,58 +46,42 @@ object FormMain: TFormMain
         TabOrder = 0
         ColumnCollection = <
           item
-            Value = 15.238146681804800000
+            Value = 15.000000222733090000
           end
           item
-            Value = 15.931348612213400000
+            Value = 69.999999706159460000
           end
           item
-            Value = 16.655838258006800000
-          end
-          item
-            Value = 17.413234388729360000
-          end
-          item
-            Value = 18.205133344232030000
-          end
-          item
-            Value = 16.556298715013610000
+            Value = 15.000000071107450000
           end>
         ControlCollection = <
           item
-            Column = 4
+            Column = 2
             Control = PlusBtn2
-            Row = 1
+            Row = 0
           end
           item
             Column = 1
-            ColumnSpan = 2
             Control = Label1
-            Row = 1
+            Row = 0
           end
           item
             Column = 0
-            ColumnSpan = 6
+            ColumnSpan = 3
             Control = LBLists
-            Row = 3
+            Row = 1
           end>
         RowCollection = <
           item
-            Value = 5.894452983715379000
+            Value = 10.390828647094180000
           end
           item
-            Value = 5.894452983715350000
-          end
-          item
-            Value = 5.894452983715341000
-          end
-          item
-            Value = 82.316641048853920000
+            Value = 89.609171352905820000
           end>
         object PlusBtn2: TButton
           Align = Client
-          Size.Width = 66.994888305664060000
-          Size.Height = 30.886934280395510000
+          Size.Width = 55.200500488281250000
+          Size.Height = 54.447940826416010000
           Size.PlatformDefault = False
           TabOrder = 0
           Text = '+'
@@ -104,16 +89,17 @@ object FormMain: TFormMain
         end
         object Label1: TLabel
           Align = Client
-          Size.Width = 119.920837402343800000
-          Size.Height = 30.886934280395510000
+          Size.Width = 257.600006103515600000
+          Size.Height = 54.447940826416010000
           Size.PlatformDefault = False
+          TextSettings.HorzAlign = Center
           Text = 'HOME'
           TabOrder = 1
         end
         object LBLists: TListBox
           Align = Client
           Size.Width = 368.000000000000000000
-          Size.Height = 431.339202880859400000
+          Size.Height = 469.552062988281300000
           Size.PlatformDefault = False
           TabOrder = 2
           DisableFocusEffect = True
@@ -121,7 +107,7 @@ object FormMain: TFormMain
           DefaultItemStyles.GroupHeaderStyle = ''
           DefaultItemStyles.GroupFooterStyle = ''
           Viewport.Width = 368.000000000000000000
-          Viewport.Height = 387.300000000000000000
+          Viewport.Height = 425.600000000000000000
           object SearchBox1: TSearchBox
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             Align = Top
@@ -225,17 +211,15 @@ object FormMain: TFormMain
         object LblAllergien: TLabel
           Align = Client
           Size.Width = 185.126708984375000000
-          Size.Height = 57.910911560058590000
+          Size.Height = 57.910911560058600000
           Size.PlatformDefault = False
           Text = 'Allergien'
           TabOrder = 1
         end
         object EditButton: TButton
-          Anchors = []
-          Position.X = 261.355468750000000000
-          Position.Y = 116.646965026855500000
-          Size.Width = 32.953796386718750000
-          Size.Height = 21.567554473876950000
+          Align = Client
+          Size.Width = 60.634994506835940000
+          Size.Height = 57.910911560058600000
           Size.PlatformDefault = False
           TabOrder = 2
           Text = 'Edit'

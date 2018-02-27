@@ -104,7 +104,9 @@ begin
     item.ItemData.Detail := IntToStr(i);
     item.OnClick := LBListItemClick;
     LBLists.AddObject(item);
-    item.Height:=25;
+    {$IF defined(MSWINDOWS)}
+      item.Height:=25;
+    {$ENDIF}
   end;
 
 

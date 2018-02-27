@@ -4,6 +4,7 @@ object FormPWaendern: TFormPWaendern
   Caption = 'Form7'
   ClientHeight = 250
   ClientWidth = 250
+  Fill.Kind = Solid
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -84,7 +85,7 @@ object FormPWaendern: TFormPWaendern
         Value = 8.746123088819880000
       end
       item
-        Value = 9.001155829913561000
+        Value = 9.001155829913560000
       end
       item
         Value = 9.219744442566775000
@@ -96,7 +97,7 @@ object FormPWaendern: TFormPWaendern
         Value = 9.506568260475131000
       end
       item
-        Value = 9.550217255482481000
+        Value = 9.550217255482482000
       end
       item
         Value = 9.507877481870286000
@@ -105,7 +106,7 @@ object FormPWaendern: TFormPWaendern
         Value = 9.362030900164124000
       end
       item
-        Value = 9.092036669992162000
+        Value = 9.092036669992161000
       end>
     object EdtPWalt: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]

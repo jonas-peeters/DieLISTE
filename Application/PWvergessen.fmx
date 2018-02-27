@@ -4,6 +4,7 @@ object FormPWvergessen: TFormPWvergessen
   Caption = 'Vergessen'
   ClientHeight = 539
   ClientWidth = 350
+  Fill.Kind = Solid
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]

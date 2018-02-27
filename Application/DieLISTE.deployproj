@@ -982,7 +982,7 @@
         <DeployFile Include="..\Assets\Icons\40 40.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>DieLISTE.app\</RemoteDir>
             <RemoteName>40 40.png</RemoteName>
-            <DeployClass>iPhone_Spotlight40</DeployClass>
+            <DeployClass>iPad_SpotLight40</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
@@ -1163,6 +1163,15 @@
             <RemoteDir>DieLISTE.app\</RemoteDir>
             <RemoteName>Default.png</RemoteName>
             <DeployClass>iPhone_Launch320</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="iOSSimulator\Debug\DieLISTE.rsm" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>DieLISTE.app\</RemoteDir>
+            <RemoteName>DieLISTE.rsm</RemoteName>
+            <DeployClass>DebugSymbols</DeployClass>
             <Operation>1</Operation>
             <LocalCommand/>
             <RemoteCommand/>

@@ -27,8 +27,11 @@ type
     EdtEMailRegister: TEdit;
     EdtBenutzernameRegister: TEdit;
     EdtPWRegister: TEdit;
-    BtnLos: TButton;
-    BtnRegistrieren: TButton;
+    LabelPWVergessen: TLabel;
+    PanelLogin: TPanel;
+    LabelLogin: TLabel;
+    PanelRegistrieren: TPanel;
+    Label1: TLabel;
     procedure BtnRegistrierenClick(Sender: TObject);
     procedure BtnPWVergessenClick(Sender: TObject);
     procedure login(email: String; password: String);
