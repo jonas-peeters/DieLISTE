@@ -83,11 +83,20 @@ end;
 procedure TFormLogin.BtnRegistrierenClick(Sender: TObject);
 var email, name, password: string;
 begin
-   email:= EdtEmailRegister.Text;
-   name:= EdtBenutzernameRegister.Text;
-   password:= EdtPWRegister.Text;
-   UMain.serverAPI.createUser(email,name, password);
+  email:= EdtEmailRegister.Text;
+  name:= EdtBenutzernameRegister.Text;
+  password:= EdtPWRegister.Text;
+  if email = '' then
+    ShowMessage('Du musst eine valide E-Mail angeben!')
+  else if name = '' then
+    ShowMessage('Du musst einen Benutzernamen angeben!')
+  else if password.Length < 6 then
+    ShowMessage('Dein Passwort muss mindestens 6 Stellen haben')
+  else
+  begin
+    UMain.serverAPI.createUser(email,name, password);
     ShowMessage('Vielen Dank für Ihre Regestrierung. Bitte verifizieren Sie ihre E-Mail, um die Regestrierung zu vollenden!');
+  end;
 end;
 
 procedure TFormLogin.FormShow(Sender: TObject);

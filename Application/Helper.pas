@@ -190,7 +190,7 @@ begin
       25: begin result := false; ShowMessage('Unerwarteter Fehler. Sind alle eingaben korrekt?'); end;
       30: begin result := false; ShowMessage('Server Error: Lesen nicht möglich'); end;
       31: begin result := false; ShowMessage('Server Error: Schreiben nicht möglich'); end;
-      32: begin result := false; ShowMessage('Server Fehler: Die E-Mail ist möglicherweise nicht angekommen.'); end;
+      32: begin result := false; ShowMessage('Server Error: Die E-Mail ist möglicherweise nicht angekommen.'); end;
       40: begin result := false; ShowMessage('Anmeldung Fehlgeschlagen: Versuche es erneut.'); end;
       41: begin result := false; ShowMessage('Fehler: Der User konnte nicht gefunden werden.'); end;
       42: begin result := false; ShowMessage('Fehler: Die E-Mail konnte nicht gefunden werden.'); end;
