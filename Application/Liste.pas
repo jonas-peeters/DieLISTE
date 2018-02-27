@@ -120,7 +120,7 @@ procedure TFormListe.ClickOnItem(Sender: TObject);
 var
   itemAendernForm: TFormItemBearbeiten;
 begin
-  itemAendernForm := TFormItemBearbeiten.Create(nil, privateServerAPI, list.items[StrToInt(ListBox1.Selected.ItemData.Detail)]);
+  itemAendernForm := TFormItemBearbeiten.Create(Application, privateServerAPI, list.items[StrToInt((Sender as TListBoxItem).ItemData.Detail)]);
   itemAendernForm.OnClose := subFormClosed;
   itemAendernForm.Show();
 end;
