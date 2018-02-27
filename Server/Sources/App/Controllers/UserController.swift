@@ -2,6 +2,7 @@ import Vapor
 import HTTP
 import FluentProvider
 import AuthProvider
+import BCrypt
 
 /// Controlling all routes concerning anything related user infos
 ///
@@ -33,7 +34,9 @@ final class UserController {
         let listController = ListController(view)
         
         // Logging in
-        loginRoute.post("login", handler: login)
+        loginRoute.post("login", handler: { req in
+            return try self.login(req, drop: drop)
+        })
         
         // Create a new user
         userRoute.post("create") { req in
@@ -87,9 +90,13 @@ final class UserController {
             guard let json = request.json else {
                 return status(20)
             }
-            let newUser: User = try User(json: json)
+            let email = try json.get("email") as String
+            let username = try json.get("username") as String
+            let unhashedPassword = try json.get("password") as String
+            let password: String = (try drop.hash.make(unhashedPassword)).makeString()
+            let newUser: User = User(username: username, email: email, verifiedEmail: false, password: password, allergies: "", spamCounter: 0)
             
-            if !(try User.all().filter({ user in user.username == newUser.username || user.email == newUser.email}).isEmpty) {
+            if !(try User.all().filter({ user in user.username == username || user.email == email}).isEmpty) {
                 return status(44)
             }
             
@@ -178,15 +185,16 @@ final class UserController {
     /// - parameters:
     ///   - request: A HTTP request
     /// - returns: A status (see docs)
-    func login(_ request: Request) throws -> ResponseRepresentable {
+    func login(_ request: Request, drop: Droplet) throws -> ResponseRepresentable {
         let email: String
         let password: String
         do {
             guard let json = request.json else {
                 return status(20)
             }
-            email = try json.get(User.Keys.email) as String
-            password = try json.get(User.Keys.password) as String
+            email = try json.get("email") as String
+            let unhashedPassword = try json.get("password") as String
+            password = (try drop.hash.make(unhashedPassword)).makeString()
         } catch {
             return status(25)
         }
@@ -194,11 +202,13 @@ final class UserController {
         
         do {
             let user = try User.authenticate(credentials)
+            if !user.verifiedEmail {
+                return status(45)
+            }
             request.auth.authenticate(user)
         } catch {
             return status(43)
         }
-        
         return status(11)
     }
     

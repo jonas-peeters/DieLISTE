@@ -294,7 +294,7 @@ final class ListController {
             do {
                 let typedString = try request.parameters.next() as String
                 var users = user.connectedUsers.filter({ $0.key.contains(typedString) })
-                for otherUser in try User.all().filter({ $0.username.contains(typedString) && users[$0.username] == nil }) {
+                for otherUser in try User.all().filter({ $0.username.contains(typedString) && users[$0.username] == nil && $0.verifiedEmail }) {
                     users[otherUser.username] = 0
                 }
                 for otherUser in list.users {

@@ -22,7 +22,7 @@ class RouteTests: TestCase {
         let request = Request(method: .post,
                               uri: "/login",
                               headers: ["Content-Type": "application/json"],
-                              body: try Body(JSON(node: ["email": "jonas.peeters@me.com","password":"123456"])))
+                              body: try Body(JSON(node: ["email": "**************","password":"*************"])))
         try drop
             .testResponse(to: request)
             .assertStatus(is: .ok)
@@ -34,7 +34,7 @@ class RouteTests: TestCase {
         let loginRequest = Request(method: .post,
                                    uri: "/login",
                                    headers: ["Content-Type": "application/json"],
-                                   body: try Body(JSON(node: ["email": "jonas.peeters@me.com","password":"123456"])))
+                                   body: try Body(JSON(node: ["email": "**************","password":"**************"])))
         
         return try drop
             .testResponse(to: loginRequest)

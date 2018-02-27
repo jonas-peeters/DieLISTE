@@ -23,7 +23,9 @@ final class PasswordController {
     ///   - authedRoute: Authenticated route to '/user'
     func addRoutes(drop: Droplet, userRoute: RouteBuilder, authedRoute: RouteBuilder) {
         // Change password
-        authedRoute.post("password", "change", handler: changePassword)
+        authedRoute.post("password", "change", handler: { req in
+            return try self.changePassword(req, drop: drop)
+        })
         
         // Forgot password
         userRoute.post("password","forgot") { req in
@@ -53,7 +55,7 @@ final class PasswordController {
     ///
     /// - Parameter request: A HTTP request
     /// - Returns: A status (see docs)
-    func changePassword(_ request: Request) throws -> ResponseRepresentable {
+    func changePassword(_ request: Request, drop: Droplet) throws -> ResponseRepresentable {
         guard let user = request.auth.authenticated(User.self) else {
             return status(40)
         }
@@ -61,7 +63,8 @@ final class PasswordController {
             guard let json = request.json else {
                 return status(20)
             }
-            let newPassword = try json.get(User.Keys.password) as String
+            let unhashedPassword = try json.get("password") as String
+            let newPassword: String = (try drop.hash.make(unhashedPassword)).makeString()
             user.password = newPassword
             
             do {
@@ -158,13 +161,14 @@ final class PasswordController {
             guard let user = try User.find(id) else {
                 return try self.view.make("error", ["message": "User nicht gefunden"], for: request)
             }
-            let newPassword = try request.parameters.next(String.self)
-            if newPassword != "" {
-                user.password = newPassword
+            let newPassword: String = try request.parameters.next(String.self)
+            if newPassword.count > 5 {
+                let newHashedPassword = (try drop.hash.make(newPassword)).makeString()
+                user.password = newHashedPassword
                 try user.save()
                 return try self.view.make("success", ["message": "Passwort erfolgreich geändert"], for: request)
             } else {
-                return try self.view.make("error", ["message": "Das Passwort muss min. die Länge 1 haben"], for: request)
+                return try self.view.make("error", ["message": "Das Passwort muss min. die Länge 6 haben"], for: request)
             }
         } catch {
             return try self.view.make("error", ["message": "Parameter nicht gefunden"], for: request)
