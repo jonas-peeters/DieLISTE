@@ -193,6 +193,7 @@ final class UserController {
                 return status(20)
             }
             email = try json.get("email") as String
+            
             password = try json.get("password") as String
             //password = (try drop.hash.make(unhashedPassword)).makeString()
         } catch {
