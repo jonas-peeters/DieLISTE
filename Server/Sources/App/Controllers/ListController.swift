@@ -104,8 +104,10 @@ final class ListController {
             var json: JSON = try makeJSON(from: lists)
             
             for (listCount, list) in lists.makeIterator().enumerated() {
-                try json[listCount]!.set("items", list.items)
-                try json[listCount]!.set("user", list.users)
+                try json[listCount]!.set("items", list.items.sorted(by: { item1, item2 in
+                    item1.name < item2.name
+                }))
+                try json[listCount]!.set("user", list.users.sorted())
             }
             
             return json
