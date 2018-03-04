@@ -92,8 +92,8 @@ final class UserController {
             }
             let email = try json.get("email") as String
             let username = try json.get("username") as String
-            let password = try json.get("password") as String
-            //let password: String = (try drop.hash.make(unhashedPassword)).makeString()
+            let unhashedPassword = try json.get("password") as String
+            let password: String = try String(bytes: drop.hash.make(unhashedPassword))
             let newUser: User = User(username: username, email: email, verifiedEmail: false, password: password, allergies: "", spamCounter: 0)
             
             if !(try User.all().filter({ user in user.username == username || user.email == email}).isEmpty) {
@@ -194,8 +194,8 @@ final class UserController {
             }
             email = try json.get("email") as String
             
-            password = try json.get("password") as String
-            //password = (try drop.hash.make(unhashedPassword)).makeString()
+            let unhashedPassword = try json.get("password") as String
+            password = try String(bytes: drop.hash.make(unhashedPassword))
         } catch {
             return status(25)
         }

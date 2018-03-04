@@ -64,8 +64,8 @@ final class PasswordController {
                 return status(20)
             }
             let unhashedPassword = try json.get("password") as String
-            //let newPassword: String = (try drop.hash.make(unhashedPassword)).makeString()
-            user.password = unhashedPassword
+            let password = try String(bytes: drop.hash.make(unhashedPassword))
+            user.password = password
             
             do {
                 try user.save()
@@ -163,8 +163,8 @@ final class PasswordController {
             }
             let newPassword: String = try request.parameters.next(String.self)
             if newPassword.count > 5 {
-                //let newHashedPassword = (try drop.hash.make(newPassword)).makeString()
-                user.password = newPassword
+                let newHashedPassword = try String(bytes: drop.hash.make(newPassword))
+                user.password = newHashedPassword
                 try user.save()
                 return try self.view.make("success", ["message": "Passwort erfolgreich geändert"], for: request)
             } else {
