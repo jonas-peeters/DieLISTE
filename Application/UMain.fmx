@@ -2,8 +2,8 @@ object FormMain: TFormMain
   Left = 0
   Top = 0
   Caption = 'Form6'
-  ClientHeight = 573
-  ClientWidth = 368
+  ClientHeight = 553
+  ClientWidth = 327
   Fill.Kind = Solid
   Visible = True
   FormFactor.Width = 320
@@ -13,24 +13,25 @@ object FormMain: TFormMain
   DesignerMasterStyle = 2
   object TabControl1: TTabControl
     Align = Client
-    Size.Width = 368.000000000000000000
-    Size.Height = 573.000000000000000000
+    Size.Width = 327.000000000000000000
+    Size.Height = 553.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
     TabIndex = 0
     TabOrder = 1
     TabPosition = PlatformDefault
     Sizes = (
-      368s
-      524s
-      368s
-      524s)
+      327s
+      504s
+      327s
+      504s)
     object HomeTab: TTabItem
       CustomIcon = <
         item
         end>
+      StyledSettings = [Family, Style, FontColor]
       IsSelected = True
-      Size.Width = 184.000000000000000000
+      Size.Width = 163.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
@@ -40,8 +41,8 @@ object FormMain: TFormMain
       ExplicitSize.cy = 49.000000000000000000
       object GridPanelLayout1: TGridPanelLayout
         Align = Client
-        Size.Width = 368.000000000000000000
-        Size.Height = 524.000000000000000000
+        Size.Width = 327.000000000000000000
+        Size.Height = 504.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         ColumnCollection = <
@@ -80,8 +81,8 @@ object FormMain: TFormMain
           end>
         object PlusBtn2: TButton
           Align = Client
-          Size.Width = 55.200500488281250000
-          Size.Height = 54.447940826416010000
+          Size.Width = 49.050018310546880000
+          Size.Height = 52.369777679443360000
           Size.PlatformDefault = False
           TabOrder = 0
           Text = '+'
@@ -89,8 +90,8 @@ object FormMain: TFormMain
         end
         object Label1: TLabel
           Align = Client
-          Size.Width = 257.600006103515600000
-          Size.Height = 54.447940826416010000
+          Size.Width = 228.899978637695300000
+          Size.Height = 52.369777679443360000
           Size.PlatformDefault = False
           TextSettings.HorzAlign = Center
           Text = 'HOME'
@@ -98,21 +99,21 @@ object FormMain: TFormMain
         end
         object LBLists: TListBox
           Align = Client
-          Size.Width = 368.000000000000000000
-          Size.Height = 469.552062988281300000
+          Size.Width = 327.000000000000000000
+          Size.Height = 451.630218505859400000
           Size.PlatformDefault = False
           TabOrder = 2
           DisableFocusEffect = True
           DefaultItemStyles.ItemStyle = ''
           DefaultItemStyles.GroupHeaderStyle = ''
           DefaultItemStyles.GroupFooterStyle = ''
-          Viewport.Width = 368.000000000000000000
-          Viewport.Height = 425.600000000000000000
+          Viewport.Width = 327.000000000000000000
+          Viewport.Height = 407.600000000000000000
           object SearchBox1: TSearchBox
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             Align = Top
             TabOrder = 0
-            Size.Width = 368.000000000000000000
+            Size.Width = 327.000000000000000000
             Size.Height = 44.000000000000000000
             Size.PlatformDefault = False
           end
@@ -123,8 +124,9 @@ object FormMain: TFormMain
       CustomIcon = <
         item
         end>
+      StyledSettings = [Family, Style, FontColor]
       IsSelected = False
-      Size.Width = 184.000000000000000000
+      Size.Width = 164.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
@@ -134,8 +136,8 @@ object FormMain: TFormMain
       ExplicitSize.cy = 49.000000000000000000
       object GridPanelLayout2: TGridPanelLayout
         Align = Client
-        Size.Width = 368.000000000000000000
-        Size.Height = 524.000000000000000000
+        Size.Width = 327.000000000000000000
+        Size.Height = 504.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         ColumnCollection = <
@@ -202,24 +204,24 @@ object FormMain: TFormMain
           end>
         object LblUsername: TLabel
           Align = Client
-          Size.Width = 123.866455078125000000
-          Size.Height = 56.506996154785160000
+          Size.Width = 110.066116333007800000
+          Size.Height = 54.350242614746090000
           Size.PlatformDefault = False
           Text = 'Max Mustermann'
           TabOrder = 0
         end
         object LblAllergien: TLabel
           Align = Client
-          Size.Width = 185.126708984375000000
-          Size.Height = 57.910911560058600000
+          Size.Width = 164.501174926757800000
+          Size.Height = 55.700576782226560000
           Size.PlatformDefault = False
           Text = 'Allergien'
           TabOrder = 1
         end
         object EditButton: TButton
           Align = Client
-          Size.Width = 60.634994506835940000
-          Size.Height = 57.910911560058600000
+          Size.Width = 53.879470825195310000
+          Size.Height = 55.700576782226560000
           Size.PlatformDefault = False
           TabOrder = 2
           Text = 'Edit'
@@ -227,18 +229,18 @@ object FormMain: TFormMain
         end
         object ListBox2: TListBox
           Align = Client
-          Size.Width = 368.000000000000000000
-          Size.Height = 345.028930664062500000
+          Size.Width = 327.000000000000000000
+          Size.Height = 331.859893798828100000
           Size.PlatformDefault = False
           TabOrder = 3
           DisableFocusEffect = True
           DefaultItemStyles.ItemStyle = ''
           DefaultItemStyles.GroupHeaderStyle = ''
           DefaultItemStyles.GroupFooterStyle = ''
-          Viewport.Width = 368.000000000000000000
-          Viewport.Height = 345.000000000000000000
+          Viewport.Width = 327.000000000000000000
+          Viewport.Height = 331.900000000000000000
           object LBUserloeschen: TListBoxItem
-            Size.Width = 368.000000000000000000
+            Size.Width = 327.000000000000000000
             Size.Height = 35.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
@@ -247,7 +249,7 @@ object FormMain: TFormMain
           end
           object LBPasswortaendern: TListBoxItem
             Position.Y = 35.000000000000000000
-            Size.Width = 368.000000000000000000
+            Size.Width = 327.000000000000000000
             Size.Height = 35.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
@@ -256,7 +258,7 @@ object FormMain: TFormMain
           end
           object LblAbmelden: TListBoxItem
             Position.Y = 70.000000000000000000
-            Size.Width = 368.000000000000000000
+            Size.Width = 327.000000000000000000
             Size.Height = 35.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 2
