@@ -120,7 +120,6 @@ object FormPWvergessen: TFormPWvergessen
       Size.Height = 38.671386718750000000
       Size.PlatformDefault = False
       TextPrompt = 'E-Mail'
-      OnClick = BtnSendenClick
     end
     object BtnSenden: TButton
       Align = Client

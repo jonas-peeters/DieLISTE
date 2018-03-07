@@ -5,8 +5,8 @@
         <FrameworkType>FMX</FrameworkType>
         <MainSource>DieLISTE.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Debug</Config>
-        <Platform Condition="'$(Platform)'==''">iOSDevice64</Platform>
+        <Config Condition="'$(Config)'==''">Release</Config>
+        <Platform Condition="'$(Platform)'==''">Win64</Platform>
         <TargetedPlatforms>1119</TargetedPlatforms>
         <AppType>Application</AppType>
     </PropertyGroup>
@@ -513,40 +513,6 @@
     <PropertyGroup Condition="'$(Cfg_2_iOSDevice64)'!=''">
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_UIDeviceFamily>iPhoneAndiPad</VerInfo_UIDeviceFamily>
-        <iPhone_AppIcon57>..\Assets\Icons\57 57.png</iPhone_AppIcon57>
-        <iPhone_AppIcon60>..\Assets\Icons\60 60.png</iPhone_AppIcon60>
-        <iPhone_AppIcon87>..\Assets\Icons\87 87.png</iPhone_AppIcon87>
-        <iPhone_AppIcon114>..\Assets\Icons\114 114.png</iPhone_AppIcon114>
-        <iPhone_AppIcon120>..\Assets\Icons\120 120.png</iPhone_AppIcon120>
-        <iPhone_AppIcon180>..\Assets\Icons\180 180.png</iPhone_AppIcon180>
-        <iPhone_Spotlight29>..\Assets\Icons\29 29.png</iPhone_Spotlight29>
-        <iPhone_Spotlight40>..\Assets\Icons\40 40.png</iPhone_Spotlight40>
-        <iPhone_Spotlight58>..\Assets\Icons\58 58.png</iPhone_Spotlight58>
-        <iPhone_Spotlight80>..\Assets\Icons\80 80.png</iPhone_Spotlight80>
-        <iPad_AppIcon72>..\Assets\Icons\72 72.png</iPad_AppIcon72>
-        <iPad_AppIcon76>..\Assets\Icons\76 76.png</iPad_AppIcon76>
-        <iPad_AppIcon144>..\Assets\Icons\144 144.png</iPad_AppIcon144>
-        <iPad_AppIcon152>..\Assets\Icons\152 152.png</iPad_AppIcon152>
-        <iPad_SpotLight40>..\Assets\Icons\40 40.png</iPad_SpotLight40>
-        <iPad_SpotLight50>..\Assets\Icons\50 50.png</iPad_SpotLight50>
-        <iPad_SpotLight80>..\Assets\Icons\80 80.png</iPad_SpotLight80>
-        <iPad_SpotLight100>..\Assets\Icons\100 100.png</iPad_SpotLight100>
-        <iPad_Setting29>..\Assets\Icons\29 29.png</iPad_Setting29>
-        <iPad_Setting58>..\Assets\Icons\58 58.png</iPad_Setting58>
-        <iPhone_Launch320>..\Assets\Splashes\320 480.png</iPhone_Launch320>
-        <iPhone_Launch640>..\Assets\Splashes\640 960.png</iPhone_Launch640>
-        <iPhone_Launch640x1136>..\Assets\Splashes\640 1136.png</iPhone_Launch640x1136>
-        <iPhone_Launch750>..\Assets\Splashes\750 1334.png</iPhone_Launch750>
-        <iPhone_Launch1242>..\Assets\Splashes\1242 2208.png</iPhone_Launch1242>
-        <iPhone_Launch2208>..\Assets\Splashes\2208 1242.png</iPhone_Launch2208>
-        <iPad_Launch768>..\Assets\Splashes\768 1004.png</iPad_Launch768>
-        <iPad_Launch768x1024>..\Assets\Splashes\768 1024.png</iPad_Launch768x1024>
-        <iPad_Launch1024>..\Assets\Splashes\1024 748.png</iPad_Launch1024>
-        <iPad_Launch1024x768>..\Assets\Splashes\1024 768.png</iPad_Launch1024x768>
-        <iPad_Launch1536>..\Assets\Splashes\1536 2008.png</iPad_Launch1536>
-        <iPad_Launch1536x2048>..\Assets\Splashes\1536 2048.png</iPad_Launch1536x2048>
-        <iPad_Launch2048>..\Assets\Splashes\2048 1496.png</iPad_Launch2048>
-        <iPad_Launch2048x1536>..\Assets\Splashes\2048 1536.png</iPad_Launch2048x1536>
         <VerInfo_BundleId>$(MSBuildProjectName)</VerInfo_BundleId>
         <BT_BuildType>Debug</BT_BuildType>
     </PropertyGroup>
@@ -702,6 +668,23 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\2048 1536.png" Configuration="Release" Class="iPad_Launch2048x1536">
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>Default-Landscape@2x~ipad.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\default.txaPackage" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\100 100.png" Configuration="Release" Class="iPad_SpotLight100">
+                    <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="..\Assets\Icons\50 50.png" Configuration="Debug" Class="iPad_SpotLight50">
                     <Platform Name="iOSSimulator">
                         <Overwrite>true</Overwrite>
@@ -729,20 +712,9 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\Assets\Splashes\426 320.png" Configuration="Release" Class="Android_SplashImage426">
-                    <Platform Name="Android">
-                        <RemoteName>splash_image.png</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="..\Assets\Icons\144 144.png" Configuration="Debug" Class="Android_LauncherIcon144">
                     <Platform Name="Android">
                         <RemoteName>ic_launcher.png</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="..\Assets\Icons\100 100.png" Configuration="Release" Class="iPad_SpotLight100">
-                    <Platform Name="iOSSimulator">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -751,9 +723,20 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\426 320.png" Configuration="Release" Class="Android_SplashImage426">
+                    <Platform Name="Android">
+                        <RemoteName>splash_image.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="ModelSupport_DieLISTE\Hinzufuegen\default.txvpck" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win64">
                         <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\152 152.png" Configuration="Release" Class="iPad_AppIcon152">
+                    <Platform Name="iOSDevice64">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -765,6 +748,12 @@
                 </DeployFile>
                 <DeployFile LocalName="..\Assets\Icons\40 40.png" Configuration="Debug" Class="iPad_SpotLight40">
                     <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\640 1136.png" Configuration="Release" Class="iPhone_Launch640x1136">
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>Default-568h@2x.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -805,6 +794,11 @@
                 <DeployFile LocalName="ModelSupport_DieLISTE\UMain\default.txvpck" Configuration="Release" Class="ProjectFile">
                     <Platform Name="Android">
                         <RemoteDir>.\assets\internal\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\76 76.png" Configuration="Release" Class="iPad_AppIcon76">
+                    <Platform Name="iOSDevice64">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -912,6 +906,11 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\80 80.png" Configuration="Release" Class="iPad_SpotLight80">
+                    <Platform Name="iOSDevice64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="..\Assets\Splashes\640 480.png" Configuration="Debug" Class="Android_SplashImage640">
                     <Platform Name="Android">
                         <RemoteName>splash_image.png</RemoteName>
@@ -926,6 +925,18 @@
                 <DeployFile LocalName="iOSSimulator\Debug\DieLISTE.info.plist" Configuration="Debug" Class="ProjectiOSInfoPList">
                     <Platform Name="iOSSimulator">
                         <RemoteName>Info.plist</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="iOSDevice64\Release\ResourceRules.plist" Configuration="Release" Class="ProjectiOSDeviceResourceRules">
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>ResourceRules.plist</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\2048 1496.png" Configuration="Release" Class="iPad_Launch2048">
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>Default-Landscape@2x.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -952,6 +963,17 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\DieLISTE\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\120 120.png" Configuration="Release" Class="iPhone_AppIcon120">
+                    <Platform Name="iOSDevice64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="Android\Debug\styles.xml" Configuration="Debug" Class="AndroidSplashStyles">
                     <Platform Name="Android">
                         <Overwrite>true</Overwrite>
@@ -969,9 +991,8 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="iOSSimulator\Debug\DieLISTE.rsm" Configuration="Debug" Class="DebugSymbols">
-                    <Platform Name="iOSSimulator">
-                        <RemoteName>DieLISTE.rsm</RemoteName>
+                <DeployFile LocalName="..\Assets\Icons\58 58.png" Configuration="Release" Class="iPad_Setting58">
+                    <Platform Name="iOSDevice64">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -995,6 +1016,12 @@
                 </DeployFile>
                 <DeployFile LocalName="..\Assets\Icons\87 87.png" Configuration="Release" Class="iPhone_AppIcon87">
                     <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\CCR\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -1048,6 +1075,17 @@
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="..\Assets\Splashes\768 1024.png" Configuration="Release" Class="iPad_Launch768x1024">
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>Default-Portrait~ipad.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\180 180.png" Configuration="Release" Class="iPhone_AppIcon180">
+                    <Platform Name="iOSDevice64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\768 1024.png" Configuration="Release" Class="iPad_Launch768x1024">
                     <Platform Name="iOSSimulator">
                         <RemoteName>Default-Portrait~ipad.png</RemoteName>
                         <Overwrite>true</Overwrite>
@@ -1071,6 +1109,12 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="iOSDevice64\Release\DieLISTE.info.plist" Configuration="Release" Class="ProjectiOSInfoPList">
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>Info.plist</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="ModelSupport_DieLISTE\UMain\default.txvpck" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win64">
                         <RemoteDir>.\</RemoteDir>
@@ -1083,6 +1127,17 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\1536 2008.png" Configuration="Release" Class="iPad_Launch1536">
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>Default-Portrait@2x.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\87 87.png" Configuration="Release" Class="iPhone_AppIcon87">
+                    <Platform Name="iOSDevice64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="$(BDS)\lib\android\debug\mips\libnative-activity.so" Configuration="Debug" Class="AndroidLibnativeMipsFile">
                     <Platform Name="Android">
                         <RemoteName>libDieLISTE.so</RemoteName>
@@ -1092,6 +1147,17 @@
                 <DeployFile LocalName="..\Assets\Splashes\2048 1536.png" Configuration="Debug" Class="iPad_Launch2048x1536">
                     <Platform Name="iOSSimulator">
                         <RemoteName>Default-Landscape@2x~ipad.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\100 100.png" Configuration="Release" Class="iPad_SpotLight100">
+                    <Platform Name="iOSDevice64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\Login\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -1122,9 +1188,25 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\72 72.png" Configuration="Release" Class="iPad_AppIcon72">
+                    <Platform Name="iOSDevice64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="ModelSupport_DieLISTE\PWaendern\default.txvpck" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Android">
                         <RemoteDir>.\assets\internal\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\1536 2048.png" Configuration="Release" Class="iPad_Launch1536x2048">
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>Default-Portrait@2x~ipad.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\40 40.png" Configuration="Release" Class="iPad_SpotLight40">
+                    <Platform Name="iOSDevice64">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -1158,6 +1240,12 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\1024 768.png" Configuration="Release" Class="iPad_Launch1024x768">
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>Default-Landscape~ipad.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="ModelSupport_DieLISTE\ListeBearbeiten\default.txvpck" Configuration="Release" Class="ProjectFile">
                     <Platform Name="Android">
                         <RemoteDir>.\assets\internal\</RemoteDir>
@@ -1187,6 +1275,12 @@
                 </DeployFile>
                 <DeployFile LocalName="..\Assets\Icons\180 180.png" Configuration="Release" Class="iPhone_AppIcon180">
                     <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\Hinzufuegen\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -1250,6 +1344,17 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\114 114.png" Configuration="Release" Class="iPhone_AppIcon114">
+                    <Platform Name="iOSDevice64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="Win64\Debug\DieLISTE.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win64">
                         <RemoteName>DieLISTE.exe</RemoteName>
@@ -1258,6 +1363,12 @@
                 </DeployFile>
                 <DeployFile LocalName="..\Assets\Icons\87 87.png" Configuration="Debug" Class="iPhone_AppIcon87">
                     <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\AddUser\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -1361,6 +1472,18 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\1024 748.png" Configuration="Release" Class="iPad_Launch1024">
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>Default-Landscape.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\ListeBearbeiten\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="ModelSupport_DieLISTE\DieLISTE\default.txvpck" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="iOSSimulator">
                         <RemoteDir>StartUp\Documents\</RemoteDir>
@@ -1460,9 +1583,31 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\144 144.png" Configuration="Release" Class="iPad_AppIcon144">
+                    <Platform Name="iOSDevice64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="..\Assets\Splashes\640 480.png" Configuration="Release" Class="Android_SplashImage640">
                     <Platform Name="Android">
                         <RemoteName>splash_image.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\60 60.png" Configuration="Release" Class="iPhone_AppIcon60">
+                    <Platform Name="iOSDevice64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="iOSDevice64\Release\DieLISTE" Configuration="Release" Class="ProjectOutput">
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>DieLISTE</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\UMain\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -1518,6 +1663,18 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\640 960.png" Configuration="Release" Class="iPhone_Launch640">
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>Default@2x.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\2208 1242.png" Configuration="Release" Class="iPhone_Launch2208">
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>Default-Landscape-736h@3x.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="$(BDS)\lib\android\debug\armeabi\libnative-activity.so" Configuration="Release" Class="AndroidLibnativeArmeabiFile">
                     <Platform Name="Android">
                         <RemoteName>libDieLISTE.so</RemoteName>
@@ -1532,6 +1689,12 @@
                 </DeployFile>
                 <DeployFile LocalName="..\Assets\Splashes\320 480.png" Configuration="Debug" Class="iPhone_Launch320">
                     <Platform Name="iOSSimulator">
+                        <RemoteName>Default.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\320 480.png" Configuration="Release" Class="iPhone_Launch320">
+                    <Platform Name="iOSDevice64">
                         <RemoteName>Default.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
@@ -1601,9 +1764,31 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\750 1334.png" Configuration="Release" Class="iPhone_Launch750">
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>Default-667h@2x.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\PWaendern\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="ModelSupport_DieLISTE\Login\default.txvpck" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Android">
                         <RemoteDir>.\assets\internal\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\57 57.png" Configuration="Release" Class="iPhone_AppIcon57">
+                    <Platform Name="iOSDevice64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\50 50.png" Configuration="Release" Class="iPad_SpotLight50">
+                    <Platform Name="iOSDevice64">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -1632,6 +1817,12 @@
                 </DeployFile>
                 <DeployFile LocalName="Android\Release\AndroidManifest.xml" Configuration="Release" Class="ProjectAndroidManifest">
                     <Platform Name="Android">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\PWvergessen\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -1680,15 +1871,32 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="iOSDevice64\Release\DieLISTE.entitlements" Configuration="Release" Class="ProjectiOSEntitlements">
+                    <Platform Name="iOSDevice64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="ModelSupport_DieLISTE\default.txvpck" Configuration="Release" Class="ProjectFile">
                     <Platform Name="Android">
                         <RemoteDir>.\assets\internal\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\Supermarkt\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="..\Assets\Splashes\640 960.png" Configuration="Release" Class="iPhone_Launch640">
                     <Platform Name="iOSSimulator">
                         <RemoteName>Default@2x.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\768 1004.png" Configuration="Release" Class="iPad_Launch768">
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>Default~ipad.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -1713,6 +1921,11 @@
                 <DeployFile LocalName="ModelSupport_DieLISTE\ItemBearbeiten\default.txvpck" Configuration="Release" Class="ProjectFile">
                     <Platform Name="Android">
                         <RemoteDir>.\assets\internal\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\29 29.png" Configuration="Release" Class="iPad_Setting29">
+                    <Platform Name="iOSDevice64">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -1750,6 +1963,12 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\Assets\Splashes\1242 2208.png" Configuration="Release" Class="iPhone_Launch1242">
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>Default-736h@3x.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="..\Assets\Splashes\1536 2008.png" Configuration="Release" Class="iPad_Launch1536">
                     <Platform Name="iOSSimulator">
                         <RemoteName>Default-Portrait@2x.png</RemoteName>
@@ -1767,8 +1986,20 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\CCR\PrefsIniFile\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="ModelSupport_DieLISTE\ServerAPI\default.txaPackage" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="iOSSimulator">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\Helper\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="iOSDevice64">
                         <RemoteDir>StartUp\Documents\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
@@ -1802,8 +2033,20 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\ItemBearbeiten\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="..\Assets\Icons\144 144.png" Configuration="Debug" Class="iPad_AppIcon144">
                     <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\ServerAPI\default.txaPackage" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -1830,8 +2073,20 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\Liste\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="..\Assets\Icons\60 60.png" Configuration="Release" Class="iPhone_AppIcon60">
                     <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="iOSDevice64\Release\DieLISTE.dSYM" Configuration="Release" Class="ProjectiOSDeviceDebug">
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>DieLISTE</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -1850,6 +2105,12 @@
                 <DeployFile LocalName="ModelSupport_DieLISTE\UMain\default.txvpck" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Android">
                         <RemoteDir>.\assets\internal\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_DieLISTE\ServerAPI\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
