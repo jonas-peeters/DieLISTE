@@ -29,7 +29,7 @@ object FormPWvergessen: TFormPWvergessen
         Value = 43.788132252541870000
       end
       item
-        Value = 7.093306504766086000
+        Value = 7.093306504766087000
       end>
     ControlCollection = <
       item
@@ -84,7 +84,7 @@ object FormPWvergessen: TFormPWvergessen
         Value = 7.000000836679919000
       end
       item
-        Value = 7.000000665117120000
+        Value = 7.000000665117119000
       end
       item
         Value = 7.000000507904000000
@@ -93,7 +93,7 @@ object FormPWvergessen: TFormPWvergessen
         Value = 7.000000363840335000
       end
       item
-        Value = 7.000000231826294000
+        Value = 7.000000231826293000
       end
       item
         Value = 7.000000110854029000
@@ -107,9 +107,9 @@ object FormPWvergessen: TFormPWvergessen
       Size.Height = 156.229660034179700000
       Size.PlatformDefault = False
       Text = 
-        'Sie haben Ihr Passwort vergessen? Unter Angabe Ihrer E-Mail-Adre' +
-        'sse senden wir Ihnen eine Anleitung zum Zur'#252'cksetzen Ihres Passw' +
-        'ortes automatisch per E-Mail zu.'
+        'Du hast dein Passwort vergessen? Unter Angabe deiner E-Mail-Adre' +
+        'sse senden wir dir eine Anleitung zum Zur'#252'cksetzen deines Passwo' +
+        'rtes automatisch per E-Mail zu.'
       TabOrder = 0
     end
     object EdtEMail: TEdit

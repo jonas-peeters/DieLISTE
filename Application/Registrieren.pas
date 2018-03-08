@@ -52,10 +52,15 @@ begin
     ShowMessage('Dein Passwort muss mindestens 6 Stellen haben')
   else
   begin
-    UMain.serverAPI.createUser(email,name, password);
-    ShowMessage('Vielen Dank für Ihre Regestrierung. Bitte verifizieren Sie ihre E-Mail, um die Regestrierung zu vollenden!');
-    Close;
-    Release;
+    if UMain.serverAPI.isOnline then
+    begin
+      UMain.serverAPI.createUser(email,name, password);
+      ShowMessage('Vielen Dank für Ihre Regestrierung. Bitte verifizieren Sie ihre E-Mail, um die Regestrierung zu vollenden!');
+      Close;
+      Release;
+    end
+    else
+      ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
   end;
 end;
 

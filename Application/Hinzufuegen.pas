@@ -71,6 +71,8 @@ var
   name, einheit, menge: string;
   kategorie: Integer;
 begin
+  if privateServerAPI.isOnline then
+  begin
     name:= EdtName.Text;
     einheit:= EdtEinheit.Text;
     menge:= EdtMenge.Text;
@@ -80,6 +82,9 @@ begin
     EdtEinheit.Text := '';
     EdtMenge.Text := '';
     CBCategory.ItemIndex := 0;
+  end
+  else
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
 procedure TFormHinzufuegen.BtnOKClick(Sender: TObject);
@@ -87,6 +92,8 @@ var
   name, einheit, menge: string;
   kategorie: Integer;
 begin
+  if privateServerAPI.isOnline then
+  begin
     name:= EdtName.Text;
     einheit:= EdtEinheit.Text;
     menge:= EdtMenge.Text;
@@ -94,6 +101,9 @@ begin
     privateServerAPI.AddToList(name, menge + ' ' + einheit, false, kategorie, listId);
     Close;
     Release;
+  end
+  else
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
 procedure TFormHinzufuegen.BtnSchliessenClick(Sender: TObject);

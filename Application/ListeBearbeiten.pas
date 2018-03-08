@@ -75,67 +75,75 @@ var
   mainLabel: TLabel;
   groupHeader: TListBoxGroupHeader;
 begin
-  lists := privateServerAPI.getLists;
-  for i := 0 to High(lists) do
-    if lists[i].id = listId then
-      list := lists[i];
-  ListBox1.Clear;
-
-  Label1.Text := 'Liste "' + list.name + '" bearbeiten';
-
-  // Add 'Allgemein' header
-  groupHeader := TListBoxGroupHeader.Create(ListBox1);
-  groupHeader.Text := 'Allgemein';
-  ListBox1.AddObject(groupHeader);
-  {$IF defined(MSWINDOWS)}
-    groupHeader.Height:=23;
-  {$ENDIF}
-
-  // Add change name
-  item := TListBoxItem.Create(ListBox1);
-  item.Text := 'Name ändern';
-  item.OnClick := EditListNameClick;
-  ListBox1.AddObject(item);
-  {$IF defined(MSWINDOWS)}
-    item.Height:=23;
-  {$ENDIF}
-
-  // Add delete list
-  item := TListBoxItem.Create(ListBox1);
-  item.Text := 'Liste löschen';
-  item.OnClick := DeleteListClick;
-  ListBox1.AddObject(item);
-  {$IF defined(MSWINDOWS)}
-    item.Height:=23;
-  {$ENDIF}
-
-  // Add add user
-  item := TListBoxItem.Create(ListBox1);
-  item.Text := 'User hinzufügen';
-  item.OnClick := AddUserClick;
-  ListBox1.AddObject(item);
-  {$IF defined(MSWINDOWS)}
-    item.Height:=23;
-  {$ENDIF}
-
-   // Add 'Benutzer' header
-  groupHeader := TListBoxGroupHeader.Create(ListBox1);
-  groupHeader.Text := 'Benutzer';
-  ListBox1.AddObject(groupHeader);
-  {$IF defined(MSWINDOWS)}
-    groupHeader.Height:=23;
-  {$ENDIF}
-
-  // Add users with access
-  for i := 0 to High(list.user) do
+  if privateServerAPI.isOnline then
   begin
+    lists := privateServerAPI.getLists;
+    for i := 0 to High(lists) do
+      if lists[i].id = listId then
+        list := lists[i];
+    ListBox1.Clear;
+
+    Label1.Text := 'Liste "' + list.name + '" bearbeiten';
+
+    // Add 'Allgemein' header
+    groupHeader := TListBoxGroupHeader.Create(ListBox1);
+    groupHeader.Text := 'Allgemein';
+    ListBox1.AddObject(groupHeader);
+    {$IF defined(MSWINDOWS)}
+      groupHeader.Height:=23;
+    {$ENDIF}
+
+    // Add change name
     item := TListBoxItem.Create(ListBox1);
-    item.Text := list.user[i];
-    item.ItemData.Detail := IntToStr(i);
+    item.Text := 'Name ändern';
+    item.OnClick := EditListNameClick;
     ListBox1.AddObject(item);
     {$IF defined(MSWINDOWS)}
-      item.Height:=20;
+      item.Height:=23;
     {$ENDIF}
+
+    // Add delete list
+    item := TListBoxItem.Create(ListBox1);
+    item.Text := 'Liste löschen';
+    item.OnClick := DeleteListClick;
+    ListBox1.AddObject(item);
+    {$IF defined(MSWINDOWS)}
+      item.Height:=23;
+    {$ENDIF}
+
+    // Add add user
+    item := TListBoxItem.Create(ListBox1);
+    item.Text := 'User hinzufügen';
+    item.OnClick := AddUserClick;
+    ListBox1.AddObject(item);
+    {$IF defined(MSWINDOWS)}
+      item.Height:=23;
+    {$ENDIF}
+
+     // Add 'Benutzer' header
+    groupHeader := TListBoxGroupHeader.Create(ListBox1);
+    groupHeader.Text := 'Benutzer';
+    ListBox1.AddObject(groupHeader);
+    {$IF defined(MSWINDOWS)}
+      groupHeader.Height:=23;
+    {$ENDIF}
+
+    // Add users with access
+    for i := 0 to High(list.user) do
+    begin
+      item := TListBoxItem.Create(ListBox1);
+      item.Text := list.user[i];
+      item.ItemData.Detail := IntToStr(i);
+      ListBox1.AddObject(item);
+      {$IF defined(MSWINDOWS)}
+        item.Height:=20;
+      {$ENDIF}
+    end;
+  end
+  else
+  begin
+    Close;
+    Release;
   end;
 end;
 

@@ -59,30 +59,33 @@ procedure TFormMain.EditButtonClick(Sender: TObject);
 var
   dialogService: IFMXDialogServiceAsync;
 begin
-  if TPlatformServices.Current.SupportsPlatformService (IFMXDialogServiceAsync, IInterface (dialogService)) then
-  begin
-    // Bei dieser InputQuery funktioniert unter Windows und MacOS der Cancel Button nicht.
-    // Diese Software ist nur zur Benutzung unter iOS und Android gedacht.
-    // Dort funktioniert die Funktion einwandfrei. Soll diese Funktion dennoch unter
-    // Windows ausgeführt werden kann entweder nur der OK-Button gedrückt werden
-    // oder der im Embarcadero Bug System vorgeschlagene Fix angewandt werden.
-    // Dieser ist hier zu finden: https://quality.embarcadero.com/browse/RSP-16670
-    dialogService.InputQueryAsync('Allergien', ['Neuer Eintrag'], [user.allergies],
-      procedure (const AResult : TModalResult; const AValues : array of string)
-      begin
-          case AResult of
-            mrOk:
-              begin
-                serverAPI.editInfo(AValues[0]);
-                UpdateUserData();
-              end;
-            else
-              begin
-              end;
-          end;
-      end
-    );
-  end;
+  if serverAPI.isOnline then
+    if TPlatformServices.Current.SupportsPlatformService (IFMXDialogServiceAsync, IInterface (dialogService)) then
+    begin
+      // Bei dieser InputQuery funktioniert unter Windows und MacOS der Cancel Button nicht.
+      // Diese Software ist nur zur Benutzung unter iOS und Android gedacht.
+      // Dort funktioniert die Funktion einwandfrei. Soll diese Funktion dennoch unter
+      // Windows ausgeführt werden kann entweder nur der OK-Button gedrückt werden
+      // oder der im Embarcadero Bug System vorgeschlagene Fix angewandt werden.
+      // Dieser ist hier zu finden: https://quality.embarcadero.com/browse/RSP-16670
+      dialogService.InputQueryAsync('Allergien', ['Neuer Eintrag'], [user.allergies],
+        procedure (const AResult : TModalResult; const AValues : array of string)
+        begin
+            case AResult of
+              mrOk:
+                begin
+                  serverAPI.editInfo(AValues[0]);
+                  UpdateUserData();
+                end;
+              else
+                begin
+                end;
+            end;
+        end
+      );
+    end
+  else
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
 procedure TFormMain.FormCreate(Sender: TObject);
@@ -115,19 +118,27 @@ var
   i: Integer;
   item: TListBoxItem;
 begin
-  LBLists.Items.Clear;
-  lists := serverAPI.getLists();
-  for i := 0 to High(lists) do
+  if serverAPI.isOnline then
   begin
-    item := TListBoxItem.Create(LBLists);
-    item.Text := lists[i].name;
-    item.ItemData.Accessory := TListBoxItemData.TAccessory(1);
-    item.ItemData.Detail := IntToStr(i);
-    item.OnClick := LBListItemClick;
-    {$IF defined(MSWINDOWS)}
-      item.Height:=25;
-    {$ENDIF}
-    LBLists.AddObject(item);
+    LBLists.Items.Clear;
+    lists := serverAPI.getLists();
+    for i := 0 to High(lists) do
+    begin
+      item := TListBoxItem.Create(LBLists);
+      item.Text := lists[i].name;
+      item.ItemData.Accessory := TListBoxItemData.TAccessory(1);
+      item.ItemData.Detail := IntToStr(i);
+      item.OnClick := LBListItemClick;
+      {$IF defined(MSWINDOWS)}
+        item.Height:=25;
+      {$ENDIF}
+      LBLists.AddObject(item);
+    end;
+  end
+  else
+  begin
+    ShowMessage('Du brauchst eine aktive Internetverbindung! Erneut versuchen?');
+    UpdateLists();
   end;
 
 
@@ -135,10 +146,13 @@ end;
 
 procedure TFormMain.UpdateUserData();
 begin
-  user := serverAPI.me();
-  if user.allergies <> '' then
-    LblAllergien.Text := user.allergies;
-  LblUsername.Text := user.name;
+  if serverAPI.isOnline then
+  begin
+    user := serverAPI.me();
+    if user.allergies <> '' then
+      LblAllergien.Text := user.allergies;
+    LblUsername.Text := user.name;
+  end;
 end;
 
 procedure TFormMain.LBIPasswortaendernClick(Sender: TObject);

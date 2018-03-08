@@ -60,7 +60,6 @@ begin
       Release;
     end;
   end;
-  
   Update();
 end;
 
@@ -129,23 +128,32 @@ var
   item: TListBoxItem;
   lists: TListArray;
 begin
-  lists := privateServerAPI.getLists();
-  for i := 0 to High(lists) do
-    if lists[i].id = listId then
-      list := lists[i];
-  LblListe.Text := list.name;
-  ListBox1.Clear;
-  for i := 0 to High(list.items) do
+  if privateServerAPI.isOnline then
   begin
-    item := TListBoxItem.Create(ListBox1);
-    item.Text := Tabulator + list.items[i].name + Tabulator + list.items[i].quantity;
-    if list.items[i].done then
-      item.IsChecked := true
-    else
-      item.IsChecked := false;
-    item.ItemData.Detail := IntToStr(i);
-    item.OnClick := ClickOnItem;
-    ListBox1.AddObject(item);
+    lists := privateServerAPI.getLists();
+    for i := 0 to High(lists) do
+      if lists[i].id = listId then
+        list := lists[i];
+    LblListe.Text := list.name;
+    ListBox1.Clear;
+    for i := 0 to High(list.items) do
+    begin
+      item := TListBoxItem.Create(ListBox1);
+      item.Text := Tabulator + list.items[i].name + Tabulator + list.items[i].quantity;
+      if list.items[i].done then
+        item.IsChecked := true
+      else
+        item.IsChecked := false;
+      item.ItemData.Detail := IntToStr(i);
+      item.OnClick := ClickOnItem;
+      ListBox1.AddObject(item);
+    end;
+  end
+  else
+  begin
+    ShowMessage('Du brauchst eine aktive Internetverbindung!');
+    Close;
+    Release;
   end;
 end;
 

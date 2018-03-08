@@ -134,19 +134,19 @@ object FormItemBearbeiten: TFormItemBearbeiten
         Value = 6.321492963369179000
       end
       item
-        Value = 6.350899971303491000
+        Value = 6.350899971303490000
       end
       item
-        Value = 6.380443802834025000
+        Value = 6.380443802834026000
       end
       item
-        Value = 6.410125088845021000
+        Value = 6.410125088845022000
       end
       item
         Value = 6.439944460616901000
       end
       item
-        Value = 6.469902551755308000
+        Value = 6.469902551755307000
       end>
     object LblBearbeiten: TLabel
       Align = Client
@@ -179,7 +179,7 @@ object FormItemBearbeiten: TFormItemBearbeiten
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 1
-      Size.Width = 88.586174011230460000
+      Size.Width = 88.586174011230470000
       Size.Height = 30.000000000000000000
       Size.PlatformDefault = False
       TextPrompt = 'Menge'
@@ -247,14 +247,14 @@ object FormItemBearbeiten: TFormItemBearbeiten
     object PanelErledigt: TPanel
       Align = Client
       Size.Width = 222.097503662109400000
-      Size.Height = 29.094818115234370000
+      Size.Height = 29.094818115234380000
       Size.PlatformDefault = False
       TabOrder = 7
       object LabelErledigt: TLabel
         Align = Client
         HitTest = True
         Size.Width = 222.097503662109400000
-        Size.Height = 29.094818115234370000
+        Size.Height = 29.094818115234380000
         Size.PlatformDefault = False
         TextSettings.HorzAlign = Center
         Text = 'Erledigt'
@@ -282,14 +282,14 @@ object FormItemBearbeiten: TFormItemBearbeiten
     end
     object PanelAbbrechen: TPanel
       Align = Client
-      Size.Width = 88.586174011230460000
+      Size.Width = 88.586174011230470000
       Size.Height = 28.826019287109380000
       Size.PlatformDefault = False
       TabOrder = 9
       object LabelAbbrechen: TLabel
         Align = Client
         HitTest = True
-        Size.Width = 88.586174011230460000
+        Size.Width = 88.586174011230470000
         Size.Height = 28.826019287109380000
         Size.PlatformDefault = False
         TextSettings.HorzAlign = Center
@@ -300,14 +300,14 @@ object FormItemBearbeiten: TFormItemBearbeiten
     end
     object PanelOK: TPanel
       Align = Client
-      Size.Width = 89.161010742187490000
+      Size.Width = 89.161010742187500000
       Size.Height = 28.826019287109380000
       Size.PlatformDefault = False
       TabOrder = 8
       object LabelOK: TLabel
         Align = Client
         HitTest = True
-        Size.Width = 89.161010742187490000
+        Size.Width = 89.161010742187500000
         Size.Height = 28.826019287109380000
         Size.PlatformDefault = False
         TextSettings.HorzAlign = Center

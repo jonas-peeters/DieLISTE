@@ -2,8 +2,8 @@ object FormPWaendern: TFormPWaendern
   Left = 0
   Top = 0
   Caption = 'Form7'
-  ClientHeight = 250
-  ClientWidth = 250
+  ClientHeight = 559
+  ClientWidth = 359
   Fill.Kind = Solid
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -11,8 +11,8 @@ object FormPWaendern: TFormPWaendern
   DesignerMasterStyle = 0
   object GridPanelLayout1: TGridPanelLayout
     Align = Client
-    Size.Width = 250.000000000000000000
-    Size.Height = 250.000000000000000000
+    Size.Width = 359.000000000000000000
+    Size.Height = 559.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     ColumnCollection = <
@@ -76,45 +76,45 @@ object FormPWaendern: TFormPWaendern
       end>
     RowCollection = <
       item
-        Value = 8.159296334363836000
+        Value = 5.999874929880595000
       end
       item
-        Value = 8.462895063470597000
+        Value = 5.999892879292482000
       end
       item
-        Value = 8.746123088819880000
+        Value = 5.999909329662776000
       end
       item
-        Value = 9.001155829913560000
+        Value = 5.999924406184320000
       end
       item
-        Value = 9.219744442566775000
+        Value = 5.999938223593953000
       end
       item
-        Value = 9.392054672881180000
+        Value = 5.999950887045905000
       end
       item
-        Value = 9.506568260475131000
+        Value = 5.999962492912343000
       end
       item
-        Value = 9.550217255482482000
+        Value = 5.999973129517019000
       end
       item
-        Value = 9.507877481870286000
+        Value = 5.999982877807518000
       end
       item
-        Value = 9.362030900164124000
+        Value = 5.999991811971263000
       end
       item
-        Value = 9.092036669992161000
+        Value = 40.000599032131820000
       end>
     object EdtPWalt: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 2
       Password = True
-      Size.Width = 197.702713012695300000
-      Size.Height = 23.049362182617190000
+      Size.Width = 283.901123046875000000
+      Size.Height = 33.539932250976560000
       Size.PlatformDefault = False
       TextPrompt = 'altes Passwort'
     end
@@ -123,8 +123,8 @@ object FormPWaendern: TFormPWaendern
       Align = Client
       TabOrder = 1
       Password = True
-      Size.Width = 197.702713012695300000
-      Size.Height = 23.766418457031250000
+      Size.Width = 283.901123046875000000
+      Size.Height = 33.539855957031250000
       Size.PlatformDefault = False
       TextPrompt = 'neues Passwort'
     end
@@ -133,15 +133,15 @@ object FormPWaendern: TFormPWaendern
       Align = Client
       TabOrder = 0
       Password = True
-      Size.Width = 197.702713012695300000
-      Size.Height = 23.875549316406250000
+      Size.Width = 283.901123046875000000
+      Size.Height = 33.539855957031250000
       Size.PlatformDefault = False
       TextPrompt = 'neues Passwort wiederholen'
     end
     object BtnPWaendern: TButton
       Align = Client
-      Size.Width = 100.443527221679700000
-      Size.Height = 23.405075073242190000
+      Size.Width = 144.236923217773400000
+      Size.Height = 33.539886474609380000
       Size.PlatformDefault = False
       TabOrder = 3
       Text = 'Passwort '#228'ndern'
@@ -149,8 +149,8 @@ object FormPWaendern: TFormPWaendern
     end
     object LblPWaendern: TLabel
       Align = Client
-      Size.Width = 197.702713012695300000
-      Size.Height = 21.157239913940430000
+      Size.Width = 283.901123046875000000
+      Size.Height = 33.539905548095700000
       Size.PlatformDefault = False
       TextSettings.HorzAlign = Center
       Text = 'Passwort '#228'ndern'
@@ -158,8 +158,8 @@ object FormPWaendern: TFormPWaendern
     end
     object BtnCancel: TButton
       Align = Client
-      Size.Width = 97.259185791015630000
-      Size.Height = 23.405075073242190000
+      Size.Width = 139.664184570312500000
+      Size.Height = 33.539886474609380000
       Size.PlatformDefault = False
       TabOrder = 5
       Text = 'Abbrechen'
@@ -167,8 +167,8 @@ object FormPWaendern: TFormPWaendern
     end
     object BtnBack: TButton
       Align = Client
-      Size.Width = 52.930374145507810000
-      Size.Height = 41.555480957031250000
+      Size.Width = 76.008018493652340000
+      Size.Height = 67.078704833984380000
       Size.PlatformDefault = False
       TabOrder = 6
       Text = '<'

@@ -64,6 +64,7 @@ begin
   request.Body.JSONWriter.WriteRaw(jsonString);
   request.Resource := 'user/create';
   request.Client := self.client;
+  request.Timeout := 3000;
   request.Execute;
   result := request.Response.Content;
 end;
@@ -74,13 +75,18 @@ var
 begin
   request := TRESTRequest.Create(nil);
   request.Method := Rest.Types.rmGET;
-  request.Resource := 'info/online';
-  request.Client := self.client;
-  request.Execute;
+    request.Resource := 'info/online';
+    request.Client := self.client;
+    request.Timeout := 3000;
+  try
+    request.Execute;
+  except
+
+  end;
   if request.Response.Content = 'true' then
-    result := true
-  else
-    result := false;
+      result := true
+    else
+      result := false;
 end;
 
 function TServerAPI.userSuggestions(ListID:integer; Name: string): TArray;
@@ -91,6 +97,7 @@ begin
   request.Method := REST.Types.rmGET;
   request.Resource := 'user/lists/' + IntToStr(listId) + '/suggestions/' + name;
   request.Client := self.client;
+  request.Timeout := 3000;
   request.Execute;
   result := jsonArrayToStringArray(request.Response.Content);
 end;
@@ -103,6 +110,7 @@ begin
   request.Method := REST.Types.rmGET;
   request.Resource := 'user/lists/' + IntToStr(listId) + '/invite/' + name;
   request.Client := self.client;
+  request.Timeout := 3000;
   request.Execute;
   result := request.Response.Content;
 end;
@@ -119,6 +127,7 @@ begin
   request.Body.JSONWriter.WriteRaw(jsonString);
   request.Resource := 'login';
   request.Client := self.client;
+  request.Timeout := 3000;
   request.Execute;
   result := request.Response.Content;
 end;
@@ -131,6 +140,7 @@ begin
   request.Method := REST.Types.rmDELETE;
   request.Resource := 'user';
   request.Client := self.client;
+  request.Timeout := 3000;
   request.Execute;
   result := request.Response.Content;
 end;
@@ -146,6 +156,7 @@ begin
   request.Body.JSONWriter.WriteRaw(jsonString);
   request.Resource := 'user/password/change';
   request.Client := self.client;
+  request.Timeout := 3000;
   request.Execute;
   result := request.Response.Content;
 end;
@@ -161,6 +172,7 @@ begin
   request.Body.JSONWriter.WriteRaw(jsonString);
   request.Resource := '/user/password/forgot';
   request.Client := self.client;
+  request.Timeout := 3000;
   request.Execute;
   result := request.Response.Content;
 end;
@@ -173,6 +185,7 @@ begin
   request.Method := REST.Types.rmGET;  //GET
   request.Resource := 'user';
   request.Client := self.client;
+  request.Timeout := 3000;
   request.Execute;
   result := responseToUser(request.Response.Content);
 end;
@@ -188,6 +201,7 @@ begin
   request.Method := REST.Types.rmPOST;  //POST
   request.Resource := 'user/lists';
   request.Client := self.client;
+  request.Timeout := 3000;
   request.Execute;
   result := request.Response.Content;
 end;
@@ -203,6 +217,7 @@ begin
   request.Body.JSONWriter.WriteRaw(jsonString);
   request.Resource := '/user/lists/delete';
   request.Client := self.client;
+  request.Timeout := 3000;
   request.Execute;
   result := request.Response.Content;
 end;
@@ -219,6 +234,7 @@ begin
   request.Method := REST.Types.rmPOST;  //POST
   request.Resource := 'user/allergies';
   request.Client := self.client;
+  request.Timeout := 3000;
   request.Execute;
   result := request.Response.Content;
 end;
@@ -232,6 +248,7 @@ begin
   request.Method := REST.Types.rmGET;  //GET
   request.Resource := 'user/lists';
   request.Client := self.client;
+  request.Timeout := 3000;
   request.Execute;
   result := responseToListArray(request.Response.Content);
 end;
@@ -252,6 +269,7 @@ begin
   request.Method := REST.Types.rmPOST;  //POST
   request.Resource := 'user/lists/items';
   request.Client := self.client;
+  request.Timeout := 3000;
   request.Execute;
   result := request.Response.Content;
 end;
@@ -267,6 +285,7 @@ begin
   request.Method := REST.Types.rmPOST;  //POST
   request.Resource := 'user/lists/name';
   request.Client := self.client;
+  request.Timeout := 3000;
   request.Execute;
   result := request.Response.Content;
 end;
@@ -282,6 +301,7 @@ begin
   request.Body.JSONWriter.WriteRaw(jsonString);
   request.Resource := '/user/lists/removeuser';
   request.Client := self.client;
+  request.Timeout := 3000;
   request.Execute;
   result := request.Response.Content;
 end;
@@ -297,6 +317,7 @@ begin
   request.Body.JSONWriter.WriteRaw(jsonString);
   request.Resource := 'user/lists/items/delete';
   request.Client := self.client;
+  request.Timeout := 3000;
   request.Execute;
   result := request.Response.Content;
 end;

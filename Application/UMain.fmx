@@ -81,7 +81,7 @@ object FormMain: TFormMain
           end>
         object PlusBtn2: TButton
           Align = Client
-          Size.Width = 49.050018310546880000
+          Size.Width = 49.050018310546870000
           Size.Height = 52.369777679443360000
           Size.PlatformDefault = False
           TabOrder = 0
@@ -220,7 +220,7 @@ object FormMain: TFormMain
         end
         object EditButton: TButton
           Align = Client
-          Size.Width = 53.879470825195310000
+          Size.Width = 53.879470825195320000
           Size.Height = 55.700576782226560000
           Size.PlatformDefault = False
           TabOrder = 2

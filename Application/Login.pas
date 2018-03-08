@@ -53,17 +53,22 @@ implementation
 procedure TFormLogin.login(email: String; password: String);
 var loginData: TLoginData;
 begin
-  if interpretServerResponse(UMain.serverAPI.login(email, password)) then
+  if UMain.serverAPI.isOnline then
   begin
-    loginData.email := email;
-    loginData.password := password;
-    loginData.worked := true;
-    saveLoginData(loginData);
-    MainForm.Show;
-    MainForm.OnClose := subFormClosed;
-    MainForm.UpdateLists();
-    MainForm.UpdateUserData();
-  end;
+    if interpretServerResponse(UMain.serverAPI.login(email, password)) then
+    begin
+      loginData.email := email;
+      loginData.password := password;
+      loginData.worked := true;
+      saveLoginData(loginData);
+      MainForm.Show;
+      MainForm.OnClose := subFormClosed;
+      MainForm.UpdateLists();
+      MainForm.UpdateUserData();
+    end;
+  end
+  else
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
 procedure TFormLogin.BtnLosClick(Sender: TObject);
@@ -96,7 +101,9 @@ begin
   EdtEMailLogin.Text := loginData.email;
   EdtPWLogin.Text := loginData.password;
   if loginData.worked then
+  begin
     login(loginData.email, loginData.password);
+  end;
 end;
 
 procedure TFormLogin.subFormClosed(Sender: TObject; var Action: TCloseAction);

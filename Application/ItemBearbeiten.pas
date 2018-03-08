@@ -94,6 +94,8 @@ var
   erledigt: Boolean;
   kategorie: Integer;
 begin
+  if privateServerAPI.isOnline then
+  begin
     interpretServerResponse(privateServerAPI.DeleteItem(itemToChange.itemId));
     name := EdtName.Text;
     einheit := EdtEinheit.Text;
@@ -106,28 +108,34 @@ begin
     interpretServerResponse(privateServerAPI.AddToList(name, menge + ' ' + einheit, erledigt, kategorie, itemToChange.listId));
     Close;
     Release;
+  end
+  else
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
 procedure TFormItemBearbeiten.BtnLoeschenClick(Sender: TObject);
 begin
-   begin
-MessageDlg('Wollen Sie das Item löschen?', System.UITypes.TMsgDlgType.mtCustom,
-[ System.UITypes.TMsgDlgBtn.mbYes,
-  System.UITypes.TMsgDlgBtn.mbNo,
-  System.UITypes.TMsgDlgBtn.mbCancel
-],0,
-procedure (const AResult:System.UITypes.TModalResult)
-begin
-  case AResult of
-    mrYES:
-      begin
-      privateServerAPI.deleteitem(itemToChange.itemId);
-      Close;
-      Release;
-      end;
-  end;;
-end);
-end;
+  if privateServerAPI.isOnline then
+  begin
+    MessageDlg('Willst du das Item löschen?', System.UITypes.TMsgDlgType.mtCustom,
+    [ System.UITypes.TMsgDlgBtn.mbYes,
+      System.UITypes.TMsgDlgBtn.mbNo,
+      System.UITypes.TMsgDlgBtn.mbCancel
+    ],0,
+    procedure (const AResult:System.UITypes.TModalResult)
+    begin
+      case AResult of
+        mrYES:
+          begin
+          privateServerAPI.deleteitem(itemToChange.itemId);
+          Close;
+          Release;
+          end;
+      end;;
+    end);
+  end
+  else
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
 procedure TFormItemBearbeiten.BtnOKClick(Sender: TObject);
@@ -135,6 +143,8 @@ var
   name, einheit, menge: string;
   kategorie: Integer;
 begin
+  if privateServerAPI.isOnline then
+  begin
     interpretServerResponse(privateServerAPI.DeleteItem(itemToChange.itemId));
     name := EdtName.Text;
     einheit := EdtEinheit.Text;
@@ -143,6 +153,9 @@ begin
     interpretServerResponse(privateServerAPI.AddToList(name, menge + ' ' + einheit, itemToChange.done, kategorie, itemToChange.listId));
     Close;
     Release;
+  end
+  else
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
 

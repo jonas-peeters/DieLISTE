@@ -82,15 +82,20 @@ var
   vorschlaege: TArray;
 begin
   Listbox1.Items.Clear;
-  vorschlaege := privateServerAPI.userSuggestions(listID, Edit1.Text);
-  for i := 0 to High(vorschlaege) do
+  if privateServerAPI.isOnline then
   begin
-    item := TListBoxItem.Create(Listbox1);
-    item.Text := vorschlaege[i];
-    item.ItemData.Accessory := TListBoxItemData.TAccessory(1);
-    item.OnClick := ClickOnName;
-    ListBox1.AddObject(item);
-  end;
+    vorschlaege := privateServerAPI.userSuggestions(listID, Edit1.Text);
+    for i := 0 to High(vorschlaege) do
+    begin
+      item := TListBoxItem.Create(Listbox1);
+      item.Text := vorschlaege[i];
+      item.ItemData.Accessory := TListBoxItemData.TAccessory(1);
+      item.OnClick := ClickOnName;
+      ListBox1.AddObject(item);
+    end;
+  end
+  else
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
 procedure TFormAddUser.ClearEditButton1Click(Sender: TObject);
@@ -100,23 +105,28 @@ end;
 
 procedure TFormAddUser.ClickOnName(Sender: TObject);
 begin
-MessageDlg('Wollen Sie diese Person zu ihrer Liste hinzufügen?', System.UITypes.TMsgDlgType.mtCustom,
-[ System.UITypes.TMsgDlgBtn.mbYes,
-  System.UITypes.TMsgDlgBtn.mbNo,
-  System.UITypes.TMsgDlgBtn.mbCancel
-],0,
-procedure (const AResult:System.UITypes.TModalResult)
-begin
-  case AResult of
-    mrYES:
-    if  interpretServerResponse(privateServerAPI.inviteUser(listId, ListBox1.Selected.Text)) then
-      begin
-        ShowMessage('Der User wurde eingeladen!');
-        Close;
-        Release;
+  if privateServerAPI.isOnline then
+  begin
+    MessageDlg('Wollen Sie diese Person zu ihrer Liste hinzufügen?', System.UITypes.TMsgDlgType.mtCustom,
+    [ System.UITypes.TMsgDlgBtn.mbYes,
+      System.UITypes.TMsgDlgBtn.mbNo,
+      System.UITypes.TMsgDlgBtn.mbCancel
+    ],0,
+    procedure (const AResult:System.UITypes.TModalResult)
+    begin
+      case AResult of
+        mrYES:
+        if interpretServerResponse(privateServerAPI.inviteUser(listId, ListBox1.Selected.Text)) then
+          begin
+            ShowMessage('Der User wurde eingeladen!');
+            Close;
+            Release;
+          end;
       end;
-  end;
-end);
+    end);
+  end
+  else
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
 
