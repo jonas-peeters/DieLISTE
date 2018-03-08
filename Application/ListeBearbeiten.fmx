@@ -25,11 +25,6 @@ object FormListeBearbeiten: TFormListeBearbeiten
     ControlCollection = <
       item
         Column = 0
-        Control = BtnBack
-        Row = 0
-      end
-      item
-        Column = 0
         ColumnSpan = 2
         Control = ListBox1
         Row = 1
@@ -37,6 +32,11 @@ object FormListeBearbeiten: TFormListeBearbeiten
       item
         Column = 1
         Control = Label1
+        Row = 0
+      end
+      item
+        Column = 0
+        Control = ImgBack
         Row = 0
       end>
     RowCollection = <
@@ -49,22 +49,12 @@ object FormListeBearbeiten: TFormListeBearbeiten
       item
         SizeStyle = Auto
       end>
-    object BtnBack: TButton
-      Align = Client
-      StyledSettings = [Family, Style, FontColor]
-      Size.Width = 58.333332061767580000
-      Size.Height = 55.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 0
-      Text = '<'
-      OnClick = BtnBackClick
-    end
     object ListBox1: TListBox
       Align = Client
       Size.Width = 350.000000000000000000
       Size.Height = 495.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 1
+      TabOrder = 0
       DisableFocusEffect = True
       DefaultItemStyles.ItemStyle = ''
       DefaultItemStyles.GroupHeaderStyle = ''
@@ -108,7 +98,30 @@ object FormListeBearbeiten: TFormListeBearbeiten
       Size.Height = 55.000000000000000000
       Size.PlatformDefault = False
       Text = 'Liste Bearbeiten'
-      TabOrder = 2
+      TabOrder = 1
+    end
+    object ImgBack: TImage
+      MultiResBitmap = <
+        item
+          Width = 72
+          Height = 72
+          PNG = {
+            89504E470D0A1A0A0000000D494844520000004800000048080600000055EDB3
+            47000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+            00F449444154785EEDDACB6DC25018446117400D09251202844769D9A4111E9D
+            C05CC9BF848C0DB30C9AF349B3F1F208907D7107000000000000FC43F37E18D1
+            C25CFA1169A0E25CFB11E9CE300E91EE4CC5A99DB59916E9559CB68516C989F3
+            A54522CE134E9CA516C989F3AD4572E2ACB4484E9CB516C989B3D12239717EB4
+            484E9CAD1689384F3871765A2427CE5E8BF5A78D45A9FD6AD19C4FD0418BC6D7
+            CCC00FB58148062752ECFD502192C18914FB4C5688647022C51E7D142752ECE1
+            592192C189147B465D88647815E9A8C5FE375FA6229DB40F0D328C449C1115A9
+            BDF2F2D92EE0518B441C0000000000000078675D7703376B0BFCA83A97A80000
+            000049454E44AE426082}
+        end>
+      Align = Client
+      Size.Width = 58.333332061767580000
+      Size.Height = 55.000000000000000000
+      Size.PlatformDefault = False
     end
   end
 end

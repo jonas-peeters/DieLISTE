@@ -95,7 +95,7 @@ begin
   else
   begin
     UMain.serverAPI.createUser(email,name, password);
-    ShowMessage('Vielen Dank für Ihre Regestrierung. Bitte verifizieren Sie ihre E-Mail, um die Regestrierung zu vollenden!');
+    ShowMessage('Vielen Dank für Ihre Registrierung. Bitte verifizieren Sie ihre E-Mail, um die Regestrierung zu vollenden!');
   end;
 end;
 

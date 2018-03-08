@@ -13,18 +13,17 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.ListBox, FMX.StdCtrls, FMX.Controls.Presentation, Hinzufuegen, ListeBearbeiten, serverAPI,
-  FMX.Edit, ItemBearbeiten, Helper;
+  FMX.Edit, ItemBearbeiten, Helper, FMX.Objects;
 
 type
   TFormListe = class(TForm)
     GridPanelLayout1: TGridPanelLayout;
     LblListe: TLabel;
-    BtnEdit: TButton;
-    BtnHinzufuegen: TButton;
     ListBox1: TListBox;
-    BtnBack: TButton;
-    procedure BtnHinzufuegenClick(Sender: TObject);
-    procedure BtnEditClick(Sender: TObject);
+    ImgBack: TImage;
+    ImgAdd: TImage;
+    ImgEdit: TImage;
+    procedure ImgEditClick(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; clickedList: TListe);
     procedure Update();
     procedure FormActivate(Sender: TObject);
@@ -32,6 +31,8 @@ type
     procedure ClickOnItem(Sender: TObject);
     procedure subFormClosed(Sender: TObject; var Action: TCloseAction);
     procedure ListBox1ChangeCheck(Sender: TObject);
+    procedure ImgBackClick(Sender: TObject);
+    procedure ImgAddClick(Sender: TObject);
 
   private
     { Private-Deklarationen }
@@ -55,13 +56,14 @@ begin
   Update();
 end;
 
-procedure TFormListe.BtnBackClick(Sender: TObject);
+
+procedure TFormListe.ImgBackClick(Sender: TObject);
 begin
   Close;
   Release;
 end;
 
-procedure TFormListe.BtnEditClick(Sender: TObject);
+procedure TFormListe.ImgEditClick(Sender: TObject);
 var editlistForm:TFormListeBearbeiten;
 begin
   editlistForm := TFormListeBearbeiten.Create(Application, privateServerAPI, listId);
@@ -69,7 +71,7 @@ begin
   editlistForm.OnClose := subFormClosed;
 end;
 
-procedure TFormListe.BtnHinzufuegenClick(Sender: TObject);
+procedure TFormListe.ImgAddClick(Sender: TObject);
 var
   additemForm: TFormHinzufuegen;
 begin
@@ -90,6 +92,7 @@ procedure TFormListe.FormActivate(Sender: TObject);
 begin
   Update();
 end;
+
 
 procedure TFormListe.ListBox1ChangeCheck(Sender: TObject);
 var

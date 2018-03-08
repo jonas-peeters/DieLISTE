@@ -16,12 +16,11 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.StdCtrls, FMX.ListBox, FMX.Controls.Presentation, serverAPI, AddUser,
-  Helper;
+  Helper, FMX.Objects;
 
 type
   TFormListeBearbeiten = class(TForm)
     GridPanelLayout1: TGridPanelLayout;
-    BtnBack: TButton;
     ListBox1: TListBox;
     Label1: TLabel;
     LBIEditListName: TListBoxItem;
@@ -29,7 +28,8 @@ type
     LBIAddUser: TListBoxItem;
     SettingsGroupHeader: TListBoxGroupHeader;
     GroupHeaderUser: TListBoxGroupHeader;
-    procedure BtnBackClick(Sender: TObject);
+    ImgBack: TImage;
+    procedure ImgBackClick(Sender: TObject);
     procedure EditListNameClick(Sender: TObject);
     procedure DeleteListClick(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; selectedListId: Integer);
@@ -138,7 +138,7 @@ begin
   end;
 end;
 
-procedure TFormListeBearbeiten.BtnBackClick(Sender: TObject);
+procedure TFormListeBearbeiten.ImgBackClick(Sender: TObject);
 begin
   Close;
   Release;
