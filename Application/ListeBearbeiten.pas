@@ -16,7 +16,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.StdCtrls, FMX.ListBox, FMX.Controls.Presentation, serverAPI, AddUser,
-  Helper;
+  Helper, FMX.Platform;
 
 type
   TFormListeBearbeiten = class(TForm)
@@ -177,16 +177,36 @@ end);
 end;
 
 procedure TFormListeBearbeiten.EditListNameClick(Sender: TObject);
-var neuerName:String;
+var
+  dialogService: IFMXDialogServiceAsync;
 begin
-  repeat
-    if not InputQuery('Namen ändern', 'Neuer Name:', neuerName) then
-      neuerName := list.name
-  until neuerName <> '';
-  if neuerName <> list.name then
+  if TPlatformServices.Current.SupportsPlatformService (IFMXDialogServiceAsync, IInterface (dialogService)) then
   begin
-    privateServerAPI.ChangeListName(neuerName, listId);
-    Update();
+    // Bei dieser InputQuery funktioniert unter Windows und MacOS der Cancel Button nicht.
+    // Diese Software ist nur zur Benutzung unter iOS und Android gedacht.
+    // Dort funktioniert die Funktion einwandfrei.
+    // Soll diese Funktion dennoch unter
+    // Windows ausgeführt werden kann entweder nur der OK-Button gedrückt werden
+    // oder der im Embarcadero Bug System vorgeschlagene Fix angewandt werden.
+    // Dieser ist hier zu finden: https://quality.embarcadero.com/browse/RSP-16670
+    dialogService.InputQueryAsync('Namen ändern', ['Neuer Name'], [list.name],
+      procedure (const AResult : TModalResult; const AValues : array of string)
+      begin
+          case AResult of
+            mrOk:
+              begin
+                if AValues[0] <> list.name then
+                begin
+                  privateServerAPI.ChangeListName(AValues[0], listId);
+                  Update();
+                end;
+              end;
+            else
+              begin
+              end;
+          end;
+      end
+    );
   end;
 end;
 
