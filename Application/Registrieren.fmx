@@ -1,0 +1,165 @@
+object FormRegistrieren: TFormRegistrieren
+  Left = 0
+  Top = 0
+  Caption = 'Form3'
+  ClientHeight = 498
+  ClientWidth = 331
+  Fill.Kind = Solid
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 2
+  object GridPanelLayout1: TGridPanelLayout
+    Align = Client
+    Size.Width = 331.000000000000000000
+    Size.Height = 498.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    ColumnCollection = <
+      item
+        Value = 10.004669106635460000
+      end
+      item
+        Value = 40.110210084338980000
+      end
+      item
+        Value = 39.883736417267800000
+      end
+      item
+        Value = 10.001384391757770000
+      end>
+    ControlCollection = <
+      item
+        Column = 1
+        ColumnSpan = 2
+        Control = LblRegistrieren
+        Row = 1
+      end
+      item
+        Column = 1
+        ColumnSpan = 2
+        Control = EdtEMailRegister
+        Row = 2
+      end
+      item
+        Column = 1
+        ColumnSpan = 2
+        Control = EdtBenutzernameRegister
+        Row = 3
+      end
+      item
+        Column = 1
+        ColumnSpan = 2
+        Control = EdtPWRegister
+        Row = 4
+      end
+      item
+        Column = 2
+        Control = PanelRegistrieren
+        Row = 6
+      end
+      item
+        Column = 1
+        Control = PanelAbbrechen
+        Row = 6
+      end>
+    RowCollection = <
+      item
+        Value = 8.364296112947569000
+      end
+      item
+        Value = 8.293155189765560000
+      end
+      item
+        Value = 8.228347077954470000
+      end
+      item
+        Value = 8.170051484357879000
+      end
+      item
+        Value = 8.118308495611108000
+      end
+      item
+        Value = 8.072986853178017000
+      end
+      item
+        Value = 8.033747251642075000
+      end
+      item
+        Value = 42.719107534543310000
+      end>
+    object LblRegistrieren: TLabel
+      Align = Client
+      Size.Width = 264.779968261718800000
+      Size.Height = 41.299907684326170000
+      Size.PlatformDefault = False
+      Text = 'Registrieren'
+      TabOrder = 3
+    end
+    object EdtEMailRegister: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 0
+      KeyboardType = EmailAddress
+      Size.Width = 264.779968261718800000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      TextPrompt = 'E-Mail'
+    end
+    object EdtBenutzernameRegister: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 1
+      Size.Width = 264.779968261718800000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      TextPrompt = 'Benutzername'
+    end
+    object EdtPWRegister: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 2
+      Password = True
+      Size.Width = 264.779968261718800000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      TextPrompt = 'Passwort'
+    end
+    object PanelRegistrieren: TPanel
+      Align = Client
+      Size.Width = 132.015167236328100000
+      Size.Height = 40.008071899414060000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      object Label1: TLabel
+        Align = Client
+        HitTest = True
+        Size.Width = 132.015167236328100000
+        Size.Height = 40.008071899414060000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Center
+        Text = 'Registrieren'
+        TabOrder = 1
+        OnClick = Label1Click
+      end
+    end
+    object PanelAbbrechen: TPanel
+      Align = Client
+      Size.Width = 132.764801025390600000
+      Size.Height = 40.008071899414060000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      object Label2: TLabel
+        Align = Client
+        HitTest = True
+        Size.Width = 132.764801025390600000
+        Size.Height = 40.008071899414060000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Center
+        Text = 'Abbrechen'
+        TabOrder = 1
+        OnClick = Label2Click
+      end
+    end
+  end
+end

@@ -45,11 +45,13 @@ end;
 
 procedure TFormPWaendern.BtnBackClick(Sender: TObject);
 begin
+  Close;
   Release;
 end;
 
 procedure TFormPWaendern.BtnCancelClick(Sender: TObject);
 begin
+  Close;
   Release;
 end;
 
@@ -57,10 +59,10 @@ procedure TFormPWaendern.BtnPWaendernClick(Sender: TObject);
 begin
 if EdtPWneu1.text=EdtPWneu2.text then
   begin
-
   if interpretServerResponse(privateServerAPI.changePassword(EdtPWneu1.Text)) then
     begin
       ShowMessage('Ihr Passwort wurde geändert.');
+      Close;
       Release;
     end;
   end;

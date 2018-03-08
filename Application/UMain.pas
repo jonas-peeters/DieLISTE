@@ -103,10 +103,10 @@ begin
     item.ItemData.Accessory := TListBoxItemData.TAccessory(1);
     item.ItemData.Detail := IntToStr(i);
     item.OnClick := LBListItemClick;
-    LBLists.AddObject(item);
     {$IF defined(MSWINDOWS)}
       item.Height:=25;
     {$ENDIF}
+    LBLists.AddObject(item);
   end;
 
 

@@ -21,7 +21,7 @@ object FormLogin: TFormLogin
         Value = 10.004669106635460000
       end
       item
-        Value = 40.110210084338970000
+        Value = 40.110210084338980000
       end
       item
         Value = 39.883736417267800000
@@ -39,12 +39,6 @@ object FormLogin: TFormLogin
       item
         Column = 1
         ColumnSpan = 2
-        Control = LblRegistrieren
-        Row = 9
-      end
-      item
-        Column = 1
-        ColumnSpan = 2
         Control = EdtEMailLogin
         Row = 4
       end
@@ -53,24 +47,6 @@ object FormLogin: TFormLogin
         ColumnSpan = 2
         Control = EdtPWLogin
         Row = 5
-      end
-      item
-        Column = 1
-        ColumnSpan = 2
-        Control = EdtEMailRegister
-        Row = 10
-      end
-      item
-        Column = 1
-        ColumnSpan = 2
-        Control = EdtBenutzernameRegister
-        Row = 11
-      end
-      item
-        Column = 1
-        ColumnSpan = 2
-        Control = EdtPWRegister
-        Row = 12
       end
       item
         Column = 1
@@ -88,9 +64,10 @@ object FormLogin: TFormLogin
         Row = 7
       end
       item
-        Column = 2
+        Column = 1
+        ColumnSpan = 2
         Control = PanelRegistrieren
-        Row = 14
+        Row = 13
       end>
     RowCollection = <
       item
@@ -143,25 +120,18 @@ object FormLogin: TFormLogin
       end>
     object LblAnmelden: TLabel
       Align = Client
-      Size.Width = 279.978820800781300000
+      Size.Width = 279.978820800781200000
       Size.Height = 34.375076293945310000
       Size.PlatformDefault = False
       Text = 'Anmelden'
-      TabOrder = 5
-    end
-    object LblRegistrieren: TLabel
-      Align = Client
-      Size.Width = 279.978820800781300000
-      Size.Height = 34.374908447265630000
-      Size.PlatformDefault = False
-      Text = 'Registrieren'
-      TabOrder = 6
+      TabOrder = 2
     end
     object EdtEMailLogin: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 0
-      Size.Width = 279.978820800781300000
+      KeyboardType = EmailAddress
+      Size.Width = 279.978820800781200000
       Size.Height = 30.000000000000000000
       Size.PlatformDefault = False
       TextPrompt = 'E-Mail'
@@ -171,35 +141,7 @@ object FormLogin: TFormLogin
       Align = Client
       TabOrder = 1
       Password = True
-      Size.Width = 279.978820800781300000
-      Size.Height = 30.000000000000000000
-      Size.PlatformDefault = False
-      TextPrompt = 'Passwort'
-    end
-    object EdtEMailRegister: TEdit
-      Touch.InteractiveGestures = [LongTap, DoubleTap]
-      Align = Client
-      TabOrder = 2
-      Size.Width = 279.978820800781300000
-      Size.Height = 30.000000000000000000
-      Size.PlatformDefault = False
-      TextPrompt = 'E-Mail'
-    end
-    object EdtBenutzernameRegister: TEdit
-      Touch.InteractiveGestures = [LongTap, DoubleTap]
-      Align = Client
-      TabOrder = 3
-      Size.Width = 279.978820800781300000
-      Size.Height = 30.000000000000000000
-      Size.PlatformDefault = False
-      TextPrompt = 'Benutzername'
-    end
-    object EdtPWRegister: TEdit
-      Touch.InteractiveGestures = [LongTap, DoubleTap]
-      Align = Client
-      TabOrder = 4
-      Password = True
-      Size.Width = 279.978820800781300000
+      Size.Width = 279.978820800781200000
       Size.Height = 30.000000000000000000
       Size.PlatformDefault = False
       TextPrompt = 'Passwort'
@@ -210,7 +152,7 @@ object FormLogin: TFormLogin
       Size.Height = 34.375148773193360000
       Size.PlatformDefault = False
       Text = 'Login'
-      TabOrder = 7
+      TabOrder = 3
     end
     object LabelPWVergessen: TLabel
       Align = MostTop
@@ -222,7 +164,7 @@ object FormLogin: TFormLogin
       Size.Height = 21.000000000000000000
       Size.PlatformDefault = False
       Text = 'Passwort vergessen?'
-      TabOrder = 8
+      TabOrder = 4
       OnClick = BtnPWVergessenClick
     end
     object PanelLogin: TPanel
@@ -230,7 +172,7 @@ object FormLogin: TFormLogin
       Size.Width = 139.593093872070300000
       Size.Height = 34.374908447265630000
       Size.PlatformDefault = False
-      TabOrder = 10
+      TabOrder = 6
       object LabelLogin: TLabel
         Align = Client
         HitTest = True
@@ -245,18 +187,18 @@ object FormLogin: TFormLogin
     end
     object PanelRegistrieren: TPanel
       Align = Client
-      Size.Width = 139.593093872070300000
-      Size.Height = 34.375030517578130000
+      Size.Width = 279.978820800781200000
+      Size.Height = 34.375000000000000000
       Size.PlatformDefault = False
-      TabOrder = 9
+      TabOrder = 5
       object Label1: TLabel
         Align = Client
         HitTest = True
-        Size.Width = 139.593093872070300000
-        Size.Height = 34.375030517578130000
+        Size.Width = 279.978820800781200000
+        Size.Height = 34.375000000000000000
         Size.PlatformDefault = False
         TextSettings.HorzAlign = Center
-        Text = 'Registrieren'
+        Text = 'Neu Registrieren'
         TabOrder = 1
         OnClick = BtnRegistrierenClick
       end

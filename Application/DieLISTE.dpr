@@ -17,7 +17,8 @@ uses
   Helper in 'Helper.pas',
   CCR.PrefsIniFile in 'lib\CCR.PrefsIniFile.pas',
   CCR.PrefsIniFile.Android in 'lib\CCR.PrefsIniFile.Android.pas',
-  CCR.PrefsIniFile.Apple in 'lib\CCR.PrefsIniFile.Apple.pas';
+  CCR.PrefsIniFile.Apple in 'lib\CCR.PrefsIniFile.Apple.pas',
+  Registrieren in 'Registrieren.pas' {FormRegistrieren};
 
 {$R *.res}
 
