@@ -8,6 +8,8 @@ object FormListeBearbeiten: TFormListeBearbeiten
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  Touch.GestureManager = GestureManager1
+  OnGesture = FormGesture
   DesignerMasterStyle = 2
   object GridPanelLayout1: TGridPanelLayout
     Align = Client
@@ -110,5 +112,18 @@ object FormListeBearbeiten: TFormListeBearbeiten
       Text = 'Liste Bearbeiten'
       TabOrder = 2
     end
+  end
+  object GestureManager1: TGestureManager
+    Sensitivity = 80.000000000000000000
+    Left = 312
+    Top = 8
+    GestureData = <
+      item
+        Control = Owner
+        Collection = <
+          item
+            GestureID = sgiRight
+          end>
+      end>
   end
 end

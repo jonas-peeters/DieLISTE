@@ -106,11 +106,8 @@ end;
 
 procedure TFormLogin.subFormClosed(Sender: TObject; var Action: TCloseAction);
 begin
-  if getLoginData.worked = false then
-  begin
-    EdtEMailLogin.Text := '';
-    EdtPWLogin.Text := '';
-  end;
+  EdtEMailLogin.Text := '';
+  EdtPWLogin.Text := '';
 end;
 
 end.

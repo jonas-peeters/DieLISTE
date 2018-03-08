@@ -16,7 +16,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.StdCtrls, FMX.ListBox, FMX.Controls.Presentation, serverAPI, AddUser,
-  Helper, FMX.Platform;
+  Helper, FMX.Platform, FMX.Gestures;
 
 type
   TFormListeBearbeiten = class(TForm)
@@ -29,6 +29,7 @@ type
     LBIAddUser: TListBoxItem;
     SettingsGroupHeader: TListBoxGroupHeader;
     GroupHeaderUser: TListBoxGroupHeader;
+    GestureManager1: TGestureManager;
     procedure BtnBackClick(Sender: TObject);
     procedure EditListNameClick(Sender: TObject);
     procedure DeleteListClick(Sender: TObject);
@@ -36,6 +37,8 @@ type
     procedure AddUserClick(Sender: TObject);
     procedure subFormClosed(Sender: TObject; var Action: TCloseAction);
     procedure Update();
+    procedure FormGesture(Sender: TObject; const EventInfo: TGestureEventInfo;
+      var Handled: Boolean);
   private
     { Private-Deklarationen }
   public
@@ -47,6 +50,7 @@ var
   list: TListe;
   listId: Integer;
   privateServerAPI: TServerAPI;
+  closed: Boolean;
 
 implementation
 
@@ -58,6 +62,7 @@ begin
   privateServerAPI := serverAPI;
   listId := selectedListId;
   hasDeletedList := false;
+  closed := false;
   Update;
 end;
 
@@ -164,57 +169,79 @@ end;
 
 procedure TFormListeBearbeiten.DeleteListClick(Sender: TObject);
 begin
-MessageDlg('Wollen Sie die Liste wirklich löschen?', System.UITypes.TMsgDlgType.mtCustom,
-[ System.UITypes.TMsgDlgBtn.mbYes,
-  System.UITypes.TMsgDlgBtn.mbNo,
-  System.UITypes.TMsgDlgBtn.mbCancel
-],0,
-procedure (const AResult:System.UITypes.TModalResult)
-begin
-  case AResult of
-    mrYES:
-      begin
-      privateServerAPI.removeList(list.id);
-      ShowMessage('Die Liste wurde gelöscht!');
-      hasDeletedList := true;
-      Close;
-      Release;
+  if privateServerAPI.isOnline then
+  begin
+    MessageDlg('Wollen Sie die Liste wirklich löschen?', System.UITypes.TMsgDlgType.mtCustom,
+    [ System.UITypes.TMsgDlgBtn.mbYes,
+      System.UITypes.TMsgDlgBtn.mbNo,
+      System.UITypes.TMsgDlgBtn.mbCancel
+    ],0,
+    procedure (const AResult:System.UITypes.TModalResult)
+    begin
+      case AResult of
+        mrYES:
+          begin
+          privateServerAPI.removeList(list.id);
+          ShowMessage('Die Liste wurde gelöscht!');
+          hasDeletedList := true;
+          Close;
+          Release;
+          end;
       end;
-  end;
-end);
+    end);
+  end
+  else
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
 procedure TFormListeBearbeiten.EditListNameClick(Sender: TObject);
 var
   dialogService: IFMXDialogServiceAsync;
 begin
-  if TPlatformServices.Current.SupportsPlatformService (IFMXDialogServiceAsync, IInterface (dialogService)) then
+  if privateServerAPI.isOnline then
   begin
-    // Bei dieser InputQuery funktioniert unter Windows und MacOS der Cancel Button nicht.
-    // Diese Software ist nur zur Benutzung unter iOS und Android gedacht.
-    // Dort funktioniert die Funktion einwandfrei.
-    // Soll diese Funktion dennoch unter
-    // Windows ausgeführt werden kann entweder nur der OK-Button gedrückt werden
-    // oder der im Embarcadero Bug System vorgeschlagene Fix angewandt werden.
-    // Dieser ist hier zu finden: https://quality.embarcadero.com/browse/RSP-16670
-    dialogService.InputQueryAsync('Namen ändern', ['Neuer Name'], [list.name],
-      procedure (const AResult : TModalResult; const AValues : array of string)
-      begin
-          case AResult of
-            mrOk:
-              begin
-                if AValues[0] <> list.name then
+    if TPlatformServices.Current.SupportsPlatformService (IFMXDialogServiceAsync, IInterface (dialogService)) then
+    begin
+      // Bei dieser InputQuery funktioniert unter Windows und MacOS der Cancel Button nicht.
+      // Diese Software ist nur zur Benutzung unter iOS und Android gedacht.
+      // Dort funktioniert die Funktion einwandfrei.
+      // Soll diese Funktion dennoch unter
+      // Windows ausgeführt werden kann entweder nur der OK-Button gedrückt werden
+      // oder der im Embarcadero Bug System vorgeschlagene Fix angewandt werden.
+      // Dieser ist hier zu finden: https://quality.embarcadero.com/browse/RSP-16670
+      dialogService.InputQueryAsync('Namen ändern', ['Neuer Name'], [list.name],
+        procedure (const AResult : TModalResult; const AValues : array of string)
+        begin
+            case AResult of
+              mrOk:
                 begin
-                  privateServerAPI.ChangeListName(AValues[0], listId);
-                  Update();
+                  if AValues[0] <> list.name then
+                  begin
+                    privateServerAPI.ChangeListName(AValues[0], listId);
+                    Update();
+                  end;
                 end;
-              end;
-            else
-              begin
-              end;
-          end;
-      end
-    );
+              else
+                begin
+                end;
+            end;
+        end
+      );
+    end;
+  end
+  else
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+end;
+
+procedure TFormListeBearbeiten.FormGesture(Sender: TObject;
+  const EventInfo: TGestureEventInfo; var Handled: Boolean);
+begin
+  Handled := true;
+  if not closed then
+  begin
+    closed := true;
+    Close;
+    Release;
   end;
 end;
 

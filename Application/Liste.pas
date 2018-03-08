@@ -13,7 +13,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.ListBox, FMX.StdCtrls, FMX.Controls.Presentation, Hinzufuegen, ListeBearbeiten, serverAPI,
-  FMX.Edit, ItemBearbeiten, Helper;
+  FMX.Edit, ItemBearbeiten, Helper, FMX.Gestures, FMX.Objects;
 
 type
   TFormListe = class(TForm)
@@ -23,6 +23,8 @@ type
     BtnHinzufuegen: TButton;
     ListBox1: TListBox;
     BtnBack: TButton;
+    GestureManager1: TGestureManager;
+    Line1: TLine;
     procedure BtnHinzufuegenClick(Sender: TObject);
     procedure BtnEditClick(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; clickedList: TListe);
@@ -32,6 +34,8 @@ type
     procedure ClickOnItem(Sender: TObject);
     procedure subFormClosed(Sender: TObject; var Action: TCloseAction);
     procedure ListBox1ChangeCheck(Sender: TObject);
+    procedure FormGesture(Sender: TObject; const EventInfo: TGestureEventInfo;
+      var Handled: Boolean);
 
   private
     { Private-Deklarationen }
@@ -45,6 +49,7 @@ var
   list: TListe;
   listId: Integer;
   lists: Tlistarray;
+  closed: Boolean;
 
 implementation
 
@@ -91,12 +96,25 @@ begin
   inherited Create(AOwner);
   privateServerAPI := serverAPI;
   listId := clickedList.id;
+  closed := false;
   Update();
 end;
 
 procedure TFormListe.FormActivate(Sender: TObject);
 begin
   Update();
+end;
+
+procedure TFormListe.FormGesture(Sender: TObject;
+  const EventInfo: TGestureEventInfo; var Handled: Boolean);
+begin
+  Handled := true;
+  if not closed then
+  begin
+    closed := true;
+    Close;
+    Release;
+  end;
 end;
 
 procedure TFormListe.ListBox1ChangeCheck(Sender: TObject);

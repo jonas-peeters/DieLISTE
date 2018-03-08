@@ -17,7 +17,7 @@ object FormMain: TFormMain
     Size.Height = 553.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 1
     TabPosition = PlatformDefault
     Sizes = (
@@ -30,7 +30,7 @@ object FormMain: TFormMain
         item
         end>
       StyledSettings = [Family, Style, FontColor]
-      IsSelected = True
+      IsSelected = False
       Size.Width = 163.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -125,7 +125,7 @@ object FormMain: TFormMain
         item
         end>
       StyledSettings = [Family, Style, FontColor]
-      IsSelected = False
+      IsSelected = True
       Size.Width = 164.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -182,6 +182,12 @@ object FormMain: TFormMain
             ColumnSpan = 6
             Control = ListBox2
             Row = 5
+          end
+          item
+            Column = 0
+            ColumnSpan = 6
+            Control = Line1
+            Row = 4
           end>
         RowCollection = <
           item
@@ -265,6 +271,14 @@ object FormMain: TFormMain
             Text = 'Abmelden'
             OnClick = LblAbmeldenClick
           end
+        end
+        object Line1: TLine
+          Align = Client
+          LineType = Bottom
+          Size.Width = 327.000000000000000000
+          Size.Height = 21.722839355468750000
+          Size.PlatformDefault = False
+          Stroke.Color = xFF939393
         end
       end
     end

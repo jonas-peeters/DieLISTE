@@ -12,7 +12,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.ScrollBox, FMX.Memo, serverAPI,
   FMX.TabControl, FMX.Layouts, FMX.ListBox, Liste, JSON, FMX.Edit, FMX.SearchBox,
-  PWvergessen, PWaendern, Helper, FMX.Platform;
+  PWvergessen, PWaendern, Helper, FMX.Platform, FMX.Objects;
 
 type
   TFormMain = class(TForm)
@@ -30,6 +30,7 @@ type
     ListBox2: TListBox;
     SearchBox1: TSearchBox;
     LblAbmelden: TListBoxItem;
+    Line1: TLine;
     procedure FormCreate(Sender: TObject);
     procedure PlusBtn2Click(Sender: TObject);
     procedure LBListItemClick(Sender: TObject);
@@ -140,8 +141,6 @@ begin
     ShowMessage('Du brauchst eine aktive Internetverbindung! Erneut versuchen?');
     UpdateLists();
   end;
-
-
 end;
 
 procedure TFormMain.UpdateUserData();
@@ -165,22 +164,27 @@ end;
 
 procedure TFormMain.LBIUserLoeschenClick(Sender: TObject);
 begin
-MessageDlg('Wollen Sie den Account wirklich löschen?', System.UITypes.TMsgDlgType.mtCustom,
-[ System.UITypes.TMsgDlgBtn.mbYes,
-  System.UITypes.TMsgDlgBtn.mbNo,
-  System.UITypes.TMsgDlgBtn.mbCancel
-],0,
-procedure (const AResult:System.UITypes.TModalResult)
-begin
-  case AResult of
-    mrYES:
-    if UMain.serverAPI.deleteUser()='"Deleted user"' then
-      begin
-        ShowMessage('Der User wurde gelöscht!');
-        Release;
+  if serverAPI.isOnline then
+  begin
+    MessageDlg('Wollen Sie den Account wirklich löschen?', System.UITypes.TMsgDlgType.mtCustom,
+    [ System.UITypes.TMsgDlgBtn.mbYes,
+      System.UITypes.TMsgDlgBtn.mbNo,
+      System.UITypes.TMsgDlgBtn.mbCancel
+    ],0,
+    procedure (const AResult:System.UITypes.TModalResult)
+    begin
+      case AResult of
+        mrYES:
+        if UMain.serverAPI.deleteUser()='"Deleted user"' then
+          begin
+            ShowMessage('Der User wurde gelöscht!');
+            Release;
+          end;
       end;
-  end;
-end);
+    end);
+  end
+  else
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
 procedure TFormMain.LblAbmeldenClick(Sender: TObject);
@@ -188,8 +192,11 @@ var
   loginData: TLoginData;
 begin
   loginData.worked := false;
+  loginData.email := '';
+  loginData.password := '';
   saveLoginData(loginData);
   Close;
+  ShowMessage('Du wurdest erfolgreich abgemeldet.');
   Release;
 end;
 
