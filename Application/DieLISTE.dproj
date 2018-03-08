@@ -5,7 +5,7 @@
         <FrameworkType>FMX</FrameworkType>
         <MainSource>DieLISTE.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win64</Platform>
         <TargetedPlatforms>1119</TargetedPlatforms>
         <AppType>Application</AppType>
@@ -685,6 +685,11 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\114 114.png" Configuration="Release" Class="iPhone_AppIcon114">
+                    <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="..\Assets\Icons\50 50.png" Configuration="Debug" Class="iPad_SpotLight50">
                     <Platform Name="iOSSimulator">
                         <Overwrite>true</Overwrite>
@@ -707,12 +712,6 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\Assets\Splashes\426 320.png" Configuration="Release" Class="Android_SplashImage426">
-                    <Platform Name="Android">
-                        <RemoteName>splash_image.png</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="..\Assets\Icons\144 144.png" Configuration="Debug" Class="Android_LauncherIcon144">
                     <Platform Name="Android">
                         <RemoteName>ic_launcher.png</RemoteName>
@@ -724,8 +723,9 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\Assets\Icons\114 114.png" Configuration="Release" Class="iPhone_AppIcon114">
-                    <Platform Name="iOSSimulator">
+                <DeployFile LocalName="..\Assets\Splashes\426 320.png" Configuration="Release" Class="Android_SplashImage426">
+                    <Platform Name="Android">
+                        <RemoteName>splash_image.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
