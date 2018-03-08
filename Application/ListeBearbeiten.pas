@@ -39,7 +39,7 @@ type
   private
     { Private-Deklarationen }
   public
-    { Public-Deklarationen }
+    hasDeletedList: Boolean;
   end;
 
 var
@@ -57,6 +57,7 @@ begin
   inherited Create(AOwner);
   privateServerAPI := serverAPI;
   listId := selectedListId;
+  hasDeletedList := false;
   Update;
 end;
 
@@ -87,7 +88,7 @@ begin
   groupHeader.Text := 'Allgemein';
   ListBox1.AddObject(groupHeader);
   {$IF defined(MSWINDOWS)}
-    item.Height:=23;
+    groupHeader.Height:=23;
   {$ENDIF}
 
   // Add change name
@@ -122,7 +123,7 @@ begin
   groupHeader.Text := 'Benutzer';
   ListBox1.AddObject(groupHeader);
   {$IF defined(MSWINDOWS)}
-    item.Height:=23;
+    groupHeader.Height:=23;
   {$ENDIF}
 
   // Add users with access
@@ -167,6 +168,7 @@ begin
       begin
       privateServerAPI.removeList(list.id);
       ShowMessage('Die Liste wurde gelöscht!');
+      hasDeletedList := true;
       Close;
       Release;
       end;

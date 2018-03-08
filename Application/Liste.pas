@@ -52,6 +52,15 @@ implementation
 
 procedure TFormListe.subFormClosed(Sender: TObject; var Action: TCloseAction);
 begin
+  if (Sender.InheritsFrom(TFormListeBearbeiten)) then
+  begin
+    if ((Sender as TFormListeBearbeiten).hasDeletedList) then
+    begin
+      Close;
+      Release;
+    end;
+  end;
+  
   Update();
 end;
 
@@ -62,7 +71,7 @@ begin
 end;
 
 procedure TFormListe.BtnEditClick(Sender: TObject);
-var editlistForm:TFormListeBearbeiten;
+var editlistForm: TFormListeBearbeiten;
 begin
   editlistForm := TFormListeBearbeiten.Create(Application, privateServerAPI, listId);
   editlistForm.Show;
