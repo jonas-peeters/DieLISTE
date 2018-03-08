@@ -44,8 +44,6 @@ var
   LoginForm: TFormLogin;
   MainForm: TFormMain;
 
-  const DoneBarHeight = 66;
-
 implementation
 
 {$R *.fmx}
