@@ -96,7 +96,7 @@ end;
 procedure TFormMain.FormCreate(Sender: TObject);
 begin
   serverAPI := TServerAPI.create();
-  timerCounter := 9;
+  timerCounter := 19;
 end;
 
 procedure TFormMain.listFormClose(Sender: TObject; var Action: TCloseAction);
