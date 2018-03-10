@@ -22,7 +22,7 @@ uses
 
 begin
   Application.Initialize;
-  AApplication.CreateForm(TLoginForm, LoginForm);
-  pplication.Run;
+  Application.CreateForm(TFormLogin, LoginForm);
+  Application.Run;
 
 end.

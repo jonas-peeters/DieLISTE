@@ -63,7 +63,7 @@ object FormListe: TFormListe
       end>
     RowCollection = <
       item
-        Value = 9.999999999999999000
+        Value = 9.999999999999998000
       end
       item
         Value = 90.000000000000000000
@@ -96,6 +96,9 @@ object FormListe: TFormListe
       Viewport.Height = 462.600000000000000000
     end
     object ImgBack: TImage
+      MultiResBitmap.Height = 40
+      MultiResBitmap.Width = 40
+      MultiResBitmap.LoadSize = 1
       MultiResBitmap = <
         item
           Width = 72
@@ -117,6 +120,7 @@ object FormListe: TFormListe
       Size.Width = 55.182895660400390000
       Size.Height = 51.400001525878910000
       Size.PlatformDefault = False
+      OnClick = ImgBackClick
     end
     object ImgAdd: TImage
       MultiResBitmap = <
@@ -137,6 +141,7 @@ object FormListe: TFormListe
       Size.Width = 59.474075317382810000
       Size.Height = 51.400001525878910000
       Size.PlatformDefault = False
+      OnClick = ImgAddClick
     end
     object ImgEdit: TImage
       MultiResBitmap = <
@@ -188,6 +193,7 @@ object FormListe: TFormListe
       Size.Width = 60.279144287109380000
       Size.Height = 51.400001525878910000
       Size.PlatformDefault = False
+      OnClick = ImgEditClick
     end
   end
 end

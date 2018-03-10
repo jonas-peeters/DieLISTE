@@ -19,16 +19,16 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
   FMX.Layouts, FMX.ListBox, FMX.Controls.Presentation, FMX.Edit, serverAPI,
-  Helper;
+  Helper, FMX.Objects;
 
 type
   TFormAddUser = class(TForm)
     GridPanelLayout1: TGridPanelLayout;
-    BtnBack: TButton;
     ListBox1: TListBox;
     Edit1: TEdit;
     Label1: TLabel;
     ClearEditButton1: TClearEditButton;
+    Image1: TImage;
     procedure BtnBackClick(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
     procedure ClickOnName(Sender: TObject);

@@ -17,7 +17,7 @@ object FormMain: TFormMain
     Size.Height = 573.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 1
     TabPosition = PlatformDefault
     Sizes = (
@@ -29,7 +29,7 @@ object FormMain: TFormMain
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 184.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -124,9 +124,10 @@ object FormMain: TFormMain
                 44AE426082}
             end>
           Align = Client
-          Size.Width = 55.200000762939460000
+          Size.Width = 55.200012207031250000
           Size.Height = 54.447940826416010000
           Size.PlatformDefault = False
+          OnClick = ImgAddClick
         end
       end
     end
@@ -134,7 +135,7 @@ object FormMain: TFormMain
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 184.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -292,6 +293,7 @@ object FormMain: TFormMain
           Size.Width = 60.634994506835940000
           Size.Height = 57.910911560058600000
           Size.PlatformDefault = False
+          OnClick = ImgEditClick
         end
       end
     end

@@ -87,7 +87,7 @@ begin
   groupHeader.Text := 'Allgemein';
   ListBox1.AddObject(groupHeader);
   {$IF defined(MSWINDOWS)}
-    item.Height:=23;
+    groupHeader.Height:=23;
   {$ENDIF}
 
   // Add change name
@@ -122,7 +122,7 @@ begin
   groupHeader.Text := 'Benutzer';
   ListBox1.AddObject(groupHeader);
   {$IF defined(MSWINDOWS)}
-    item.Height:=23;
+    groupHeader.Height:=23;
   {$ENDIF}
 
   // Add users with access

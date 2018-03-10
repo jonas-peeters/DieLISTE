@@ -23,13 +23,13 @@ object FormPWvergessen: TFormPWvergessen
         Value = 8.000359550903822000
       end
       item
-        Value = 34.062200983280970000
+        Value = 34.062200983280960000
       end
       item
         Value = 43.788132252541890000
       end
       item
-        Value = 7.093306504766089000
+        Value = 7.093306504766088000
       end>
     ControlCollection = <
       item
@@ -172,6 +172,7 @@ object FormPWvergessen: TFormPWvergessen
       Size.Width = 52.697261810302730000
       Size.Height = 85.552551269531250000
       Size.PlatformDefault = False
+      OnClick = ImgBackClick
     end
   end
 end

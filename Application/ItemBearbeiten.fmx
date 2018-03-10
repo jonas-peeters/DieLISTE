@@ -179,7 +179,7 @@ object FormItemBearbeiten: TFormItemBearbeiten
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 1
-      Size.Width = 88.586174011230460000
+      Size.Width = 88.586174011230470000
       Size.Height = 30.000000000000000000
       Size.PlatformDefault = False
       TextPrompt = 'Menge'
@@ -238,14 +238,14 @@ object FormItemBearbeiten: TFormItemBearbeiten
     object PanelErledigt: TPanel
       Align = Client
       Size.Width = 222.097503662109400000
-      Size.Height = 29.094818115234370000
+      Size.Height = 29.094818115234380000
       Size.PlatformDefault = False
       TabOrder = 6
       object LabelErledigt: TLabel
         Align = Client
         HitTest = True
         Size.Width = 222.097503662109400000
-        Size.Height = 29.094818115234370000
+        Size.Height = 29.094818115234380000
         Size.PlatformDefault = False
         TextSettings.HorzAlign = Center
         Text = 'Erledigt'
@@ -273,14 +273,14 @@ object FormItemBearbeiten: TFormItemBearbeiten
     end
     object PanelAbbrechen: TPanel
       Align = Client
-      Size.Width = 88.586174011230460000
+      Size.Width = 88.586174011230470000
       Size.Height = 28.826019287109380000
       Size.PlatformDefault = False
       TabOrder = 8
       object LabelAbbrechen: TLabel
         Align = Client
         HitTest = True
-        Size.Width = 88.586174011230460000
+        Size.Width = 88.586174011230470000
         Size.Height = 28.826019287109380000
         Size.PlatformDefault = False
         TextSettings.HorzAlign = Center
@@ -291,14 +291,14 @@ object FormItemBearbeiten: TFormItemBearbeiten
     end
     object PanelOK: TPanel
       Align = Client
-      Size.Width = 89.161010742187490000
+      Size.Width = 89.161010742187500000
       Size.Height = 28.826019287109380000
       Size.PlatformDefault = False
       TabOrder = 7
       object LabelOK: TLabel
         Align = Client
         HitTest = True
-        Size.Width = 89.161010742187490000
+        Size.Width = 89.161010742187500000
         Size.Height = 28.826019287109380000
         Size.PlatformDefault = False
         TextSettings.HorzAlign = Center
@@ -329,6 +329,7 @@ object FormItemBearbeiten: TFormItemBearbeiten
       Size.Width = 72.467422485351560000
       Size.Height = 55.165466308593750000
       Size.PlatformDefault = False
+      OnClick = ImgBackClick
     end
   end
 end

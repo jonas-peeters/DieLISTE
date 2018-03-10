@@ -122,6 +122,7 @@ object FormListeBearbeiten: TFormListeBearbeiten
       Size.Width = 58.333332061767580000
       Size.Height = 55.000000000000000000
       Size.PlatformDefault = False
+      OnClick = ImgBackClick
     end
   end
 end

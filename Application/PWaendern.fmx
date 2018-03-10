@@ -23,7 +23,7 @@ object FormPWaendern: TFormPWaendern
         Value = 10.257378535799400000
       end
       item
-        Value = 28.646295228588700000
+        Value = 28.646295228588690000
       end
       item
         Value = 40.177411619089110000
@@ -187,6 +187,7 @@ object FormPWaendern: TFormPWaendern
       Size.Width = 52.930374145507810000
       Size.Height = 41.555480957031250000
       Size.PlatformDefault = False
+      OnClick = ImgBackClick
     end
   end
 end
