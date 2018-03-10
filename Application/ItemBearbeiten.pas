@@ -82,9 +82,10 @@ begin
       EdtEinheit.Text := EdtEinheit.Text + ' ' + item.quantity.Split([' '])[i];
   CBCategory.ItemIndex := item.categoryId - 1;
 
-  if erledigt=true then
-      LabelErledigt.Text:= 'Nicht erledigt'
-  else  LabelErledigt.Text:= 'Erledigt'
+  if item.done then
+    LabelErledigt.Text:= 'Nicht erledigt'
+  else
+    LabelErledigt.Text:= 'Erledigt'
 
 end;
 
