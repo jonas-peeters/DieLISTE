@@ -258,6 +258,11 @@ object FormListe: TFormListe
       Stroke.Color = xFF939393
     end
   end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    Left = 304
+    Top = 419
+  end
   object GestureManager1: TGestureManager
     Sensitivity = 80.000000000000000000
     Left = 304

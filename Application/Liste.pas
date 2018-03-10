@@ -25,6 +25,7 @@ type
     ImgEdit: TImage;
     GestureManager1: TGestureManager;
     Line1: TLine;
+    Timer1: TTimer;
     procedure ImgEditClick(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; clickedList: TListe);
     procedure Update();
@@ -36,6 +37,7 @@ type
     procedure ImgAddClick(Sender: TObject);
     procedure FormGesture(Sender: TObject; const EventInfo: TGestureEventInfo;
       var Handled: Boolean);
+    procedure Timer1Timer(Sender: TObject);
 
   private
     { Private-Deklarationen }
@@ -68,6 +70,16 @@ begin
   Update();
 end;
 
+procedure TFormListe.Timer1Timer(Sender: TObject);
+begin
+  if getOfflineData.worked then
+    Update
+  else
+  begin
+    Close;
+    Release;
+  end;
+end;
 
 procedure TFormListe.ImgBackClick(Sender: TObject);
 begin
@@ -78,9 +90,14 @@ end;
 procedure TFormListe.ImgEditClick(Sender: TObject);
 var editlistForm:TFormListeBearbeiten;
 begin
-  editlistForm := TFormListeBearbeiten.Create(Application, privateServerAPI, listId);
-  editlistForm.Show;
-  editlistForm.OnClose := subFormClosed;
+  if privateServerAPI.isOnline then
+  begin
+    editlistForm := TFormListeBearbeiten.Create(Application, privateServerAPI, listId);
+    editlistForm.Show;
+    editlistForm.OnClose := subFormClosed;
+  end
+  else
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
 procedure TFormListe.ImgAddClick(Sender: TObject);
@@ -98,6 +115,7 @@ begin
   privateServerAPI := serverAPI;
   listId := clickedList.id;
   closed := false;
+  lists := nil;
   Update();
 end;
 
@@ -125,31 +143,35 @@ var
   child: TListBoxItem;
   changed: Boolean;
 begin
-  changed := false;
-  for i := 0 to ListBox1.Items.Count - 1 do
+  if privateServerAPI.isOnline then
   begin
-    child := ListBox1.ItemByIndex(i);
-    item := list.items[StrToInt(child.ItemData.Detail)];
-    if child.IsChecked <> item.done then
+    changed := false;
+    for i := 0 to ListBox1.Items.Count - 1 do
     begin
-      privateServerAPI.DeleteItem(item.itemId);
-      privateServerAPI.AddToList(item.name, item.quantity, child.IsChecked, item.categoryId, item.listId);
-      changed := true;
+      child := ListBox1.ItemByIndex(i);
+      item := list.items[StrToInt(child.ItemData.Detail)];
+      if child.IsChecked <> item.done then
+      begin
+        privateServerAPI.DeleteItem(item.itemId);
+        privateServerAPI.AddToList(item.name, item.quantity, child.IsChecked, item.categoryId, item.listId);
+        changed := true;
+      end;
     end;
-  end;
-  if changed then
-    Update;
+    if changed then
+      Update;
+  end
+  else
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
 procedure TFormListe.Update;
 var
   i: Integer;
   item: TListBoxItem;
-  lists: TListArray;
 begin
-  if privateServerAPI.isOnline then
+  if lists <> privateServerAPI.getCachedLists then
   begin
-    lists := privateServerAPI.getLists();
+    lists := privateServerAPI.getCachedLists;
     for i := 0 to High(lists) do
       if lists[i].id = listId then
         list := lists[i];
@@ -167,12 +189,6 @@ begin
       item.OnClick := ClickOnItem;
       ListBox1.AddObject(item);
     end;
-  end
-  else
-  begin
-    ShowMessage('Du brauchst eine aktive Internetverbindung!');
-    Close;
-    Release;
   end;
 end;
 

@@ -20,7 +20,7 @@ type
     ProfilTab: TTabItem;
     HomeTab: TTabItem;
     GridPanelLayout1: TGridPanelLayout;
-    Label1: TLabel;
+    LblHome: TLabel;
     LBLists: TListBox;
     GridPanelLayout2: TGridPanelLayout;
     LblUsername: TLabel;
@@ -31,6 +31,7 @@ type
     ImgAdd: TImage;
     ImgEdit: TImage;
     Line1: TLine;
+    Timer1: TTimer;
     procedure FormCreate(Sender: TObject);
     procedure ImgAddClick(Sender: TObject);
     procedure LBListItemClick(Sender: TObject);
@@ -39,6 +40,8 @@ type
     procedure listFormClose(Sender: TObject; var Action: TCloseAction);
     procedure LblAbmeldenClick(Sender: TObject);
     procedure ImgEditClick(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure UpdateTitle(online: Boolean);
   private
     { Private declarations }
   public
@@ -51,6 +54,7 @@ var
   serverAPI: TServerAPI;
   lists: TListArray;
   user: TUserData;
+  timerCounter: Integer;
 
 implementation
 
@@ -92,11 +96,45 @@ end;
 procedure TFormMain.FormCreate(Sender: TObject);
 begin
   serverAPI := TServerAPI.create();
+  timerCounter := 9;
 end;
 
 procedure TFormMain.listFormClose(Sender: TObject; var Action: TCloseAction);
 begin
   UpdateLists();
+end;
+
+procedure TFormMain.Timer1Timer(Sender: TObject);
+var
+  offlineData: TOfflineData;
+begin
+  offlineData := getOfflineData;
+  timerCounter := timerCounter + 1;
+  if timerCounter = 20 then
+  begin
+    timerCounter := 0;
+    UpdateTitle(serverAPI.isOnline);
+    serverAPI.getLists;
+  end
+  else if timerCounter = 10 then
+  begin
+    UpdateTitle(serverAPI.isOnline);
+  end;
+  UpdateLists;
+end;
+
+procedure TFormMain.UpdateTitle(online: Boolean);
+begin
+  if not online then
+    begin
+      LblHome.Text := 'Offline';
+      LblHome.TextSettings.FontColor := TAlphaColors.Crimson;
+    end
+    else
+    begin
+      LblHome.Text := 'Home';
+      LblHome.TextSettings.FontColor := TAlphaColors.Black;
+    end;
 end;
 
 procedure TFormMain.LBListItemClick(Sender: TObject);
@@ -110,8 +148,13 @@ end;
 
 procedure TFormMain.ImgAddClick(Sender: TObject);
 begin
-  serverAPI.AddList('Neue Liste');
-  UpdateLists();
+  if serverAPI.isOnline then
+  begin
+    serverAPI.AddList('Neue Liste');
+    UpdateLists();
+  end
+  else
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
 procedure TFormMain.UpdateLists();
@@ -119,10 +162,10 @@ var
   i: Integer;
   item: TListBoxItem;
 begin
-  if serverAPI.isOnline then
+  if lists <> serverAPI.getCachedLists then
   begin
     LBLists.Items.Clear;
-    lists := serverAPI.getLists();
+    lists := serverAPI.getCachedLists;
     for i := 0 to High(lists) do
     begin
       item := TListBoxItem.Create(LBLists);
@@ -135,11 +178,6 @@ begin
       {$ENDIF}
       LBLists.AddObject(item);
     end;
-  end
-  else
-  begin
-    ShowMessage('Du brauchst eine aktive Internetverbindung! Erneut versuchen?');
-    UpdateLists();
   end;
 end;
 
@@ -151,6 +189,11 @@ begin
     if user.allergies <> '' then
       LblAllergien.Text := user.allergies;
     LblUsername.Text := user.name;
+  end
+  else
+  begin
+    LblUsername.Text := 'Offline';
+    LblAllergien.Text := '';
   end;
 end;
 
@@ -189,12 +232,13 @@ end;
 
 procedure TFormMain.LblAbmeldenClick(Sender: TObject);
 var
-  loginData: TLoginData;
+  offlineData: TOfflineData;
 begin
-  loginData.worked := false;
-  loginData.email := '';
-  loginData.password := '';
-  saveLoginData(loginData);
+  offlineData.worked := false;
+  offlineData.email := '';
+  offlineData.password := '';
+  offlineData.lists := '[]';
+  saveOfflineData(offlineData);
   Close;
   ShowMessage('Du wurdest erfolgreich abgemeldet.');
   Release;

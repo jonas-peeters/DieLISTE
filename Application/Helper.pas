@@ -43,37 +43,39 @@ type
  TArray= Array of string;
 
 type
-  TLoginData=record
+  TOfflineData=record
     email: String;
     password: String;
     worked: Boolean;
+    lists: String;
   end;
 
 function interpretServerResponse(response: String): Boolean;
 function jsonArrayToStringArray(const s:string): TArray;
 function responseToListArray(const s:string): TListArray;
 function responseToUser(jsonString: string): TUserData;
-procedure saveLoginData(loginData: TLoginData);
-function getLoginData(): TLoginData;
+procedure saveOfflineData(offlineData: TOfflineData);
+function getOfflineData(): TOfflineData;
 
 implementation
 
-procedure saveLoginData(loginData: TLoginData);
+procedure saveOfflineData(offlineData: TOfflineData);
 var
   jsonObject: TJSONObject;
   path: String;
   settings: TCustomIniFile;
 begin
   jsonObject := TJSONObject.Create;
-  jsonObject.AddPair('email', loginData.email);
-  jsonObject.AddPair('password', loginData.password);
-  jsonObject.AddPair('worked', IfThen(loginData.worked, 'True', 'False'));
+  jsonObject.AddPair('email', offlineData.email);
+  jsonObject.AddPair('password', offlineData.password);
+  jsonObject.AddPair('worked', IfThen(offlineData.worked, 'True', 'False'));
+  jsonObject.AddPair('list_data', offlineData.lists);
 
   settings := CreateUserPreferencesIniFile;
   settings.WriteString('prefs', 'login_data', jsonObject.ToString);
 end;
 
-function getLoginData(): TLoginData;
+function getOfflineData(): TOfflineData;
 var
   jsonObject: TJSONObject;
   saved: String;
@@ -82,12 +84,13 @@ begin
   jsonObject := TJSONObject.Create;
   try
     settings := CreateUserPreferencesIniFile;
-    saved := settings.ReadString('prefs', 'login_data', '{"email":"","password":"","worked":"false"}');
+    saved := settings.ReadString('prefs', 'login_data', '{"email":"","password":"","worked":"false","list_data":"[]"}');
 
     jsonObject := TJSONObject.ParseJSONValue(saved) as TJSONObject;
-    Result.email := jsonObject.GetValue('email', '');
-    Result.password := jsonObject.GetValue('password', '');
-    Result.worked := jsonObject.GetValue('worked', False);
+    Result.email := jsonObject.GetValue<String>('email', '');
+    Result.password := jsonObject.GetValue<String>('password', '');
+    Result.worked := jsonObject.GetValue<boolean>('worked', False);
+    Result.lists := jsonObject.GetValue<String>('list_data', '[]');
   except
     Result.worked := false;
   end;
@@ -99,12 +102,12 @@ var
   userData: TUserData;
 begin
   jsonObject := JSON.TJSONObject.ParseJSONValue(jsonString) as TJSONObject;
-  userData.name := jsonObject.GetValue('username', '');
-  userData.password:= jsonObject.GetValue('password', '');
-  userData.allergies := jsonObject.GetValue('allergies', '');
-  userData.verifiedemail := jsonObject.GetValue('verified', false);
-  userData.email := jsonObject.GetValue('email', '');
-  userData.id := jsonObject.GetValue('id', -1);
+  userData.name := jsonObject.GetValue<String>('username', '');
+  userData.password:= jsonObject.GetValue<String>('password', '');
+  userData.allergies := jsonObject.GetValue<String>('allergies', '');
+  userData.verifiedemail := jsonObject.GetValue<boolean>('verified', false);
+  userData.email := jsonObject.GetValue<String>('email', '');
+  userData.id := jsonObject.GetValue<Integer>('id', -1);
   result := userData;
 end;
 
@@ -179,6 +182,7 @@ begin
     jsonObject := TJSONObject.ParseJSONValue(response) as TJSONObject;
     errorCode := jsonObject.GetValue('code', 0);
     case errorCode of
+      0: begin result := False; end;
       10: begin result := True; end;
       11: begin result := True; end;
       12: begin result := True; end;

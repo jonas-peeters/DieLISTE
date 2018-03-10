@@ -58,7 +58,7 @@ object FormMain: TFormMain
         ControlCollection = <
           item
             Column = 1
-            Control = Label1
+            Control = LblHome
             Row = 0
           end
           item
@@ -79,13 +79,14 @@ object FormMain: TFormMain
           item
             Value = 89.609171352905820000
           end>
-        object Label1: TLabel
+        object LblHome: TLabel
           Align = Client
+          StyledSettings = [Family, Size, Style]
           Size.Width = 228.899978637695300000
           Size.Height = 52.369777679443360000
           Size.PlatformDefault = False
           TextSettings.HorzAlign = Center
-          Text = 'HOME'
+          Text = 'Home'
           TabOrder = 0
         end
         object LBLists: TListBox
@@ -99,7 +100,7 @@ object FormMain: TFormMain
           DefaultItemStyles.GroupHeaderStyle = ''
           DefaultItemStyles.GroupFooterStyle = ''
           Viewport.Width = 327.000000000000000000
-          Viewport.Height = 451.600000000000000000
+          Viewport.Height = 407.600000000000000000
           object SearchBox1: TSearchBox
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             Align = Top
@@ -125,7 +126,7 @@ object FormMain: TFormMain
                 44AE426082}
             end>
           Align = Client
-          Size.Width = 49.050018310546880000
+          Size.Width = 49.050018310546870000
           Size.Height = 52.369777679443360000
           Size.PlatformDefault = False
           OnClick = ImgAddClick
@@ -298,7 +299,7 @@ object FormMain: TFormMain
                 0996CDAFD359DF750000000049454E44AE426082}
             end>
           Align = Client
-          Size.Width = 53.879470825195310000
+          Size.Width = 53.879470825195320000
           Size.Height = 55.700576782226560000
           Size.PlatformDefault = False
           OnClick = ImgEditClick
@@ -313,5 +314,11 @@ object FormMain: TFormMain
         end
       end
     end
+  end
+  object Timer1: TTimer
+    Interval = 500
+    OnTimer = Timer1Timer
+    Left = 8
+    Top = 8
   end
 end

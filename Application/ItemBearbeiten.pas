@@ -61,7 +61,6 @@ var
   privateServerAPI: TServerAPI;
   itemToChange: TItem;
   list:Tliste;
-  erledigt: Boolean;
 
 implementation
 
@@ -99,6 +98,7 @@ procedure TFormItemBearbeiten.BtnErledigtClick(Sender: TObject);
 var
   name, einheit, menge: string;
   kategorie: Integer;
+  erledigt: Boolean;
 begin
   if privateServerAPI.isOnline then
   begin

@@ -1,4 +1,4 @@
-{*
+﻿{*
   Login form
 
   This is the first from any user will see.
@@ -49,21 +49,30 @@ implementation
 {$R *.fmx}
 
 procedure TFormLogin.login(email: String; password: String);
-var loginData: TLoginData;
+var offlineData: TOfflineData;
 begin
-  if UMain.serverAPI.isOnline then
+  if UMain.serverAPI.isValidOnline then
   begin
     if interpretServerResponse(UMain.serverAPI.login(email, password)) then
     begin
-      loginData.email := email;
-      loginData.password := password;
-      loginData.worked := true;
-      saveLoginData(loginData);
+      offlineData.email := email;
+      offlineData.password := password;
+      offlineData.worked := true;
+      offlineData.lists := UMain.serverAPI.getListString;
+      saveOfflineData(offlineData);
       MainForm.Show;
       MainForm.OnClose := subFormClosed;
       MainForm.UpdateLists();
       MainForm.UpdateUserData();
     end;
+  end
+  else if getOfflineData.worked then
+  begin
+    MainForm.Show;
+    MainForm.OnClose := subFormClosed;
+    MainForm.UpdateLists();
+    MainForm.UpdateUserData();
+    ShowMessage('Du wurdest offline angemeldet. Bis wieder eine Internetverbindung besteht, können keine Änderungen vorgenommen werden!')
   end
   else
     ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
@@ -90,17 +99,16 @@ end;
 
 procedure TFormLogin.FormShow(Sender: TObject);
 var
-  loginData: TLoginData;
-  online: Boolean;
+  offlineData: TOfflineData;
 begin
   MainForm := TFormMain.Create(nil);
   MainForm.Hide;
-  loginData := getLoginData;
-  EdtEMailLogin.Text := loginData.email;
-  EdtPWLogin.Text := loginData.password;
-  if loginData.worked then
+  offlineData := getOfflineData;
+  EdtEMailLogin.Text := offlineData.email;
+  EdtPWLogin.Text := offlineData.password;
+  if offlineData.worked then
   begin
-    login(loginData.email, loginData.password);
+    login(offlineData.email, offlineData.password);
   end;
 end;
 

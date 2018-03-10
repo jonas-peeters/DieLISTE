@@ -5,9 +5,9 @@
     </ProjectExtensions>
     <PropertyGroup>
         <DeviceId Condition="'$(Platform)'=='Android'">Nexus_5_v8.1.0</DeviceId>
-        <DeviceId Condition="'$(Platform)'=='iOSDevice32'"/>
+        <DeviceId Condition="'$(Platform)'=='iOSDevice32'">fd5b20113ee15ed312649a210b304a5951b0650d</DeviceId>
         <DeviceId Condition="'$(Platform)'=='iOSDevice64'">fd5b20113ee15ed312649a210b304a5951b0650d</DeviceId>
-        <DeviceId Condition="'$(Platform)'=='iOSSimulator'">iPhone5</DeviceId>
+        <DeviceId Condition="'$(Platform)'=='iOSSimulator'">6134E822-2369-4ADC-9901-8A6623A9E021</DeviceId>
     </PropertyGroup>
     <ItemGroup Condition="'$(Platform)'=='Win64'">
         <DeployFile Include="ModelSupport_DieLISTE\Hinzufuegen\default.txvpck" Condition="'$(Config)'=='Debug'">

@@ -69,37 +69,37 @@ object FormLogin: TFormLogin
         Value = 6.666692793253633000
       end
       item
-        Value = 6.666696693901338000
+        Value = 6.666696693901339000
       end
       item
-        Value = 6.666683529732536000
+        Value = 6.666683529732537000
       end
       item
-        Value = 6.666672543835857000
+        Value = 6.666672543835858000
       end
       item
-        Value = 6.666662604376699000
+        Value = 6.666662604376701000
       end
       item
         Value = 6.666655305920874000
       end
       item
-        Value = 6.666651272785672000
+        Value = 6.666651272785671000
       end
       item
         Value = 6.666650401268914000
       end
       item
-        Value = 6.666652093321635000
+        Value = 6.666652093321634000
       end
       item
         Value = 6.666655473769210000
       end
       item
-        Value = 6.666659583053010000
+        Value = 6.666659583053011000
       end
       item
-        Value = 6.666663537698820000
+        Value = 6.666663537698822000
       end
       item
         Value = 6.666666651433112000
@@ -108,11 +108,11 @@ object FormLogin: TFormLogin
         Value = 6.666668511200630000
       end
       item
-        Value = 6.666669004448074000
+        Value = 6.666669004448075000
       end>
     object LblAnmelden: TLabel
       Align = Client
-      Size.Width = 279.978820800781200000
+      Size.Width = 279.978820800781300000
       Size.Height = 36.666641235351560000
       Size.PlatformDefault = False
       TextSettings.HorzAlign = Center
@@ -124,7 +124,7 @@ object FormLogin: TFormLogin
       Align = Client
       TabOrder = 0
       KeyboardType = EmailAddress
-      Size.Width = 279.978820800781200000
+      Size.Width = 279.978820800781300000
       Size.Height = 30.000000000000000000
       Size.PlatformDefault = False
       TextPrompt = 'E-Mail'
@@ -134,7 +134,7 @@ object FormLogin: TFormLogin
       Align = Client
       TabOrder = 1
       Password = True
-      Size.Width = 279.978820800781200000
+      Size.Width = 279.978820800781300000
       Size.Height = 30.000000000000000000
       Size.PlatformDefault = False
       TextPrompt = 'Passwort'
@@ -144,7 +144,7 @@ object FormLogin: TFormLogin
       StyledSettings = [Family, Style, FontColor]
       HitTest = True
       Position.X = 35.016342163085940000
-      Position.Y = 256.666931152343700000
+      Position.Y = 256.666931152343800000
       Size.Width = 140.385742187500000000
       Size.Height = 21.000000000000000000
       Size.PlatformDefault = False
@@ -172,14 +172,14 @@ object FormLogin: TFormLogin
     end
     object PanelRegistrieren: TPanel
       Align = Client
-      Size.Width = 279.978820800781200000
+      Size.Width = 279.978820800781300000
       Size.Height = 36.666831970214840000
       Size.PlatformDefault = False
       TabOrder = 4
       object Label1: TLabel
         Align = Client
         HitTest = True
-        Size.Width = 279.978820800781200000
+        Size.Width = 279.978820800781300000
         Size.Height = 36.666831970214840000
         Size.PlatformDefault = False
         TextSettings.HorzAlign = Center

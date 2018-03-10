@@ -19,12 +19,14 @@ uses
   IPPeerCommon,
   IPPeerClient,
   JSON,
-  Helper;
+  Helper, FMX.Dialogs;
 
 type
   TServerAPI=class(TObject)
   private
     client: TRESTClient;
+    cache: TListArray;
+    online: String;
   public
     constructor create();
     function createUser(email: String; name: String; password: String): String;
@@ -44,12 +46,16 @@ type
     function DeleteItem(id:integer):string;
     function editInfo(text: string):string;
     function isOnline(): Boolean;
+    function isValidOnline(): Boolean;
+    function getCachedLists(): TListArray;
+    function getListString(): String;
 end;
 
 implementation
 constructor TServerAPI.create();
 begin
   inherited Create;
+  online := '';
   client := TRestClient.Create('die-liste.herokuapp.com');
 end;
 
@@ -65,41 +71,101 @@ begin
   request.Resource := 'user/create';
   request.Client := self.client;
   request.Timeout := 3000;
-  request.Execute;
-  result := request.Response.Content;
+  try
+    request.Execute;
+    result := request.Response.Content;
+  except
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    result := '{"code":"0"}';
+  end;
+  
 end;
 
 function TServerAPI.isOnline(): Boolean;
 var
   request: TRESTRequest;
+  r: Boolean;
 begin
   request := TRESTRequest.Create(nil);
   request.Method := Rest.Types.rmGET;
-    request.Resource := 'info/online';
-    request.Client := self.client;
-    request.Timeout := 3000;
+  request.Resource := 'info/online';
+  request.Client := self.client;
+  request.Timeout := 3000;
+  try
+    request.ExecuteAsync(procedure
+    begin
+      if request.Response.Content = 'true' then
+      begin
+        online := 'true';
+      end
+      else
+      begin
+        online := 'false';
+      end;
+    end, true, true, procedure(Sender: TObject) 
+    begin 
+      online := 'false'; 
+    end);
+  except
+    online := 'false';
+  end;
+  
+  if online = 'true' then
+  begin
+    result := true;
+  end
+  else
+  begin
+    result := false;
+  end;
+end;
+
+function TServerAPI.isValidOnline(): Boolean;
+var
+  request: TRESTRequest;
+  r: Boolean;
+begin
+  request := TRESTRequest.Create(nil);
+  request.Method := Rest.Types.rmGET;
+  request.Resource := 'info/online';
+  request.Client := self.client;
+  request.Timeout := 3000;
   try
     request.Execute;
-  except
-
-  end;
-  if request.Response.Content = 'true' then
-      result := true
+    if request.Response.Content = 'true' then
+    begin
+      online := 'true';
+      result := true;
+    end
     else
+    begin
+      online := 'false';
       result := false;
+    end;
+  except
+    online := 'false';
+    result := false;
+  end;
 end;
 
 function TServerAPI.userSuggestions(ListID:integer; Name: string): TArray;
 var
   request: TRESTRequest;
+  r: TArray;
 begin
   request := TRESTRequest.Create(nil);
   request.Method := REST.Types.rmGET;
   request.Resource := 'user/lists/' + IntToStr(listId) + '/suggestions/' + name;
   request.Client := self.client;
   request.Timeout := 3000;
-  request.Execute;
-  result := jsonArrayToStringArray(request.Response.Content);
+  try
+    request.Execute;
+    result := jsonArrayToStringArray(request.Response.Content);
+  except
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    result := [];
+  end;
+  
 end;
 
 function TServerAPI.inviteUser(ListID:integer; Name: string): string;
@@ -111,8 +177,13 @@ begin
   request.Resource := 'user/lists/' + IntToStr(listId) + '/invite/' + name;
   request.Client := self.client;
   request.Timeout := 3000;
-  request.Execute;
-  result := request.Response.Content;
+  try
+    request.Execute;
+    result := request.Response.Content;
+  except
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    result := '{"code":"0"}';
+  end;
 end;
 
 
@@ -128,8 +199,14 @@ begin
   request.Resource := 'login';
   request.Client := self.client;
   request.Timeout := 3000;
-  request.Execute;
-  result := request.Response.Content;
+  try
+    request.Execute;
+    result := request.Response.Content;
+  except
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    result := '{"code":"0"}';
+  end;
+  getLists;
 end;
 
 function TServerAPI.deleteUser(): String;
@@ -141,8 +218,13 @@ begin
   request.Resource := 'user';
   request.Client := self.client;
   request.Timeout := 3000;
-  request.Execute;
-  result := request.Response.Content;
+  try
+    request.Execute;
+    result := request.Response.Content;
+  except
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    result := '{"code":"0"}';
+  end;
 end;
 
 function TServerAPI.changePassword(password:string): String;
@@ -157,8 +239,13 @@ begin
   request.Resource := 'user/password/change';
   request.Client := self.client;
   request.Timeout := 3000;
-  request.Execute;
-  result := request.Response.Content;
+  try
+    request.Execute;
+    result := request.Response.Content;
+  except
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    result := '{"code":"0"}';
+  end;
 end;
 
 function TServerAPI.forgotPassword(email: string): String;
@@ -173,8 +260,13 @@ begin
   request.Resource := '/user/password/forgot';
   request.Client := self.client;
   request.Timeout := 3000;
-  request.Execute;
-  result := request.Response.Content;
+  try
+    request.Execute;
+    result := request.Response.Content;
+  except
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    result := '{"code":"0"}';
+  end;
 end;
 
 function TServerAPI.me(): TUserData;
@@ -186,8 +278,13 @@ begin
   request.Resource := 'user';
   request.Client := self.client;
   request.Timeout := 3000;
-  request.Execute;
-  result := responseToUser(request.Response.Content);
+  try
+    request.Execute;
+    result := responseToUser(request.Response.Content);
+  except
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    result.name := 'Offline';
+  end;
 end;
 
 function TServerAPI.addList(name: string): String;
@@ -202,8 +299,14 @@ begin
   request.Resource := 'user/lists';
   request.Client := self.client;
   request.Timeout := 3000;
-  request.Execute;
-  result := request.Response.Content;
+  try
+    request.Execute;
+    result := request.Response.Content;
+  except
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    result := '{"code":"0"}';
+  end;
+  getLists;
 end;
 
 function TserverAPI.removeList(id: Integer):String;
@@ -218,8 +321,14 @@ begin
   request.Resource := '/user/lists/delete';
   request.Client := self.client;
   request.Timeout := 3000;
-  request.Execute;
-  result := request.Response.Content;
+  try
+    request.Execute;
+    result := request.Response.Content;
+  except
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    result := '{"code":"0"}';
+  end;
+  getLists;
 end;
 
 
@@ -235,8 +344,13 @@ begin
   request.Resource := 'user/allergies';
   request.Client := self.client;
   request.Timeout := 3000;
-  request.Execute;
-  result := request.Response.Content;
+  try
+    request.Execute;
+    result := request.Response.Content;
+  except
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    result := '{"code":"0"}';
+  end;
 end;
 
 
@@ -249,8 +363,46 @@ begin
   request.Resource := 'user/lists';
   request.Client := self.client;
   request.Timeout := 3000;
+  if isOnline then
+  begin
+    request.ExecuteAsync(procedure
+    begin
+      cache := responseToListArray(request.Response.Content);
+    end);
+  end
+  else
+  begin
+    cache := responseToListArray(getOfflineData.lists);
+  end;
+  result := cache;
+end;
+
+function TServerAPI.getCachedLists(): TListArray;
+begin
+  result := cache;
+end;
+
+function TServerAPI.getListString(): String;
+var
+  request: TRESTRequest;
+  r: String;
+  offlineData: TOfflineData;
+begin
+  request := TRESTRequest.Create(nil);
+  request.Method := REST.Types.rmGET;  //GET
+  request.Resource := 'user/lists';
+  request.Client := self.client;
+  request.Timeout := 3000;
   request.Execute;
-  result := responseToListArray(request.Response.Content);
+  if request.Response.Content <> '' then
+  begin
+    result := request.Response.Content;
+    cache := responseToListArray(request.Response.Content);
+  end
+  else
+  begin
+    result := '[]';
+  end;
 end;
 
 function TServerAPI.AddToList(name: string; menge: String; fertig: boolean; kategorie: Integer; liste: Integer):string;
@@ -270,8 +422,14 @@ begin
   request.Resource := 'user/lists/items';
   request.Client := self.client;
   request.Timeout := 3000;
-  request.Execute;
-  result := request.Response.Content;
+  try
+    request.Execute;
+    result := request.Response.Content;
+  except
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    result := '{"code":"0"}';
+  end;
+  getLists;
 end;
 
 function TServerAPI.ChangeListName(name: string; id: Integer):string;
@@ -286,8 +444,14 @@ begin
   request.Resource := 'user/lists/name';
   request.Client := self.client;
   request.Timeout := 3000;
-  request.Execute;
-  result := request.Response.Content;
+  try
+    request.Execute;
+    result := request.Response.Content;
+  except
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    result := '{"code":"0"}';
+  end;
+  getLists;
 end;
 
 function TserverAPI.removeUser(listId: Integer; name:string):String;
@@ -302,8 +466,13 @@ begin
   request.Resource := '/user/lists/removeuser';
   request.Client := self.client;
   request.Timeout := 3000;
-  request.Execute;
-  result := request.Response.Content;
+  try
+    request.Execute;
+    result := request.Response.Content;
+  except
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    result := '{"code":"0"}';
+  end;
 end;
 
 function TServerAPI.DeleteItem(id:integer):string;
@@ -318,8 +487,13 @@ begin
   request.Resource := 'user/lists/items/delete';
   request.Client := self.client;
   request.Timeout := 3000;
-  request.Execute;
-  result := request.Response.Content;
+  try
+    request.Execute;
+    result := request.Response.Content;
+  except
+    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    result := '{"code":"0"}';
+  end;
 end;
 
 end.
