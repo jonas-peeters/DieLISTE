@@ -23,9 +23,9 @@ type
     ImgBack: TImage;
     ImgAdd: TImage;
     ImgEdit: TImage;
-    procedure ImgEditClick(Sender: TObject);
     GestureManager1: TGestureManager;
     Line1: TLine;
+    procedure ImgEditClick(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; clickedList: TListe);
     procedure Update();
     procedure FormActivate(Sender: TObject);

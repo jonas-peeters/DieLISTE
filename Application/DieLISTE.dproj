@@ -1574,11 +1574,6 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\Assets\Icons\40 40.png" Configuration="Debug" Class="iPad_SpotLight40">
-                    <Platform Name="iOSDevice64">
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="ModelSupport_DieLISTE\CCR\default.txvpck" Configuration="Release" Class="ProjectFile">
                     <Platform Name="Android">
                         <RemoteDir>.\assets\internal\</RemoteDir>

@@ -1,4 +1,4 @@
-{*
+﻿{*
   Here the user can change the properties of a list.
 
   Possible actions are:
@@ -29,8 +29,8 @@ type
     SettingsGroupHeader: TListBoxGroupHeader;
     GroupHeaderUser: TListBoxGroupHeader;
     ImgBack: TImage;
-    procedure ImgBackClick(Sender: TObject);
     GestureManager1: TGestureManager;
+    procedure ImgBackClick(Sender: TObject);
     procedure EditListNameClick(Sender: TObject);
     procedure DeleteListClick(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; selectedListId: Integer);

@@ -151,7 +151,7 @@ object FormListe: TFormListe
         end>
       Align = Client
       Size.Width = 59.474075317382810000
-      Size.Height = 51.400001525878910000
+      Size.Height = 50.268440246582030000
       Size.PlatformDefault = False
       OnClick = ImgAddClick
     end
@@ -245,7 +245,7 @@ object FormListe: TFormListe
         end>
       Align = Client
       Size.Width = 60.279144287109380000
-      Size.Height = 51.400001525878910000
+      Size.Height = 50.268440246582030000
       Size.PlatformDefault = False
       OnClick = ImgEditClick
     end
