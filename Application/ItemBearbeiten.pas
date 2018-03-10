@@ -16,7 +16,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
   FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, serverAPI, FMX.ListBox,
-  Helper, StrUtils, FMX.Colors;
+  Helper, StrUtils, FMX.Colors, FMX.Objects;
 
 type
   TFormItemBearbeiten = class(TForm)
@@ -35,7 +35,6 @@ type
     ListBoxItem7: TListBoxItem;
     ListBoxItem8: TListBoxItem;
     ListBoxItem9: TListBoxItem;
-    BtnBack: TButton;
     PanelErledigt: TPanel;
     LabelErledigt: TLabel;
     PanelLoeschen: TPanel;
@@ -44,10 +43,11 @@ type
     LabelAbbrechen: TLabel;
     PanelOK: TPanel;
     LabelOK: TLabel;
+    ImgBack: TImage;
     procedure BtnSchliessenClick(Sender: TObject);
     procedure BtnOKClick(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; item: TItem);
-    procedure BtnBackClick(Sender: TObject);
+    procedure ImgBackClick(Sender: TObject);
     procedure BtnLoeschenClick(Sender: TObject);
     procedure BtnErledigtClick(Sender: TObject);
   private
@@ -61,6 +61,7 @@ var
   privateServerAPI: TServerAPI;
   itemToChange: TItem;
   list:Tliste;
+  erledigt: Boolean;
 
 implementation
 
@@ -80,9 +81,14 @@ begin
     for i := 2 to High(item.quantity.Split([' '])) do
       EdtEinheit.Text := EdtEinheit.Text + ' ' + item.quantity.Split([' '])[i];
   CBCategory.ItemIndex := item.categoryId - 1;
+
+  if erledigt=true then
+      LabelErledigt.Text:= 'Nicht erledigt'
+  else  LabelErledigt.Text:= 'Erledigt'
+
 end;
 
-procedure TFormItemBearbeiten.BtnBackClick(Sender: TObject);
+procedure TFormItemBearbeiten.ImgBackClick(Sender: TObject);
 begin
   Close;
   Release;
@@ -91,7 +97,6 @@ end;
 procedure TFormItemBearbeiten.BtnErledigtClick(Sender: TObject);
 var
   name, einheit, menge: string;
-  erledigt: Boolean;
   kategorie: Integer;
 begin
   if privateServerAPI.isOnline then

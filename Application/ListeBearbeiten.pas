@@ -1,4 +1,4 @@
-{*
+ï»¿{*
   Here the user can change the properties of a list.
 
   Possible actions are:
@@ -16,12 +16,11 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.StdCtrls, FMX.ListBox, FMX.Controls.Presentation, serverAPI, AddUser,
-  Helper, FMX.Platform, FMX.Gestures;
+  Helper, FMX.Objects, FMX.Platform, FMX.Gestures;
 
 type
   TFormListeBearbeiten = class(TForm)
     GridPanelLayout1: TGridPanelLayout;
-    BtnBack: TButton;
     ListBox1: TListBox;
     Label1: TLabel;
     LBIEditListName: TListBoxItem;
@@ -29,8 +28,9 @@ type
     LBIAddUser: TListBoxItem;
     SettingsGroupHeader: TListBoxGroupHeader;
     GroupHeaderUser: TListBoxGroupHeader;
+    ImgBack: TImage;
     GestureManager1: TGestureManager;
-    procedure BtnBackClick(Sender: TObject);
+    procedure ImgBackClick(Sender: TObject);
     procedure EditListNameClick(Sender: TObject);
     procedure DeleteListClick(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; selectedListId: Integer);
@@ -100,7 +100,7 @@ begin
 
     // Add change name
     item := TListBoxItem.Create(ListBox1);
-    item.Text := 'Name ändern';
+    item.Text := 'Name Ã¤ndern';
     item.OnClick := EditListNameClick;
     ListBox1.AddObject(item);
     {$IF defined(MSWINDOWS)}
@@ -109,7 +109,7 @@ begin
 
     // Add delete list
     item := TListBoxItem.Create(ListBox1);
-    item.Text := 'Liste löschen';
+    item.Text := 'Liste lÃ¶schen';
     item.OnClick := DeleteListClick;
     ListBox1.AddObject(item);
     {$IF defined(MSWINDOWS)}
@@ -118,7 +118,7 @@ begin
 
     // Add add user
     item := TListBoxItem.Create(ListBox1);
-    item.Text := 'User hinzufügen';
+    item.Text := 'User hinzufÃ¼gen';
     item.OnClick := AddUserClick;
     ListBox1.AddObject(item);
     {$IF defined(MSWINDOWS)}
@@ -152,7 +152,7 @@ begin
   end;
 end;
 
-procedure TFormListeBearbeiten.BtnBackClick(Sender: TObject);
+procedure TFormListeBearbeiten.ImgBackClick(Sender: TObject);
 begin
   Close;
   Release;
@@ -171,7 +171,7 @@ procedure TFormListeBearbeiten.DeleteListClick(Sender: TObject);
 begin
   if privateServerAPI.isOnline then
   begin
-    MessageDlg('Wollen Sie die Liste wirklich löschen?', System.UITypes.TMsgDlgType.mtCustom,
+    MessageDlg('Wollen Sie die Liste wirklich lÃ¶schen?', System.UITypes.TMsgDlgType.mtCustom,
     [ System.UITypes.TMsgDlgBtn.mbYes,
       System.UITypes.TMsgDlgBtn.mbNo,
       System.UITypes.TMsgDlgBtn.mbCancel
@@ -182,7 +182,7 @@ begin
         mrYES:
           begin
           privateServerAPI.removeList(list.id);
-          ShowMessage('Die Liste wurde gelöscht!');
+          ShowMessage('Die Liste wurde gelÃ¶scht!');
           hasDeletedList := true;
           Close;
           Release;
@@ -191,7 +191,7 @@ begin
     end);
   end
   else
-    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    ShowMessage('Du brauchst eine aktive Internetverbindung fÃ¼r diese Aktion!');
 end;
 
 procedure TFormListeBearbeiten.EditListNameClick(Sender: TObject);
@@ -206,10 +206,10 @@ begin
       // Diese Software ist nur zur Benutzung unter iOS und Android gedacht.
       // Dort funktioniert die Funktion einwandfrei.
       // Soll diese Funktion dennoch unter
-      // Windows ausgeführt werden kann entweder nur der OK-Button gedrückt werden
+      // Windows ausgefÃ¼hrt werden kann entweder nur der OK-Button gedrÃ¼ckt werden
       // oder der im Embarcadero Bug System vorgeschlagene Fix angewandt werden.
       // Dieser ist hier zu finden: https://quality.embarcadero.com/browse/RSP-16670
-      dialogService.InputQueryAsync('Namen ändern', ['Neuer Name'], [list.name],
+      dialogService.InputQueryAsync('Namen Ã¤ndern', ['Neuer Name'], [list.name],
         procedure (const AResult : TModalResult; const AValues : array of string)
         begin
             case AResult of
@@ -230,7 +230,7 @@ begin
     end;
   end
   else
-    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    ShowMessage('Du brauchst eine aktive Internetverbindung fÃ¼r diese Aktion!');
 end;
 
 procedure TFormListeBearbeiten.FormGesture(Sender: TObject;

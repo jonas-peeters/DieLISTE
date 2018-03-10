@@ -8,7 +8,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, serverAPI, FMX.ListBox;
+  FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, serverAPI, FMX.ListBox,
+  FMX.Objects;
 
 type
   TFormHinzufuegen = class(TForm)
@@ -27,18 +28,18 @@ type
     ListBoxItem7: TListBoxItem;
     ListBoxItem8: TListBoxItem;
     ListBoxItem9: TListBoxItem;
-    BtnBack: TButton;
     PanelOK: TPanel;
     LabelOK: TLabel;
     PanelAbbrechen: TPanel;
     LabelAbbrechen: TLabel;
     PanelWeitere: TPanel;
     LabelWeitere: TLabel;
+    ImgBack: TImage;
     procedure BtnSchliessenClick(Sender: TObject);
     procedure BtnOKClick(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; selectedListId: Integer);
     procedure BtnHinzufuegenClick(Sender: TObject);
-    procedure BtnBackClick(Sender: TObject);
+    procedure ImgBackClick(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -60,7 +61,7 @@ begin
   listId := selectedListId;
 end;
 
-procedure TFormHinzufuegen.BtnBackClick(Sender: TObject);
+procedure TFormHinzufuegen.ImgBackClick(Sender: TObject);
 begin
   Close;
   Release;

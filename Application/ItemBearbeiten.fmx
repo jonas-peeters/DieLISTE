@@ -69,13 +69,6 @@ object FormItemBearbeiten: TFormItemBearbeiten
         Row = 8
       end
       item
-        Column = 0
-        ColumnSpan = 2
-        Control = BtnBack
-        Row = 0
-        RowSpan = 2
-      end
-      item
         Column = 1
         ColumnSpan = 5
         Control = PanelErledigt
@@ -98,6 +91,13 @@ object FormItemBearbeiten: TFormItemBearbeiten
         ColumnSpan = 2
         Control = PanelOK
         Row = 10
+      end
+      item
+        Column = 0
+        ColumnSpan = 2
+        Control = ImgBack
+        Row = 0
+        RowSpan = 2
       end>
     RowCollection = <
       item
@@ -113,10 +113,10 @@ object FormItemBearbeiten: TFormItemBearbeiten
         Value = 6.119421573977412000
       end
       item
-        Value = 6.147888633306883000
+        Value = 6.147888633306884000
       end
       item
-        Value = 6.176488058971208000
+        Value = 6.176488058971209000
       end
       item
         Value = 6.205220483545577000
@@ -235,21 +235,12 @@ object FormItemBearbeiten: TFormItemBearbeiten
         Text = 'S'#252#223'es'
       end
     end
-    object BtnBack: TButton
-      Align = Client
-      Size.Width = 72.467422485351560000
-      Size.Height = 55.165466308593750000
-      Size.PlatformDefault = False
-      TabOrder = 5
-      Text = '<'
-      OnClick = BtnBackClick
-    end
     object PanelErledigt: TPanel
       Align = Client
       Size.Width = 222.097503662109400000
       Size.Height = 29.094818115234380000
       Size.PlatformDefault = False
-      TabOrder = 7
+      TabOrder = 6
       object LabelErledigt: TLabel
         Align = Client
         HitTest = True
@@ -267,7 +258,7 @@ object FormItemBearbeiten: TFormItemBearbeiten
       Size.Width = 222.097503662109400000
       Size.Height = 29.366149902343750000
       Size.PlatformDefault = False
-      TabOrder = 6
+      TabOrder = 5
       object LabelLoeschen: TLabel
         Align = Client
         HitTest = True
@@ -285,7 +276,7 @@ object FormItemBearbeiten: TFormItemBearbeiten
       Size.Width = 88.586174011230470000
       Size.Height = 28.826019287109380000
       Size.PlatformDefault = False
-      TabOrder = 9
+      TabOrder = 8
       object LabelAbbrechen: TLabel
         Align = Client
         HitTest = True
@@ -303,7 +294,7 @@ object FormItemBearbeiten: TFormItemBearbeiten
       Size.Width = 89.161010742187500000
       Size.Height = 28.826019287109380000
       Size.PlatformDefault = False
-      TabOrder = 8
+      TabOrder = 7
       object LabelOK: TLabel
         Align = Client
         HitTest = True
@@ -315,6 +306,30 @@ object FormItemBearbeiten: TFormItemBearbeiten
         TabOrder = 1
         OnClick = BtnOKClick
       end
+    end
+    object ImgBack: TImage
+      MultiResBitmap = <
+        item
+          Width = 72
+          Height = 72
+          PNG = {
+            89504E470D0A1A0A0000000D494844520000004800000048080600000055EDB3
+            47000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+            00F449444154785EEDDACB6DC25018446117400D09251202844769D9A4111E9D
+            C05CC9BF848C0DB30C9AF349B3F1F208907D7107000000000000FC43F37E18D1
+            C25CFA1169A0E25CFB11E9CE300E91EE4CC5A99DB59916E9559CB68516C989F3
+            A54522CE134E9CA516C989F3AD4572E2ACB4484E9CB516C989B3D12239717EB4
+            484E9CAD1689384F3871765A2427CE5E8BF5A78D45A9FD6AD19C4FD0418BC6D7
+            CCC00FB58148062752ECFD502192C18914FB4C5688647022C51E7D142752ECE1
+            592192C189147B465D88647815E9A8C5FE375FA6229DB40F0D328C449C1115A9
+            BDF2F2D92EE0518B441C0000000000000078675D7703376B0BFCA83A97A80000
+            000049454E44AE426082}
+        end>
+      Align = Client
+      Size.Width = 72.467422485351560000
+      Size.Height = 55.165466308593750000
+      Size.PlatformDefault = False
+      OnClick = ImgBackClick
     end
   end
 end

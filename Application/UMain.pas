@@ -20,25 +20,25 @@ type
     ProfilTab: TTabItem;
     HomeTab: TTabItem;
     GridPanelLayout1: TGridPanelLayout;
-    PlusBtn2: TButton;
     Label1: TLabel;
     LBLists: TListBox;
     GridPanelLayout2: TGridPanelLayout;
     LblUsername: TLabel;
     LblAllergien: TLabel;
-    EditButton: TButton;
     ListBox2: TListBox;
     SearchBox1: TSearchBox;
     LblAbmelden: TListBoxItem;
+    ImgAdd: TImage;
+    ImgEdit: TImage;
     Line1: TLine;
     procedure FormCreate(Sender: TObject);
-    procedure PlusBtn2Click(Sender: TObject);
+    procedure ImgAddClick(Sender: TObject);
     procedure LBListItemClick(Sender: TObject);
     procedure LBIUserLoeschenClick(Sender: TObject);
     procedure LBIPasswortaendernClick(Sender: TObject);
     procedure listFormClose(Sender: TObject; var Action: TCloseAction);
     procedure LblAbmeldenClick(Sender: TObject);
-    procedure EditButtonClick(Sender: TObject);
+    procedure ImgEditClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -56,7 +56,7 @@ implementation
 
 {$R *.fmx}
 
-procedure TFormMain.EditButtonClick(Sender: TObject);
+procedure TFormMain.ImgEditClick(Sender: TObject);
 var
   dialogService: IFMXDialogServiceAsync;
 begin
@@ -108,7 +108,7 @@ begin
   listForm.OnClose := listFormClose;
 end;
 
-procedure TFormMain.PlusBtn2Click(Sender: TObject);
+procedure TFormMain.ImgAddClick(Sender: TObject);
 begin
   serverAPI.AddList('Neue Liste');
   UpdateLists();

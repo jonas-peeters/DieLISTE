@@ -3,7 +3,6 @@ program DieLISTE;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  Supermarkt in 'Supermarkt.pas' {Form2},
   Login in 'Login.pas' {LoginForm},
   UMain in 'UMain.pas' {Form6},
   PWaendern in 'PWaendern.pas' {Form7},

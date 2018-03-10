@@ -19,16 +19,16 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
   FMX.Layouts, FMX.ListBox, FMX.Controls.Presentation, FMX.Edit, serverAPI,
-  Helper, FMX.Gestures;
+  Helper, FMX.Objects, FMX.Gestures;
 
 type
   TFormAddUser = class(TForm)
     GridPanelLayout1: TGridPanelLayout;
-    BtnBack: TButton;
     ListBox1: TListBox;
     Edit1: TEdit;
     Label1: TLabel;
     ClearEditButton1: TClearEditButton;
+    Image1: TImage;
     GestureManager1: TGestureManager;
     procedure BtnBackClick(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
@@ -77,7 +77,7 @@ begin
   end
   else
   begin
-    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    ShowMessage('Du brauchst eine aktive Internetverbindung fÃ¼r diese Aktion!');
     Close;
     Release;
   end;
@@ -109,7 +109,7 @@ begin
     end;
   end
   else
-    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    ShowMessage('Du brauchst eine aktive Internetverbindung fÃ¼r diese Aktion!');
 end;
 
 procedure TFormAddUser.FormGesture(Sender: TObject;
@@ -133,7 +133,7 @@ procedure TFormAddUser.ClickOnName(Sender: TObject);
 begin
   if privateServerAPI.isOnline then
   begin
-    MessageDlg('Wollen Sie diese Person zu ihrer Liste hinzufügen?', System.UITypes.TMsgDlgType.mtCustom,
+    MessageDlg('Wollen Sie diese Person zu ihrer Liste hinzufÃ¼gen?', System.UITypes.TMsgDlgType.mtCustom,
     [ System.UITypes.TMsgDlgBtn.mbYes,
       System.UITypes.TMsgDlgBtn.mbNo,
       System.UITypes.TMsgDlgBtn.mbCancel
@@ -152,7 +152,7 @@ begin
     end);
   end
   else
-    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    ShowMessage('Du brauchst eine aktive Internetverbindung fÃ¼r diese Aktion!');
 end;
 
 

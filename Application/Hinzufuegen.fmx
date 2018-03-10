@@ -69,13 +69,6 @@ object FormHinzufuegen: TFormHinzufuegen
         Row = 8
       end
       item
-        Column = 0
-        ColumnSpan = 2
-        Control = BtnBack
-        Row = 0
-        RowSpan = 2
-      end
-      item
         Column = 4
         ColumnSpan = 2
         Control = PanelOK
@@ -92,6 +85,13 @@ object FormHinzufuegen: TFormHinzufuegen
         ColumnSpan = 5
         Control = PanelWeitere
         Row = 12
+      end
+      item
+        Column = 0
+        ColumnSpan = 2
+        Control = ImgBack
+        Row = 0
+        RowSpan = 2
       end>
     RowCollection = <
       item
@@ -139,7 +139,7 @@ object FormHinzufuegen: TFormHinzufuegen
     object LblHinzufuegen: TLabel
       Align = Client
       Size.Width = 147.494705200195300000
-      Size.Height = 32.213939666748040000
+      Size.Height = 32.213939666748050000
       Size.PlatformDefault = False
       TextSettings.HorzAlign = Center
       Text = 'Hinzuf'#252'gen'
@@ -223,21 +223,12 @@ object FormHinzufuegen: TFormHinzufuegen
         Text = 'S'#252#223'es'
       end
     end
-    object BtnBack: TButton
-      Align = Client
-      Size.Width = 80.287643432617190000
-      Size.Height = 64.342323303222660000
-      Size.PlatformDefault = False
-      TabOrder = 5
-      Text = '<'
-      OnClick = BtnBackClick
-    end
     object PanelOK: TPanel
       Align = Client
       Size.Width = 98.782714843750000000
       Size.Height = 32.934814453125000000
       Size.PlatformDefault = False
-      TabOrder = 8
+      TabOrder = 7
       object LabelOK: TLabel
         Align = Client
         HitTest = True
@@ -255,7 +246,7 @@ object FormHinzufuegen: TFormHinzufuegen
       Size.Width = 98.145820617675780000
       Size.Height = 32.934814453125000000
       Size.PlatformDefault = False
-      TabOrder = 7
+      TabOrder = 6
       object LabelAbbrechen: TLabel
         Align = Client
         HitTest = True
@@ -273,7 +264,7 @@ object FormHinzufuegen: TFormHinzufuegen
       Size.Width = 246.064849853515600000
       Size.Height = 33.083587646484380000
       Size.PlatformDefault = False
-      TabOrder = 6
+      TabOrder = 5
       object LabelWeitere: TLabel
         Align = Client
         HitTest = True
@@ -285,6 +276,30 @@ object FormHinzufuegen: TFormHinzufuegen
         TabOrder = 1
         OnClick = BtnHinzufuegenClick
       end
+    end
+    object ImgBack: TImage
+      MultiResBitmap = <
+        item
+          Width = 72
+          Height = 72
+          PNG = {
+            89504E470D0A1A0A0000000D494844520000004800000048080600000055EDB3
+            47000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+            00F449444154785EEDDACB6DC25018446117400D09251202844769D9A4111E9D
+            C05CC9BF848C0DB30C9AF349B3F1F208907D7107000000000000FC43F37E18D1
+            C25CFA1169A0E25CFB11E9CE300E91EE4CC5A99DB59916E9559CB68516C989F3
+            A54522CE134E9CA516C989F3AD4572E2ACB4484E9CB516C989B3D12239717EB4
+            484E9CAD1689384F3871765A2427CE5E8BF5A78D45A9FD6AD19C4FD0418BC6D7
+            CCC00FB58148062752ECFD502192C18914FB4C5688647022C51E7D142752ECE1
+            592192C189147B465D88647815E9A8C5FE375FA6229DB40F0D328C449C1115A9
+            BDF2F2D92EE0518B441C0000000000000078675D7703376B0BFCA83A97A80000
+            000049454E44AE426082}
+        end>
+      Align = Client
+      Size.Width = 80.287643432617190000
+      Size.Height = 64.342323303222660000
+      Size.PlatformDefault = False
+      OnClick = ImgBackClick
     end
   end
 end

@@ -19,21 +19,21 @@ type
   TFormListe = class(TForm)
     GridPanelLayout1: TGridPanelLayout;
     LblListe: TLabel;
-    BtnEdit: TButton;
-    BtnHinzufuegen: TButton;
     ListBox1: TListBox;
-    BtnBack: TButton;
+    ImgBack: TImage;
+    ImgAdd: TImage;
+    ImgEdit: TImage;
     GestureManager1: TGestureManager;
     Line1: TLine;
-    procedure BtnHinzufuegenClick(Sender: TObject);
-    procedure BtnEditClick(Sender: TObject);
+    procedure ImgEditClick(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; clickedList: TListe);
     procedure Update();
     procedure FormActivate(Sender: TObject);
-    procedure BtnBackClick(Sender: TObject);
     procedure ClickOnItem(Sender: TObject);
     procedure subFormClosed(Sender: TObject; var Action: TCloseAction);
     procedure ListBox1ChangeCheck(Sender: TObject);
+    procedure ImgBackClick(Sender: TObject);
+    procedure ImgAddClick(Sender: TObject);
     procedure FormGesture(Sender: TObject; const EventInfo: TGestureEventInfo;
       var Handled: Boolean);
 
@@ -68,21 +68,22 @@ begin
   Update();
 end;
 
-procedure TFormListe.BtnBackClick(Sender: TObject);
+
+procedure TFormListe.ImgBackClick(Sender: TObject);
 begin
   Close;
   Release;
 end;
 
-procedure TFormListe.BtnEditClick(Sender: TObject);
-var editlistForm: TFormListeBearbeiten;
+procedure TFormListe.ImgEditClick(Sender: TObject);
+var editlistForm:TFormListeBearbeiten;
 begin
   editlistForm := TFormListeBearbeiten.Create(Application, privateServerAPI, listId);
   editlistForm.Show;
   editlistForm.OnClose := subFormClosed;
 end;
 
-procedure TFormListe.BtnHinzufuegenClick(Sender: TObject);
+procedure TFormListe.ImgAddClick(Sender: TObject);
 var
   additemForm: TFormHinzufuegen;
 begin

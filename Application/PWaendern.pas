@@ -8,7 +8,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, ServerAPI, Helper;
+  FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, ServerAPI, Helper,
+  FMX.Objects;
 
 type
   TFormPWaendern = class(TForm)
@@ -19,10 +20,10 @@ type
     BtnPWaendern: TButton;
     LblPWaendern: TLabel;
     BtnCancel: TButton;
-    BtnBack: TButton;
+    ImgBack: TImage;
     procedure BtnPWaendernClick(Sender: TObject);
     procedure BtnCancelClick(Sender: TObject);
-    procedure BtnBackClick(Sender: TObject);
+    procedure ImgBackClick(Sender: TObject);
     public constructor Create(AOwner: TComponent; var serverAPI: TServerAPI);
   private
   public
@@ -43,7 +44,7 @@ begin
   privateServerAPI := serverAPI;
 end;
 
-procedure TFormPWaendern.BtnBackClick(Sender: TObject);
+procedure TFormPWaendern.ImgBackClick(Sender: TObject);
 begin
   Close;
   Release;

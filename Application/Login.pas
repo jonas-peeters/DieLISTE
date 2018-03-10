@@ -66,7 +66,7 @@ begin
     end;
   end
   else
-    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    ShowMessage('Du brauchst eine aktive Internetverbindung fÃ¼r diese Aktion!');
 end;
 
 procedure TFormLogin.BtnLosClick(Sender: TObject);
