@@ -21,7 +21,7 @@ object FormLogin: TFormLogin
         Value = 10.004669106635460000
       end
       item
-        Value = 40.110210084338960000
+        Value = 40.110210084338980000
       end
       item
         Value = 39.883736417267800000
@@ -34,133 +34,96 @@ object FormLogin: TFormLogin
         Column = 1
         ColumnSpan = 2
         Control = LblAnmelden
-        Row = 3
-      end
-      item
-        Column = 1
-        ColumnSpan = 2
-        Control = LblRegistrieren
-        Row = 9
-      end
-      item
-        Column = 1
-        ColumnSpan = 2
-        Control = EdtEMailLogin
         Row = 4
       end
       item
         Column = 1
         ColumnSpan = 2
-        Control = EdtPWLogin
+        Control = EdtEMailLogin
         Row = 5
       end
       item
         Column = 1
         ColumnSpan = 2
-        Control = EdtEMailRegister
-        Row = 10
-      end
-      item
-        Column = 1
-        ColumnSpan = 2
-        Control = EdtBenutzernameRegister
-        Row = 11
-      end
-      item
-        Column = 1
-        ColumnSpan = 2
-        Control = EdtPWRegister
-        Row = 12
-      end
-      item
-        Column = 1
-        Control = TitleLabel
-        Row = 1
+        Control = EdtPWLogin
+        Row = 6
       end
       item
         Column = 1
         Control = LabelPWVergessen
-        Row = 6
-      end
-      item
-        Column = 2
-        Control = PanelLogin
         Row = 7
       end
       item
         Column = 2
+        Control = PanelLogin
+        Row = 8
+      end
+      item
+        Column = 1
+        ColumnSpan = 2
         Control = PanelRegistrieren
-        Row = 14
+        Row = 1
       end>
     RowCollection = <
       item
-        Value = 6.250022965117504000
+        Value = 6.666692793253633000
       end
       item
-        Value = 6.250026621973830000
+        Value = 6.666696693901338000
       end
       item
-        Value = 6.250022928276813000
+        Value = 6.666683529732536000
       end
       item
-        Value = 6.250014280568596000
+        Value = 6.666672543835857000
       end
       item
-        Value = 6.250003981292979000
+        Value = 6.666662604376699000
       end
       item
-        Value = 6.249994663052297000
+        Value = 6.666655305920874000
       end
       item
-        Value = 6.249987820751636000
+        Value = 6.666651272785672000
       end
       item
-        Value = 6.249984039688308000
+        Value = 6.666650401268914000
       end
       item
-        Value = 6.249983222641549000
+        Value = 6.666652093321635000
       end
       item
-        Value = 6.249984808940585000
+        Value = 6.666655473769210000
       end
       item
-        Value = 6.249987978109412000
+        Value = 6.666659583053010000
       end
       item
-        Value = 6.249991830562033000
+        Value = 6.666663537698820000
       end
       item
-        Value = 6.249995538041571000
+        Value = 6.666666651433112000
       end
       item
-        Value = 6.249998457166755000
+        Value = 6.666668511200630000
       end
       item
-        Value = 6.250000200698377000
-      end
-      item
-        Value = 6.250000663117746000
+        Value = 6.666669004448074000
       end>
     object LblAnmelden: TLabel
       Align = Client
       Size.Width = 279.978820800781200000
-      Size.Height = 34.375076293945310000
+      Size.Height = 36.666641235351560000
       Size.PlatformDefault = False
+      TextSettings.HorzAlign = Center
       Text = 'Anmelden'
-      TabOrder = 5
-    end
-    object LblRegistrieren: TLabel
-      Align = Client
-      Size.Width = 279.978820800781200000
-      Size.Height = 34.374908447265630000
-      Size.PlatformDefault = False
-      Text = 'Registrieren'
-      TabOrder = 6
+      TabOrder = 2
     end
     object EdtEMailLogin: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 0
+      KeyboardType = EmailAddress
       Size.Width = 279.978820800781200000
       Size.Height = 30.000000000000000000
       Size.PlatformDefault = False
@@ -176,66 +139,30 @@ object FormLogin: TFormLogin
       Size.PlatformDefault = False
       TextPrompt = 'Passwort'
     end
-    object EdtEMailRegister: TEdit
-      Touch.InteractiveGestures = [LongTap, DoubleTap]
-      Align = Client
-      TabOrder = 2
-      Size.Width = 279.978820800781200000
-      Size.Height = 30.000000000000000000
-      Size.PlatformDefault = False
-      TextPrompt = 'E-Mail'
-    end
-    object EdtBenutzernameRegister: TEdit
-      Touch.InteractiveGestures = [LongTap, DoubleTap]
-      Align = Client
-      TabOrder = 3
-      Size.Width = 279.978820800781200000
-      Size.Height = 30.000000000000000000
-      Size.PlatformDefault = False
-      TextPrompt = 'Benutzername'
-    end
-    object EdtPWRegister: TEdit
-      Touch.InteractiveGestures = [LongTap, DoubleTap]
-      Align = Client
-      TabOrder = 4
-      Password = True
-      Size.Width = 279.978820800781200000
-      Size.Height = 30.000000000000000000
-      Size.PlatformDefault = False
-      TextPrompt = 'Passwort'
-    end
-    object TitleLabel: TLabel
-      Align = Client
-      Size.Width = 140.385742187500000000
-      Size.Height = 34.375148773193360000
-      Size.PlatformDefault = False
-      Text = 'Login'
-      TabOrder = 7
-    end
     object LabelPWVergessen: TLabel
       Align = MostTop
       StyledSettings = [Family, Style, FontColor]
       HitTest = True
       Position.X = 35.016342163085940000
-      Position.Y = 206.250457763671900000
+      Position.Y = 256.666931152343700000
       Size.Width = 140.385742187500000000
       Size.Height = 21.000000000000000000
       Size.PlatformDefault = False
       Text = 'Passwort vergessen?'
-      TabOrder = 8
+      TabOrder = 3
       OnClick = BtnPWVergessenClick
     end
     object PanelLogin: TPanel
       Align = Client
       Size.Width = 139.593093872070300000
-      Size.Height = 34.374908447265630000
+      Size.Height = 36.666564941406250000
       Size.PlatformDefault = False
-      TabOrder = 10
+      TabOrder = 5
       object LabelLogin: TLabel
         Align = Client
         HitTest = True
         Size.Width = 139.593093872070300000
-        Size.Height = 34.374908447265630000
+        Size.Height = 36.666564941406250000
         Size.PlatformDefault = False
         TextSettings.HorzAlign = Center
         Text = 'Login'
@@ -245,18 +172,18 @@ object FormLogin: TFormLogin
     end
     object PanelRegistrieren: TPanel
       Align = Client
-      Size.Width = 139.593093872070300000
-      Size.Height = 34.375030517578120000
+      Size.Width = 279.978820800781200000
+      Size.Height = 36.666831970214840000
       Size.PlatformDefault = False
-      TabOrder = 9
+      TabOrder = 4
       object Label1: TLabel
         Align = Client
         HitTest = True
-        Size.Width = 139.593093872070300000
-        Size.Height = 34.375030517578120000
+        Size.Width = 279.978820800781200000
+        Size.Height = 36.666831970214840000
         Size.PlatformDefault = False
         TextSettings.HorzAlign = Center
-        Text = 'Registrieren'
+        Text = 'Neu Registrieren'
         TabOrder = 1
         OnClick = BtnRegistrierenClick
       end

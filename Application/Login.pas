@@ -15,18 +15,14 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
   FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, UMain, ServerAPI, PWVergessen,
-  Helper;
+  Helper, FMX.Ani, Registrieren;
 
 type
   TFormLogin = class(TForm)
     GridPanelLayout1: TGridPanelLayout;
     LblAnmelden: TLabel;
-    LblRegistrieren: TLabel;
     EdtEMailLogin: TEdit;
     EdtPWLogin: TEdit;
-    EdtEMailRegister: TEdit;
-    EdtBenutzernameRegister: TEdit;
-    EdtPWRegister: TEdit;
     LabelPWVergessen: TLabel;
     PanelLogin: TPanel;
     LabelLogin: TLabel;
@@ -55,17 +51,22 @@ implementation
 procedure TFormLogin.login(email: String; password: String);
 var loginData: TLoginData;
 begin
-  if interpretServerResponse(UMain.serverAPI.login(email, password)) then
+  if UMain.serverAPI.isOnline then
   begin
-    loginData.email := email;
-    loginData.password := password;
-    loginData.worked := true;
-    saveLoginData(loginData);
-    MainForm.Show;
-    MainForm.OnClose := subFormClosed;
-    MainForm.UpdateLists();
-    MainForm.UpdateUserData();
-  end;
+    if interpretServerResponse(UMain.serverAPI.login(email, password)) then
+    begin
+      loginData.email := email;
+      loginData.password := password;
+      loginData.worked := true;
+      saveLoginData(loginData);
+      MainForm.Show;
+      MainForm.OnClose := subFormClosed;
+      MainForm.UpdateLists();
+      MainForm.UpdateUserData();
+    end;
+  end
+  else
+    ShowMessage('Du brauchst eine aktive Internetverbindung f√ºr diese Aktion!');
 end;
 
 procedure TFormLogin.BtnLosClick(Sender: TObject);
@@ -81,22 +82,10 @@ begin
 end;
 
 procedure TFormLogin.BtnRegistrierenClick(Sender: TObject);
-var email, name, password: string;
+var registerForm: TForm;
 begin
-  email:= EdtEmailRegister.Text;
-  name:= EdtBenutzernameRegister.Text;
-  password:= EdtPWRegister.Text;
-  if email = '' then
-    ShowMessage('Du musst eine valide E-Mail angeben!')
-  else if name = '' then
-    ShowMessage('Du musst einen Benutzernamen angeben!')
-  else if password.Length < 6 then
-    ShowMessage('Dein Passwort muss mindestens 6 Stellen haben')
-  else
-  begin
-    UMain.serverAPI.createUser(email,name, password);
-    ShowMessage('Vielen Dank f¸r Ihre Registrierung. Bitte verifizieren Sie ihre E-Mail, um die Regestrierung zu vollenden!');
-  end;
+  registerForm := TFormRegistrieren.Create(Application);
+  registerForm.Show;
 end;
 
 procedure TFormLogin.FormShow(Sender: TObject);
@@ -110,16 +99,15 @@ begin
   EdtEMailLogin.Text := loginData.email;
   EdtPWLogin.Text := loginData.password;
   if loginData.worked then
+  begin
     login(loginData.email, loginData.password);
+  end;
 end;
 
 procedure TFormLogin.subFormClosed(Sender: TObject; var Action: TCloseAction);
 begin
-  if getLoginData.worked = false then
-  begin
-    EdtEMailLogin.Text := '';
-    EdtPWLogin.Text := '';
-  end;
+  EdtEMailLogin.Text := '';
+  EdtPWLogin.Text := '';
 end;
 
 end.

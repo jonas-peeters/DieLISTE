@@ -17,38 +17,38 @@ object FormPWvergessen: TFormPWvergessen
     TabOrder = 0
     ColumnCollection = <
       item
-        Value = 7.056000708507235000
+        Value = 7.056000708507232000
       end
       item
-        Value = 8.000359550903822000
+        Value = 8.000359550903818000
       end
       item
         Value = 34.062200983280960000
       end
       item
-        Value = 43.788132252541890000
+        Value = 43.788132252541870000
       end
       item
-        Value = 7.093306504766088000
+        Value = 7.093306504766087000
       end>
     ControlCollection = <
       item
         Column = 1
         ColumnSpan = 3
         Control = LblText
-        Row = 4
+        Row = 2
       end
       item
         Column = 1
         ColumnSpan = 3
         Control = EdtEMail
-        Row = 7
+        Row = 3
       end
       item
         Column = 1
         ColumnSpan = 2
         Control = BtnSenden
-        Row = 9
+        Row = 4
       end
       item
         Column = 1
@@ -59,7 +59,7 @@ object FormPWvergessen: TFormPWvergessen
       item
         Column = 3
         Control = BtnCancel
-        Row = 9
+        Row = 4
       end
       item
         Column = 0
@@ -70,47 +70,47 @@ object FormPWvergessen: TFormPWvergessen
       end>
     RowCollection = <
       item
-        Value = 7.964079890178560000
+        Value = 7.000001451172732000
       end
       item
-        Value = 7.908378847366998000
+        Value = 7.000001228213174000
       end
       item
-        Value = 7.899659706457652000
+        Value = 28.985254319652510000
       end
       item
-        Value = 7.490536564747323000
+        Value = 7.000001023902161000
       end
       item
-        Value = 23.760026621357570000
+        Value = 7.000000836679919000
       end
       item
-        Value = 7.269121343637960000
+        Value = 7.000000665117119000
       end
       item
-        Value = 7.258830208538205000
+        Value = 7.000000507904000000
       end
       item
-        Value = 7.174656900607265000
+        Value = 7.000000363840335000
       end
       item
-        Value = 7.891980001611423000
+        Value = 7.000000231826293000
       end
       item
-        Value = 7.790953425397379000
+        Value = 7.000000110854029000
       end
       item
-        Value = 7.591776490099660000
+        Value = 8.014739260837743000
       end>
     object LblText: TLabel
       Align = Client
       Size.Width = 300.477416992187500000
-      Size.Height = 128.066558837890600000
+      Size.Height = 156.229660034179700000
       Size.PlatformDefault = False
       Text = 
-        'Sie haben Ihr Passwort vergessen? Unter Angabe Ihrer E-Mail-Adre' +
-        'sse senden wir Ihnen eine Anleitung zum Zur'#252'cksetzen Ihres Passw' +
-        'ortes automatisch per E-Mail zu.'
+        'Du hast dein Passwort vergessen? Unter Angabe deiner E-Mail-Adre' +
+        'sse senden wir dir eine Anleitung zum Zur'#252'cksetzen deines Passwo' +
+        'rtes automatisch per E-Mail zu.'
       TabOrder = 0
     end
     object EdtEMail: TEdit
@@ -118,15 +118,14 @@ object FormPWvergessen: TFormPWvergessen
       Align = Client
       TabOrder = 1
       Size.Width = 300.477416992187500000
-      Size.Height = 38.671386718750000000
+      Size.Height = 37.730102539062500000
       Size.PlatformDefault = False
       TextPrompt = 'E-Mail'
-      OnClick = BtnSendenClick
     end
     object BtnSenden: TButton
       Align = Client
       Size.Width = 147.218963623046900000
-      Size.Height = 41.993225097656250000
+      Size.Height = 37.730102539062500000
       Size.PlatformDefault = False
       TabOrder = 2
       Text = 'Anleitung Senden'
@@ -135,7 +134,7 @@ object FormPWvergessen: TFormPWvergessen
     object LblPWvergessen: TLabel
       Align = Client
       Size.Width = 300.477416992187500000
-      Size.Height = 42.626159667968750000
+      Size.Height = 37.730121612548830000
       Size.PlatformDefault = False
       TextSettings.HorzAlign = Center
       Text = 'Passwort vergessen'
@@ -144,7 +143,7 @@ object FormPWvergessen: TFormPWvergessen
     object BtnCancel: TButton
       Align = Client
       Size.Width = 153.258468627929700000
-      Size.Height = 41.993225097656250000
+      Size.Height = 37.730102539062500000
       Size.PlatformDefault = False
       TabOrder = 4
       Text = 'Abbrechen'
@@ -170,7 +169,7 @@ object FormPWvergessen: TFormPWvergessen
         end>
       Align = Client
       Size.Width = 52.697261810302730000
-      Size.Height = 85.552551269531250000
+      Size.Height = 37.730133056640630000
       Size.PlatformDefault = False
       OnClick = ImgBackClick
     end

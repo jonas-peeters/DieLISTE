@@ -4,9 +4,12 @@ object FormListe: TFormListe
   Caption = 'Form8'
   ClientHeight = 514
   ClientWidth = 350
+  Fill.Kind = Solid
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  Touch.GestureManager = GestureManager1
+  OnGesture = FormGesture
   DesignerMasterStyle = 2
   object GridPanelLayout1: TGridPanelLayout
     Align = Client
@@ -44,7 +47,7 @@ object FormListe: TFormListe
         Column = 0
         ColumnSpan = 6
         Control = ListBox1
-        Row = 1
+        Row = 2
       end
       item
         Column = 0
@@ -60,13 +63,22 @@ object FormListe: TFormListe
         Column = 5
         Control = ImgEdit
         Row = 0
+      end
+      item
+        Column = 0
+        ColumnSpan = 6
+        Control = Line1
+        Row = 1
       end>
     RowCollection = <
       item
-        Value = 9.999999999999999000
+        Value = 9.779852331050947000
       end
       item
-        Value = 90.000000000000000000
+        Value = 0.099997800722587900
+      end
+      item
+        Value = 90.120149868226460000
       end
       item
         SizeStyle = Auto
@@ -74,7 +86,7 @@ object FormListe: TFormListe
     object LblListe: TLabel
       Align = Client
       Size.Width = 175.063888549804700000
-      Size.Height = 51.400001525878910000
+      Size.Height = 50.268440246582030000
       Size.PlatformDefault = False
       TextSettings.HorzAlign = Center
       Text = 'ListeXY'
@@ -83,7 +95,7 @@ object FormListe: TFormListe
     object ListBox1: TListBox
       Align = Client
       Size.Width = 350.000000000000000000
-      Size.Height = 462.600006103515600000
+      Size.Height = 463.217559814453100000
       Size.PlatformDefault = False
       TabOrder = 1
       DisableFocusEffect = True
@@ -93,7 +105,7 @@ object FormListe: TFormListe
       ShowCheckboxes = True
       OnChangeCheck = ListBox1ChangeCheck
       Viewport.Width = 350.000000000000000000
-      Viewport.Height = 462.600000000000000000
+      Viewport.Height = 463.200000000000000000
     end
     object ImgBack: TImage
       MultiResBitmap.Height = 40
@@ -118,7 +130,7 @@ object FormListe: TFormListe
         end>
       Align = Client
       Size.Width = 55.182895660400390000
-      Size.Height = 51.400001525878910000
+      Size.Height = 50.268440246582030000
       Size.PlatformDefault = False
       OnClick = ImgBackClick
     end
@@ -237,5 +249,26 @@ object FormListe: TFormListe
       Size.PlatformDefault = False
       OnClick = ImgEditClick
     end
+    object Line1: TLine
+      Align = Client
+      LineType = Bottom
+      Size.Width = 350.000000000000000000
+      Size.Height = 0.513988494873046800
+      Size.PlatformDefault = False
+      Stroke.Color = xFF939393
+    end
+  end
+  object GestureManager1: TGestureManager
+    Sensitivity = 80.000000000000000000
+    Left = 304
+    Top = 467
+    GestureData = <
+      item
+        Control = Owner
+        Collection = <
+          item
+            GestureID = sgiRight
+          end>
+      end>
   end
 end

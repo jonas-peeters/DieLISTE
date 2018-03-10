@@ -614,6 +614,10 @@
         <DCCReference Include="lib\CCR.PrefsIniFile.pas"/>
         <DCCReference Include="lib\CCR.PrefsIniFile.Android.pas"/>
         <DCCReference Include="lib\CCR.PrefsIniFile.Apple.pas"/>
+        <DCCReference Include="Registrieren.pas">
+            <Form>FormRegistrieren</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <None Include="ModelSupport_DieLISTE\default.txaPackage"/>
         <None Include="ModelSupport_DieLISTE\default.txvpck"/>
         <None Include="ModelSupport_DieLISTE\ServerAPI\default.txvpck"/>
@@ -1567,6 +1571,11 @@
                 <DeployFile LocalName="..\Assets\Splashes\768 1004.png" Configuration="Release" Class="iPad_Launch768">
                     <Platform Name="iOSSimulator">
                         <RemoteName>Default~ipad.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Assets\Icons\40 40.png" Configuration="Debug" Class="iPad_SpotLight40">
+                    <Platform Name="iOSDevice64">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

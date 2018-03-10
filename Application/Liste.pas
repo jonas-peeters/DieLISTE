@@ -13,7 +13,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.ListBox, FMX.StdCtrls, FMX.Controls.Presentation, Hinzufuegen, ListeBearbeiten, serverAPI,
-  FMX.Edit, ItemBearbeiten, Helper, FMX.Objects;
+  FMX.Edit, ItemBearbeiten, Helper, FMX.Gestures, FMX.Objects;
 
 type
   TFormListe = class(TForm)
@@ -24,6 +24,8 @@ type
     ImgAdd: TImage;
     ImgEdit: TImage;
     procedure ImgEditClick(Sender: TObject);
+    GestureManager1: TGestureManager;
+    Line1: TLine;
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; clickedList: TListe);
     procedure Update();
     procedure FormActivate(Sender: TObject);
@@ -32,6 +34,8 @@ type
     procedure ListBox1ChangeCheck(Sender: TObject);
     procedure ImgBackClick(Sender: TObject);
     procedure ImgAddClick(Sender: TObject);
+    procedure FormGesture(Sender: TObject; const EventInfo: TGestureEventInfo;
+      var Handled: Boolean);
 
   private
     { Private-Deklarationen }
@@ -45,6 +49,7 @@ var
   list: TListe;
   listId: Integer;
   lists: Tlistarray;
+  closed: Boolean;
 
 implementation
 
@@ -52,6 +57,14 @@ implementation
 
 procedure TFormListe.subFormClosed(Sender: TObject; var Action: TCloseAction);
 begin
+  if (Sender.InheritsFrom(TFormListeBearbeiten)) then
+  begin
+    if ((Sender as TFormListeBearbeiten).hasDeletedList) then
+    begin
+      Close;
+      Release;
+    end;
+  end;
   Update();
 end;
 
@@ -84,6 +97,7 @@ begin
   inherited Create(AOwner);
   privateServerAPI := serverAPI;
   listId := clickedList.id;
+  closed := false;
   Update();
 end;
 
@@ -92,6 +106,17 @@ begin
   Update();
 end;
 
+procedure TFormListe.FormGesture(Sender: TObject;
+  const EventInfo: TGestureEventInfo; var Handled: Boolean);
+begin
+  Handled := true;
+  if not closed then
+  begin
+    closed := true;
+    Close;
+    Release;
+  end;
+end;
 
 procedure TFormListe.ListBox1ChangeCheck(Sender: TObject);
 var
@@ -122,23 +147,32 @@ var
   item: TListBoxItem;
   lists: TListArray;
 begin
-  lists := privateServerAPI.getLists();
-  for i := 0 to High(lists) do
-    if lists[i].id = listId then
-      list := lists[i];
-  LblListe.Text := list.name;
-  ListBox1.Clear;
-  for i := 0 to High(list.items) do
+  if privateServerAPI.isOnline then
   begin
-    item := TListBoxItem.Create(ListBox1);
-    item.Text := Tabulator + list.items[i].name + Tabulator + list.items[i].quantity;
-    if list.items[i].done then
-      item.IsChecked := true
-    else
-      item.IsChecked := false;
-    item.ItemData.Detail := IntToStr(i);
-    item.OnClick := ClickOnItem;
-    ListBox1.AddObject(item);
+    lists := privateServerAPI.getLists();
+    for i := 0 to High(lists) do
+      if lists[i].id = listId then
+        list := lists[i];
+    LblListe.Text := list.name;
+    ListBox1.Clear;
+    for i := 0 to High(list.items) do
+    begin
+      item := TListBoxItem.Create(ListBox1);
+      item.Text := Tabulator + list.items[i].name + Tabulator + list.items[i].quantity;
+      if list.items[i].done then
+        item.IsChecked := true
+      else
+        item.IsChecked := false;
+      item.ItemData.Detail := IntToStr(i);
+      item.OnClick := ClickOnItem;
+      ListBox1.AddObject(item);
+    end;
+  end
+  else
+  begin
+    ShowMessage('Du brauchst eine aktive Internetverbindung!');
+    Close;
+    Release;
   end;
 end;
 

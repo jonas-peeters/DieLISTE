@@ -134,19 +134,19 @@ object FormItemBearbeiten: TFormItemBearbeiten
         Value = 6.321492963369179000
       end
       item
-        Value = 6.350899971303491000
+        Value = 6.350899971303490000
       end
       item
-        Value = 6.380443802834025000
+        Value = 6.380443802834026000
       end
       item
-        Value = 6.410125088845021000
+        Value = 6.410125088845022000
       end
       item
         Value = 6.439944460616901000
       end
       item
-        Value = 6.469902551755308000
+        Value = 6.469902551755307000
       end>
     object LblBearbeiten: TLabel
       Align = Client

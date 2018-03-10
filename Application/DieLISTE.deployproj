@@ -4,7 +4,7 @@
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>
     <PropertyGroup>
-        <DeviceId Condition="'$(Platform)'=='Android'">v8.1.0</DeviceId>
+        <DeviceId Condition="'$(Platform)'=='Android'">Nexus_5_v8.1.0</DeviceId>
         <DeviceId Condition="'$(Platform)'=='iOSDevice32'">fd5b20113ee15ed312649a210b304a5951b0650d</DeviceId>
         <DeviceId Condition="'$(Platform)'=='iOSDevice64'">fd5b20113ee15ed312649a210b304a5951b0650d</DeviceId>
         <DeviceId Condition="'$(Platform)'=='iOSSimulator'">48D6BAF6-B88B-4D66-933B-715D301F8708</DeviceId>
@@ -229,19 +229,19 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="..\Assets\Icons\120 120.png" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="..\Assets\Icons\152 152.png" Condition="'$(Config)'=='Release'">
             <RemoteDir>DieLISTE.app\</RemoteDir>
-            <RemoteName>120 120.png</RemoteName>
-            <DeployClass>iPhone_AppIcon120</DeployClass>
+            <RemoteName>152 152.png</RemoteName>
+            <DeployClass>iPad_AppIcon152</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="..\Assets\Icons\152 152.png" Condition="'$(Config)'=='Release'">
+        <DeployFile Include="..\Assets\Icons\120 120.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>DieLISTE.app\</RemoteDir>
-            <RemoteName>152 152.png</RemoteName>
-            <DeployClass>iPad_AppIcon152</DeployClass>
+            <RemoteName>120 120.png</RemoteName>
+            <DeployClass>iPhone_AppIcon120</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
@@ -338,19 +338,19 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="..\Assets\Icons\144 144.png" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="..\Assets\Splashes\2048 1496.png" Condition="'$(Config)'=='Release'">
             <RemoteDir>DieLISTE.app\</RemoteDir>
-            <RemoteName>144 144.png</RemoteName>
-            <DeployClass>iPad_AppIcon144</DeployClass>
-            <Operation>0</Operation>
+            <RemoteName>Default-Landscape@2x.png</RemoteName>
+            <DeployClass>iPad_Launch2048</DeployClass>
+            <Operation>1</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="..\Assets\Icons\80 80.png" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="..\Assets\Icons\144 144.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>DieLISTE.app\</RemoteDir>
-            <RemoteName>80 80.png</RemoteName>
-            <DeployClass>iPad_SpotLight80</DeployClass>
+            <RemoteName>144 144.png</RemoteName>
+            <DeployClass>iPad_AppIcon144</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
@@ -365,11 +365,11 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="..\Assets\Splashes\2048 1496.png" Condition="'$(Config)'=='Release'">
+        <DeployFile Include="..\Assets\Icons\80 80.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>DieLISTE.app\</RemoteDir>
-            <RemoteName>Default-Landscape@2x.png</RemoteName>
-            <DeployClass>iPad_Launch2048</DeployClass>
-            <Operation>1</Operation>
+            <RemoteName>80 80.png</RemoteName>
+            <DeployClass>iPad_SpotLight80</DeployClass>
+            <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
@@ -446,19 +446,19 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="..\Assets\Splashes\2208 1242.png" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="..\Assets\Icons\180 180.png" Condition="'$(Config)'=='Release'">
             <RemoteDir>DieLISTE.app\</RemoteDir>
-            <RemoteName>Default-Landscape-736h@3x.png</RemoteName>
-            <DeployClass>iPhone_Launch2208</DeployClass>
+            <RemoteName>180 180.png</RemoteName>
+            <DeployClass>iPhone_AppIcon180</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="..\Assets\Icons\180 180.png" Condition="'$(Config)'=='Release'">
+        <DeployFile Include="..\Assets\Splashes\2208 1242.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>DieLISTE.app\</RemoteDir>
-            <RemoteName>180 180.png</RemoteName>
-            <DeployClass>iPhone_AppIcon180</DeployClass>
+            <RemoteName>Default-Landscape-736h@3x.png</RemoteName>
+            <DeployClass>iPhone_Launch2208</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
@@ -590,7 +590,7 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="ModelSupport_DieLISTE\AddUser\default.txvpck" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="ModelSupport_DieLISTE\default.txvpck" Condition="'$(Config)'=='Release'">
             <RemoteDir>DieLISTE.app\StartUp\Documents\</RemoteDir>
             <RemoteName>default.txvpck</RemoteName>
             <DeployClass>ProjectFile</DeployClass>
@@ -617,7 +617,7 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="ModelSupport_DieLISTE\default.txvpck" Condition="'$(Config)'=='Release'">
+        <DeployFile Include="ModelSupport_DieLISTE\AddUser\default.txvpck" Condition="'$(Config)'=='Debug'">
             <RemoteDir>DieLISTE.app\StartUp\Documents\</RemoteDir>
             <RemoteName>default.txvpck</RemoteName>
             <DeployClass>ProjectFile</DeployClass>
@@ -852,19 +852,19 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="..\Assets\Icons\29 29.png" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>DieLISTE.app\</RemoteDir>
-            <RemoteName>29 29.png</RemoteName>
-            <DeployClass>iPad_Setting29</DeployClass>
+        <DeployFile Include="ModelSupport_DieLISTE\PWaendern\default.txvpck" Condition="'$(Config)'=='Release'">
+            <RemoteDir>DieLISTE.app\StartUp\Documents\</RemoteDir>
+            <RemoteName>default.txvpck</RemoteName>
+            <DeployClass>ProjectFile</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="ModelSupport_DieLISTE\PWaendern\default.txvpck" Condition="'$(Config)'=='Release'">
-            <RemoteDir>DieLISTE.app\StartUp\Documents\</RemoteDir>
-            <RemoteName>default.txvpck</RemoteName>
-            <DeployClass>ProjectFile</DeployClass>
+        <DeployFile Include="..\Assets\Icons\29 29.png" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>DieLISTE.app\</RemoteDir>
+            <RemoteName>29 29.png</RemoteName>
+            <DeployClass>iPad_Setting29</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
@@ -879,15 +879,6 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="..\Assets\Icons\50 50.png" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>DieLISTE.app\</RemoteDir>
-            <RemoteName>50 50.png</RemoteName>
-            <DeployClass>iPad_SpotLight50</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
         <DeployFile Include="..\Assets\Icons\50 50.png" Condition="'$(Config)'=='Release'">
             <RemoteDir>DieLISTE.app\</RemoteDir>
             <RemoteName>50 50.png</RemoteName>
@@ -897,7 +888,16 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="ModelSupport_DieLISTE\CCR\PrefsIniFile\default.txvpck" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="..\Assets\Icons\50 50.png" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>DieLISTE.app\</RemoteDir>
+            <RemoteName>50 50.png</RemoteName>
+            <DeployClass>iPad_SpotLight50</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="ModelSupport_DieLISTE\PWvergessen\default.txvpck" Condition="'$(Config)'=='Release'">
             <RemoteDir>DieLISTE.app\StartUp\Documents\</RemoteDir>
             <RemoteName>default.txvpck</RemoteName>
             <DeployClass>ProjectFile</DeployClass>
@@ -906,7 +906,7 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="ModelSupport_DieLISTE\PWvergessen\default.txvpck" Condition="'$(Config)'=='Release'">
+        <DeployFile Include="ModelSupport_DieLISTE\CCR\PrefsIniFile\default.txvpck" Condition="'$(Config)'=='Debug'">
             <RemoteDir>DieLISTE.app\StartUp\Documents\</RemoteDir>
             <RemoteName>default.txvpck</RemoteName>
             <DeployClass>ProjectFile</DeployClass>
@@ -942,20 +942,20 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="ModelSupport_DieLISTE\PWaendern\default.txvpck" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>DieLISTE.app\StartUp\Documents\</RemoteDir>
-            <RemoteName>default.txvpck</RemoteName>
-            <DeployClass>ProjectFile</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
         <DeployFile Include="iOSDevice64\Release\DieLISTE.entitlements" Condition="'$(Config)'=='Release'">
             <RemoteDir>DieLISTE.app\..\</RemoteDir>
             <RemoteName>DieLISTE.entitlements</RemoteName>
             <DeployClass>ProjectiOSEntitlements</DeployClass>
             <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="ModelSupport_DieLISTE\Supermarkt\default.txvpck" Condition="'$(Config)'=='Release'">
+            <RemoteDir>DieLISTE.app\StartUp\Documents\</RemoteDir>
+            <RemoteName>default.txvpck</RemoteName>
+            <DeployClass>ProjectFile</DeployClass>
+            <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
@@ -969,7 +969,7 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="ModelSupport_DieLISTE\Supermarkt\default.txvpck" Condition="'$(Config)'=='Release'">
+        <DeployFile Include="ModelSupport_DieLISTE\PWaendern\default.txvpck" Condition="'$(Config)'=='Debug'">
             <RemoteDir>DieLISTE.app\StartUp\Documents\</RemoteDir>
             <RemoteName>default.txvpck</RemoteName>
             <DeployClass>ProjectFile</DeployClass>
@@ -1050,15 +1050,6 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="ModelSupport_DieLISTE\ItemBearbeiten\default.txvpck" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>DieLISTE.app\StartUp\Documents\</RemoteDir>
-            <RemoteName>default.txvpck</RemoteName>
-            <DeployClass>ProjectFile</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
         <DeployFile Include="ModelSupport_DieLISTE\ServerAPI\default.txaPackage" Condition="'$(Config)'=='Release'">
             <RemoteDir>DieLISTE.app\StartUp\Documents\</RemoteDir>
             <RemoteName>default.txaPackage</RemoteName>
@@ -1068,9 +1059,9 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="ModelSupport_DieLISTE\default.txaPackage" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="ModelSupport_DieLISTE\ItemBearbeiten\default.txvpck" Condition="'$(Config)'=='Debug'">
             <RemoteDir>DieLISTE.app\StartUp\Documents\</RemoteDir>
-            <RemoteName>default.txaPackage</RemoteName>
+            <RemoteName>default.txvpck</RemoteName>
             <DeployClass>ProjectFile</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
@@ -1086,11 +1077,29 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
+        <DeployFile Include="ModelSupport_DieLISTE\default.txaPackage" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>DieLISTE.app\StartUp\Documents\</RemoteDir>
+            <RemoteName>default.txaPackage</RemoteName>
+            <DeployClass>ProjectFile</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="..\Assets\Splashes\750 1334.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>DieLISTE.app\</RemoteDir>
             <RemoteName>Default-667h@2x.png</RemoteName>
             <DeployClass>iPhone_Launch750</DeployClass>
             <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="iOSDevice64\Release\DieLISTE.dSYM" Condition="'$(Config)'=='Release'">
+            <RemoteDir>DieLISTE.app\..\$(PROJECTNAME).app.dSYM\Contents\Resources\DWARF\</RemoteDir>
+            <RemoteName>DieLISTE</RemoteName>
+            <DeployClass>ProjectiOSDeviceDebug</DeployClass>
+            <Operation>1</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
@@ -1109,15 +1118,6 @@
             <RemoteName>default.txvpck</RemoteName>
             <DeployClass>ProjectFile</DeployClass>
             <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
-        <DeployFile Include="iOSDevice64\Release\DieLISTE.dSYM" Condition="'$(Config)'=='Release'">
-            <RemoteDir>DieLISTE.app\..\$(PROJECTNAME).app.dSYM\Contents\Resources\DWARF\</RemoteDir>
-            <RemoteName>DieLISTE</RemoteName>
-            <DeployClass>ProjectiOSDeviceDebug</DeployClass>
-            <Operation>1</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
@@ -1882,10 +1882,10 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="..\Assets\Icons\50 50.png" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="..\Assets\Icons\114 114.png" Condition="'$(Config)'=='Release'">
             <RemoteDir>DieLISTE.app\</RemoteDir>
-            <RemoteName>50 50.png</RemoteName>
-            <DeployClass>iPad_SpotLight50</DeployClass>
+            <RemoteName>114 114.png</RemoteName>
+            <DeployClass>iPhone_AppIcon114</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
@@ -1900,10 +1900,10 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="..\Assets\Icons\114 114.png" Condition="'$(Config)'=='Release'">
+        <DeployFile Include="..\Assets\Icons\50 50.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>DieLISTE.app\</RemoteDir>
-            <RemoteName>114 114.png</RemoteName>
-            <DeployClass>iPhone_AppIcon114</DeployClass>
+            <RemoteName>50 50.png</RemoteName>
+            <DeployClass>iPad_SpotLight50</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
