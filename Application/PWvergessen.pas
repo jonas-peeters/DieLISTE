@@ -1,5 +1,7 @@
 ﻿{*
-  The user can request a password reset
+  Passwort-Vergessen-Form
+
+  Hier kann der User ein neues Passwort anfordern.
 }
 unit PWvergessen;
 
@@ -31,31 +33,66 @@ type
   end;
 
 var
+  //* Die Passwort-Vergessen-Form
   FormPWvergessen: TFormPWvergessen;
+  //* Private Instanz der Server API
   privateServerAPI: TServerAPI;
 
 implementation
 
 {$R *.fmx}
 
+{*
+  Neuer Konstruktor
+
+  Neuer Konstruktor, um die Server API zu initialisieren.
+
+  @param AOwner Der Parent dieses Objekts
+  @param serverAPI Instanz der Server API, um mit dem Server zu kommunizieren
+}
 constructor TFormPWvergessen.Create(AOwner: TComponent; var serverAPI: TServerAPI);
 begin
   inherited Create(AOwner);
   privateServerAPI := serverAPI;
 end;
 
+{*
+  Abbrechen
+
+  Der Button zum Abbrechen wurde gedrückt. Der User wird auf die Login-Form
+  weitergeleitet.
+
+  @param Sender Der gedrückte Button
+}
 procedure TFormPWvergessen.ImgBackClick(Sender: TObject);
 begin
   Close;
   Release;
 end;
 
+{*
+  Abbrechen
+
+  Der Button zum Abbrechen wurde gedrückt. Der User wird auf die Login-Form
+  weitergeleitet.
+
+  @param Sender Der gedrückte Button
+}
 procedure TFormPWvergessen.BtnCancelClick(Sender: TObject);
 begin
   Close;
   Release;
 end;
 
+{*
+  EMail senden
+
+  Es werden Instruktionen für ein neues Passwort angefordert. Wenn die
+  angegebene EMail registriert ist, so wird an diese eine Anleitung zum
+  zurücksetzen gesendet.
+
+  @param Sender Button zum senden
+}
 procedure TFormPWvergessen.BtnSendenClick(Sender: TObject);
 begin
   if privateServerAPI.isOnline then

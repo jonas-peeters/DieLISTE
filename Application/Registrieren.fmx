@@ -131,7 +131,7 @@ object FormRegistrieren: TFormRegistrieren
       Size.Height = 40.008071899414060000
       Size.PlatformDefault = False
       TabOrder = 5
-      object Label1: TLabel
+      object LblRegister: TLabel
         Align = Client
         HitTest = True
         Size.Width = 132.015167236328100000
@@ -140,7 +140,7 @@ object FormRegistrieren: TFormRegistrieren
         TextSettings.HorzAlign = Center
         Text = 'Registrieren'
         TabOrder = 1
-        OnClick = Label1Click
+        OnClick = LblRegisterClick
       end
     end
     object PanelAbbrechen: TPanel
@@ -149,7 +149,7 @@ object FormRegistrieren: TFormRegistrieren
       Size.Height = 40.008071899414060000
       Size.PlatformDefault = False
       TabOrder = 4
-      object Label2: TLabel
+      object LblCancel: TLabel
         Align = Client
         HitTest = True
         Size.Width = 132.764801025390600000
@@ -158,7 +158,7 @@ object FormRegistrieren: TFormRegistrieren
         TextSettings.HorzAlign = Center
         Text = 'Abbrechen'
         TabOrder = 1
-        OnClick = Label2Click
+        OnClick = LblCancelClick
       end
     end
   end

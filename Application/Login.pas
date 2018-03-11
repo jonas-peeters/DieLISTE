@@ -1,11 +1,12 @@
 ﻿{*
-  Login form
+  Login-Form
 
-  This is the first from any user will see.
-  The user can log in, register a new account and open the forgot password page.
+  Dies ist die erste Seite, die jeder User sehen wird.
+  Hier kann der User sich anmelden, registrieren und die Passwort-Vergessen-Seite
+  öffnen.
 
-  The login data of the users are saved, so that they will automatically be
-  logged in the next time.
+  Die Anmeldedaten des Users werden automatische gespeichert, sodass er/sie beim
+  nächsten mal automatisch angemeldet wird.
 }
 unit Login;
 
@@ -41,13 +42,26 @@ type
   end;
 
 var
+  //* Die Login-Form
   LoginForm: TFormLogin;
+  //* Die von hier aufgerufene Haupt-Form
   MainForm: TFormMain;
 
 implementation
 
 {$R *.fmx}
 
+{*
+  Anmelden des Users
+
+  Meldet den user beim Server an und, wenn keine Serververbindung besteht,
+  benutzt die Offline gespechicherten Daten, um zu überprüfen, ob der User
+  bereits angemeldet gewesen war. In diesem Fall wird der 'Offline-Modus'
+  gestartet.
+
+  @param email EMail des Users
+  @param password Passwort des Users
+}
 procedure TFormLogin.login(email: String; password: String);
 var offlineData: TOfflineData;
 begin
@@ -78,11 +92,25 @@ begin
     ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
+{*
+  Startet die Anmeldung
+
+  Der Button, um sich mit den angegebenen Daten anzumelden, wurde gedrückt.
+
+  @param Sender Button zum anmelden
+}
 procedure TFormLogin.BtnLosClick(Sender: TObject);
 begin
   login(EdtEMailLogin.Text, EdtPWLogin.Text);
 end;
 
+{*
+  Passwort vergessen
+
+  Die Passwort-Vergessen-Form wird geöffnet
+
+  @param Sender Button für die Passwort vergesen Funktion
+}
 procedure TFormLogin.BtnPWVergessenClick(Sender: TObject);
 var PwVergessenForm: TForm;
 begin
@@ -90,6 +118,13 @@ begin
   PwVergessenForm.Show;
 end;
 
+{*
+  Registrieren
+
+  Das Registrierungsformular wird geöffnet
+
+  @param Sender Button fürs Registrieren
+}
 procedure TFormLogin.BtnRegistrierenClick(Sender: TObject);
 var registerForm: TForm;
 begin
@@ -97,6 +132,18 @@ begin
   registerForm.Show;
 end;
 
+
+{*
+  Startpunkt des Programms
+
+  Die Mainform wird bereits im Hintergrund erstellt, um die Server API zu
+  initialisieren.
+
+  Wenn die offline gespeicherten Daten beim letzten mal funktioniert haben,
+  wird außerdem automatisch ein Anmeldeversuch durchgeführt.
+
+  @param Sender Die Login Form
+}
 procedure TFormLogin.FormShow(Sender: TObject);
 var
   offlineData: TOfflineData;
@@ -112,6 +159,15 @@ begin
   end;
 end;
 
+{*
+  Unterform schließt sich
+
+  Wird eine von hier aufgerufene Form geschlossen, so wird davon ausgegangen,
+  dass der User sich abgemeldet hat. Daher werden die Anmeldedaten entfernt.
+
+  @param Sender Die Unterform
+  @param Action Schließaktion der Unterform
+}
 procedure TFormLogin.subFormClosed(Sender: TObject; var Action: TCloseAction);
 begin
   EdtEMailLogin.Text := '';

@@ -17,19 +17,19 @@ object FormPWvergessen: TFormPWvergessen
     TabOrder = 0
     ColumnCollection = <
       item
-        Value = 7.056000708507232000
+        Value = 7.056000708507233000
       end
       item
-        Value = 8.000359550903818000
+        Value = 8.000359550903820000
       end
       item
-        Value = 34.062200983280960000
+        Value = 34.062200983280970000
       end
       item
-        Value = 43.788132252541870000
+        Value = 43.788132252541890000
       end
       item
-        Value = 7.093306504766087000
+        Value = 7.093306504766089000
       end>
     ControlCollection = <
       item
@@ -94,7 +94,7 @@ object FormPWvergessen: TFormPWvergessen
         Value = 7.000000363840335000
       end
       item
-        Value = 7.000000231826293000
+        Value = 7.000000231826294000
       end
       item
         Value = 7.000000110854029000
@@ -169,7 +169,7 @@ object FormPWvergessen: TFormPWvergessen
         end>
       Align = Client
       Size.Width = 52.697261810302730000
-      Size.Height = 37.730133056640630000
+      Size.Height = 75.460014343261720000
       Size.PlatformDefault = False
       OnClick = ImgBackClick
     end

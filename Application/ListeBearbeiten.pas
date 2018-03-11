@@ -1,12 +1,14 @@
 ﻿{*
-  Here the user can change the properties of a list.
+  Liste-Bearbeiten-Form
 
-  Possible actions are:
-  - Changing the name of the list
-  - Remove users from the list
-  - See who has access to the list
-  - Open the page for adding users to this list
-  - Deleting this list
+  Der User kann die Eigenschaften einer Liste bearbeiten.
+
+  Mögliche Aktionen sind:
+  - Listennamen ändern
+  - User von der Liste entfernen
+  - Sehen wer Zugriff auf die Liste hat
+  - Form, um User hinzufügen, öffnen
+  - Die Liste löschen
 }
 unit ListeBearbeiten;
 
@@ -42,20 +44,41 @@ type
   private
     { Private-Deklarationen }
   public
+    {*
+      Ob die Liste gelöscht wurde.
+
+      Dies wird benutzt, damit die Liste-Anzeigen-Form sich automatisch
+      schließen kann, sollte die Liste gelöscht worden sein.
+    }
     hasDeletedList: Boolean;
   end;
 
 var
+  //* Die Liste-Bearbeiten-From
   FormListeBearbeiten: TFormListeBearbeiten;
+  //* Die ausgewählte Liste
   list: TListe;
+  //* Die Id der ausgewählten Liste
   listId: Integer;
+  //* Private Instanz der Server API in der der User angemeldet ist.
   privateServerAPI: TServerAPI;
+  //* Um zu überprüfen, ob die Gestenaktion bereits ausgeführt wurde.
   closed: Boolean;
 
 implementation
 
 {$R *.fmx}
 
+{*
+  Neuer Konstruktor
+
+  Neuer Kontruktor, um eine private Instanz der Server API und die Id der
+  ausgewählten Liste zu übergeben.
+
+  @param AOwner Der Parent der Form
+  @param serverAPI Instanz der Server API in der der User angemeldet ist
+  @param selectedListId Id der ausgewählten Liste
+}
 constructor TFormListeBearbeiten.Create(AOwner: TComponent; var serverAPI: TServerAPI; selectedListId: Integer);
 begin
   inherited Create(AOwner);
@@ -66,11 +89,24 @@ begin
   Update;
 end;
 
+{*
+  Unterform geschlossen
+
+  Wird eine Unterform geschlossen, so wird die Seite geupdated
+
+  @param Sender Die Unterform
+  @param Action Die Schließaktion der Unterform
+}
 procedure TFormListeBearbeiten.subFormClosed(Sender: TObject; var Action: TCloseAction);
 begin
   Update();
 end;
 
+{*
+  Update
+
+  Die Form geupdated, um die aktuellen Informationen über die Liste anzuzeigen.
+}
 procedure TFormListeBearbeiten.Update();
 var
   lists: TListArray;
@@ -152,12 +188,27 @@ begin
   end;
 end;
 
+{*
+  Zurück
+
+  Die Form wird geschlossen und der User landet wieder auf der
+  Liste-Anzeigen-Seite.
+
+  @param Sender Button um zurückzugelangen.
+}
 procedure TFormListeBearbeiten.ImgBackClick(Sender: TObject);
 begin
   Close;
   Release;
 end;
 
+{*
+  User hinzufügen
+
+  Die Seite, um einen User hinzuzufügen, wird geöffnet.
+
+  @param Sender Button/Label um User hinzuzufügen
+}
 procedure TFormListeBearbeiten.AddUserClick(Sender: TObject);
 var
   addUserForm: TFormAddUser;
@@ -167,6 +218,15 @@ begin
   addUserForm.OnClose := subFormClosed;
 end;
 
+
+{*
+  Liste löschen
+
+  Nach einer weiteren Abfrage wird die Liste gelöscht. Dann wird der User auf
+  die Home-Seite weitergeleitet.
+
+  @param Sender Button/Label um die Liste zu löschen
+}
 procedure TFormListeBearbeiten.DeleteListClick(Sender: TObject);
 begin
   if privateServerAPI.isOnline then
@@ -181,7 +241,7 @@ begin
       case AResult of
         mrYES:
           begin
-          privateServerAPI.removeList(list.id);
+          privateServerAPI.removeList(listId);
           ShowMessage('Die Liste wurde gelöscht!');
           hasDeletedList := true;
           Close;
@@ -194,6 +254,13 @@ begin
     ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
+{*
+  Namen bearbeiten
+
+  In einer Input Box kann der User der Liste einen neuen Namen geben.
+
+  @param Sender Button/Label um der Liste inene neuen Name zu geben.
+}
 procedure TFormListeBearbeiten.EditListNameClick(Sender: TObject);
 var
   dialogService: IFMXDialogServiceAsync;
@@ -233,6 +300,15 @@ begin
     ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
+{*
+  Streichaktion von links nach rechts
+
+  Der user wird auf die List-Anzeigen-Seite weitergeleitet.
+
+  @param Sender GestureManager
+  @param EventInfo Informationen über die Geste
+  @param Handled Ob die Geste bearbeitet wurde.
+}
 procedure TFormListeBearbeiten.FormGesture(Sender: TObject;
   const EventInfo: TGestureEventInfo; var Handled: Boolean);
 begin

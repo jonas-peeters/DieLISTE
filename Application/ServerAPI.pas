@@ -92,8 +92,7 @@ begin
   request.Client := self.client;
   request.Timeout := 3000;
   try
-    request.ExecuteAsync(procedure
-    begin
+    request.ExecuteAsync(procedure begin
       if request.Response.Content = 'true' then
       begin
         online := 'true';

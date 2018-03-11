@@ -20,11 +20,11 @@ type
     EdtBenutzernameRegister: TEdit;
     EdtPWRegister: TEdit;
     PanelRegistrieren: TPanel;
-    Label1: TLabel;
+    LblRegister: TLabel;
     PanelAbbrechen: TPanel;
-    Label2: TLabel;
-    procedure Label1Click(Sender: TObject);
-    procedure Label2Click(Sender: TObject);
+    LblCancel: TLabel;
+    procedure LblRegisterClick(Sender: TObject);
+    procedure LblCancelClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -32,13 +32,21 @@ type
   end;
 
 var
+  //* Die Registrierungs-Form
   FormRegistrieren: TFormRegistrieren;
 
 implementation
 
 {$R *.fmx}
 
-procedure TFormRegistrieren.Label1Click(Sender: TObject);
+{*
+  Registrieren
+
+  Mit den angegebenen Daten wird versucht einen user zu erstellen.
+
+  @param Sender Button um die Registrierung durchzuführen
+}
+procedure TFormRegistrieren.LblRegisterClick(Sender: TObject);
 var email, name, password: String;
 begin
   email:= EdtEmailRegister.Text;
@@ -54,17 +62,27 @@ begin
   begin
     if UMain.serverAPI.isOnline then
     begin
-      UMain.serverAPI.createUser(email,name, password);
-      ShowMessage('Vielen Dank für Ihre Regestrierung. Bitte verifizieren Sie ihre E-Mail, um die Regestrierung zu vollenden!');
-      Close;
-      Release;
+      if interpretServerResponse(UMain.serverAPI.createUser(email, name, password)) then
+      begin
+        ShowMessage('Vielen Dank für Ihre Regestrierung. Bitte verifizieren Sie ihre E-Mail, um die Regestrierung zu vollenden!');
+        Close;
+        Release;
+      end;
     end
     else
       ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
   end;
 end;
 
-procedure TFormRegistrieren.Label2Click(Sender: TObject);
+{*
+  Abbruch
+
+  Die Registrierung wird abgebrochen und der User zur Login-Seite
+  weitergeleitet.
+
+  @param Sender Button zum abbrechen
+}
+procedure TFormRegistrieren.LblCancelClick(Sender: TObject);
 begin
   Close;
   Release;

@@ -35,25 +35,19 @@ object FormPWaendern: TFormPWaendern
       item
         Column = 1
         ColumnSpan = 3
-        Control = EdtPWalt
-        Row = 4
-      end
-      item
-        Column = 1
-        ColumnSpan = 3
         Control = EdtPWneu1
-        Row = 6
+        Row = 3
       end
       item
         Column = 1
         ColumnSpan = 3
         Control = EdtPWneu2
-        Row = 7
+        Row = 4
       end
       item
         Column = 3
         Control = BtnPWaendern
-        Row = 9
+        Row = 6
       end
       item
         Column = 1
@@ -65,7 +59,7 @@ object FormPWaendern: TFormPWaendern
         Column = 1
         ColumnSpan = 2
         Control = BtnCancel
-        Row = 9
+        Row = 6
       end
       item
         Column = 0
@@ -79,7 +73,7 @@ object FormPWaendern: TFormPWaendern
         Value = 5.999874929880595000
       end
       item
-        Value = 5.999892879292482000
+        Value = 5.999892879292483000
       end
       item
         Value = 5.999909329662776000
@@ -91,7 +85,7 @@ object FormPWaendern: TFormPWaendern
         Value = 5.999938223593953000
       end
       item
-        Value = 5.999950887045905000
+        Value = 5.999950887045906000
       end
       item
         Value = 5.999962492912343000
@@ -100,24 +94,14 @@ object FormPWaendern: TFormPWaendern
         Value = 5.999973129517019000
       end
       item
-        Value = 5.999982877807518000
+        Value = 5.999982877807519000
       end
       item
         Value = 5.999991811971263000
       end
       item
-        Value = 40.000599032131820000
+        Value = 40.000599032131810000
       end>
-    object EdtPWalt: TEdit
-      Touch.InteractiveGestures = [LongTap, DoubleTap]
-      Align = Client
-      TabOrder = 2
-      Password = True
-      Size.Width = 283.901123046875000000
-      Size.Height = 33.539932250976560000
-      Size.PlatformDefault = False
-      TextPrompt = 'altes Passwort'
-    end
     object EdtPWneu1: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
@@ -143,25 +127,25 @@ object FormPWaendern: TFormPWaendern
       Size.Width = 144.236923217773400000
       Size.Height = 33.539886474609380000
       Size.PlatformDefault = False
-      TabOrder = 3
+      TabOrder = 2
       Text = 'Passwort '#228'ndern'
       OnClick = BtnPWaendernClick
     end
     object LblPWaendern: TLabel
       Align = Client
       Size.Width = 283.901123046875000000
-      Size.Height = 33.539905548095700000
+      Size.Height = 33.539905548095710000
       Size.PlatformDefault = False
       TextSettings.HorzAlign = Center
       Text = 'Passwort '#228'ndern'
-      TabOrder = 4
+      TabOrder = 3
     end
     object BtnCancel: TButton
       Align = Client
       Size.Width = 139.664184570312500000
       Size.Height = 33.539886474609380000
       Size.PlatformDefault = False
-      TabOrder = 5
+      TabOrder = 4
       Text = 'Abbrechen'
       OnClick = BtnCancelClick
     end
@@ -185,7 +169,7 @@ object FormPWaendern: TFormPWaendern
         end>
       Align = Client
       Size.Width = 76.008018493652340000
-      Size.Height = 67.078704833984380000
+      Size.Height = 67.078704833984370000
       Size.PlatformDefault = False
       OnClick = ImgBackClick
     end
