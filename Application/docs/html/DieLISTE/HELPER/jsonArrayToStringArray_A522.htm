@@ -3,7 +3,7 @@
 <head>
 <title>DieLISTE - Eine mobile Anwendung um Listen mit anderen zu bearbeiten</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="../../../_Resources/css/DelphiCodeToDoc.css" type="text/css" />
+<link rel="stylesheet" href="../../_Resources/css/DelphiCodeToDoc.css" type="text/css" />
 </head>
 <body>
 <div id="header">
@@ -20,16 +20,16 @@
   <tr>
     <td><b>DieLISTE</b></td>
     <td class="Normal">
-      <div align="center"><a href="../../../_ClassHierarchy.htm">Class Tree</a></div>
+      <div align="center"><a href="../../_ClassHierarchy.htm">Class Tree</a></div>
     </td>
     <td class="Normal">
-      <div align="center"><a href="../../../DieLISTE.htm">Index</a></div>
+      <div align="center"><a href="../../DieLISTE.htm">Index</a></div>
     </td>
     <td class="Normal">
-      <div align="center"><a href="BtnSchliessenClick_F54E.htm">Previous (BtnSchliessenClick)</a></div>
+      <div align="center"><a href="interpretServerResponse_977E.htm">Previous (interpretServerResponse)</a></div>
     </td>
     <td class="Normal">
-      <div align="center"><a href="ImgBackClick_6843.htm">Next (ImgBackClick)</a></div>
+      <div align="center"><a href="responseToListArray_2888.htm">Next (responseToListArray)</a></div>
     </td>
   </tr>
 </table><br />
@@ -38,7 +38,7 @@
 <table class="simplesection">
   <tr>
     <td class="tabletab">&nbsp;</td>
-    <td class="Generated">Create</td>
+    <td class="Generated">jsonArrayToStringArray</td>
   </tr>
 </table>
 <br />
@@ -47,7 +47,7 @@
 <table class="simplesection">
   <tr>
     <td class="tabletab">&nbsp;</td>
-    <td class="Generated"><a href="../TFormItemBearbeiten.htm">TFormItemBearbeiten</a></td>
+    <td class="Generated"><a href="../HELPER.htm">HELPER</a></td>
   </tr>
 </table>
 <br />
@@ -56,7 +56,7 @@
 <table class="simplesection">
   <tr>
     <td class="tabletab">&nbsp;</td>
-    <td class="Generated">PUBLISHED</td>
+    <td class="Generated">PUBLIC</td>
   </tr>
 </table>
 <br />
@@ -66,7 +66,7 @@
 
   <tr> 
     <td class="tabletab">&nbsp;</td>
-    <td class="Generated">Neuer Konstruktor<br />Neuer Konstruktor, um eine Instanz der Server API und das zu ändernde Item zu<br />übergeben. Außerdem werden alle Eigenschaften des Items wieder in die<br />ensprechenden Felder eingetragen.</td>
+    <td class="Generated">Serverantwort --> TArray (Strings) record<br />Wandelt die als JSON encodete Antwort des Servers in ein Array von Strings um.</td>
   </tr>
 
 </table>
@@ -76,7 +76,7 @@
 <table class="simplesection">
   <tr>
     <td class="tabletab">&nbsp;</td>
-    <td class="Generated">constructor Create ( AOwner : TComponent ; var serverAPI : TServerAPI ; item : TItem ) </td>
+    <td class="Generated">function jsonArrayToStringArray ( const jsonString : string ) : TArray </td>
   </tr>
 </table>
 <br />
@@ -93,18 +93,29 @@
         </tr>
 
         <tr class="TrItem">
-          <td class="TdFirstColumn">AOwner : TComponent</td>
-          <td>Der Parent der Form</td>
+          <td class="TdFirstColumn">jsonString : STRING</td>
+          <td>Antwort des Servers</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table><br />
+
+<span class="SectionName">Return</span><br />
+<table class="TableNameAndDescription">
+  <tr> 
+    <td class="tabletab">&nbsp;</td>
+    <td> 
+      <table class="Table2Column">
+        <tr class="TrItem">
+          <td class="IndexName">Types</td>
+          <td class="IndexName">Description</td>
         </tr>
 
         <tr class="TrItem">
-          <td class="TdFirstColumn">serverAPI : TServerAPI</td>
-          <td>Instanz der Server API in der der USer angemeldet ist</td>
-        </tr>
-
-        <tr class="TrItem">
-          <td class="TdFirstColumn">item : TItem</td>
-          <td>Das Item, welches bearbeitet wird</td>
+          <td class="TdFirstColumn">TArray</td>
+          <td>TArray (Array von Strings)</td>
         </tr>
 
       </table>
@@ -116,16 +127,16 @@
   <tr>
     <td><b>DieLISTE</b></td>
     <td class="Normal">
-      <div align="center"><a href="../../../_ClassHierarchy.htm">Class Tree</a></div>
+      <div align="center"><a href="../../_ClassHierarchy.htm">Class Tree</a></div>
     </td>
     <td class="Normal">
-      <div align="center"><a href="../../../DieLISTE.htm">Index</a></div>
+      <div align="center"><a href="../../DieLISTE.htm">Index</a></div>
     </td>
     <td class="Normal">
-      <div align="center"><a href="BtnSchliessenClick_F54E.htm">Previous (BtnSchliessenClick)</a></div>
+      <div align="center"><a href="interpretServerResponse_977E.htm">Previous (interpretServerResponse)</a></div>
     </td>
     <td class="Normal">
-      <div align="center"><a href="ImgBackClick_6843.htm">Next (ImgBackClick)</a></div>
+      <div align="center"><a href="responseToListArray_2888.htm">Next (responseToListArray)</a></div>
     </td>
   </tr>
 </table><br />

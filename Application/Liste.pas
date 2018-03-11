@@ -1,9 +1,9 @@
 ﻿{*
-  View of an individual list
+  Liste-Anzeigen-Form
 
-  Here the user sees the item that are in the list, can enter the menu for
-  editing the list, can open the page for adding new items and can open the page
-  to edit an item.
+  Hier sieht der User eine einzelne Liste mit allen darin enthaltenen Items,
+  kann neue hinzufügen und zu den Seiten zum Bearbeiten der Liste und einzelner
+  Gegenstände gelangen.
 }
 unit Liste;
 
@@ -29,7 +29,6 @@ type
     procedure ImgEditClick(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; clickedList: TListe);
     procedure Update();
-    procedure FormActivate(Sender: TObject);
     procedure ClickOnItem(Sender: TObject);
     procedure subFormClosed(Sender: TObject; var Action: TCloseAction);
     procedure ListBox1ChangeCheck(Sender: TObject);
@@ -46,17 +45,35 @@ type
   end;
 
 var
+  //* Die Liste-Anzeigen-Form
   ListForm: TFormListe;
+  //* Private Instanz der Server API in der der User angemeldet ist
   privateServerAPI: TServerAPI;
+  //* Die Liste die gerade angezeigt wird
   list: TListe;
+  //* Die Id der Liste die gerade angezeigt wird
   listId: Integer;
+  //* Die Listen auf die der User Zugriff hat
   lists: Tlistarray;
+  //* Um zu überprüfen, od die Gestenaktion bereits ausgeführt wurde
   closed: Boolean;
 
 implementation
 
 {$R *.fmx}
 
+{*
+  Unterfrom wird geschlossen
+
+  Wenn eine Unterform geschlossen wird (z.B. Item bearbeiten/hinzufügen oder
+  Liste bearbeiten), dann wird die Liste aktualisiert.
+
+  Wenn die Liste gelöscht wurde, dann wird die Form direkt geschlossen und der
+  User auf die Hauptseite weitergeleitet.
+
+  @param Sender Unterform die geschlossen wird
+  @param Action Schließaktion der Unterform
+}
 procedure TFormListe.subFormClosed(Sender: TObject; var Action: TCloseAction);
 begin
   if (Sender.InheritsFrom(TFormListeBearbeiten)) then
@@ -70,6 +87,14 @@ begin
   Update();
 end;
 
+{*
+  Der Timer feuert
+
+  Dann wird die Liste aktualisiert um auf Änderungen durch andere User zu
+  regieren.
+
+  @param Sender Der Timer
+}
 procedure TFormListe.Timer1Timer(Sender: TObject);
 begin
   if getOfflineData.worked then
@@ -81,12 +106,27 @@ begin
   end;
 end;
 
+{*
+  Zurück
+
+  Das Fenster wird geschlossen und der User landet wieder auf der Hauptseite.
+
+  @param Sender Button um zurück zu gelangen
+}
 procedure TFormListe.ImgBackClick(Sender: TObject);
 begin
   Close;
   Release;
 end;
 
+{*
+  Liste bearbeiten
+
+  Der User wird auf die Liste-Bearbeiten-Form für die aktuelle Liste
+  weitergeleitet.
+
+  @param Sender Button um die Liste zu bearbeiten
+}
 procedure TFormListe.ImgEditClick(Sender: TObject);
 var editlistForm:TFormListeBearbeiten;
 begin
@@ -100,6 +140,13 @@ begin
     ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
+{*
+  Item hinzufügen
+
+  Der User wird auf die Item-Hinzufügen-Form weitergeleitet.
+
+  @param Sender Button zum hinzufügen eines Items
+}
 procedure TFormListe.ImgAddClick(Sender: TObject);
 var
   additemForm: TFormHinzufuegen;
@@ -109,6 +156,17 @@ begin
   additemForm.OnClose := subFormClosed;
 end;
 
+{*
+  Neuer Konstruktor
+
+  Neuer Konstruktor, um der Form eine private Instanz der Server API zu
+  übergeben in der der User angemeldet ist und um die aktuell ausgewählte Liste
+  zu übergeben.
+
+  @param AOwner Der Parent der Form
+  @param serverAPI Instanz der serverAPI in der der User angemeldet ist.
+  @param clickedList Die ausgewählte Liste
+}
 constructor TFormListe.Create(AOwner: TComponent; var serverAPI: TServerAPI; clickedList: TListe);
 begin
   inherited Create(AOwner);
@@ -119,11 +177,17 @@ begin
   Update();
 end;
 
-procedure TFormListe.FormActivate(Sender: TObject);
-begin
-  Update();
-end;
+{*
+  Zurück
 
+  Wird bei einer Streichgeste vom linken Rand nach rechts ausgeführt.
+
+  Der User wird dann auf die Hauptseite weitergeleitet.
+
+  @param Sender Der GestureManager
+  @param EventInfo Informationen über die Geste
+  @param Handled Ob die Geste schon bearbeitet wurde
+}
 procedure TFormListe.FormGesture(Sender: TObject;
   const EventInfo: TGestureEventInfo; var Handled: Boolean);
 begin
@@ -136,6 +200,14 @@ begin
   end;
 end;
 
+{*
+  Item abhaken
+
+  Wenn der User ein Item der Listbox anklickt, so wird diese Änderung an den
+  Server übertragen.
+
+  @param Sender Die ListBox
+}
 procedure TFormListe.ListBox1ChangeCheck(Sender: TObject);
 var
   item: TItem;
@@ -164,6 +236,11 @@ begin
     ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
+{*
+  Update der Liste
+
+  Die Items werden geupdated, um der Serverversion zu entsprechen.
+}
 procedure TFormListe.Update;
 var
   i: Integer;
@@ -192,6 +269,14 @@ begin
   end;
 end;
 
+{*
+  Item bearbeiten
+
+  Wird ausgeführt wenn ein Item in der Liste angeklickt wird. Daraufhin wird
+  der User auf die Item-Bearbeiten-Form weitergeleitet.
+
+  @param Sender ListBoxItem das angeklickt wurde
+}
 procedure TFormListe.ClickOnItem(Sender: TObject);
 var
   itemAendernForm: TFormItemBearbeiten;

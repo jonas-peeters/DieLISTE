@@ -1,15 +1,15 @@
-{*
-  The user can find and add other users that then have access to the list
+﻿{*
+  User-Hinzufügen-Form
 
-  When this form is opened the user will see a list of users that he is also
-  working with on other lists.
-  Only when the users starts typing he will see other users in the system, but
-  if his search string complies with users he is working with on other projects,
-  those will be placed at the top of the list.
+  Hier kann der User andere User finden und zu der ausgewählten Liste einladen.
 
-  When clicking on a users name (after an additional confirmation) this user
-  will recieve an email, where they can accept the invitation or report it as
-  spam.
+  Wenn die Form geöffnet wird, sieht der User zunächst eine Liste anderer User
+  mit denen er bereits an anderen Listen zusammenarbeitet, um diese schnell
+  hinzufügen zu können.
+  Beginnt der User in dem Suchfeld zu tippen werden live vom Server die Namen
+  anderer User herutergeladen. User mit denen der User an anderen Liste
+  zusammenarbeitet werden noch immer ganz oben angezeigt bis sie nicht mehr dem
+  Suchbegriff entsprechen.
 }
 unit AddUser;
 
@@ -19,7 +19,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
   FMX.Layouts, FMX.ListBox, FMX.Controls.Presentation, FMX.Edit, serverAPI,
-  Helper, FMX.Objects, FMX.Gestures;
+  Helper, FMX.Objects, FMX.Gestures, REST.Client, REST.Types, IPPeerCommon,
+  IPPeerClient;
 
 type
   TFormAddUser = class(TForm)
@@ -44,15 +45,28 @@ type
   end;
 
 var
-  Form1: TFormAddUser;
+  //* Die User-Hinzufügen-Form
+  FormAddUser: TFormAddUser;
+  //* Private Instanz der Server API in der der User angemeldet ist.
   privateServerAPI: TServerAPI;
+  //* Die Id der Liste zu der User andere User hinzufügen möchte
   listId: Integer;
+  //* Ob die Geste um zur vorherigen Seite zurückzukehren bereits bearbeitet wurde
   closed: Boolean;
 
 implementation
 
 {$R *.fmx}
 
+{*
+  Neuer Konstruktor
+
+  Neuer Konstruktor, um die Server API und die Id der Liste, zu der ein neuer
+  User hinzugefügt werden soll, zu übergeben.
+
+  @param serverAPI Private Instanz der Server API in der der User angemeldet ist
+  @param selectedListId Id der Liste, zu der ein neuer User hinzugefügt werden soll
+}
 constructor TFormAddUser.Create(AOwner: TComponent; var serverAPI: TServerAPI; selectedListId: Integer);
 var
   vorschlaege: TArray;
@@ -83,35 +97,79 @@ begin
   end;
 end;
 
+{*
+  Zurück
+
+  Der User wird auf die Liste-Bearbeiten-Form weitergeleitet.
+
+  @param Sender Button um zurückzukehren
+}
 procedure TFormAddUser.BtnBackClick(Sender: TObject);
 begin
   Close;
   Release;
 end;
 
+{*
+  Änderung im Suchfeld
+
+  Wenn der User tippt wird automatisch vom eine List ein Usern geladen und
+  angezeigt, die mit dem Suchbegriff übereinstimmt.
+
+  @param Sender Das Suchfeld
+}
 procedure TFormAddUser.Edit1Change(Sender: TObject);
 var
-  i: Integer;
-  item: TListBoxItem;
-  vorschlaege: TArray;
+  // Eigene Instanz, um asyncron an der Form zu arbeiten.
+  request: TRESTRequest;
 begin
-  Listbox1.Items.Clear;
   if privateServerAPI.isOnline then
   begin
-    vorschlaege := privateServerAPI.userSuggestions(listID, Edit1.Text);
-    for i := 0 to High(vorschlaege) do
-    begin
-      item := TListBoxItem.Create(Listbox1);
-      item.Text := vorschlaege[i];
-      item.ItemData.Accessory := TListBoxItemData.TAccessory(1);
-      item.OnClick := ClickOnName;
-      ListBox1.AddObject(item);
+    request := TRESTRequest.Create(nil);
+    request.Method := REST.Types.rmGET;
+    request.Resource := 'user/lists/' + IntToStr(listId) + '/suggestions/' + Edit1.Text;
+    request.Client := privateServerAPI.client;
+    request.Timeout := 3000;
+    try
+      request.ExecuteAsync(procedure
+      var
+        i: Integer;
+        item: TListBoxItem;
+        vorschlaege: TArray;
+      begin
+        vorschlaege := jsonArrayToStringArray(request.Response.Content);
+        Listbox1.Items.Clear;
+        for i := 0 to High(vorschlaege) do
+        begin
+          item := TListBoxItem.Create(Listbox1);
+          item.Text := vorschlaege[i];
+          item.ItemData.Accessory := TListBoxItemData.TAccessory(1);
+          item.OnClick := ClickOnName;
+          ListBox1.AddObject(item);
+        end;
+      end, true, true, procedure (Sender: TObject)
+      begin
+        ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+      end);
+    except
+      ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
     end;
   end
   else
     ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
+{*
+  Zurück
+
+  Wird bei einer Streichgeste vom linken Rand nach rechts ausgeführt.
+
+  Der User wird dann auf die Liste-Bearbeiten-Form weitergeleitet.
+
+  @param Sender Der GestureManager
+  @param EventInfo Informationen über die Geste
+  @param Handled Ob die Geste schon bearbeitet wurde
+}
 procedure TFormAddUser.FormGesture(Sender: TObject;
   const EventInfo: TGestureEventInfo; var Handled: Boolean);
 begin
@@ -124,11 +182,20 @@ begin
   end;
 end;
 
+{*
+  Suchfeld leeren
+}
 procedure TFormAddUser.ClearEditButton1Click(Sender: TObject);
 begin
   Edit1.Text := '';
 end;
 
+{*
+  User hinzufügen
+
+  Der User klickt auf einen Benuzternamen und nach einer weiteren Abfrage wird
+  dieser per EMail zu der Liste eingeladen.
+}
 procedure TFormAddUser.ClickOnName(Sender: TObject);
 begin
   if privateServerAPI.isOnline then

@@ -1,5 +1,8 @@
 {*
-  Helper unit to define records and do fill them from JSON responses
+  Helper
+
+  Verschiedene records und unterstützende Funktionen, die im gesamten Projekt
+  benötigt werden.
 }
 unit Helper;
 
@@ -8,57 +11,95 @@ interface
 uses
   FMX.Dialogs, JSON, IOUtils, StrUtils, CCR.PrefsIniFile, System.IniFiles;
 
+//* Die Daten des Users
 type
   TUserData= record
+  //* Die EMail des Users
   email:string;
+  //* Benutzername des Users
   name: string;
+  //* Password des Users (kein Klartext)
   password: string;
+  //* Allergien die der User eingetragen hat
   allergies: string;
+  //* Ob die EMail des Users verifiziert ist
   verifiedemail: boolean;
+  //* Id des Users in der Datenbank
   id: Integer;
 end;
 
+//* Ein Item welches der User in Listen speichern kann
 type
   TItem=record
+    //* Name des Items
     name: String;
+    //* Menge der Items
     quantity: String;
+    //* Ob das Item als erledigt markiert ist
     done: boolean;
+    //* Kategorie des Items
     categoryId: Integer;
+    //* Id der Liste in der das Item ist
     listId: Integer;
+    //* Id die das Item in der Datenbank hat
     itemId: Integer;
   end;
 
+//* Liste mit Items und Usern die Zugriff haben
 type
   TListe=record
+    //* Name der Liste
     name: String;
+    //* Id der Liste in der Datenbank
     id: Integer;
+    //* Die Items in der Liste
     items: Array of TItem;
+    //* Die User die Zugriff auf die Liste haben
     user: Array of String;
   end;
 
+
+//* Array an Listen
 type
   TListArray = Array of TListe;
 
+
+//* Array an Strings
 type
  TArray= Array of string;
 
+//* Daten die offline gespeichert werden können/sollen.
 type
   TOfflineData=record
+    //* EMail zum automatischen anmelden
     email: String;
+    //* Passwort zum automatischen anmelden
     password: String;
+    //* Ob das Anmelden beim letzten mal erfolgreich war zum automatischen anmelden
     worked: Boolean;
+    //* Die Listen für offline Zugriff
     lists: String;
   end;
 
 function interpretServerResponse(response: String): Boolean;
-function jsonArrayToStringArray(const s:string): TArray;
-function responseToListArray(const s:string): TListArray;
+function jsonArrayToStringArray(const jsonString:string): TArray;
+function responseToListArray(const jsonString:string): TListArray;
 function responseToUser(jsonString: string): TUserData;
 procedure saveOfflineData(offlineData: TOfflineData);
 function getOfflineData(): TOfflineData;
 
 implementation
 
+{*
+  Daten speichern
+
+  Die übergebenen Daten werden auf dem Endgerät gespeichert, um sie später
+  wieder auszulesen.
+
+  (Überschreibt bestehende Daten!)
+
+  @param offlineData Daten die gespeichert werden sollen
+}
 procedure saveOfflineData(offlineData: TOfflineData);
 var
   jsonObject: TJSONObject;
@@ -75,6 +116,13 @@ begin
   settings.WriteString('prefs', 'login_data', jsonObject.ToString);
 end;
 
+{*
+  Daten lesen
+
+  Vorher gespeicherte Daten werden ausgelesen.
+
+  @return TOfflineData (Die offline gespeicherten Daten)
+}
 function getOfflineData(): TOfflineData;
 var
   jsonObject: TJSONObject;
@@ -96,6 +144,14 @@ begin
   end;
 end;
 
+{*
+  Serverantwort --> UserData record
+
+  Wandelt die als JSON encodete Antwort des Servers in ein UserData record um.
+
+  @param jsonString Antwort des Servers
+  @return TUserData (Die Daten des Users)
+}
 function responseToUser(jsonString: string): TUserData;
 var
   jsonObject: TJSONObject;
@@ -111,7 +167,15 @@ begin
   result := userData;
 end;
 
-function responseToListArray(const s:string): TListArray;
+{*
+  Serverantwort --> ListArray record
+
+  Wandelt die als JSON encodete Antwort des Servers in ein Array von Listen um.
+
+  @param jsonString Antwort des Servers
+  @return TListArray (Array von Listen)
+}
+function responseToListArray(const jsonString:string): TListArray;
 var jsonListArray: TJSONArray;
     jsonItemArray: TJSONArray;
     jsonUserArray: TJSONArray;
@@ -120,7 +184,7 @@ var jsonListArray: TJSONArray;
     i, j:integer;
 begin
   result := nil;
-  jsonListArray:=TjsonObject.ParseJSONValue(s) as TjsonArray;
+  jsonListArray:=TjsonObject.ParseJSONValue(jsonString) as TjsonArray;
   SetLength(Result, jsonListArray.Count);
   for i := 0 to (jsonListArray.Count-1) do
   begin
@@ -146,12 +210,20 @@ begin
   end;
 end;
 
-function jsonArrayToStringArray(const s:string): TArray;
+{*
+  Serverantwort --> TArray (Strings) record
+
+  Wandelt die als JSON encodete Antwort des Servers in ein Array von Strings um.
+
+  @param jsonString Antwort des Servers
+  @return TArray (Array von Strings)
+}
+function jsonArrayToStringArray(const jsonString:string): TArray;
 var jsonArray: TJSONArray;
     i:integer;
 begin
   result := nil;
-  jsonArray:=TjsonObject.ParseJSONValue(s) as TjsonArray;
+  jsonArray:=TjsonObject.ParseJSONValue(jsonString) as TjsonArray;
   SetLength(Result, jsonArray.Count);
   for i := 0 to (jsonArray.Count-1) do
   begin

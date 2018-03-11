@@ -267,6 +267,8 @@ end;
 
   Alle offline gespeicherten Daten werden zurückgesetzt und der User wird auf
   die Startseite weitergeleitet.
+
+  @param Sender Button zum abmelden
 }
 procedure TFormMain.LblAbmeldenClick(Sender: TObject);
 var

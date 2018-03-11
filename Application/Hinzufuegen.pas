@@ -1,5 +1,7 @@
 {*
-  The user can add an item on this form.
+  Item-Hinzufügen-Form
+
+  Der User kann auf dieser Seite Item zu einer Liste hinzufügen.
 }
 unit Hinzufuegen;
 
@@ -47,13 +49,27 @@ type
   end;
 
 var
+  //* Die Item-Hinzufügen-Form
   HinzufuegenForm: TFormHinzufuegen;
+  //* Private Instanz der Server API in der der User angemeldet ist
   privateServerAPI: TServerAPI;
+  //* Id der Liste zu der das Item hinzugefügt werde soll
   listId: Integer;
 
 implementation
 
 {$R *.fmx}
+
+{*
+  Neuer Konstruktor
+
+  Neuer Konstruktor, um der Form die Server API und die Id der Liste, zu der das
+  Item hinzufügt werden soll, zu übergeben.
+
+  @param AOwner Der Parent der Form
+  @param serverAPI Private Instanz der Server API in der der User angemeldet ist
+  @param selectedListId Id der Liste zu der das Item hinzugefügt werden soll
+}
 constructor TFormHinzufuegen.Create(AOwner: TComponent; var serverAPI: TServerAPI; selectedListId: Integer);
 begin
   inherited Create(AOwner);
@@ -61,12 +77,27 @@ begin
   listId := selectedListId;
 end;
 
+{*
+  Zurück
+
+  Der User wird auf die Liste-Anzeigen-Form weitergeleitet.
+
+  @param Sender Button um zurückzukehren
+}
 procedure TFormHinzufuegen.ImgBackClick(Sender: TObject);
 begin
   Close;
   Release;
 end;
 
+{*
+  Weiteres Item hinzufügen
+
+  Das Item wird der Liste hinzugefügt und die Eingabefelder werden
+  zurückgesetzt, damit der User direkt noch ein weiteres Item hinzufügen kann.
+
+  @param Sender Button um ein weitere Item hinzuzufügen
+}
 procedure TFormHinzufuegen.BtnHinzufuegenClick(Sender: TObject);
 var
   name, einheit, menge: string;
@@ -88,6 +119,14 @@ begin
     ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
+{*
+  OK
+
+  Das Item wird hinzugefügt und der User auf die List-Anzeigen Seite
+  weitergeleitet.
+
+  @param Sender OK-Button
+}
 procedure TFormHinzufuegen.BtnOKClick(Sender: TObject);
 var
   name, einheit, menge: string;
@@ -107,6 +146,13 @@ begin
     ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
+{*
+  Zurück
+
+  Der User wird auf die Liste-Anzeigen-Form weitergeleitet.
+
+  @param Sender Button um zurückzukehren
+}
 procedure TFormHinzufuegen.BtnSchliessenClick(Sender: TObject);
 begin
   Close;

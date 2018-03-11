@@ -56,7 +56,7 @@ object FormAddUser: TFormAddUser
         Value = 30.000000000000000000
       end
       item
-        Value = 88.780681365051830000
+        Value = 88.780681365051840000
       end
       item
         SizeStyle = Auto
@@ -96,7 +96,7 @@ object FormAddUser: TFormAddUser
     object Label1: TLabel
       Align = Client
       Size.Width = 291.654907226562500000
-      Size.Height = 58.340457916259770000
+      Size.Height = 58.340457916259760000
       Size.PlatformDefault = False
       Text = 'User hinzuf'#252'gen'
       TabOrder = 1
@@ -121,7 +121,7 @@ object FormAddUser: TFormAddUser
         end>
       Align = Client
       Size.Width = 58.345108032226560000
-      Size.Height = 58.340457916259770000
+      Size.Height = 58.340457916259760000
       Size.PlatformDefault = False
       OnClick = BtnBackClick
     end

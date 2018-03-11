@@ -1,12 +1,15 @@
 {*
-  The user can edit an item on this form.
+  Item-Bearbeiten-Form
 
-  Possible actions include:
-  - Changing the name
-  - Changing the quantity
-  - Changing the category
-  - Changing the done/not done status
-  - Deleting the item
+  Der User kann ein Item bearbeiten.
+
+  Mögliche Aktionen sind z.B.:
+  - Namen ändern
+  - Menge ändern
+  - Einheit ändern
+  - Kategory ändern
+  - Erledigt status ändern
+  - Löschen
 }
 unit ItemBearbeiten;
 
@@ -57,14 +60,30 @@ type
   end;
 
 var
+  //* Die Item-Bearbeiten-Form
   FormItemBearbeiten: TFormItemBearbeiten;
+  //* Private Instanz der Server API in der der USer angemeldet ist
   privateServerAPI: TServerAPI;
+  //* Das Item, welches bearbeitet wird
   itemToChange: TItem;
-  list:Tliste;
+  //* Die Liste in der das Item ist
+  list: Tliste;
 
 implementation
 
 {$R *.fmx}
+
+{*
+  Neuer Konstruktor
+
+  Neuer Konstruktor, um eine Instanz der Server API und das zu ändernde Item zu
+  übergeben. Außerdem werden alle Eigenschaften des Items wieder in die
+  ensprechenden Felder eingetragen.
+
+  @param AOwner Der Parent der Form
+  @param serverAPI Instanz der Server API in der der USer angemeldet ist
+  @param item Das Item, welches bearbeitet wird
+}
 constructor TFormItemBearbeiten.Create(AOwner: TComponent; var serverAPI: TServerAPI; item: TItem);
 var
   i: Integer;
@@ -88,12 +107,28 @@ begin
 
 end;
 
+{*
+  Zurück
+
+  Der User wird auf die Liste-Anzeigen-Form weitergeleitet.
+
+  @param Sender Button um zurückzukehren
+}
 procedure TFormItemBearbeiten.ImgBackClick(Sender: TObject);
 begin
   Close;
   Release;
 end;
 
+{*
+  Erledigt
+
+  Das Item wird als erledigt makiert und der User auf die Liste-Anzeigen-Form
+  weitergeleitet.
+  Andere Änderungen werden auch gepeichert.
+
+  @param Sender Button um das Item als erledigt zu markieren.
+}
 procedure TFormItemBearbeiten.BtnErledigtClick(Sender: TObject);
 var
   name, einheit, menge: string;
@@ -119,6 +154,14 @@ begin
     ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
+{*
+  Löschen
+
+  Das Item wird gelöscht und der User auf die Liste-Anzeigen-Form
+  weitergeleitet.
+
+  @param Sender Button um das Item zu löschen.
+}
 procedure TFormItemBearbeiten.BtnLoeschenClick(Sender: TObject);
 begin
   if privateServerAPI.isOnline then
@@ -144,6 +187,14 @@ begin
     ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
+{*
+  OK
+
+  Alle Änderungen an dem Item werden gespeichert und der User auf die
+  Liste-Anzeigen-Form weitergeleitet.
+
+  @param Sender OK-Button
+}
 procedure TFormItemBearbeiten.BtnOKClick(Sender: TObject);
 var
   name, einheit, menge: string;
@@ -164,7 +215,13 @@ begin
     ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 
+{*
+  Zurück
 
+  Der User wird auf die Liste-Anzeigen-Form weitergeleitet.
+
+  @param Sender Button um zurückzukehren
+}
 procedure TFormItemBearbeiten.BtnSchliessenClick(Sender: TObject);
 begin
   Close;

@@ -16,25 +16,6 @@ DieLISTE=,"DieLISTE.hhc","DieLISTE.hhk","html\DieLISTE.htm","html\DieLISTE.htm",
 [FILES]
 
 html\DieLISTE.htm
-html\DieLISTE\AddUser.htm
-html\DieLISTE\AddUser\TFormAddUser.htm
-html\DieLISTE\AddUser\TFormAddUser\ClearEditButton1.htm
-html\DieLISTE\AddUser\TFormAddUser\Edit1.htm
-html\DieLISTE\AddUser\TFormAddUser\GestureManager1.htm
-html\DieLISTE\AddUser\TFormAddUser\GridPanelLayout1.htm
-html\DieLISTE\AddUser\TFormAddUser\Image1.htm
-html\DieLISTE\AddUser\TFormAddUser\Label1.htm
-html\DieLISTE\AddUser\TFormAddUser\ListBox1.htm
-html\DieLISTE\AddUser\TFormAddUser\BtnBackClick_7DD1.htm
-html\DieLISTE\AddUser\TFormAddUser\ClearEditButton1Click_E956.htm
-html\DieLISTE\AddUser\TFormAddUser\ClickOnName_8887.htm
-html\DieLISTE\AddUser\TFormAddUser\Create_A0BB.htm
-html\DieLISTE\AddUser\TFormAddUser\Edit1Change_B7A3.htm
-html\DieLISTE\AddUser\TFormAddUser\FormGesture_E103.htm
-html\DieLISTE\AddUser\closed.htm
-html\DieLISTE\AddUser\Form1.htm
-html\DieLISTE\AddUser\listId.htm
-html\DieLISTE\AddUser\privateServerAPI.htm
 html\DieLISTE\CCR.PrefsIniFile.htm
 html\DieLISTE\CCR.PrefsIniFile\TWinLocation.htm
 html\DieLISTE\CCR.PrefsIniFile\CreateUserPreferencesIniFile_FEC6.htm
@@ -74,8 +55,8 @@ html\DieLISTE\HELPER\TArray.htm
 html\DieLISTE\HELPER\TListArray.htm
 html\DieLISTE\HELPER\getOfflineData_24FF.htm
 html\DieLISTE\HELPER\interpretServerResponse_977E.htm
-html\DieLISTE\HELPER\jsonArrayToStringArray_37F9.htm
-html\DieLISTE\HELPER\responseToListArray_4995.htm
+html\DieLISTE\HELPER\jsonArrayToStringArray_A522.htm
+html\DieLISTE\HELPER\responseToListArray_2888.htm
 html\DieLISTE\HELPER\responseToUser_BF2D.htm
 html\DieLISTE\HELPER\saveOfflineData_B920.htm
 html\DieLISTE\Hinzufuegen.htm
@@ -159,7 +140,6 @@ html\DieLISTE\Liste\TFormListe\ListBox1.htm
 html\DieLISTE\Liste\TFormListe\Timer1.htm
 html\DieLISTE\Liste\TFormListe\ClickOnItem_34D6.htm
 html\DieLISTE\Liste\TFormListe\Create_4F15.htm
-html\DieLISTE\Liste\TFormListe\FormActivate_1C57.htm
 html\DieLISTE\Liste\TFormListe\FormGesture_E103.htm
 html\DieLISTE\Liste\TFormListe\ImgAddClick_BF4E.htm
 html\DieLISTE\Liste\TFormListe\ImgBackClick_6843.htm

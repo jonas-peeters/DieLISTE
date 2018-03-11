@@ -24,10 +24,10 @@ uses
 type
   TServerAPI=class(TObject)
   private
-    client: TRESTClient;
     cache: TListArray;
     online: String;
   public
+    client: TRESTClient;
     constructor create();
     function createUser(email: String; name: String; password: String): String;
     function login(email : String; password: String): String;
