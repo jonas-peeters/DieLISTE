@@ -78,6 +78,7 @@ begin
       MainForm.OnClose := subFormClosed;
       MainForm.UpdateLists();
       MainForm.UpdateUserData();
+      MainForm.Timer.Enabled := true;
     end;
   end
   else if getOfflineData.worked then

@@ -31,11 +31,12 @@ type
     ImgAdd: TImage;
     ImgEdit: TImage;
     Line1: TLine;
-    Timer1: TTimer;
+    Timer: TTimer;
     // Sonstiges
     procedure FormCreate(Sender: TObject);
     procedure listFormClose(Sender: TObject; var Action: TCloseAction);
-    procedure Timer1Timer(Sender: TObject);
+    procedure TimerTimer(Sender: TObject);
+    procedure tryLogin();
 
     // Home Seite
     procedure LBListItemClick(Sender: TObject);
@@ -357,30 +358,56 @@ end;
 
   @param Sender Das Timer Objekt
 }
-procedure TFormMain.Timer1Timer(Sender: TObject);
+procedure TFormMain.TimerTimer(Sender: TObject);
 var
   offlineData: TOfflineData;
 begin
-  offlineData := getOfflineData;
   timerCounter := timerCounter + 1;
   if timerCounter = 20 then
   begin
     timerCounter := 0;
     UpdateTitle(serverAPI.isOnline);
     serverAPI.getLists;
+    if user.name = 'Offline' then
+    begin
+      tryLogin;
+    end;
   end
   else if timerCounter = 10 then
   begin
     UpdateTitle(serverAPI.isOnline);
-  end;
-  if user.name = 'Offline' then
-  begin
-    if privateServerAPI.isOnline then
+    if user.name = 'Offline' then
     begin
-      UpdateUserData;
+      tryLogin;
     end;
   end;
   UpdateLists;
+end;
+
+{*
+  Versucht den User anzumelden
+
+  Lädt die Logindaten aus dem Offlinestorage und versucht den User anzumelden.
+  Schlägt dies Fehl, wird der User auf die Hauptseite weitergeleitet.
+}
+procedure TFormMain.tryLogin();
+var
+  offlineData: TOfflineData;
+begin
+  if serverAPI.isOnline then
+  begin
+    offlineData := getOfflineData;
+    if interpretServerResponse(serverAPI.login(offlineData.email, offlineData.password)) then
+    begin
+      UpdateUserData;
+      serverAPI.getLists;
+    end
+    else
+    begin
+      Close;
+      Release;
+    end;
+  end;
 end;
 
 end.
