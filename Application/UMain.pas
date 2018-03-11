@@ -120,6 +120,13 @@ begin
   begin
     UpdateTitle(serverAPI.isOnline);
   end;
+  if user.name = 'Offline' then
+  begin
+    if privateServerAPI.isOnline then
+    begin
+      UpdateUserData;
+    end;
+  end;
   UpdateLists;
 end;
 
@@ -192,6 +199,7 @@ begin
   end
   else
   begin
+    user.name := 'Offline';
     LblUsername.Text := 'Offline';
     LblAllergien.Text := '';
   end;
