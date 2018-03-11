@@ -70,7 +70,7 @@ final class PasswordController {
             do {
                 try user.save()
             } catch {
-                return generateJSONError(from: "Could not save new password! Try again later.")
+                return status(31)
             }
         } catch {
             return status(25)

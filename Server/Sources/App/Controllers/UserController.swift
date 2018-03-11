@@ -90,7 +90,7 @@ final class UserController {
             guard let json = request.json else {
                 return status(20)
             }
-            let email = try json.get("email") as String
+            let email = (try json.get("email") as String).replacingOccurrences(of: " ", with: "").lowercased()
             let username = try json.get("username") as String
             let unhashedPassword = try json.get("password") as String
             let password: String = try String(bytes: drop.hash.make(unhashedPassword))
@@ -192,7 +192,7 @@ final class UserController {
             guard let json = request.json else {
                 return status(20)
             }
-            email = try json.get("email") as String
+            email = (try json.get("email") as String).replacingOccurrences(of: " ", with: "").lowercased()
             
             let unhashedPassword = try json.get("password") as String
             password = try String(bytes: drop.hash.make(unhashedPassword))
