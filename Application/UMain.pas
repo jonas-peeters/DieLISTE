@@ -52,6 +52,8 @@ type
   private
     { Private declarations }
   public
+    //* Ob der User sich abgemeldet hat
+    loggedOut: Boolean;
     procedure UpdateLists();
     procedure UpdateUserData();
   end;
@@ -204,9 +206,6 @@ begin
                   serverAPI.editInfo(AValues[0]);
                   UpdateUserData();
                 end;
-              else
-                begin
-                end;
             end;
         end
       );
@@ -253,6 +252,7 @@ begin
         if UMain.serverAPI.deleteUser()='"Deleted user"' then
           begin
             ShowMessage('Der User wurde gelöscht!');
+            loggedOut := true;
             Close;
             Release;
           end;
@@ -280,8 +280,9 @@ begin
   offlineData.password := '';
   offlineData.lists := '[]';
   saveOfflineData(offlineData);
-  Close;
   ShowMessage('Du wurdest erfolgreich abgemeldet.');
+  loggedOut := true;
+  Close;
   Release;
 end;
 
@@ -404,6 +405,7 @@ begin
     end
     else
     begin
+      loggedOut := true;
       Close;
       Release;
     end;

@@ -233,6 +233,7 @@ begin
       Update;
   end
   else
+    Update;
     ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
 end;
 

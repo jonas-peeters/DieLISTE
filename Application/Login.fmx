@@ -66,49 +66,49 @@ object FormLogin: TFormLogin
       end>
     RowCollection = <
       item
-        Value = 6.666692793253631000
+        Value = 6.666692793253633000
       end
       item
-        Value = 6.666696693901338000
+        Value = 6.666696693901339000
       end
       item
-        Value = 6.666683529732535000
+        Value = 6.666683529732536000
       end
       item
-        Value = 6.666672543835857000
+        Value = 6.666672543835858000
       end
       item
-        Value = 6.666662604376699000
+        Value = 6.666662604376701000
       end
       item
-        Value = 6.666655305920872000
+        Value = 6.666655305920874000
       end
       item
-        Value = 6.666651272785669000
+        Value = 6.666651272785670000
       end
       item
-        Value = 6.666650401268911000
+        Value = 6.666650401268913000
       end
       item
-        Value = 6.666652093321631000
+        Value = 6.666652093321633000
       end
       item
-        Value = 6.666655473769207000
+        Value = 6.666655473769210000
       end
       item
-        Value = 6.666659583053010000
+        Value = 6.666659583053011000
       end
       item
-        Value = 6.666663537698820000
+        Value = 6.666663537698822000
       end
       item
-        Value = 6.666666651433110000
+        Value = 6.666666651433112000
       end
       item
-        Value = 6.666668511200628000
+        Value = 6.666668511200630000
       end
       item
-        Value = 6.666669004448074000
+        Value = 6.666669004448076000
       end>
     object LblAnmelden: TLabel
       Align = Client

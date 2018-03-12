@@ -75,6 +75,7 @@ begin
       offlineData.lists := UMain.serverAPI.getListString;
       saveOfflineData(offlineData);
       MainForm.Show;
+      Hide;
       MainForm.OnClose := subFormClosed;
       MainForm.UpdateLists();
       MainForm.UpdateUserData();
@@ -84,6 +85,7 @@ begin
   else if getOfflineData.worked then
   begin
     MainForm.Show;
+    Hide;
     MainForm.OnClose := subFormClosed;
     MainForm.UpdateLists();
     MainForm.UpdateUserData();
@@ -150,7 +152,6 @@ var
   offlineData: TOfflineData;
 begin
   MainForm := TFormMain.Create(nil);
-  MainForm.Hide;
   offlineData := getOfflineData;
   EdtEMailLogin.Text := offlineData.email;
   EdtPWLogin.Text := offlineData.password;
@@ -173,6 +174,12 @@ procedure TFormLogin.subFormClosed(Sender: TObject; var Action: TCloseAction);
 begin
   EdtEMailLogin.Text := '';
   EdtPWLogin.Text := '';
+  MainForm := TFormMain.Create(nil);
+  Show;
+  {$IF defined(MSWINDOWS)}
+    Close;
+    Release;
+  {$ENDIF}
 end;
 
 end.
