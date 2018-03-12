@@ -1,7 +1,7 @@
 object FormHinzufuegen: TFormHinzufuegen
   Left = 0
   Top = 0
-  Caption = 'Form9'
+  Caption = 'Item Hinzuf'#252'gen'
   ClientHeight = 504
   ClientWidth = 308
   Fill.Kind = Solid
@@ -98,13 +98,13 @@ object FormHinzufuegen: TFormHinzufuegen
         Value = 6.374679254210007000
       end
       item
-        Value = 6.391655018779732000
+        Value = 6.391655018779733000
       end
       item
-        Value = 6.408408179197405000
+        Value = 6.408408179197406000
       end
       item
-        Value = 6.424939891626696000
+        Value = 6.424939891626695000
       end
       item
         Value = 6.441252169160901000
@@ -125,7 +125,7 @@ object FormHinzufuegen: TFormHinzufuegen
         Value = 6.519623769749937000
       end
       item
-        Value = 6.534682197737998000
+        Value = 6.534682197737999000
       end
       item
         Value = 6.549542247806520000
@@ -139,7 +139,7 @@ object FormHinzufuegen: TFormHinzufuegen
     object LblHinzufuegen: TLabel
       Align = Client
       Size.Width = 147.494705200195300000
-      Size.Height = 32.213939666748040000
+      Size.Height = 32.213939666748050000
       Size.PlatformDefault = False
       TextSettings.HorzAlign = Center
       Text = 'Hinzuf'#252'gen'

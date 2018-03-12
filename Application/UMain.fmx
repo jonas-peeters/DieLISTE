@@ -1,7 +1,7 @@
 object FormMain: TFormMain
   Left = 0
   Top = 0
-  Caption = 'Form6'
+  Caption = 'Home'
   ClientHeight = 553
   ClientWidth = 327
   Fill.Kind = Solid

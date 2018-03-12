@@ -1,7 +1,7 @@
 object FormListeBearbeiten: TFormListeBearbeiten
   Left = 0
   Top = 0
-  Caption = 'Form1'
+  Caption = 'Liste Bearbeiten'
   ClientHeight = 550
   ClientWidth = 350
   Fill.Kind = Solid

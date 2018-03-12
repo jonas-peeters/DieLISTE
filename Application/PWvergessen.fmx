@@ -1,7 +1,7 @@
 object FormPWvergessen: TFormPWvergessen
   Left = 0
   Top = 0
-  Caption = 'Vergessen'
+  Caption = 'Passwort anfordern'
   ClientHeight = 539
   ClientWidth = 350
   Fill.Kind = Solid
@@ -94,7 +94,7 @@ object FormPWvergessen: TFormPWvergessen
         Value = 7.000000363840335000
       end
       item
-        Value = 7.000000231826294000
+        Value = 7.000000231826293000
       end
       item
         Value = 7.000000110854029000

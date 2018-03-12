@@ -1,7 +1,7 @@
 object FormListe: TFormListe
   Left = 0
   Top = 0
-  Caption = 'Form8'
+  Caption = 'Liste'
   ClientHeight = 514
   ClientWidth = 350
   Fill.Kind = Solid
@@ -253,7 +253,7 @@ object FormListe: TFormListe
       Align = Client
       LineType = Bottom
       Size.Width = 350.000000000000000000
-      Size.Height = 0.513988494873046800
+      Size.Height = 0.513988494873046900
       Size.PlatformDefault = False
       Stroke.Color = xFF939393
     end
