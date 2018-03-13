@@ -24,9 +24,9 @@ uses
 type
   TServerAPI=class(TObject)
   private
-    cache: TListArray;
     online: String;
   public
+    cache: TListArray;
     client: TRESTClient;
     constructor create();
     function createUser(email: String; name: String; password: String): String;

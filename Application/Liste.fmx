@@ -253,15 +253,10 @@ object FormListe: TFormListe
       Align = Client
       LineType = Bottom
       Size.Width = 350.000000000000000000
-      Size.Height = 0.513988494873046900
+      Size.Height = 0.513988494873046800
       Size.PlatformDefault = False
       Stroke.Color = xFF939393
     end
-  end
-  object Timer1: TTimer
-    OnTimer = Timer1Timer
-    Left = 304
-    Top = 419
   end
   object GestureManager1: TGestureManager
     Sensitivity = 80.000000000000000000

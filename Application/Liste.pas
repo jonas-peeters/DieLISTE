@@ -13,7 +13,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.ListBox, FMX.StdCtrls, FMX.Controls.Presentation, Hinzufuegen, ListeBearbeiten, serverAPI,
-  FMX.Edit, ItemBearbeiten, Helper, FMX.Gestures, FMX.Objects;
+  FMX.Edit, ItemBearbeiten, Helper, FMX.Gestures, FMX.Objects, Rest.Client,
+  Rest.Types;
 
 type
   TFormListe = class(TForm)
@@ -25,7 +26,6 @@ type
     ImgEdit: TImage;
     GestureManager1: TGestureManager;
     Line1: TLine;
-    Timer1: TTimer;
     procedure ImgEditClick(Sender: TObject);
     constructor Create(AOwner: TComponent; var serverAPI: TServerAPI; clickedList: TListe);
     procedure Update();
@@ -36,7 +36,6 @@ type
     procedure ImgAddClick(Sender: TObject);
     procedure FormGesture(Sender: TObject; const EventInfo: TGestureEventInfo;
       var Handled: Boolean);
-    procedure Timer1Timer(Sender: TObject);
 
   private
     { Private-Deklarationen }
@@ -75,6 +74,8 @@ implementation
   @param Action Schließaktion der Unterform
 }
 procedure TFormListe.subFormClosed(Sender: TObject; var Action: TCloseAction);
+var
+  request: TRestRequest;
 begin
   if (Sender.InheritsFrom(TFormListeBearbeiten)) then
   begin
@@ -84,25 +85,22 @@ begin
       Release;
     end;
   end;
-  Update();
-end;
-
-{*
-  Der Timer feuert
-
-  Dann wird die Liste aktualisiert um auf Änderungen durch andere User zu
-  regieren.
-
-  @param Sender Der Timer
-}
-procedure TFormListe.Timer1Timer(Sender: TObject);
-begin
-  if getOfflineData.worked then
-    Update
-  else
+  request := TRESTRequest.Create(nil);
+  request.Method := REST.Types.rmGET;  //GET
+  request.Resource := 'user/lists';
+  request.Client := privateServerAPI.client;
+  request.Timeout := 3000;
+  if privateServerAPI.isOnline then
   begin
-    Close;
-    Release;
+    request.ExecuteAsync(procedure
+    begin
+      privateServerAPI.cache := responseToListArray(request.Response.Content);
+      Update;
+      try
+      except
+        //Ignored
+      end;
+    end);
   end;
 end;
 
@@ -233,8 +231,10 @@ begin
       Update;
   end
   else
+  begin
     Update;
     ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+  end;
 end;
 
 {*

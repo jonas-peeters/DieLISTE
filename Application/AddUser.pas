@@ -64,6 +64,7 @@ implementation
   Neuer Konstruktor, um die Server API und die Id der Liste, zu der ein neuer
   User hinzugefügt werden soll, zu übergeben.
 
+  @param AOwner Der Parent der Form
   @param serverAPI Private Instanz der Server API in der der User angemeldet ist
   @param selectedListId Id der Liste, zu der ein neuer User hinzugefügt werden soll
 }
@@ -184,6 +185,8 @@ end;
 
 {*
   Suchfeld leeren
+
+  @param Sender Clear-Button auf dem Edit feld
 }
 procedure TFormAddUser.ClearEditButton1Click(Sender: TObject);
 begin
@@ -195,6 +198,8 @@ end;
 
   Der User klickt auf einen Benuzternamen und nach einer weiteren Abfrage wird
   dieser per EMail zu der Liste eingeladen.
+
+  @param Sender ListBoxItem auf das geklickt wurde
 }
 procedure TFormAddUser.ClickOnName(Sender: TObject);
 begin

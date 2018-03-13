@@ -12,7 +12,8 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.ScrollBox, FMX.Memo, serverAPI,
   FMX.TabControl, FMX.Layouts, FMX.ListBox, Liste, JSON, FMX.Edit, FMX.SearchBox,
-  PWvergessen, PWaendern, Helper, FMX.Platform, FMX.Objects;
+  PWvergessen, PWaendern, Helper, FMX.Platform, FMX.Objects, REST.Client,
+  REST.Types, IPPeerCommon, IPPeerClient;
 
 type
   TFormMain = class(TForm)
@@ -69,6 +70,8 @@ var
   user: TUserData;
   //* Ein Zähler, damit  für die verschiedenen Aktionen nur ein Timer gebraucht wird.
   timerCounter: Integer;
+  //* Die Liste-Anzeigen-Form
+  listForm: TFormListe;
 
 implementation
 
@@ -161,8 +164,6 @@ end;
   @param Sender Das ListBoxItem auf das geklickt wurde
 }
 procedure TFormMain.LBListItemClick(Sender: TObject);
-var
-  listForm: TFormListe;
 begin
   listForm := TFormListe.Create(Application, serverAPI, lists[StrToInt((sender as TListBoxItem).ItemData.Detail)]);
   listForm.Show;
@@ -362,13 +363,31 @@ end;
 procedure TFormMain.TimerTimer(Sender: TObject);
 var
   offlineData: TOfflineData;
+  request: TRestRequest;
 begin
   timerCounter := timerCounter + 1;
   if timerCounter = 20 then
   begin
     timerCounter := 0;
     UpdateTitle(serverAPI.isOnline);
-    serverAPI.getLists;
+    request := TRESTRequest.Create(nil);
+    request.Method := REST.Types.rmGET;  //GET
+    request.Resource := 'user/lists';
+    request.Client := serverAPI.client;
+    request.Timeout := 3000;
+    if serverAPI.isOnline then
+    begin
+      request.ExecuteAsync(procedure
+      begin
+        serverAPI.cache := responseToListArray(request.Response.Content);
+        UpdateLists;
+        try
+          listForm.Update;
+        except
+          //Ignored
+        end;
+      end);
+    end;
     if user.name = 'Offline' then
     begin
       tryLogin;
@@ -382,7 +401,6 @@ begin
       tryLogin;
     end;
   end;
-  UpdateLists;
 end;
 
 {*
