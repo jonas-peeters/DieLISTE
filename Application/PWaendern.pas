@@ -98,17 +98,20 @@ procedure TFormPWaendern.BtnPWaendernClick(Sender: TObject);
 begin
   if EdtPWneu1.text=EdtPWneu2.text then
   begin
-    if privateServerAPI.isOnline then
+    if checkForInvalidCharacters(EdtPWNeu1) then
     begin
-      if interpretServerResponse(privateServerAPI.changePassword(EdtPWneu1.Text)) then
+      if privateServerAPI.isOnline then
       begin
-        ShowMessage('Dein Passwort wurde geändert.');
-        Close;
-        Release;
-      end;
-    end
-    else
-      ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+        if interpretServerResponse(privateServerAPI.changePassword(EdtPWneu1.Text)) then
+        begin
+          ShowMessage('Dein Passwort wurde geändert.');
+          Close;
+          Release;
+        end;
+      end
+      else
+        ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    end;
   end
   else
     ShowMessage('Die Passwörter stimen nicht überein!');

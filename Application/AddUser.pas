@@ -123,7 +123,7 @@ var
   // Eigene Instanz, um asyncron an der Form zu arbeiten.
   request: TRESTRequest;
 begin
-  if privateServerAPI.isOnline then
+  if checkForInvalidCharacters(Edit1) AND privateServerAPI.isOnline then
   begin
     request := TRESTRequest.Create(nil);
     request.Method := REST.Types.rmGET;

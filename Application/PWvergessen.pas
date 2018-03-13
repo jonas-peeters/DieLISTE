@@ -95,17 +95,20 @@ end;
 }
 procedure TFormPWvergessen.BtnSendenClick(Sender: TObject);
 begin
-  if privateServerAPI.isOnline then
+  if checkForInvalidCharacters(EdtEMail) then
   begin
-    if interpretServerResponse(privateServerAPI.forgotPassword(EdtEMail.Text)) then
+    if privateServerAPI.isOnline then
     begin
-      ShowMessage('Die E-Mail wurde versendet. Sie können dort ihr Passwort neu erstellen.');
-      Close;
-      Release;
-    end;
-  end
-  else
-    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+      if interpretServerResponse(privateServerAPI.forgotPassword(EdtEMail.Text)) then
+      begin
+        ShowMessage('Die E-Mail wurde versendet. Sie können dort ihr Passwort neu erstellen.');
+        Close;
+        Release;
+      end;
+    end
+    else
+      ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+  end;
 end;
 
 end.

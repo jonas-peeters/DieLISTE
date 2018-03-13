@@ -104,7 +104,8 @@ end;
 }
 procedure TFormLogin.BtnLosClick(Sender: TObject);
 begin
-  login(EdtEMailLogin.Text, EdtPWLogin.Text);
+  if checkForInvalidCharacters(EdtEMailLogin) AND checkForInvalidCharacters(EdtPWLogin) then
+    login(EdtEMailLogin.Text, EdtPWLogin.Text);
 end;
 
 {*
@@ -174,11 +175,11 @@ procedure TFormLogin.subFormClosed(Sender: TObject; var Action: TCloseAction);
 begin
   EdtEMailLogin.Text := '';
   EdtPWLogin.Text := '';
-  MainForm := TFormMain.Create(nil);
-  Show;
   {$IF defined(MSWINDOWS)}
     Close;
     Release;
+  {$ELSE}
+    Show;
   {$ENDIF}
 end;
 

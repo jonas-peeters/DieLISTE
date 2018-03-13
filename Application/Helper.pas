@@ -9,7 +9,8 @@ unit Helper;
 interface
 
 uses
-  FMX.Dialogs, JSON, IOUtils, StrUtils, CCR.PrefsIniFile, System.IniFiles;
+  FMX.Dialogs, JSON, IOUtils, StrUtils, CCR.PrefsIniFile, System.IniFiles,
+  FMX.Edit, System.UITypes;
 
 //* Die Daten des Users
 type
@@ -81,12 +82,16 @@ type
     lists: String;
   end;
 
+const allowedCharacters: String = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZƒ÷‹abcdefghijklmnopqrstuvwxyz‰ˆ¸()!ß$%&=?ﬂ*+-:;<>^∞.,_@ ‚·‡ÍÈËÙÛÚ˚˙˘ÓÌÏ';
+
 function interpretServerResponse(response: String): Boolean;
 function jsonArrayToStringArray(const jsonString:string): TArray;
 function responseToListArray(const jsonString:string): TListArray;
 function responseToUser(jsonString: string): TUserData;
 procedure saveOfflineData(offlineData: TOfflineData);
 function getOfflineData(): TOfflineData;
+function checkForInvalidCharacters(editField: TEdit): Boolean;
+function checkForInvalidCharactersInString(text: String): Boolean;
 
 implementation
 
@@ -279,6 +284,38 @@ begin
   end;
 end;
 
+function checkForInvalidCharacters(editField: TEdit): Boolean;
+var
+  i: Integer;
+begin
+  result := checkForInvalidCharactersInString(editField.Text);
+  if Result then
+  begin
+    editField.TextSettings.FontColor := TAlphaColors.Black;
+  end
+  else
+  begin
+    editField.TextSettings.FontColor := TAlphaColors.Crimson;
+  end;
+end;
 
+function checkForInvalidCharactersInString(text: String): Boolean;
+var
+  i: Integer;
+begin
+  result := true;
+  for i := 1 to High(Text) do
+  begin
+    if not ContainsText(allowedCharacters, Text[i]) then
+    begin
+      result := false;
+      break;
+    end;
+  end;
+  if not Result then
+  begin
+    ShowMessage('Einige der eingegebenen Charaktere sind nicht erlaubt.');
+  end;
+end;
 
 end.

@@ -71,7 +71,7 @@ object FormRegistrieren: TFormRegistrieren
         Value = 8.293155189765560000
       end
       item
-        Value = 8.228347077954471000
+        Value = 8.228347077954470000
       end
       item
         Value = 8.170051484357879000
@@ -83,7 +83,7 @@ object FormRegistrieren: TFormRegistrieren
         Value = 8.072986853178017000
       end
       item
-        Value = 8.033747251642074000
+        Value = 8.033747251642075000
       end
       item
         Value = 42.719107534543310000

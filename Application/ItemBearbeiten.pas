@@ -135,23 +135,28 @@ var
   kategorie: Integer;
   erledigt: Boolean;
 begin
-  if privateServerAPI.isOnline then
+  if checkForInvalidCharacters(EdtName)
+    AND checkForInvalidCharacters(EdtEinheit)
+    AND checkForInvalidCharacters(EdtMenge) then
   begin
-    interpretServerResponse(privateServerAPI.DeleteItem(itemToChange.itemId));
-    name := EdtName.Text;
-    einheit := EdtEinheit.Text;
-    menge := EdtMenge.Text;
-    kategorie := CBCategory.ItemIndex + 1;
-    if itemToChange.done then
-      erledigt := false
+    if privateServerAPI.isOnline then
+    begin
+      interpretServerResponse(privateServerAPI.DeleteItem(itemToChange.itemId));
+      name := EdtName.Text;
+      einheit := EdtEinheit.Text;
+      menge := EdtMenge.Text;
+      kategorie := CBCategory.ItemIndex + 1;
+      if itemToChange.done then
+        erledigt := false
+      else
+        erledigt := true;
+      interpretServerResponse(privateServerAPI.AddToList(name, menge + ' ' + einheit, erledigt, kategorie, itemToChange.listId));
+      Close;
+      Release;
+    end
     else
-      erledigt := true;
-    interpretServerResponse(privateServerAPI.AddToList(name, menge + ' ' + einheit, erledigt, kategorie, itemToChange.listId));
-    Close;
-    Release;
-  end
-  else
-    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+      ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+  end;
 end;
 
 {*
@@ -164,27 +169,32 @@ end;
 }
 procedure TFormItemBearbeiten.BtnLoeschenClick(Sender: TObject);
 begin
-  if privateServerAPI.isOnline then
+  if checkForInvalidCharacters(EdtName)
+    AND checkForInvalidCharacters(EdtEinheit)
+    AND checkForInvalidCharacters(EdtMenge) then
   begin
-    MessageDlg('Willst du das Item löschen?', System.UITypes.TMsgDlgType.mtCustom,
-    [ System.UITypes.TMsgDlgBtn.mbYes,
-      System.UITypes.TMsgDlgBtn.mbNo,
-      System.UITypes.TMsgDlgBtn.mbCancel
-    ],0,
-    procedure (const AResult:System.UITypes.TModalResult)
+    if privateServerAPI.isOnline then
     begin
-      case AResult of
-        mrYES:
-          begin
-          privateServerAPI.deleteitem(itemToChange.itemId);
-          Close;
-          Release;
-          end;
-      end;;
-    end);
-  end
-  else
-    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+      MessageDlg('Willst du das Item löschen?', System.UITypes.TMsgDlgType.mtCustom,
+      [ System.UITypes.TMsgDlgBtn.mbYes,
+        System.UITypes.TMsgDlgBtn.mbNo,
+        System.UITypes.TMsgDlgBtn.mbCancel
+      ],0,
+      procedure (const AResult:System.UITypes.TModalResult)
+      begin
+        case AResult of
+          mrYES:
+            begin
+            privateServerAPI.deleteitem(itemToChange.itemId);
+            Close;
+            Release;
+            end;
+        end;;
+      end);
+    end
+    else
+      ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+  end;
 end;
 
 {*
@@ -200,19 +210,24 @@ var
   name, einheit, menge: string;
   kategorie: Integer;
 begin
-  if privateServerAPI.isOnline then
+  if checkForInvalidCharacters(EdtName)
+    AND checkForInvalidCharacters(EdtEinheit)
+    AND checkForInvalidCharacters(EdtMenge) then
   begin
-    interpretServerResponse(privateServerAPI.DeleteItem(itemToChange.itemId));
-    name := EdtName.Text;
-    einheit := EdtEinheit.Text;
-    menge := EdtMenge.Text;
-    kategorie := CBCategory.ItemIndex + 1;
-    interpretServerResponse(privateServerAPI.AddToList(name, menge + ' ' + einheit, itemToChange.done, kategorie, itemToChange.listId));
-    Close;
-    Release;
-  end
-  else
-    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    if privateServerAPI.isOnline then
+    begin
+      interpretServerResponse(privateServerAPI.DeleteItem(itemToChange.itemId));
+      name := EdtName.Text;
+      einheit := EdtEinheit.Text;
+      menge := EdtMenge.Text;
+      kategorie := CBCategory.ItemIndex + 1;
+      interpretServerResponse(privateServerAPI.AddToList(name, menge + ' ' + einheit, itemToChange.done, kategorie, itemToChange.listId));
+      Close;
+      Release;
+    end
+    else
+      ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+  end;
 end;
 
 {*

@@ -73,7 +73,7 @@ object FormPWaendern: TFormPWaendern
         Value = 5.999874929880595000
       end
       item
-        Value = 5.999892879292483000
+        Value = 5.999892879292484000
       end
       item
         Value = 5.999909329662776000
@@ -134,7 +134,7 @@ object FormPWaendern: TFormPWaendern
     object LblPWaendern: TLabel
       Align = Client
       Size.Width = 283.901123046875000000
-      Size.Height = 33.539905548095700000
+      Size.Height = 33.539905548095710000
       Size.PlatformDefault = False
       TextSettings.HorzAlign = Center
       Text = 'Passwort '#228'ndern'
@@ -169,7 +169,7 @@ object FormPWaendern: TFormPWaendern
         end>
       Align = Client
       Size.Width = 76.008018493652340000
-      Size.Height = 67.078704833984380000
+      Size.Height = 67.078704833984370000
       Size.PlatformDefault = False
       OnClick = ImgBackClick
     end

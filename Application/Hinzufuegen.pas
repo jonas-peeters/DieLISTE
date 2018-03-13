@@ -11,7 +11,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
   FMX.Edit, FMX.Controls.Presentation, FMX.Layouts, serverAPI, FMX.ListBox,
-  FMX.Objects;
+  FMX.Objects, Helper;
 
 type
   TFormHinzufuegen = class(TForm)
@@ -103,20 +103,25 @@ var
   name, einheit, menge: string;
   kategorie: Integer;
 begin
-  if privateServerAPI.isOnline then
+  if checkForInvalidCharacters(EdtName)
+    AND checkForInvalidCharacters(EdtEinheit)
+    AND checkForInvalidCharacters(EdtMenge) then
   begin
-    name:= EdtName.Text;
-    einheit:= EdtEinheit.Text;
-    menge:= EdtMenge.Text;
-    kategorie := CBCategory.ItemIndex + 1;
-    privateServerAPI.AddToList(name, menge + ' ' + einheit, false, kategorie, listId);
-    EdtName.Text := '';
-    EdtEinheit.Text := '';
-    EdtMenge.Text := '';
-    CBCategory.ItemIndex := 0;
-  end
-  else
-    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    if privateServerAPI.isOnline then
+    begin
+      name:= EdtName.Text;
+      einheit:= EdtEinheit.Text;
+      menge:= EdtMenge.Text;
+      kategorie := CBCategory.ItemIndex + 1;
+      privateServerAPI.AddToList(name, menge + ' ' + einheit, false, kategorie, listId);
+      EdtName.Text := '';
+      EdtEinheit.Text := '';
+      EdtMenge.Text := '';
+      CBCategory.ItemIndex := 0;
+    end
+    else
+      ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+  end;
 end;
 
 {*
@@ -132,18 +137,23 @@ var
   name, einheit, menge: string;
   kategorie: Integer;
 begin
-  if privateServerAPI.isOnline then
+  if checkForInvalidCharacters(EdtName)
+    AND checkForInvalidCharacters(EdtEinheit)
+    AND checkForInvalidCharacters(EdtMenge) then
   begin
-    name:= EdtName.Text;
-    einheit:= EdtEinheit.Text;
-    menge:= EdtMenge.Text;
-    kategorie := CBCategory.ItemIndex + 1;
-    privateServerAPI.AddToList(name, menge + ' ' + einheit, false, kategorie, listId);
-    Close;
-    Release;
-  end
-  else
-    ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+    if privateServerAPI.isOnline then
+    begin
+      name:= EdtName.Text;
+      einheit:= EdtEinheit.Text;
+      menge:= EdtMenge.Text;
+      kategorie := CBCategory.ItemIndex + 1;
+      privateServerAPI.AddToList(name, menge + ' ' + einheit, false, kategorie, listId);
+      Close;
+      Release;
+    end
+    else
+      ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
+  end;
 end;
 
 {*

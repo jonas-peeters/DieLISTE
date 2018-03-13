@@ -118,7 +118,7 @@ var
 begin
   if privateServerAPI.isOnline then
   begin
-    lists := privateServerAPI.getLists;
+    lists := privateServerAPI.getValidLists;
     for i := 0 to High(lists) do
       if lists[i].id = listId then
         list := lists[i];
@@ -284,8 +284,13 @@ begin
                 begin
                   if AValues[0] <> list.name then
                   begin
-                    privateServerAPI.ChangeListName(AValues[0], listId);
-                    Update();
+                    if checkForInvalidCharactersInString(AValues[0]) then
+                    begin
+                      privateServerAPI.ChangeListName(AValues[0], listId);
+                      Update();
+                    end
+                    else
+                      EditListNameClick(Sender);
                   end;
                 end;
               else

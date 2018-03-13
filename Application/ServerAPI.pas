@@ -49,6 +49,7 @@ type
     function isValidOnline(): Boolean;
     function getCachedLists(): TListArray;
     function getListString(): String;
+    function getValidLists(): TListArray;
 end;
 
 implementation
@@ -368,6 +369,27 @@ begin
     begin
       cache := responseToListArray(request.Response.Content);
     end);
+  end
+  else
+  begin
+    cache := responseToListArray(getOfflineData.lists);
+  end;
+  result := cache;
+end;
+
+function TServerAPI.getValidLists(): TListArray;
+var
+  request: TRESTRequest;
+begin
+  request := TRESTRequest.Create(nil);
+  request.Method := REST.Types.rmGET;  //GET
+  request.Resource := 'user/lists';
+  request.Client := self.client;
+  request.Timeout := 3000;
+  if isOnline then
+  begin
+    request.Execute;
+    cache := responseToListArray(request.Response.Content);
   end
   else
   begin
