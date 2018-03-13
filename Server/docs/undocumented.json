@@ -1,20 +1,6 @@
 {
   "warnings": [
     {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Category.swift",
-      "line": 15,
-      "symbol": "Category.Keys.id",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Category.swift",
-      "line": 16,
-      "symbol": "Category.Keys.name",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Item.swift",
       "line": 25,
       "symbol": "Item.Keys.id",
@@ -74,27 +60,6 @@
       "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/List.swift",
       "line": 43,
       "symbol": "List.Keys.name",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Supermarket.swift",
-      "line": 18,
-      "symbol": "Supermarket.Keys.id",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Supermarket.swift",
-      "line": 19,
-      "symbol": "Supermarket.Keys.name",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/peeters/Documents/Developement/DieLISTE/Server/Sources/App/Models/Supermarket.swift",
-      "line": 20,
-      "symbol": "Supermarket.Keys.userId",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
