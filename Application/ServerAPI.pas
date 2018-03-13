@@ -60,6 +60,19 @@ begin
   client := TRestClient.Create('die-liste.herokuapp.com');
 end;
 
+{*
+  Neuer User
+
+  Hier wird der neue User mit Email-Adresse, Benutzername und Passowrt erstellt
+  und seine Daten werden in einem Server(Array) gespeichert.
+
+  @param email Email des gerade erstellten Users
+  @param password Passwort des gerade erstellten Users
+  @param name Benutzername des gerade erstellten Users
+  @param jsonString Der Parameter, auf dem die Daten des Users gespeichert werden
+  @param request Der Parameter, der verschiedene Daten anfragt
+}
+
 function TServerAPI.createUser(email: String; name: String; password: String): String;
 var
   jsonString: String;
@@ -79,7 +92,7 @@ begin
     ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
     result := '{"code":"0"}';
   end;
-  
+
 end;
 
 function TServerAPI.isOnline(): Boolean;
@@ -102,14 +115,14 @@ begin
       begin
         online := 'false';
       end;
-    end, true, true, procedure(Sender: TObject) 
-    begin 
-      online := 'false'; 
+    end, true, true, procedure(Sender: TObject)
+    begin
+      online := 'false';
     end);
   except
     online := 'false';
   end;
-  
+
   if online = 'true' then
   begin
     result := true;
@@ -148,6 +161,18 @@ begin
   end;
 end;
 
+{*
+  Uservorschlag bei der Usersuche
+
+  Hier kann ein User einen anderen User suchen, um zu sehen, ob dieser
+  registriert ist und er ihn in einem weiteren Schritt zu seiner Liste
+  hinzufügen kann
+
+  @param ListID ID der Liste, zu welcher ein User hinzugefügt werden soll
+  @param Name Name der jeweiligen Liste
+  @param request Der Parameter fragt verschiedene Daten beim Server an
+}
+
 function TServerAPI.userSuggestions(ListID:integer; Name: string): TArray;
 var
   request: TRESTRequest;
@@ -165,8 +190,19 @@ begin
     ShowMessage('Du brauchst eine aktive Internetverbindung für diese Aktion!');
     result := [];
   end;
-  
+
 end;
+
+
+{*
+ User hinzufügen
+
+  Hier kann ein User einen anderen User zu einer seiner Listen hinzufügen
+
+  @param ListID ID der Liste, zu welcher ein User hinzugefügt werden soll
+  @param Name Name der jeweiligen Liste
+  @param request Der Parameter fragt verschiedene Daten beim Server an
+}
 
 function TServerAPI.inviteUser(ListID:integer; Name: string): string;
 var
@@ -186,6 +222,19 @@ begin
   end;
 end;
 
+
+{*
+  Anmedlung
+
+  Hier kann ein User sich anmelden. DAbei werden die angegeben Daten mit den
+  Daten im Server verglichen und wenn sie übereinstimmen, wird der User angemeldet
+
+  @param email Email des Users
+  @param password Passwort des Users
+  @pram jsonString Parameter, auf dem die Daten des Users gespeichert werden,
+                   um sie mit den Daten im Server zu vergleichen
+  @param request Der Parameter fragt verschiedene Daten beim Server an
+}
 
 function TServerAPI.login(email: String; password: String): String;
 var
@@ -209,6 +258,14 @@ begin
   getLists;
 end;
 
+{*
+  User löschen
+
+  Hier kann ein User sein Account löschen. Damit werden dann alle seine Daten
+  vom Server gelöscht
+
+  @param request Der Parameter fragt verschiedene Daten beim Server an
+}
 function TServerAPI.deleteUser(): String;
 var
   request: TRESTRequest;
@@ -226,6 +283,17 @@ begin
     result := '{"code":"0"}';
   end;
 end;
+
+
+{*
+  Passwort ändern
+
+  Hier kann ein User sein Passwort beliebig in ein anderes umändern.
+
+  @param password Passwort des Users
+  @param jsonString Parameter, auf dem das Passwort gespeichert wird
+  @param request Der Parameter fragt verschiedene Daten beim Server an
+}
 
 function TServerAPI.changePassword(password:string): String;
 var
@@ -248,6 +316,16 @@ begin
   end;
 end;
 
+{*
+  Passwort zurücksetzten
+
+  Hier kann ein User sein Passwort zurücksetzten, falls er dieses vergessen hat
+
+  @param email Email des Users
+  @param jsonString Parameter, auf dem die Email gespeichert wird
+  @param request Der Parameter fragt verschiedene Daten beim Server an
+}
+
 function TServerAPI.forgotPassword(email: string): String;
 var
   jsonString: string;
@@ -269,6 +347,14 @@ begin
   end;
 end;
 
+{*
+  Daten laden
+
+  Hier werden die Daten des Users, welcher sich angemeldet hat, abgerufen
+
+  @param request Der Parameter fragt verschiedene Daten beim Server an
+}
+
 function TServerAPI.me(): TUserData;
 var
   request: TRESTRequest;
@@ -287,6 +373,15 @@ begin
   end;
 end;
 
+{*
+  Liste erstellen
+
+  Hier kann ein User eine neue Liste erstellen
+
+  @param name Name der neu erstellten Liste
+  @param jsonString Parameter, auf dem der Name gespeichert wird
+  @param request Der Parameter fragt verschiedene Daten beim Server an
+}
 function TServerAPI.addList(name: string): String;
 var
   request: TRESTRequest;
@@ -308,6 +403,17 @@ begin
   end;
   getLists;
 end;
+
+{*
+  Liste löschen
+
+  Hier kann ein User eine seiner Liste löschen. Dabei werden dann auch alle die
+  Daten, die die Liste enthielt, vom Server unwiderruflich gelöscht
+
+  @param id ID der jeweiligen Liste
+  @param jsonString Parameter, auf dem der Name gespeichert wird
+  @param request Der Parameter fragt verschiedene Daten beim Server an
+}
 
 function TserverAPI.removeList(id: Integer):String;
 var
@@ -331,6 +437,15 @@ begin
   getLists;
 end;
 
+{*
+  Allergien eintragen
+
+  Hier kann ein User seine Allergien notieren
+
+  @param text Allergien des Users
+  @param jsonString Parameter, auf dem der Name gespeichert wird
+  @param request Der Parameter fragt verschiedene Daten beim Server an
+}
 
 function TserverAPI.editInfo(text: string):string;
 var
@@ -353,6 +468,14 @@ begin
   end;
 end;
 
+{*
+  Listen anzeigen
+
+  Hier werden alle Listen, die ein User erstellt hat oder zu denen er eingeladen
+  wurde, aufgelistet.
+
+  @param request Der Parameter fragt verschiedene Daten beim Server an
+}
 
 function TServerAPI.getLists(): TListArray;
 var
@@ -453,6 +576,16 @@ begin
   getLists;
 end;
 
+{*
+  Listname ändern
+
+  Hier kann ein User den Namen einer seiner Listen ändern
+
+  @param name Name der Liste
+  @param id ID der Liste
+  @param jsonString Parameter, auf dem der Name gespeichert wird
+  @param request Der Parameter fragt verschiedene Daten beim Server an
+}
 function TServerAPI.ChangeListName(name: string; id: Integer):string;
 var
   request: TRESTRequest;
@@ -475,6 +608,18 @@ begin
   getLists;
 end;
 
+{*
+  User entfernen
+
+  Hier kann ein User von einer Liste entfernt werden, welchen von beiden
+  Beteiligten genutzt wird
+
+  @param name Name der Liste
+  @param ListId ID der Liste
+  @param jsonString Parameter, auf dem der Name gespeichert wird
+  @param request Der Parameter fragt verschiedene Daten beim Server an
+}
+
 function TserverAPI.removeUser(listId: Integer; name:string):String;
   var
   jsonString: string;
@@ -495,6 +640,16 @@ begin
     result := '{"code":"0"}';
   end;
 end;
+
+{*
+  Item löschen
+
+  Hier kann ein Item von der Liste eines Users gelöscht werden
+
+  @param id ID des Items
+  @param jsonString Parameter, auf dem der Name gespeichert wird
+  @param request Der Parameter fragt verschiedene Daten beim Server an
+}
 
 function TServerAPI.DeleteItem(id:integer):string;
 var
