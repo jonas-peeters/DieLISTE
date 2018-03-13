@@ -17,19 +17,19 @@ object FormPWvergessen: TFormPWvergessen
     TabOrder = 0
     ColumnCollection = <
       item
-        Value = 7.056000708507233000
+        Value = 7.056000708507232000
       end
       item
-        Value = 8.000359550903820000
+        Value = 8.000359550903818000
       end
       item
-        Value = 34.062200983280970000
+        Value = 34.062200983280960000
       end
       item
         Value = 43.788132252541890000
       end
       item
-        Value = 7.093306504766089000
+        Value = 7.093306504766088000
       end>
     ControlCollection = <
       item

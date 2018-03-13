@@ -362,7 +362,6 @@ end;
 }
 procedure TFormMain.TimerTimer(Sender: TObject);
 var
-  offlineData: TOfflineData;
   request: TRestRequest;
 begin
   timerCounter := timerCounter + 1;

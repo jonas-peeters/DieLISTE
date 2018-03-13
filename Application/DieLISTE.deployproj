@@ -5,9 +5,9 @@
     </ProjectExtensions>
     <PropertyGroup>
         <DeviceId Condition="'$(Platform)'=='Android'">Nexus_5_v8.1.0</DeviceId>
-        <DeviceId Condition="'$(Platform)'=='iOSDevice32'">fd5b20113ee15ed312649a210b304a5951b0650d</DeviceId>
-        <DeviceId Condition="'$(Platform)'=='iOSDevice64'">fd5b20113ee15ed312649a210b304a5951b0650d</DeviceId>
-        <DeviceId Condition="'$(Platform)'=='iOSSimulator'">6134E822-2369-4ADC-9901-8A6623A9E021</DeviceId>
+        <DeviceId Condition="'$(Platform)'=='iOSDevice32'"/>
+        <DeviceId Condition="'$(Platform)'=='iOSDevice64'"/>
+        <DeviceId Condition="'$(Platform)'=='iOSSimulator'">iPhone5</DeviceId>
     </PropertyGroup>
     <ItemGroup Condition="'$(Platform)'=='Win64'">
         <DeployFile Include="ModelSupport_DieLISTE\Hinzufuegen\default.txvpck" Condition="'$(Config)'=='Debug'">
@@ -119,11 +119,29 @@
             <Overwrite>True</Overwrite>
             <Required>True</Required>
         </DeployFile>
+        <DeployFile Include="..\Assets\Icons\48 48.png" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>DieLISTE\Assets\</RemoteDir>
+            <RemoteName>Logo44x44.png</RemoteName>
+            <DeployClass>UWP_DelphiLogo44</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="ModelSupport_DieLISTE\Liste\default.txvpck" Condition="'$(Config)'=='Debug'">
             <RemoteDir>DieLISTE\</RemoteDir>
             <RemoteName>default.txvpck</RemoteName>
             <DeployClass>ProjectFile</DeployClass>
             <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="..\Assets\Icons\512x512.png" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>DieLISTE\Assets\</RemoteDir>
+            <RemoteName>Logo150x150.png</RemoteName>
+            <DeployClass>UWP_DelphiLogo150</DeployClass>
+            <Operation>1</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
@@ -187,6 +205,15 @@
             <RemoteName>default.txaPackage</RemoteName>
             <DeployClass>ProjectFile</DeployClass>
             <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="..\Assets\Icons\180 180.png" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>DieLISTE\Assets\</RemoteDir>
+            <RemoteName>Logo150x150.png</RemoteName>
+            <DeployClass>UWP_DelphiLogo150</DeployClass>
+            <Operation>1</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
@@ -1161,6 +1188,33 @@
     </ItemGroup>
     <ItemGroup Condition="'$(Platform)'=='iOSDevice32'"/>
     <ItemGroup Condition="'$(Platform)'=='Win32'">
+        <DeployFile Include="..\Assets\Icons\512x512.png" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>DieLISTE\Assets\</RemoteDir>
+            <RemoteName>Logo150x150.png</RemoteName>
+            <DeployClass>UWP_DelphiLogo150</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="..\Assets\Icons\48 48.png" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>DieLISTE\Assets\</RemoteDir>
+            <RemoteName>Logo44x44.png</RemoteName>
+            <DeployClass>UWP_DelphiLogo44</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="..\Assets\Icons\180 180.png" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>DieLISTE\Assets\</RemoteDir>
+            <RemoteName>Logo150x150.png</RemoteName>
+            <DeployClass>UWP_DelphiLogo150</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="Win32\Debug\DieLISTE.exe" Condition="'$(Config)'=='Debug'">
             <RemoteDir>DieLISTE\</RemoteDir>
             <RemoteName>DieLISTE.exe</RemoteName>

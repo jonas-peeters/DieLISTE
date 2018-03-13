@@ -25,7 +25,7 @@ type
     procedure BtnPWaendernClick(Sender: TObject);
     procedure BtnCancelClick(Sender: TObject);
     procedure ImgBackClick(Sender: TObject);
-    public constructor Create(AOwner: TComponent; var serverAPI: TServerAPI);
+    constructor Create(AOwner: TComponent; var serverAPI: TServerAPI);
   private
   public
     { Public-Deklarationen }
