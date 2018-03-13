@@ -68,7 +68,7 @@ begin
       begin
         if interpretServerResponse(UMain.serverAPI.createUser(email, name, password)) then
         begin
-          ShowMessage('Vielen Dank für Ihre Regestrierung. Bitte verifizieren Sie ihre E-Mail, um die Regestrierung zu vollenden!');
+          ShowMessage('Vielen Dank für Ihre Registrierung. Bitte verifizieren Sie ihre E-Mail, um die Registrierung zu vollenden!');
           Close;
           Release;
         end;

@@ -54,7 +54,7 @@ implementation
 {*
   Anmelden des Users
 
-  Meldet den user beim Server an und, wenn keine Serververbindung besteht,
+  Meldet den User beim Server an und, wenn keine Serververbindung besteht,
   benutzt die Offline gespechicherten Daten, um zu überprüfen, ob der User
   bereits angemeldet gewesen war. In diesem Fall wird der 'Offline-Modus'
   gestartet.
