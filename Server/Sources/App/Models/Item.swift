@@ -18,7 +18,7 @@ final class Item: Model {
     /// The id of the list this item is in
     var listId: Identifier?
     /// The if of the category this item is in
-    var categoryId: Identifier?
+    var categoryId: Int
     
     /// Keys for the column names in the database
     struct Keys {
@@ -41,7 +41,7 @@ final class Item: Model {
         try row.set(Item.Keys.quantity, quantity)
         try row.set(Item.Keys.done, done)
         try row.set(List.foreignIdKey, listId)
-        try row.set(Category.foreignIdKey, categoryId)
+        try row.set(Item.Keys.categoryId, categoryId)
         return row
     }
     
@@ -57,7 +57,7 @@ final class Item: Model {
         quantity = try row.get(Item.Keys.quantity)
         done = try row.get(Item.Keys.done)
         listId = try row.get(List.foreignIdKey)
-        categoryId = try row.get(Category.foreignIdKey)
+        categoryId = try row.get(Item.Keys.categoryId)
     }
     
     /// Creating a new item instance
@@ -75,7 +75,7 @@ final class Item: Model {
         self.quantity = quantity
         self.done = done
         self.listId = Identifier(list)
-        self.categoryId = Identifier(category)
+        self.categoryId = category
     }
 }
 
@@ -92,7 +92,7 @@ extension Item: Preparation {
             builder.string(Item.Keys.quantity)
             builder.bool(Item.Keys.done)
             builder.parent(List.self)
-            builder.parent(Category.self)
+            builder.int(Item.Keys.categoryId)
         })
     }
     
@@ -120,7 +120,7 @@ extension Item: NodeRepresentable {
         try node.set(Item.Keys.quantity, quantity)
         try node.set(Item.Keys.done, done)
         try node.set(List.foreignIdKey, listId)
-        try node.set(Category.foreignIdKey, categoryId)
+        try node.set(Item.Keys.categoryId, categoryId)
         return node
     }
 }

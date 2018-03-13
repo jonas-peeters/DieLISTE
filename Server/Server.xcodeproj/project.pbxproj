@@ -149,10 +149,8 @@
 		OBJ_1313 /* EMail.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* EMail.swift */; };
 		OBJ_1314 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* JSON.swift */; };
 		OBJ_1315 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Status.swift */; };
-		OBJ_1316 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Category.swift */; };
 		OBJ_1317 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* Item.swift */; };
 		OBJ_1318 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* List.swift */; };
-		OBJ_1319 /* Supermarket.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Supermarket.swift */; };
 		OBJ_1320 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* User.swift */; };
 		OBJ_1321 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* Routes.swift */; };
 		OBJ_1322 /* Config+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* Config+Setup.swift */; };
@@ -5094,7 +5092,6 @@
 		OBJ_186 /* PivotProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PivotProtocol.swift; sourceTree = "<group>"; };
 		OBJ_188 /* Database+Preparation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Database+Preparation.swift"; sourceTree = "<group>"; };
 		OBJ_189 /* Migration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
-		OBJ_19 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		OBJ_190 /* Preparation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preparation.swift; sourceTree = "<group>"; };
 		OBJ_191 /* PreparationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationError.swift; sourceTree = "<group>"; };
 		OBJ_193 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
@@ -5123,7 +5120,6 @@
 		OBJ_216 /* Raw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Raw.swift; sourceTree = "<group>"; };
 		OBJ_217 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		OBJ_219 /* Children.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Children.swift; sourceTree = "<group>"; };
-		OBJ_22 /* Supermarket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supermarket.swift; sourceTree = "<group>"; };
 		OBJ_220 /* Parent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parent.swift; sourceTree = "<group>"; };
 		OBJ_221 /* RelationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationError.swift; sourceTree = "<group>"; };
 		OBJ_222 /* Siblings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Siblings.swift; sourceTree = "<group>"; };
@@ -6810,10 +6806,8 @@
 		OBJ_18 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_19 /* Category.swift */,
 				OBJ_20 /* Item.swift */,
 				OBJ_21 /* List.swift */,
-				OBJ_22 /* Supermarket.swift */,
 				OBJ_23 /* User.swift */,
 			);
 			path = Models;
@@ -7758,7 +7752,7 @@
 			path = Convertibles;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -7772,7 +7766,6 @@
 				OBJ_40 /* Dependencies */,
 				OBJ_879 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_502 /* Core */ = {
@@ -10532,7 +10525,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_879 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -10755,10 +10748,8 @@
 				OBJ_1313 /* EMail.swift in Sources */,
 				OBJ_1314 /* JSON.swift in Sources */,
 				OBJ_1315 /* Status.swift in Sources */,
-				OBJ_1316 /* Category.swift in Sources */,
 				OBJ_1317 /* Item.swift in Sources */,
 				OBJ_1318 /* List.swift in Sources */,
-				OBJ_1319 /* Supermarket.swift in Sources */,
 				OBJ_1320 /* User.swift in Sources */,
 				OBJ_1321 /* Routes.swift in Sources */,
 				OBJ_1322 /* Config+Setup.swift in Sources */,

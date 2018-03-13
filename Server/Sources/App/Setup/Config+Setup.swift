@@ -24,11 +24,7 @@ extension Config {
     private func setupPreparations() throws {
         preparations.append((User.self))
         preparations.append(List.self)
-        preparations.append(Supermarket.self)
-        preparations.append(Category.self)
         preparations.append(Item.self)
         preparations.append(Pivot<User, List>.self)
-        preparations.append(Pivot<User, Supermarket>.self)
-        preparations.append(Pivot<Category, Supermarket>.self)
     }
 }
