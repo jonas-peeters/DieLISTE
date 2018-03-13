@@ -1,11 +1,9 @@
 {*
-  The 'ServerAPI' is an interface to communicate with the server.
+  Die Server API stellt ein Interface zur Kommunikation mit dem Server dar.
 
-  Because the user is authenticated by a session cookie, it is nessecary to
-  route all private server request beginning at the login-request through the
-  same client object.
-
-  All the functions to do a request can be found here.
+  Weil der User angemeldet ist, müssen alle Anfrage, angefangen mit der
+  Login-Anfrage, durch die gleiche Instanz der Server API geleitet werden, damit
+  der Session-Cookie erhalten bleibt.
 }
 unit ServerAPI;
 
@@ -123,7 +121,8 @@ begin
   request.Client := self.client;
   request.Timeout := 3000;
   try
-    request.ExecuteAsync(procedure begin
+    request.ExecuteAsync(procedure
+    begin
       if request.Response.Content = 'true' then
       begin
         online := 'true';

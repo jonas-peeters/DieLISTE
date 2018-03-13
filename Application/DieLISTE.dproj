@@ -590,39 +590,31 @@
         </DelphiCompile>
         <DCCReference Include="Login.pas">
             <Form>LoginForm</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="UMain.pas">
-            <Form>Form6</Form>
-            <FormType>fmx</FormType>
+            <Form>MainForm</Form>
         </DCCReference>
         <DCCReference Include="PWaendern.pas">
-            <Form>Form7</Form>
-            <FormType>fmx</FormType>
+            <Form>FormPWaendern</Form>
         </DCCReference>
         <DCCReference Include="Liste.pas">
-            <Form>Form8</Form>
-            <FormType>fmx</FormType>
+            <Form>FormListe</Form>
         </DCCReference>
         <DCCReference Include="Hinzufuegen.pas">
-            <Form>Form9</Form>
-            <FormType>fmx</FormType>
+            <Form>FormAddItem</Form>
         </DCCReference>
         <DCCReference Include="PWvergessen.pas">
-            <Form>Form10</Form>
-            <FormType>fmx</FormType>
+            <Form>FormPWVergessen</Form>
         </DCCReference>
         <DCCReference Include="ServerAPI.pas"/>
         <DCCReference Include="ListeBearbeiten.pas">
             <Form>FormListeBearbeiten</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="AddUser.pas">
-            <Form>Form1</Form>
+            <Form>FormAddUser</Form>
         </DCCReference>
         <DCCReference Include="ItemBearbeiten.pas">
             <Form>FormItemBearbeiten</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="Helper.pas"/>
         <DCCReference Include="lib\CCR.PrefsIniFile.pas"/>
@@ -630,7 +622,6 @@
         <DCCReference Include="lib\CCR.PrefsIniFile.Apple.pas"/>
         <DCCReference Include="Registrieren.pas">
             <Form>FormRegistrieren</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <None Include="ModelSupport_DieLISTE\default.txaPackage"/>
         <None Include="ModelSupport_DieLISTE\default.txvpck"/>
@@ -1598,14 +1589,14 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\Assets\Splashes\768 1004.png" Configuration="Release" Class="iPad_Launch768">
-                    <Platform Name="iOSSimulator">
-                        <RemoteName>Default~ipad.png</RemoteName>
+                <DeployFile LocalName="..\Assets\Icons\40 40.png" Configuration="Debug" Class="iPad_SpotLight40">
+                    <Platform Name="iOSDevice64">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\Assets\Icons\40 40.png" Configuration="Debug" Class="iPad_SpotLight40">
-                    <Platform Name="iOSDevice64">
+                <DeployFile LocalName="..\Assets\Splashes\768 1004.png" Configuration="Release" Class="iPad_Launch768">
+                    <Platform Name="iOSSimulator">
+                        <RemoteName>Default~ipad.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

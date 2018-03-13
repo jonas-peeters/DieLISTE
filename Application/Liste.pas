@@ -96,10 +96,6 @@ begin
     begin
       privateServerAPI.cache := responseToListArray(request.Response.Content);
       Update;
-      try
-      except
-        //Ignored
-      end;
     end);
   end;
 end;

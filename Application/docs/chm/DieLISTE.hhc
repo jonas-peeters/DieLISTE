@@ -28,62 +28,8 @@
 <UL>
 
 <LI> <OBJECT type="text/sitemap">
- <param name="Name" value="CCR.PrefsIniFile">
- <param name="Local" value="html\DieLISTE\CCR.PrefsIniFile.htm">
- <param name="ImageNumber" value="2">
-</OBJECT>
-<UL>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Classes">
-</OBJECT>
-<UL>
-
-</UL>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Types">
-</OBJECT>
-<UL>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="TWinLocation">
- <param name="Local" value="html\DieLISTE\CCR.PrefsIniFile\TWinLocation.htm">
-</OBJECT>
-
-</UL>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Constants">
-</OBJECT>
-<UL>
-
-</UL>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Variables">
-</OBJECT>
-<UL>
-
-</UL>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Functions">
-</OBJECT>
-<UL>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="CreateUserPreferencesIniFile">
- <param name="Local" value="html\DieLISTE\CCR.PrefsIniFile\CreateUserPreferencesIniFile_FEC6.htm">
-</OBJECT>
-
-</UL>
-
-</UL>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="CCR.PrefsIniFile.Android">
- <param name="Local" value="html\DieLISTE\CCR.PrefsIniFile.Android.htm">
+ <param name="Name" value="AddUser">
+ <param name="Local" value="html\DieLISTE\AddUser.htm">
  <param name="ImageNumber" value="2">
 </OBJECT>
 <UL>
@@ -94,8 +40,8 @@
 <UL>
 
 <LI> <OBJECT type="text/sitemap">
- <param name="Name" value="TAndroidPreferencesIniFile">
- <param name="Local" value="html\DieLISTE\CCR.PrefsIniFile.Android\TAndroidPreferencesIniFile.htm">
+ <param name="Name" value="TFormAddUser">
+ <param name="Local" value="html\DieLISTE\AddUser\TFormAddUser.htm">
  <param name="ImageNumber" value="2">
 </OBJECT>
 <UL>
@@ -126,6 +72,41 @@
 </OBJECT>
 <UL>
 
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="ClearEditButton1">
+ <param name="Local" value="html\DieLISTE\AddUser\TFormAddUser\ClearEditButton1.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="Edit1">
+ <param name="Local" value="html\DieLISTE\AddUser\TFormAddUser\Edit1.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="GestureManager1">
+ <param name="Local" value="html\DieLISTE\AddUser\TFormAddUser\GestureManager1.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="GridPanelLayout1">
+ <param name="Local" value="html\DieLISTE\AddUser\TFormAddUser\GridPanelLayout1.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="Image1">
+ <param name="Local" value="html\DieLISTE\AddUser\TFormAddUser\Image1.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="Label1">
+ <param name="Local" value="html\DieLISTE\AddUser\TFormAddUser\Label1.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="ListBox1">
+ <param name="Local" value="html\DieLISTE\AddUser\TFormAddUser\ListBox1.htm">
+</OBJECT>
+
 </UL>
 
 <LI> <OBJECT type="text/sitemap">
@@ -141,8 +122,33 @@
 <UL>
 
 <LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="BtnBackClick">
+ <param name="Local" value="html\DieLISTE\AddUser\TFormAddUser\BtnBackClick_7DD1.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="ClearEditButton1Click">
+ <param name="Local" value="html\DieLISTE\AddUser\TFormAddUser\ClearEditButton1Click_E956.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="ClickOnName">
+ <param name="Local" value="html\DieLISTE\AddUser\TFormAddUser\ClickOnName_8887.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
  <param name="Name" value="Create">
- <param name="Local" value="html\DieLISTE\CCR.PrefsIniFile.Android\TAndroidPreferencesIniFile\Create_0EC8.htm">
+ <param name="Local" value="html\DieLISTE\AddUser\TFormAddUser\Create_A0BB.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="Edit1Change">
+ <param name="Local" value="html\DieLISTE\AddUser\TFormAddUser\Edit1Change_B7A3.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="FormGesture">
+ <param name="Local" value="html\DieLISTE\AddUser\TFormAddUser\FormGesture_E103.htm">
 </OBJECT>
 
 </UL>
@@ -177,112 +183,25 @@
 </OBJECT>
 <UL>
 
-</UL>
-
 <LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Functions">
-</OBJECT>
-<UL>
-
-</UL>
-
-</UL>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="CCR.PrefsIniFile.Apple">
- <param name="Local" value="html\DieLISTE\CCR.PrefsIniFile.Apple.htm">
- <param name="ImageNumber" value="2">
-</OBJECT>
-<UL>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Classes">
-</OBJECT>
-<UL>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="TApplePreferencesIniFile">
- <param name="Local" value="html\DieLISTE\CCR.PrefsIniFile.Apple\TApplePreferencesIniFile.htm">
- <param name="ImageNumber" value="2">
-</OBJECT>
-<UL>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Classes">
-</OBJECT>
-<UL>
-
-</UL>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Constants">
-</OBJECT>
-<UL>
-
-</UL>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Variables">
-</OBJECT>
-<UL>
-
-</UL>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Fields">
-</OBJECT>
-<UL>
-
-</UL>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Properties">
-</OBJECT>
-<UL>
-
-</UL>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Methods">
-</OBJECT>
-<UL>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Create">
- <param name="Local" value="html\DieLISTE\CCR.PrefsIniFile.Apple\TApplePreferencesIniFile\Create_1711.htm">
+ <param name="Name" value="closed">
+ <param name="Local" value="html\DieLISTE\AddUser\closed.htm">
 </OBJECT>
 
-</UL>
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="FormAddUser">
+ <param name="Local" value="html\DieLISTE\AddUser\FormAddUser.htm">
+</OBJECT>
 
 <LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Events">
+ <param name="Name" value="listId">
+ <param name="Local" value="html\DieLISTE\AddUser\listId.htm">
 </OBJECT>
-<UL>
-
-</UL>
-
-</UL>
-
-</UL>
 
 <LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Types">
+ <param name="Name" value="privateServerAPI">
+ <param name="Local" value="html\DieLISTE\AddUser\privateServerAPI.htm">
 </OBJECT>
-<UL>
-
-</UL>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Constants">
-</OBJECT>
-<UL>
-
-</UL>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Variables">
-</OBJECT>
-<UL>
 
 </UL>
 
@@ -707,6 +626,11 @@
 </OBJECT>
 <UL>
 
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="allowedCharacters">
+ <param name="Local" value="html\DieLISTE\HELPER\allowedCharacters.htm">
+</OBJECT>
+
 </UL>
 
 <LI> <OBJECT type="text/sitemap">
@@ -720,6 +644,16 @@
  <param name="Name" value="Functions">
 </OBJECT>
 <UL>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="checkForInvalidCharacters">
+ <param name="Local" value="html\DieLISTE\HELPER\checkForInvalidCharacters_67C0.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="checkForInvalidCharactersInString">
+ <param name="Local" value="html\DieLISTE\HELPER\checkForInvalidCharactersInString_9F13.htm">
+</OBJECT>
 
 <LI> <OBJECT type="text/sitemap">
  <param name="Name" value="getOfflineData">
@@ -1364,11 +1298,6 @@
  <param name="Local" value="html\DieLISTE\Liste\TFormListe\ListBox1.htm">
 </OBJECT>
 
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Timer1">
- <param name="Local" value="html\DieLISTE\Liste\TFormListe\Timer1.htm">
-</OBJECT>
-
 </UL>
 
 <LI> <OBJECT type="text/sitemap">
@@ -1421,11 +1350,6 @@
 <LI> <OBJECT type="text/sitemap">
  <param name="Name" value="subFormClosed">
  <param name="Local" value="html\DieLISTE\Liste\TFormListe\subFormClosed_A98F.htm">
-</OBJECT>
-
-<LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Timer1Timer">
- <param name="Local" value="html\DieLISTE\Liste\TFormListe\Timer1Timer_CB6F.htm">
 </OBJECT>
 
 <LI> <OBJECT type="text/sitemap">
@@ -2412,6 +2336,233 @@
 </UL>
 
 <LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="ServerAPI">
+ <param name="Local" value="html\DieLISTE\ServerAPI.htm">
+ <param name="ImageNumber" value="2">
+</OBJECT>
+<UL>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="Classes">
+</OBJECT>
+<UL>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="TServerAPI">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI.htm">
+ <param name="ImageNumber" value="2">
+</OBJECT>
+<UL>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="Classes">
+</OBJECT>
+<UL>
+
+</UL>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="Constants">
+</OBJECT>
+<UL>
+
+</UL>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="Variables">
+</OBJECT>
+<UL>
+
+</UL>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="Fields">
+</OBJECT>
+<UL>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="cache">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\cache.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="client">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\client.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="online">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\online.htm">
+</OBJECT>
+
+</UL>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="Properties">
+</OBJECT>
+<UL>
+
+</UL>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="Methods">
+</OBJECT>
+<UL>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="addList">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\addList_8CD3.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="AddToList">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\AddToList_DBF5.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="ChangeListName">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\ChangeListName_8AC8.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="changePassword">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\changePassword_91B6.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="create">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\create_1711.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="createUser">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\createUser_B37A.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="DeleteItem">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\DeleteItem_63A8.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="deleteUser">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\deleteUser_B5CD.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="editInfo">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\editInfo_6011.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="forgotPassword">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\forgotPassword_2956.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="getCachedLists">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\getCachedLists_1137.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="getLists">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\getLists_A518.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="getListString">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\getListString_0AF1.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="getValidLists">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\getValidLists_701F.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="inviteUser">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\inviteUser_B917.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="isOnline">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\isOnline_4E4B.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="isValidOnline">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\isValidOnline_8D8B.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="login">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\login_F26A.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="me">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\me_666F.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="removeList">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\removeList_7E53.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="removeUser">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\removeUser_CFF1.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="userSuggestions">
+ <param name="Local" value="html\DieLISTE\ServerAPI\TServerAPI\userSuggestions_E993.htm">
+</OBJECT>
+
+</UL>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="Events">
+</OBJECT>
+<UL>
+
+</UL>
+
+</UL>
+
+</UL>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="Types">
+</OBJECT>
+<UL>
+
+</UL>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="Constants">
+</OBJECT>
+<UL>
+
+</UL>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="Variables">
+</OBJECT>
+<UL>
+
+</UL>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="Functions">
+</OBJECT>
+<UL>
+
+</UL>
+
+</UL>
+
+<LI> <OBJECT type="text/sitemap">
  <param name="Name" value="UMain">
  <param name="Local" value="html\DieLISTE\UMain.htm">
  <param name="ImageNumber" value="2">
@@ -2517,6 +2668,11 @@
 </OBJECT>
 
 <LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="loggedOut">
+ <param name="Local" value="html\DieLISTE\UMain\TFormMain\loggedOut.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
  <param name="Name" value="ProfilTab">
  <param name="Local" value="html\DieLISTE\UMain\TFormMain\ProfilTab.htm">
 </OBJECT>
@@ -2532,8 +2688,8 @@
 </OBJECT>
 
 <LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Timer1">
- <param name="Local" value="html\DieLISTE\UMain\TFormMain\Timer1.htm">
+ <param name="Name" value="Timer">
+ <param name="Local" value="html\DieLISTE\UMain\TFormMain\Timer.htm">
 </OBJECT>
 
 </UL>
@@ -2591,8 +2747,13 @@
 </OBJECT>
 
 <LI> <OBJECT type="text/sitemap">
- <param name="Name" value="Timer1Timer">
- <param name="Local" value="html\DieLISTE\UMain\TFormMain\Timer1Timer_CB6F.htm">
+ <param name="Name" value="TimerTimer">
+ <param name="Local" value="html\DieLISTE\UMain\TFormMain\TimerTimer_B06D.htm">
+</OBJECT>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="tryLogin">
+ <param name="Local" value="html\DieLISTE\UMain\TFormMain\tryLogin_A64D.htm">
 </OBJECT>
 
 <LI> <OBJECT type="text/sitemap">
@@ -2641,6 +2802,11 @@
  <param name="Name" value="Variables">
 </OBJECT>
 <UL>
+
+<LI> <OBJECT type="text/sitemap">
+ <param name="Name" value="listForm">
+ <param name="Local" value="html\DieLISTE\UMain\listForm.htm">
+</OBJECT>
 
 <LI> <OBJECT type="text/sitemap">
  <param name="Name" value="lists">

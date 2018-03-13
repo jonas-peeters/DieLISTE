@@ -1,17 +1,20 @@
+{*
+  Programm zum Erstellen und Bearbeiten von Listen
+}
 program DieLISTE;
 
 uses
   System.StartUpCopy,
   FMX.Forms,
   Login in 'Login.pas' {LoginForm},
-  UMain in 'UMain.pas' {Form6},
-  PWaendern in 'PWaendern.pas' {Form7},
-  Liste in 'Liste.pas' {Form8},
-  Hinzufuegen in 'Hinzufuegen.pas' {Form9},
-  PWvergessen in 'PWvergessen.pas' {Form10},
+  UMain in 'UMain.pas' {MainForm},
+  PWaendern in 'PWaendern.pas' {FormPWaendern},
+  Liste in 'Liste.pas' {FormListe},
+  Hinzufuegen in 'Hinzufuegen.pas' {FormAddItem},
+  PWvergessen in 'PWvergessen.pas' {FormPWVergessen},
   ServerAPI in 'ServerAPI.pas',
   ListeBearbeiten in 'ListeBearbeiten.pas' {FormListeBearbeiten},
-  AddUser in 'AddUser.pas' {Form1},
+  AddUser in 'AddUser.pas' {FormAddUser},
   ItemBearbeiten in 'ItemBearbeiten.pas' {FormItemBearbeiten},
   Helper in 'Helper.pas',
   CCR.PrefsIniFile in 'lib\CCR.PrefsIniFile.pas',
